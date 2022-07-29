@@ -1,7 +1,6 @@
 
 .header1{
     width:100%;
-    height:900px;
     margin-top: 26px;
 }
 
@@ -47,7 +46,7 @@
     margin-left: 28px;
 }
 
-.header1 > .headerNavbar > p:nth-child(5){
+.header1 > .headerNavbar > p:nth-child(1){
     cursor: default;
     font-size: 23px;
     color: #043D72;
