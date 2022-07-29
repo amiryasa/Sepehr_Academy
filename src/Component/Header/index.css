@@ -61,6 +61,8 @@
     height: 44px;
     background-color:#00ADEF;
     border-radius: 33px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .header1 > .headerLogin > .loginUser:hover{
