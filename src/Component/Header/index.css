@@ -1,0 +1,104 @@
+
+.header1{
+    width:100%;
+    height:900px;
+    margin-top: 26px;
+}
+
+.header1 > .headerRow {
+    height:82px;
+    float: right;
+}
+
+.header1 > .headerLogo{
+    width: 9.06%;
+    background: url(./../../Images/header/logo.png);
+    font-size: 24px;
+    margin-right: 58px;
+    height:82px;
+    background-position:  50% 0;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    text-align: center;
+}
+
+.header1 > .headerLogo > p{
+    margin-top: 55px;
+    font-family: arshia;
+    letter-spacing: .6px;
+    color:#1762BC;
+}
+
+.header1 > .headerNavbar{
+    width: 28.51;
+    margin-right: 70px;
+    text-align: right;
+}
+
+.header1 > .headerNavbar > p:hover{
+    color: #494949;
+}
+
+.header1 > .headerNavbar > p{
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    color: #808080;
+    margin-left: 28px;
+}
+
+.header1 > .headerNavbar > p:nth-child(5){
+    cursor: default;
+    font-size: 23px;
+    color: #043D72;
+    text-decoration: underline;
+}
+
+.header1 > .headerLogin{
+    width:8.43%;
+    margin-right: 466px;
+    margin-top:20px;
+    height: 44px;
+    background-color:#00ADEF;
+    border-radius: 33px;
+}
+
+.header1 > .headerLogin > .loginUser:hover{
+    background-color: #0093cd;
+}
+
+.header1 > .headerLogin > .loginUser{
+    transition: .5s;
+    background: url(./../../Images/header/user.png) center;
+    background-repeat: no-repeat;
+    background-size: 29px;
+    height:29px;
+    width:29px;
+    display: inline-block;
+    margin-top: 2px;
+    margin-left: 10px;
+    padding:5px;
+    border-radius:50%;
+    cursor: pointer;
+}
+
+.header1 > .headerLogin > .loginSearch:hover{
+    background-color: #0093cd;
+}
+
+.header1 > .headerLogin > .loginSearch{
+    transition: .5s;
+    background: url(./../../Images/header/search.png) center;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    height:29px;
+    width:29px;
+    display: inline-block;
+    margin-top: 2px;
+    margin-left: 10px;
+    padding:5px;
+    border-radius:50%;
+    cursor: pointer;
+}
+
+

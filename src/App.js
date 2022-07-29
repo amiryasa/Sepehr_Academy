@@ -1,16 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import BasicButtons from './Component/Button';
+import "./App.css";
+import "./Fonts/fonts.css"
+import { Header } from "./Component/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <BasicButtons />
-        
-      </header>
+      <Header />
     </div>
   );
 }
