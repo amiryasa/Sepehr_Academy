@@ -4,6 +4,7 @@
     margin:auto;
     border:1px solid rgb(255, 0, 0);
     font-family: bakh;
+    direction:rtl;
 }
 
 @media screen and (max-width:1266px){
