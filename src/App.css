@@ -1,9 +1,9 @@
 
 .App{
-    width:1280px;
+    width:1261px;
     margin:auto;
-    border:1px solid rgb(255, 0, 0);
     font-family: bakh;
+    border:1px solid red;
     direction:rtl;
 }
 

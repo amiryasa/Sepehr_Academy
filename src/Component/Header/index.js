@@ -1,5 +1,5 @@
 import IconButtons from "../Button/iconBtn";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import SearchIcon from "@mui/icons-material/Search";
 import { createTheme } from "@mui/material/styles";
 import "./index.css";
@@ -34,7 +34,7 @@ const Header = () => {
         </IconButtons>
 
         <IconButtons color="neutral" theme={theme} size="large">
-          <AccountCircleIcon fontSize="large" />
+          <AccountCircleOutlinedIcon fontSize="large" />
         </IconButtons>
       </div>
     </div>
