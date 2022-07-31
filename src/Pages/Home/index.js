@@ -27,8 +27,10 @@ const Home = () => {
         <h1> آکادمی کدنویسی بحر </h1>
         <hr></hr>
         <p> برای یادگیری کامل و اصولی برنامه‌نویسی به همراه اساتید مجرب، با ما همراه شوید. </p>
-        <BasicButtons classes="goalBut" color="goal" theme={theme} size="large" text="شروع یادگیری" />
-        <BasicButtons classes="infoBut" color="info" size="large" theme={theme} text="مشاهده دوره‌ها" />
+        <div className='btn-home'>
+          <BasicButtons classes="goalBut" color="goal" theme={theme} size="large" text="شروع یادگیری" />
+          <BasicButtons classes="infoBut" color="info" size="large" theme={theme} text="مشاهده دوره‌ها" />
+        </div>
       </div>
     </>
   );
