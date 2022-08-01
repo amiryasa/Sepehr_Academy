@@ -8,16 +8,16 @@ import { CardActionArea } from '@mui/material';
 
 const ActionAreaCard = (props) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 170 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
-          image="/chat.png"
+          height="205"
+          src="https://source.unsplash.com/random"
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div" align="center">
             {props.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
