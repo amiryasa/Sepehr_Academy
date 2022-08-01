@@ -1,6 +1,7 @@
 import { Home } from "./Pages/Home";
 import { Header } from "./Component/Header";
 import { ActionAreaCard } from "./Component/Card/Card";
+import { Footer } from './Component/Footer'
 import "./App.css";
 import "./Fonts/fonts.css";
 
@@ -14,7 +15,7 @@ function App() {
       <Home />
 
         
-      <Grid container spacing={-0} justifyContent="center" alignItems="center">
+      <Grid container spacing={0} justifyContent="center" alignItems="center">
 
         <Grid item  xs={12} sm={6} md={2} lg={2}>
           <ActionAreaCard title="مشاوره" />
@@ -33,6 +34,8 @@ function App() {
         </ Grid>
 
       </Grid>
+
+      <Footer></Footer>
 
     </div>
   );
