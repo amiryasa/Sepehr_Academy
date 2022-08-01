@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import logo from './chat.png'
 
 const ActionAreaCard = (props) => {
   return (
@@ -12,8 +13,8 @@ const ActionAreaCard = (props) => {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="205"
-          src="https://source.unsplash.com/random"
+          height="140"
+          image={logo}
           alt="green iguana"
         />
         <CardContent>
@@ -29,4 +30,4 @@ const ActionAreaCard = (props) => {
   );
 }
 
-export {ActionAreaCard};
+export { ActionAreaCard };
