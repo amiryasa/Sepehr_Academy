@@ -1,16 +1,24 @@
 
 .App{
     width:1261px;
+    border: 1px solid red;
     margin:auto;
     font-family: bakh;
-    border:1px solid red;
     direction:rtl;
 }
 
 @media screen and (max-width:1266px){
 
     .App{
-        width:700px;
+        width:750px;
+    }
+
+}
+
+@media screen and (max-width:750px){
+
+    .App{
+        width:400px;
     }
 
 }
@@ -18,3 +26,4 @@
 .App > .fuck{
     margin: auto;
 }
+
