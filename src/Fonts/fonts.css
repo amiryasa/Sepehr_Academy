@@ -10,6 +10,11 @@
 }
 
 @font-face {
+    font-family: yekan;
+    src: url(./Yekan.ttf);
+}
+
+@font-face {
     font-family: gabriola;
     src: url(./gabriola\ Font\ Download.ttf);
 }

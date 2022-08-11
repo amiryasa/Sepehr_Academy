@@ -1,3 +1,41 @@
+ 
+ .homeH2{
+    width:166px;
+    height:30px;
+    text-align: center;
+    margin:auto;
+    color: #043D72;
+    font-size: 25px;
+    border-right: 5px solid #FDEA00;
+    margin-bottom: 25px;
+ }
+
+ .homeH2 > h2{
+    line-height : 37px;
+    font-weight: normal;
+ }
+
+ .h22{
+    width:225px;
+ }
+
+ .h23{
+    width:136px;
+ }
+
+ .h24{
+    width:224px;
+ }
+
+ .h25{
+    width:179px;
+ }
+
+ .h26{
+    width:341px;
+ }
+
+
  div.introContainer {
      width: 100%;
      height: 762px;
@@ -45,29 +83,110 @@
      width: 500px;
      display: flex;
      justify-content: space-around;
-     margin-right: 6%;
+     margin-right: 250px;
+     margin-top: 95px;
  }
 
 
- /* div.introContainer>button.goalBut {
-    margin-right: 312px;
-    margin-top: 80px;
-} */
+ div.introContainer> .btn-home > button.goalBut {
+} 
 
- /* div.introContainer>button.infoBut {
-    margin-right: 25px;
-    margin-top: 80px;
-} */
+ div.introContainer> .btn-home > button.infoBut {
+    margin-right: -65px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Servieces */
+
+.servicesCantainer{
+    /* height:344px; */
+    display: grid;
+    grid-template-columns: repeat(4, 168px);
+    grid-auto-rows: 235px;
+    gap: 39px;
+    color:azure;
+    padding:54px 238px 0px 238px;
+    font-size: 23px;
+}
+
+.servicesCantainer > div{
+    background-color: rgb(2, 165, 54);
+}
+
+.servicesCantainer > div:nth-child(even){
+    margin-bottom: 30px;
+}
+
+.servicesCantainer > div:nth-child(odd){
+    margin-top: 30px;
+}
+
+@media screen and (max-width:1266px){
+
+    .servicesCantainer{
+        grid-template-columns: repeat(4, 130px);
+        grid-auto-rows: 190px;
+        gap: 27px;
+        color:azure;
+        padding:54px 75px 0px 75px;
+    }
+
+
+}
+
+@media screen and (max-width:750px){
+
+    .servicesCantainer{
+        grid-template-columns: repeat(2, 137px);
+        grid-auto-rows: 168px;
+        gap: 30px;
+        color:azure;
+        padding:54px 48px 0px 48px;
+    }
+    .servicesCantainer > div:nth-child(even){
+        margin-bottom: 0px;
+    }
+    
+    .servicesCantainer > div:nth-child(odd){
+        margin-top: 0px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* category */
 
 .categoryCantainer{
-    height:585px;
+    /* height:585px; */
     display: grid;
     grid-template-columns: repeat(4, 138px);
     grid-auto-rows: 140px;
     gap: 28px;
-    color:azure;
     direction: ltr;
-    padding:115px 399px 0px 238px;
+    padding:115px 388px 0px 238px;
     background: url("./../../Images/category/categoryBg.png");
     background-size:390px;
     background-position: 660px 70px;
@@ -105,4 +224,158 @@
     }
 
 }
+
+
+/* cources */
+
+.courcesCantainer{
+    /* height:402px; */
+    display: grid;
+    grid-template-columns: repeat(4, 173px);
+    grid-auto-rows: 293px;
+    gap: 30px;
+    color:azure;
+    padding:54px 238px 0px 238px;
+    font-size: 23px;
+}
+
+
+@media screen and (max-width:1266px){
+
+    .courcesCantainer{
+        grid-template-columns: repeat(3, 173px);
+        gap: 42px;
+        padding:54px 75px 0px 75px;
+    }
+
+    .courcesCantainer > .courcesResponsiveTab{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:750px){
+
+    .courcesCantainer{
+        grid-template-columns: repeat(2, 137px);
+        grid-auto-rows: 232px;
+        gap: 30px;
+        padding:54px 48px 0px 48px;
+    }
+
+    .courcesCantainer > .courcesResponsiveTab{
+        display: block;
+    }
+
+}
+
+
+/* news */
+
+
+.newsCantainer{
+    /* height:479px; */
+    display: grid;
+    grid-template-columns: repeat(2, 383px);
+    grid-auto-rows: 110px;
+    gap: 20px;
+    color:azure;
+    padding:54px 238px 0px 238px;
+    font-size: 23px;
+}
+
+
+@media screen and (max-width:1266px){
+
+    .newsCantainer{
+        grid-template-columns: repeat(2, 291px);
+        grid-auto-rows: 81px;
+        gap: 21px;
+        padding:54px 75px 0px 75px;
+    }
+
+    .newsCantainer > .newsResponsiveTab{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:750px){
+
+    .newsCantainer{
+        grid-template-columns: repeat(1, 304px);
+        grid-auto-rows: 87px;
+        gap: 20px;
+        padding:154px 48px 0px 48px;
+    }
+
+}
+
+
+
+/* teacher */
+
+.teacherCantainer{
+    /* height:402px; */
+    display: grid;
+    grid-template-columns: repeat(4, 173px);
+    grid-auto-rows: 346px;
+    gap: 30px;
+    color:azure;
+    padding:54px 238px 0px 238px;
+    font-size: 23px;
+}
+
+.teacherCantainer > div{
+    background-color: rgb(255, 255, 255);
+}
+
+
+@media screen and (max-width:1266px){
+
+    .teacherCantainer{
+        grid-template-columns: repeat(3, 173px);
+        gap: 42px;
+        padding:54px 75px 0px 75px;
+    }
+
+    .teacherCantainer > .teacherResponsiveTab{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:750px){
+
+    .teacherCantainer{
+        grid-template-columns: repeat(2, 137px);
+        grid-auto-rows: 273px;
+        gap: 30px;
+        padding:54px 48px 0px 48px;
+    }
+
+    .teacherCantainer > .teacherResponsiveTab{
+        display: block;
+    }
+
+}
+
+/* idea */
+
+.ideaCantainer{
+    height:500px;
+    background:url(./../../Images/Idea/ideabg.png);
+    background-size: 428px 419px;
+    background-repeat: no-repeat;
+}
+
+.ideaCantainer > div{
+    height:396px;
+    width: 286px;
+    box-shadow: 0px 3px 8px 1px rgba(0,0,0,.08);
+    border-radius: 15px;
+}
+
+
+
 

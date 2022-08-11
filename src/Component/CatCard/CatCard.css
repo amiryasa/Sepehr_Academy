@@ -1,3 +1,7 @@
-.MuiPaper-root > .CatCardActionArea{
-    height: 140px; 
+
+.MuiPaper-root > .CatCardActionArea > .MuiCardContent-root > .CatCardTypography{
+    font-family: bakh; 
+    font-size:21px;
+    padding-top: 10px; 
+    margin-bottom: 10px, 
 }

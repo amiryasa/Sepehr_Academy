@@ -1,0 +1,13 @@
+.MuiPaper-root > .MuiCardContent-root > .coursesCardTitle{
+    color: #050080;
+    font-size: 21px;
+    font-family: yekan;
+}
+
+.MuiPaper-root > .MuiCardContent-root > .coursesCardTeacher{
+    color: #555555;
+    font-size: 14px;
+    font-family: bakh;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
