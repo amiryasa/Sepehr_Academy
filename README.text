@@ -1,6 +1,8 @@
 //direction rtl
 npm install stylis stylis-plugin-rtl
 
+Change css to sass
+import router
 
 //Pages
 1. login - registre - forget pass //Amir
