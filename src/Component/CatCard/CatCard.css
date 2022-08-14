@@ -1,7 +1,84 @@
+div.CatCardCard{
+    box-shadow:0px 3px 8px 1px rgba(0,0,0,.08); 
+    border-radius: 10px;
+}
 
-.MuiPaper-root > .CatCardActionArea > .MuiCardContent-root > .CatCardTypography{
+.CatCardCard > .CatCardActionAreaV1{
+    height:140px;
+}
+
+.CatCardCard > .CatCardActionAreaV2{
+    height:205px;
+}
+
+.CatCardCard > .CatCardActionAreaV1 > .CatCardMedia{
+    width: 54px; 
+    padding: 20px 42px 0 42px;
+}
+
+.CatCardCard > .CatCardActionAreaV2 > .CatCardMedia{
+    width: 95px; 
+    padding: 25px 37px 5px 37px;
+}
+
+.MuiPaper-root > .CatCardActionAreaV1 > .MuiCardContent-root > .CatCardTypography{
     font-family: bakh; 
     font-size:21px;
     padding-top: 10px; 
-    margin-bottom: 10px, 
+    margin-bottom: 10px;
+    padding-top: 4px;
+}
+
+.MuiPaper-root > .CatCardActionAreaV2 > .MuiCardContent-root > .CatCardTypography{
+    font-family: bakh; 
+    font-size:21px;
+    padding-top: 10px; 
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+/* Tab Responsive */
+
+@media screen and (max-width:1262px){
+    
+    .CatCardCard > .CatCardActionAreaV2{
+        height:165px;
+    }
+
+    
+    .CatCardCard > .CatCardActionAreaV2 > .CatCardMedia{
+        width: 77px; 
+        padding: 20px 28px 4px 28px;
+    }
+    
+    .MuiPaper-root > .CatCardActionAreaV2 > .MuiCardContent-root > .CatCardTypography{ 
+        font-size:16px;
+        padding-top: 6px; 
+        margin-bottom: 9px;
+    }
+
+}
+
+
+/* mobile Responsive */
+
+@media screen and (max-width:749px){
+    
+    .CatCardCard > .CatCardActionAreaV2{
+        height:173px;
+    }
+
+    
+    .CatCardCard > .CatCardActionAreaV2 > .CatCardMedia{
+        width: 82px; 
+        padding: 22px 27px 5px 27px;
+    }
+    
+    .MuiPaper-root > .CatCardActionAreaV2 > .MuiCardContent-root > .CatCardTypography{ 
+        font-size:17px;
+        padding-top: 7px; 
+        margin-bottom: 10px;
+    }
+
 }

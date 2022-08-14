@@ -13,24 +13,21 @@ const Footer = () => {
     return(
         <div className="FooterHolder">
 
-            <ul className="FooterContact">
-                <li onClick={myClick1}>Bahr.Academy@gmail.com</li>
-                <li onClick={myClick2}>1234 123 0911</li>
-                <li>Noorgoon Team</li>
-            </ul>
+            <div className="footerContact">
+                <p>Bahr.Academy@gmail.com</p>
+                <p>0911 123 1234</p>
+                <p>Noorgoon Team</p>
+            </div>
 
-            <ul className="FooterLocation">
-                <li>ساری، جاده دریا، بعد از دنیای آرزو، پژوهشگاه سپهر</li>
-            </ul>
+            <div className="footerSocial">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
 
-            <ul className="FooterSocial">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-
+            <div className="footerLocation"> <p> ساری، جاده دریا، بعد از دنیای آرزو، پژوهشگاه سپهر </p> </div>
         </div>
     );
 }

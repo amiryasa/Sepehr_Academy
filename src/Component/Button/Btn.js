@@ -29,11 +29,18 @@ const Btn = (props) => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <Button className='button'
+    <ThemeProvider theme={theme} className='btnThemeProvider'>
+      <Button 
+      className='btnButton'
       variant="contained" 
       color= {props.color}
-      style={{width:`${props.width}`, height:`${props.height}`, fontSize:`${props.fontSize}`, fontFamily:'bakh'}}
+      style={{
+      width:`${props.width}`, 
+      height:`${props.height}`, 
+      fontSize:`${props.fontSize}`, 
+      margin:`${props.margin}`,
+      fontFamily:'bakh'
+    }}
       >
       {props.text} 
       </Button>

@@ -13,10 +13,9 @@ import SkipNextIcon from '@mui/icons-material/SkipNext';
 import './NewsCard.css';
 
 const NewsCard = (props) => {
-  const theme = useTheme();
 
   return (
-    <Card sx={{ display: 'flex' }} style={{height:"110px", boxShadow:"0px 0px 8px 1px rgba(0,0,0,.05)"}}>
+    <Card sx={{ display: 'flex' }} className="newsCardCard">
         <CardMedia
         component="img"
         image={props.image}

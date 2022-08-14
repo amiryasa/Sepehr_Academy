@@ -1,13 +1,53 @@
-.MuiPaper-root > .MuiCardContent-root > .coursesCardTitle{
+
+div.CoursesCardCard{
+    height:293px;
+    box-shadow:0px 3px 8px 1px rgba(0,0,0,.05); 
+    border-radius:10px;
+}
+
+div.CoursesCardCard > .CoursesCardMedia{
+    width: 98px; 
+    padding: 16px 38px;
+}
+
+.CoursesCardCard > .MuiCardContent-root > .coursesCardTitle{
     color: #050080;
     font-size: 21px;
     font-family: yekan;
+    margin-top:5px;
 }
 
-.MuiPaper-root > .MuiCardContent-root > .coursesCardTeacher{
+.CoursesCardCard > .MuiCardContent-root > .coursesCardTeacher{
     color: #555555;
     font-size: 14px;
     font-family: bakh;
-    margin-top: 3px;
     margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+
+/* Mobile Responsive */
+
+@media screen and (max-width:749px){
+
+    div.CoursesCardCard{
+        height:234px;
+    }
+    
+    div.CoursesCardCard > .CoursesCardMedia{
+        width: 78px; 
+        padding: 13px 30px;
+    }
+    
+    .CoursesCardCard > .MuiCardContent-root > .coursesCardTitle{
+        font-size: 16px;
+        margin-top:4px;
+    }
+    
+    .CoursesCardCard > .MuiCardContent-root > .coursesCardTeacher{
+        font-size: 13px;
+        margin-bottom: 0px;
+        margin-top: 12px;
+    }
+
 }

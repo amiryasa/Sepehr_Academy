@@ -9,11 +9,10 @@ import './TeacherCard.css'
 
 const TeacherCard = (props) => {
   return (
-    <Card sx={{ maxWidth: 345 }} style={{boxShadow:"0px 3px 8px 1px rgba(0,0,0,.08)", borderRadius:"10px"}} >
+    <Card sx={{ maxWidth: 345 }} className="teacherCardCard" >
       <CardMedia
+        className="teacherCardMedia"
         component="img"
-        alt="green iguana"
-        height="176"
         image={props.img}
       />
       <CardContent>
@@ -27,9 +26,9 @@ const TeacherCard = (props) => {
       </CardContent>
 
       <div className="TeacherCardSocialHolder">
-        <span>  </span>
-        <span>  </span>
-        <span>  </span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>  
     </Card>
   );

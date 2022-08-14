@@ -1,9 +1,17 @@
-.inputModel>label {
-    font-size: 16px;
-    font-family: 'bakh';
+div > .inputModel {
+    /*margin: 10px; */
 }
 
-.MuiInputBase-root>input {
+.inputModel > label {
     font-size: 14px;
     font-family: 'bakh';
+    color:#808080;
+    border-color: #c61010;
+}
+
+.MuiInputBase-root > input {
+    font-size: 18px;
+    font-family: 'bakh';
+    padding: 13px 15px;
+    height:23px;
 }

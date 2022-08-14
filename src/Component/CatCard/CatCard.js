@@ -9,18 +9,19 @@ import "./CatCard.css";
 
 const CatCard = (props) => {
 
+
     return(
 
-        <Card style={{boxShadow:"0px 3px 8px 1px rgba(0,0,0,.08)"}}>
-            <CardActionArea className="CatCardActionArea" style={{height:`${props.height}`}}>
+        <Card className="CatCardCard" >
+            <CardActionArea className={'CatCardActionArea' + props.elementClass}>
             <CardMedia
+                className='CatCardMedia' 
                 component="img"
                 image={props.img}
-                style={{width:`${props.width}`, padding:`${props.padding}`}}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div" align="center" className="CatCardTypography"
-                style={{color:`${props.fontColor}`, paddingTop:`${props.fontToppadding}`}}
+                <Typography gutterBottom variant="h5" component="div" align="center" className='CatCardTypography'
+                style={{color:`${props.fontColor}`}}
                 >
                 {props.title}
                 </Typography>

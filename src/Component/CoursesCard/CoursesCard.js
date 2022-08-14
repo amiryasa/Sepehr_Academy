@@ -14,21 +14,20 @@ import "./CoursesCard.css"
 
 const CoursesCard = (props) => {
 
-  console.log(props.btnColor);
   return (
-    <Card sx={{ maxWidth: 345 }} style={{height:'293px',boxShadow:"0px 3px 8px 1px rgba(0,0,0,.05)", borderRadius:'10px'}}>
+    <Card sx={{ maxWidth: 345 }} className='CoursesCardCard'>
       <CardMedia
+        className='CoursesCardMedia'
         component="img"
-        height="98"
         image={props.image}
-        style={{backgroundColor:`${props.bgColor}`, width:'98px', padding:'16px 38px'}}
+        style={{backgroundColor:`${props.bgColor}`}}
         
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div" align="center" className="coursesCardTitle" style={{marginTop:'5px'}}>
+        <Typography gutterBottom variant="h5" component="div" align="center" className="coursesCardTitle">
           {props.title}
         </Typography>
-        <Typography gutterBottom variant="h5" component="div" align="center" className="coursesCardTeacher" style={{marginTop:'15px'}}>
+        <Typography gutterBottom variant="h5" component="div" align="center" className="coursesCardTeacher">
           {props.teacher}
         </Typography>
       </CardContent>

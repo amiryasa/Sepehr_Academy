@@ -7,11 +7,14 @@ const Input = (props) => {
     return (
         <TextField
             id="outlined-basic"
-            variant="outlined"
-            label={props.title}
-            helperText={props.errorMessage}
             className='inputModel'
-            style={{ backgroundColor: '#FCFCFC', fontSize: '24px', fontFamily: 'bakh' }}
+            variant="outlined"
+            multiline={props.multiline}
+            rows={props.row}
+            label={props.title}
+            defaultValue={props.defaultValue}
+            helperText={props.errorMessage}
+            style={{ backgroundColor: '#FCFCFC', margin:`${props.margin}`, width:`${props.width}`}}
         />
     );
 }

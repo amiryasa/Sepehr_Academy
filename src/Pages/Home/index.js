@@ -54,15 +54,17 @@ const Home = () => {
     },
   });
 
+  console.log(window.innerWidth);
+
   return (
-    <>
+    <div className="home">
       <div className="introContainer">
         <h1> آکادمی کدنویسی بحر </h1>
         <hr></hr>
         <p> برای یادگیری کامل و اصولی برنامه‌نویسی به همراه اساتید مجرب، با ما همراه شوید. </p>
         <div className='btn-home'>
           <BasicButtons classes="goalBut" color="goal" theme={theme} size="large" text="شروع یادگیری" />
-          <BasicButtons classes="infoBut" color="info" size="large" theme={theme} text="مشاهده دوره‌ها" />
+          <BasicButtons classes="infoBut" color="info" size="medium" theme={theme} text="مشاهده دوره‌ها" />
         </div>
       </div>
 
@@ -73,24 +75,18 @@ const Home = () => {
         <div> 
         <CatCard 
             img={ser01} 
-            fontColor={"#8130FA"} 
-            fontToppadding={"10px"}
+            fontColor={"#8130FA"}
             title={"مشاوره"}
-            height={"205px"}  
-            width={"95px"}
-            padding={"25px 37px 5px 37px"}
+            elementClass='V2'
           /> 
         </div>
 
         <div>
         <CatCard 
             img={ser02} 
-            fontColor={"#FFA400"} 
-            fontToppadding={"10px"}
+            fontColor={"#FFA400"}
             title={"مدرک معتبر"}
-            height={"205px"}  
-            width={"95px"}
-            padding={"25px 37px 5px 37px"}
+            elementClass='V2'
           /> 
         </div>
 
@@ -98,22 +94,16 @@ const Home = () => {
         <CatCard 
             img={ser03} 
             fontColor={"#FC4760"} 
-            fontToppadding={"10px"}
             title={"امتحان"}
-            height={"205px"}  
-            width={"85px"}
-            padding={"25px 42px 5px 42px"}
+            elementClass='V2'
           /> 
         </div>
         <div>
         <CatCard 
             img={ser04} 
             fontColor={"#4172E5"} 
-            fontToppadding={"10px"}
             title={"استخدام"}
-            height={"205px"}  
-            width={"95px"}
-            padding={"25px 37px 5px 37px"}
+            elementClass='V2'
           /> 
         </div>
       </div>
@@ -126,10 +116,8 @@ const Home = () => {
           <CatCard 
             img={cat01} 
             fontColor={"#D80101"}
-            fontToppadding={"4px"} 
             title={"معماری"}
-            width={"54px"}
-            padding={"20px 42px 0 42px"}
+            elementClass='V1'
           /> 
         </div>
 
@@ -137,11 +125,8 @@ const Home = () => {
         <CatCard 
           img={cat02} 
           fontColor={"#079DAF"}
-          fontToppadding={"4px"} 
-          title={"فیزیک"}   
-          height={"140px"}         
-          width={"54px"}
-          padding={"20px 42px 0 42px"}
+          title={"فیزیک"}  
+          elementClass='V1' 
         /> 
         </div>
 
@@ -152,11 +137,8 @@ const Home = () => {
         <CatCard 
           img={cat03} 
           fontColor={"#0D6EDF"} 
-          fontToppadding={"4px"}
-          title={"ریاضی"}    
-          height={"140px"}         
-          width={"54px"}
-          padding={"20px 42px 0 42px"}
+          title={"ریاضی"} 
+          elementClass={'V1'}
         />  
         </div>
 
@@ -164,11 +146,8 @@ const Home = () => {
         <CatCard 
           img={cat04} 
           fontColor={"#9E07AF"}
-          fontToppadding={"4px"} 
-          title={"برق"}      
-          height={"140px"}       
-          width={"54px"}
-          padding={"20px 42px 0 42px"}
+          title={"برق"}    
+          elementClass={'V1'}
         /> 
         </div>
 
@@ -176,11 +155,8 @@ const Home = () => {
         <CatCard 
           img={cat05} 
           fontColor={"#FF8205"} 
-          fontToppadding={"4px"}
-          title={"کامپیوتر"}  
-          height={"140px"}           
-          width={"54px"}
-          padding={"20px 42px 0 42px"}
+          title={"کامپیوتر"} 
+          elementClass='V1' 
         />  
         </div>
 
@@ -190,12 +166,9 @@ const Home = () => {
         <div> 
         <CatCard 
           img={cat06} 
-          fontColor={"#FD00EC"}
-          fontToppadding={"4px"} 
-          title={"بازار سهام"}  
-          height={"140px"}           
-          width={"54px"}
-          padding={"20px 42px 0 42px"}
+          fontColor={"#FD00EC"} 
+          title={"بازار سهام"}
+          elementClass='V1' 
         />  
         </div>
 
@@ -203,11 +176,8 @@ const Home = () => {
         <CatCard 
           img={cat07} 
           fontColor={"#06C10C"}
-          fontToppadding={"4px"} 
           title={"شیمی"}
-          height={"140px"}          
-          width={"54px"}
-          padding={"20px 42px 0 42px"}
+          elementClass='V1'
         />  
         </div>
 
@@ -215,11 +185,8 @@ const Home = () => {
         <CatCard 
           img={cat08} 
           fontColor={"#FFC505"} 
-          fontToppadding={"4px"}
           title={"صنعت"}   
-          height={"140px"}          
-          width={"54px"}
-          padding={"20px 42px 0 42px"}
+          elementClass='V1'
         /> 
         </div>
 
@@ -267,6 +234,8 @@ const Home = () => {
         </div>
       </div>
 
+      <p className="homeMore"> لیست کامل دوره‌ها ...</p>
+
       <div className="homeH2 h24">
         <h2> اخبار و مقالات </h2>
       </div>
@@ -274,39 +243,41 @@ const Home = () => {
         <div> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"}
-        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
+        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
         <div> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"} 
-        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
+        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
         <div> <NewsCard 
         image={news01} 
         title={"عنوان خبر"} 
-        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
+        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
         <div> <NewsCard 
         image={news01} 
         title={"عنوان خبر"} 
-        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
+        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
         <div className="newsResponsiveTab"> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"}
-        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
+        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
         <div className="newsResponsiveTab"> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"}
-        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
+        description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
       </div>
+
+      <p className="homeMore"> لیست کامل اخبار و مقالات ...</p>
 
       <div className="homeH2 h25">
         <h2> اساتید برتر </h2>
@@ -342,24 +313,35 @@ const Home = () => {
         <h2> انتقادات و پیشنهادات </h2>
       </div>
       <div className="ideaCantainer">
-        <div>
+        <div className="ideaInput">
           <Input 
           title='نام کاربر'
+          margin='25px 24px 0 24px'
+          width='236px'
+          />
+          <Input 
+          title='ایمیل کاربر'
+          margin='33px 24px 0 24px'
+          width='236px'
+          />
+          <Input 
+          title='متن پیام'
+          margin='33px 24px 0 24px'
+          width='236px'
+          multiline = {true}
+          row={4}
           />
           <Btn
             color='goal'
             width='124px'
             height='32px' 
-            fontSize='13px'
             text='ثبت پیام'
+            margin='32px 84px 84px 18px'
           />
         </div>
       </div>
 
-
-
-
-    </>
+    </div>
   );
 };
 export { Home };
