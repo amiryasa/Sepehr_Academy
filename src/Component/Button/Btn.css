@@ -1,12 +1,9 @@
+.mediumBtn {}
 
+.largeBtn {}
 
-.mediumBtn{
+.MuiButton-root {}
 
+.btnButton {
+    display: none;
 }
-
-.largeBtn{
-
-}
-
-.MuiButton-root{}
-

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
+import './Btn.css'
 
 const Btn = (props) => {
 
@@ -29,7 +30,7 @@ const Btn = (props) => {
   });
 
   return (
-    <ThemeProvider theme={theme} className='btnThemeProvider'>
+    <ThemeProvider theme={theme}>
       <Button
         className='btnButton'
         variant="contained"
