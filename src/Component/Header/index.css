@@ -1,37 +1,37 @@
-
-.header1{
-    width:100%;
+.header1 {
+    width: 100%;
     padding-top: 10px;
 }
 
-.header1 > .headerRow {
-    height:82px;
+
+.header1>.headerRow {
+    height: 82px;
     float: right;
 }
 
-.header1 > .headerLogo{
+.header1>.headerLogo {
     width: 45px;
     background: url(./../../Images/header/logo.png);
     font-size: 24px;
-    height:82px;
+    height: 82px;
     margin-right: 100px;
-    background-position:  50% 12px;
+    background-position: 50% 12px;
     background-repeat: no-repeat;
     background-size: 45px;
     text-align: center;
 }
 
 
-.header1 > .headerNavbar{
+.header1>.headerNavbar {
     margin-right: 50px;
     text-align: right;
 }
 
-.header1 > .headerNavbar > p:hover{
+.header1>.headerNavbar>p:hover {
     color: #494949;
 }
 
-.header1 > .headerNavbar > p{
+.header1>.headerNavbar>p {
     cursor: pointer;
     display: inline-block;
     font-size: 17px;
@@ -39,114 +39,112 @@
     margin-left: 28px;
 }
 
-.header1 > .headerNavbar > p:nth-child(1){
+.header1>.headerNavbar>p:nth-child(1) {
     cursor: default;
     font-size: 20px;
     color: #043D72;
     text-decoration: underline;
 }
 
-.header1 > .headerLogin{
+.header1>.headerLogin {
     margin-right: 535px;
-    margin-top:10px;
+    margin-top: 10px;
     border-radius: 33px;
     display: flex;
     justify-content: space-around;
 }
 
-.header1 > .headerLogin > .loginUser{
+.header1>.headerLogin>.loginUser {
     transition: .5s;
     background: url(./../../Images/header/user.png) center;
     background-repeat: no-repeat;
     background-size: 23px;
-    height:30px;
-    width:30px;
+    height: 30px;
+    width: 30px;
     display: inline-block;
     margin-top: 2px;
     margin-left: 10px;
-    padding:5px;
-    border-radius:50%;
+    padding: 5px;
+    border-radius: 50%;
     cursor: pointer;
     border-radius: 50%;
-    background-color:#00ADEF;
+    background-color: #00ADEF;
 }
 
 
-.header1 > .headerLogin > .loginSearch{
+.header1>.headerLogin>.loginSearch {
     transition: .5s;
     background: url(./../../Images/header/shopping.png) center;
     background-repeat: no-repeat;
     background-size: 23px;
-    height:30px;
-    width:30px;
+    height: 30px;
+    width: 30px;
     display: inline-block;
     margin-top: 2px;
     margin-left: 10px;
-    padding:5px;
-    border-radius:50%;
+    padding: 5px;
+    border-radius: 50%;
     cursor: pointer;
-    background-color:#00ADEF;
+    background-color: #00ADEF;
 }
 
 
-@media screen and (max-width:1263px){
+@media screen and (max-width:1263px) {
 
-    .header1 > .headerLogo{
+    .header1>.headerLogo {
         margin-right: 40px;
     }
 
-    .header1 > .headerNavbar{
+    .header1>.headerNavbar {
         margin-right: 40px;
         padding-top: 2px;
     }
 
-    .header1 > .headerNavbar > p{
+    .header1>.headerNavbar>p {
         font-size: 15px;
         margin-left: 20px;
     }
 
-    .header1 > .headerNavbar > p:nth-child(1){
+    .header1>.headerNavbar>p:nth-child(1) {
         font-size: 18px;
     }
 
-    .header1 > .headerLogin{
+    .header1>.headerLogin {
         margin-right: 235px;
     }
 
-    .header1 > .headerLogin > .loginUser{
+    .header1>.headerLogin>.loginUser {
         background-size: 18px;
-        height:20px;
-        width:20px;
+        height: 20px;
+        width: 20px;
     }
-    
-    
-    .header1 > .headerLogin > .loginSearch{
+
+
+    .header1>.headerLogin>.loginSearch {
         background-size: 18px;
-        height:20px;
-        width:20px;
+        height: 20px;
+        width: 20px;
     }
-    
+
 }
 
-@media screen and (max-width:749px){
+@media screen and (max-width:749px) {
 
-    .header1{
+    .header1 {
         padding-top: 5px;
     }
-    
-    .header1 > .headerLogo{
+
+    .header1>.headerLogo {
         margin-right: 30px;
         background-size: 35px;
     }
 
-    .header1 > .headerNavbar > p{
-        display:none;
+    .header1>.headerNavbar>p {
+        display: none;
     }
 
-    .header1 > .headerLogin{
+    .header1>.headerLogin {
         margin-right: 195px;
     }
-    
+
 }
-
-

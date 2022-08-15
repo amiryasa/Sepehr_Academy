@@ -1,0 +1,42 @@
+//color
+$info : #00ADEF;
+$goal : #04A641;
+$detail : #2693FF;
+$warning : #FDEA00;
+$title : #043D72;
+$content : #616D76;
+$shadow : rgba(0, 0, 0, .08);
+
+//font
+$xxl: 50px;
+
+
+@mixin flex-container($dir: row,
+    $justify: flex-start,
+    $align: flex-start,
+    $wrap: nowrap,
+    $fully-centered: false) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+
+    @if $fully-centered {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@mixin grid-container($gap: 1rem, $inPopup: false) {
+    display: grid;
+    gap: $gap; // The gap shorthand is: row column
+}
+
+@mixin grid-template($gap: 1rem, $cols: null, $rows: null) {
+    display: grid;
+    gap: $gap;
+
+    grid-template-rows: $rows;
+    grid-template-columns: $cols;
+}

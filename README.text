@@ -1,6 +1,9 @@
 //direction rtl
 npm install stylis stylis-plugin-rtl
 
+//scss
+npm i sass --save
+
 Change css to sass
 import router
 

@@ -6,11 +6,13 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 
 import { Home } from "./Pages/Home";
+import { CourseDetail } from './Pages/CourseDetail';
 import { Header } from "./Component/Header";
-import { Footer } from './Component/Footer'
+import { Footer } from './Component/Footer';
 
 import "./App.css";
 import "./Fonts/fonts.css";
+
 
 function App() {
 
@@ -29,6 +31,7 @@ function App() {
         <div className="App">
           <Header />
           <Home />
+          {/* <CourseDetail /> */}
           <Footer />
         </div>
       </ThemeProvider>

@@ -7,7 +7,7 @@ import { CoursesCard } from './../../Component/CoursesCard/CoursesCard';
 import { Btn } from './../../Component/Button/Btn';
 import { Input } from './../../Component/Input/Input';
 
-import "./index.css";
+import "./index.scss";
 import './../../Fonts/fonts.css';
 
 import cat01 from './../../Images/category/arch.png';

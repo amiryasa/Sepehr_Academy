@@ -4,7 +4,7 @@ import "./index.css";
 const Header = () => {
 
   return (
-    <div className="header1">
+    <div className="header1" style={{ display: `${window.location.pathname === '/' ? 'block' : 'flex'}` }}>
       <div className="headerRow headerLogo">
       </div>
       <div className="headerRow headerNavbar">
@@ -18,7 +18,7 @@ const Header = () => {
 
         <div className="loginSearch"></div>
         <div className="loginUser"></div>
-        
+
       </div>
     </div>
   );
