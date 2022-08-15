@@ -1,13 +1,51 @@
-.mediumBtn {}
 
 
-.mediumBtn{
+button.smallBtn{
+    width:118px;
+    height:32px;
+    font-size: 13px;
+    font-family: bakh;
+}
+
+button.smallBtnCh{
+    width:118px;
+    height:32px;
+    font-size: 13px;
+    font-family: bakh;
+}
+
+button.largeBtn{
+    width:191px;
+    height:49px;
+    font-size: 18px;
+    font-family: bakh;
+}
+
+@media screen and (max-width:1262px){
+
+    button.largeBtn{
+        width:166px;
+        height:42px;
+        font-size: 16px;
+    }
 
 }
 
-.largeBtn{
+@media screen and (max-width:749px){
+
+    button.largeBtn{
+        width:118px;
+        height:32px;
+        font-size: 12px;
+    }
+
+    button.smallBtnCh{
+        width:94px;
+        height:26px;
+        font-size: 9px;
+        font-family: bakh;
+    }
 
 }
 
-.MuiButton-root{}
 
