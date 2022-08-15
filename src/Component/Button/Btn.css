@@ -1,12 +1,36 @@
 
+button.smallBtn{
+    width: 124px;
+    height: 32px;
+    font-size: 13px; 
+    border-radius: 4px;
+    font-family: bakh;
+}
 
-.mediumBtn{
+button.largeBtn{
+    font-family: bakh;
+    width: 191px;
+    height: 49px;
+    font-size: 20px;
+    border-radius: 7px;
+}
+
+@media screen and (max-width:1262px){
+
+    button.largeBtn{
+        width: 166px;
+        height: 42px;
+        font-size: 16px;
+    }
 
 }
 
-.largeBtn{
+@media screen and (max-width:749px){
+
+    button.largeBtn{
+        width: 118px;
+        height: 32px;
+        font-size: 12px;
+    }
 
 }
-
-.MuiButton-root{}
-

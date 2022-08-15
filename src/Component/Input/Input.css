@@ -10,8 +10,16 @@ div > .inputModel {
 }
 
 .MuiInputBase-root > input {
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'bakh';
     padding: 13px 15px;
     height:23px;
+    color: #3c3c3c;
+}
+
+.MuiInputBase-root > textarea {
+    font-size: 16px;
+    font-family: 'bakh';
+    height:23px;
+    color: #3c3c3c;
 }

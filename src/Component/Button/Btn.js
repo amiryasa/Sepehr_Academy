@@ -3,6 +3,8 @@ import Button from '@mui/material/Button';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 
+import './Btn.css';
+
 const Btn = (props) => {
 
   const theme = createTheme({
@@ -29,17 +31,13 @@ const Btn = (props) => {
   });
 
   return (
-    <ThemeProvider theme={theme} className='btnThemeProvider'>
+    <ThemeProvider theme={theme}>
       <Button
-        className='btnButton'
+        className={props.elementClass}
         variant="contained"
         color={props.color}
         style={{
-          width: `${props.width}`,
-          height: `${props.height}`,
-          fontSize: `${props.fontSize}`,
-          margin: `${props.margin}`,
-          fontFamily: 'bakh'
+          margin: `${props.margin}`
         }}
       >
         {props.text}

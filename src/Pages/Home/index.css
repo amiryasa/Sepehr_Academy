@@ -91,20 +91,12 @@
      margin-top: -20px;
  }
 
- div.introContainer>p {
+ div.introContainer > p {
      margin-right: 100px;
      margin-top: 20px;
      color: #616D76;
      font-size: 20px;
      width: 456px;
- }
-
- div.introContainer>.btn-home>button {
-     font-family: bakh;
-     width: 195px;
-     height: 50px;
-     font-size: 20px;
-     border-radius: 7px;
  }
 
  .btn-home {
@@ -117,6 +109,53 @@
 
  div.introContainer> .btn-home > button.infoBut {
     margin-right: -65px;
+
+}
+
+
+@media screen and (max-width:1262px){
+
+    .btn-home {
+        width: 425px;
+        display: flex;
+        justify-content: space-around;
+        margin-right: 170px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+
+    div.introContainer>h1 {
+
+        padding-top: 215px;
+        padding-right: 100px;
+        font-size: 50px;
+        font-weight: normal;
+        color: #043D72;
+        margin-bottom: 20px;
+    }
+
+    .h21{
+        margin-top:-170px;
+        margin-bottom: 20px;
+     }
+    
+}
+
+@media screen and (max-width:749px){
+
+    .btn-home {
+        width: 325px;
+        display: flex;
+        justify-content: space-around;
+        margin-right: 35px;
+        margin-top: 30px;
+    }
+
+    div.introContainer>h1 {
+
+        padding-top: 250px;
+    }
+   
 
 }
 

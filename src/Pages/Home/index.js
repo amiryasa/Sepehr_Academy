@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { createTheme } from '@mui/material/styles';
 
-import { BasicButtons } from './../../Component/Button';
 import { CatCard } from './../../Component/CatCard/CatCard';
 import { NewsCard } from './../../Component/NewsCard/NewsCard';
 import { TeacherCard } from './../../Component/TeacherCard/TeacherCard';
@@ -10,6 +8,7 @@ import { Btn } from './../../Component/Button/Btn';
 import { Input } from './../../Component/Input/Input';
 
 import "./index.css";
+import './../../Fonts/fonts.css';
 
 import cat01 from './../../Images/category/arch.png';
 import cat02 from './../../Images/category/atom.png';
@@ -37,24 +36,17 @@ import teach02 from './../../Images/Teacher/teacher02.png';
 
 
 const Home = () => {
-  const theme = createTheme({
-    palette: {
-      info: {
-        main: '#00ADEF',
-        light: '#00ADEF',
-        dark: '#2AC4FF',
-        contrastText: '#fff',
-      },
-      goal: {
-        main: '#04A641',
-        light: '#04A641',
-        dark: '#06D152',
-        contrastText: '#fff',
-      },
-    },
-  });
 
-  console.log(window.innerWidth);
+  const person ={
+    firstName:"reza",
+      lastName:"babaei",
+      age:25
+  }
+  
+  const {firstName:fn, lastName} = person;
+  
+  console.log(fn);	
+    
 
   return (
     <div className="home">
@@ -63,8 +55,17 @@ const Home = () => {
         <hr></hr>
         <p> برای یادگیری کامل و اصولی برنامه‌نویسی به همراه اساتید مجرب، با ما همراه شوید. </p>
         <div className='btn-home'>
-          <BasicButtons classes="goalBut" color="goal" theme={theme} size="large" text="شروع یادگیری" />
-          <BasicButtons classes="infoBut" color="info" size="medium" theme={theme} text="مشاهده دوره‌ها" />
+        <Btn
+            color='goal'
+            text='شروع یادگیری'
+            elementClass='largeBtn'
+          />
+        <Btn
+          color='info'
+          text='مشاهده دوره‌ها'
+          margin='0 -65px 0 0'
+          elementClass='largeBtn'
+        />
         </div>
       </div>
 
@@ -333,10 +334,9 @@ const Home = () => {
           />
           <Btn
             color='goal'
-            width='124px'
-            height='32px' 
             text='ثبت پیام'
             margin='32px 84px 84px 18px'
+            elementClass='smallBtn'
           />
         </div>
       </div>

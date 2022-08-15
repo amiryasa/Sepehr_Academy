@@ -35,9 +35,7 @@ const CoursesCard = (props) => {
 
         <Btn 
           text='نمایش جزئیات'
-          width='118px'
-          height='32px'
-          fontSize='12px'
+          elementClass='smallBtn'
           color={props.btnColor}
         />
       
