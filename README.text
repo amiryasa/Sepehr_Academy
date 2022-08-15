@@ -1,5 +1,17 @@
-
 //direction rtl
 npm install stylis stylis-plugin-rtl
 
+Change css to sass
+import router
 
+//Pages
+1. login - registre - forget pass //Amir
+2. courses detil - news detail  //Naghme
+3. courses list - news list  //Amir
+4. menuBar
+5. mouse animation
+
+
+//UI-UX
+1.filtering
+2.Panel
