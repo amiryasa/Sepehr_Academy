@@ -1,3 +1,6 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import rtlPlugin from 'stylis-plugin-rtl';
@@ -15,7 +18,8 @@ import "./Fonts/fonts.css";
 
 
 function App() {
-
+  AOS.init();
+  
   const theme = createTheme({
     direction: 'rtl',
   });

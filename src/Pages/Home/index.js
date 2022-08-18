@@ -32,22 +32,12 @@ import news01 from './../../Images/News/news01.png';
 
 import teach01 from './../../Images/Teacher/teacher01.png';
 import teach02 from './../../Images/Teacher/teacher02.png';
+import { Scrool } from '../../Component/Scrool/Scrool';
 
 
 
 const Home = () => {
-
-  const person ={
-    firstName:"reza",
-      lastName:"babaei",
-      age:25
-  }
-  
-  const {firstName:fn, lastName} = person;
-  
-  console.log(fn);	
     
-
   return (
     <div className="home">
       <div className="introContainer">
@@ -67,13 +57,17 @@ const Home = () => {
           elementClass='largeBtn'
         />
         </div>
+
+        <Scrool />
       </div>
 
-      <div className="homeH2 h21">
+
+
+      <div className="homeH2 h21" data-aos="fade-up" data-aos-duration="1000">
         <h2> خدمات ما </h2>
       </div>
       <div className="servicesCantainer">
-        <div> 
+        <div data-aos="flip-right" data-aos-delay="300" data-aos-duration="1000"> 
         <CatCard 
             img={ser01} 
             fontColor={"#8130FA"}
@@ -82,7 +76,7 @@ const Home = () => {
           /> 
         </div>
 
-        <div>
+        <div data-aos="flip-right" data-aos-delay="800" data-aos-duration="1000">
         <CatCard 
             img={ser02} 
             fontColor={"#FFA400"}
@@ -91,7 +85,7 @@ const Home = () => {
           /> 
         </div>
 
-        <div>
+        <div data-aos="flip-right" data-aos-delay="1100" data-aos-duration="1000">
         <CatCard 
             img={ser03} 
             fontColor={"#FC4760"} 
@@ -99,7 +93,7 @@ const Home = () => {
             elementClass='V2'
           /> 
         </div>
-        <div>
+        <div data-aos="flip-right" data-aos-delay="1400" data-aos-duration="1000">
         <CatCard 
             img={ser04} 
             fontColor={"#4172E5"} 
@@ -109,11 +103,11 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="homeH2 h22">
+      <div className="homeH2 h22" data-aos="fade-up" data-aos-duration="1000">
         <h2> دسته‌بندی‌ها </h2>
       </div>
       <div className="categoryCantainer">
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="500" data-aos-duration="800"> 
           <CatCard 
             img={cat01} 
             fontColor={"#D80101"}
@@ -122,7 +116,7 @@ const Home = () => {
           /> 
         </div>
 
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="800" data-aos-duration="800"> 
         <CatCard 
           img={cat02} 
           fontColor={"#079DAF"}
@@ -134,7 +128,7 @@ const Home = () => {
         <div className="categoryResponsiveDesktop"> </div>
         <div className="categoryResponsiveDesktop"> </div>
 
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="500" data-aos-duration="800"> 
         <CatCard 
           img={cat03} 
           fontColor={"#0D6EDF"} 
@@ -143,7 +137,7 @@ const Home = () => {
         />  
         </div>
 
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="800" data-aos-duration="800"> 
         <CatCard 
           img={cat04} 
           fontColor={"#9E07AF"}
@@ -152,7 +146,7 @@ const Home = () => {
         /> 
         </div>
 
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="1100" data-aos-duration="800"> 
         <CatCard 
           img={cat05} 
           fontColor={"#FF8205"} 
@@ -164,7 +158,7 @@ const Home = () => {
         <div className="categoryResponsiveDesktop"> </div>
         <div className="categoryResponsiveDesktop categoryResponsiveTab"> </div>
 
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="500" data-aos-duration="800"> 
         <CatCard 
           img={cat06} 
           fontColor={"#FD00EC"} 
@@ -173,7 +167,7 @@ const Home = () => {
         />  
         </div>
 
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="800" data-aos-duration="800"> 
         <CatCard 
           img={cat07} 
           fontColor={"#06C10C"}
@@ -182,7 +176,7 @@ const Home = () => {
         />  
         </div>
 
-        <div> 
+        <div data-aos="zoom-in" data-aos-delay="1100" data-aos-duration="800"> 
         <CatCard 
           img={cat08} 
           fontColor={"#FFC505"} 
@@ -193,11 +187,11 @@ const Home = () => {
 
       </div>
 
-      <div className="homeH2 h23">
+      <div className="homeH2 h23" data-aos="fade-up" data-aos-duration="1000">
         <h2> دوره‌ها </h2>
       </div>
       <div className="courcesCantainer">
-        <div> 
+        <div data-aos="fade-left"  data-aos-delay="500" data-aos-duration="800"> 
           <CoursesCard 
           image={cour03}
           bgColor="#F3FFF8"
@@ -206,7 +200,7 @@ const Home = () => {
           teacher={'محمد بحرالعلوم'}
           /> 
         </div>
-        <div> 
+        <div  data-aos="fade-left"  data-aos-delay="1000" data-aos-duration="800"> 
           <CoursesCard 
             image={cour01}
             bgColor="#F5FCFF"
@@ -215,7 +209,7 @@ const Home = () => {
             teacher={'محمد بحرالعلوم'}
           /> 
         </div>
-        <div> 
+        <div  data-aos="fade-left" data-aos-delay="1500" data-aos-duration="800"> 
           <CoursesCard 
             image={cour02}
             bgColor="#F3FFF8"
@@ -224,7 +218,7 @@ const Home = () => {
             teacher={'محمد بحرالعلوم'}
           />         
         </div>
-        <div className="courcesResponsiveTab"> 
+        <div className="courcesResponsiveTab"  data-aos="fade-left" data-aos-delay="2000" data-aos-duration="800"> 
           <CoursesCard 
             image={cour01}
             bgColor="#F5FCFF"
@@ -237,41 +231,41 @@ const Home = () => {
 
       <p className="homeMore"> لیست کامل دوره‌ها ...</p>
 
-      <div className="homeH2 h24">
+      <div className="homeH2 h24" data-aos="fade-up" data-aos-duration="1000">
         <h2> اخبار و مقالات </h2>
       </div>
       <div className="newsCantainer">
-        <div> <NewsCard 
+        <div data-aos="flip-up"  data-aos-delay="400" data-aos-duration="800"> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"}
         description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
-        <div> <NewsCard 
+        <div  data-aos="flip-up"  data-aos-delay="400" data-aos-duration="800"> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"} 
         description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
-        <div> <NewsCard 
+        <div  data-aos="flip-up"  data-aos-delay="800" data-aos-duration="800"> <NewsCard 
         image={news01} 
         title={"عنوان خبر"} 
         description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
-        <div> <NewsCard 
+        <div data-aos="flip-up"  data-aos-delay="800" data-aos-duration="800"> <NewsCard 
         image={news01} 
         title={"عنوان خبر"} 
         description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
-        <div className="newsResponsiveTab"> <NewsCard 
+        <div className="newsResponsiveTab" data-aos="flip-up"  data-aos-delay="1200" data-aos-duration="800"> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"}
         description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
         </div>
 
-        <div className="newsResponsiveTab"> <NewsCard 
+        <div className="newsResponsiveTab" data-aos="flip-up"  data-aos-delay="1200" data-aos-duration="800"> <NewsCard 
         image={news01} 
         title={"عنوان مقاله"}
         description={"توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"}/> 
@@ -280,29 +274,29 @@ const Home = () => {
 
       <p className="homeMore"> لیست کامل اخبار و مقالات ...</p>
 
-      <div className="homeH2 h25">
+      <div className="homeH2 h25" data-aos="fade-up" data-aos-duration="1000">
         <h2> اساتید برتر </h2>
       </div>
       <div className="teacherCantainer">
-        <div>
+        <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="800">
           <TeacherCard 
           img={teach01} 
           name={"دکتر محمد بحرالعلوم"}
           description={"مدیریت آموزشگاه و مدرس دروس کامپیوتر در دانشگاه‌های معتبر شمال کشور"}/>
         </div>
-        <div>
+        <div data-aos="fade-right" data-aos-delay="1000" data-aos-duration="800">
           <TeacherCard 
           img={teach02}
           name={"دکتر محمد بحرالعلوم"}
           description={"مدیریت آموزشگاه و مدرس دروس کامپیوتر در دانشگاه‌های معتبر شمال کشور"}/>
         </div>
-        <div>
+        <div data-aos="fade-right" data-aos-delay="1500" data-aos-duration="800">
           <TeacherCard 
           img={teach01}
           name={"دکتر محمد بحرالعلوم"}
           description={"مدیریت آموزشگاه و مدرس دروس کامپیوتر در دانشگاه‌های معتبر شمال کشور"}/>
         </div>
-        <div className='teacherResponsiveTab'>
+        <div className='teacherResponsiveTab' data-aos="fade-right" data-aos-delay="2000" data-aos-duration="800">
         <TeacherCard
         img={teach02}
         name={"دکتر محمد بحرالعلوم"}
@@ -310,7 +304,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="homeH2 h26">
+      <div className="homeH2 h26" data-aos="fade-up" data-aos-duration="1000">
         <h2> انتقادات و پیشنهادات </h2>
       </div>
       <div className="ideaCantainer">
