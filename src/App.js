@@ -34,8 +34,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Header />
-          <Home />
-          {/* <CourseDetail /> */}
+          {/* <Home /> */}
+          <CourseDetail />
           <Footer />
         </div>
       </ThemeProvider>
