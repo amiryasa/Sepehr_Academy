@@ -1,0 +1,25 @@
+div > .inputModel {
+    /*margin: 10px; */
+}
+
+.inputModel > label {
+    font-size: 14px;
+    font-family: 'bakh';
+    color:#808080;
+    border-color: #c61010;
+}
+
+.MuiInputBase-root > input {
+    font-size: 16px;
+    font-family: 'bakh';
+    padding: 13px 15px;
+    height:23px;
+    color: #3c3c3c;
+}
+
+.MuiInputBase-root > textarea {
+    font-size: 16px;
+    font-family: 'bakh';
+    height:23px;
+    color: #3c3c3c;
+}

@@ -1,0 +1,275 @@
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.FooterHolder{
+    height:568px;
+    background: url(./../../assets/images/Footer/map.png);
+    background-size: 715px 568px;
+    background-repeat: no-repeat;
+    background-position: 550px 0px;
+    margin-top:150px;
+}
+
+.FooterHolder > .footerContact{
+    direction: ltr;
+    font-size: 29px;
+    font-family: gabriola;
+    color: #2D527C;
+    margin-left: 265px;
+    padding-top: 270px;
+}
+
+.FooterHolder > .footerContact > p{
+    margin: 0px;
+}
+
+.FooterHolder > .footerContact > p:nth-child(1){
+    background: url(./../../assets/images/Footer/mail.png);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding-left: 50px;
+    background-position: 0 7px;
+}
+
+.FooterHolder > .footerContact > p:nth-child(2){
+    background: url(./../../assets/images/Footer/call.png);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding-left: 50px;
+    background-position: 0 9px;
+}
+
+.FooterHolder > .footerContact > p:nth-child(3){
+    background: url(./../../assets/images/Footer/group.png);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding-left: 50px;
+    background-position: 0 7px;
+}
+
+.FooterHolder > .footerSocial{
+    float:left;
+    margin-top: 60px;
+}
+
+.FooterHolder > .footerSocial > div{
+    display: inline-block;
+    height:50px;
+    width:50px;
+    opacity: .75;
+}
+
+.FooterHolder > .footerSocial > div:nth-child(1){
+    background: url(./../../assets/images/Footer/linkedin.png);
+    background-repeat: no-repeat;
+    background-size: 50px;
+    margin-left: 8px;
+}
+
+.FooterHolder > .footerSocial > div:nth-child(2){
+    background: url(./../../assets/images/Footer/pinterest.png);
+    background-repeat: no-repeat;
+    background-size: 50px;
+    margin-left: 8px;
+}
+
+.FooterHolder > .footerSocial > div:nth-child(3){
+    background: url(./../../assets/images/Footer/whatsapp.png);
+    background-repeat: no-repeat;
+    background-size: 50px;
+    margin-left: 8px;
+}
+
+.FooterHolder > .footerSocial > div:nth-child(4){
+    background: url(./../../assets/images/Footer/twitter.png);
+    background-repeat: no-repeat;
+    background-size: 50px;
+    margin-left: 8px;
+}
+
+.FooterHolder > .footerSocial > div:nth-child(5){
+    background: url(./../../assets/images/Footer/instagram.png);
+    background-repeat: no-repeat;
+    background-size: 50px;
+    margin-left: 235px;
+}
+
+.FooterHolder > .footerLocation{
+    margin-top: 43px;
+    height:80px;
+    background: url(./../../assets/images/Footer/pointer.png);
+    background-size: 475px 80px;
+    background-repeat: no-repeat;
+    background-position:620px 0px;
+}
+
+.FooterHolder > .footerLocation > p{
+    padding-top: 26px;
+    padding-right: 240px;
+    font-size: 20px;
+    color: #636363;
+}
+
+
+
+@media screen and (max-width:1262px){
+
+    .FooterHolder{
+        background-size: 483px 384px;
+        background-position: 290px 0px;
+        margin-top:-75px;
+        height:384px;
+    }
+    
+    .FooterHolder > .footerContact{
+        font-size: 18px;
+        margin-left: 95px;
+        padding-top: 167px;
+    }
+    
+    .FooterHolder > .footerContact > p:nth-child(1){
+        background-size: 20px;
+        padding-left: 30px;
+        background-position: 0 3px;
+    }
+    
+    .FooterHolder > .footerContact > p:nth-child(2){
+        background-size: 20px;
+        padding-left: 30px;
+        background-position: 0 5px;
+    }
+    
+    .FooterHolder > .footerContact > p:nth-child(3){
+        background-size: 20px;
+        padding-left: 30px;
+        background-position: 0 5px;
+    }
+    
+    .FooterHolder > .footerSocial{
+        margin-top: 63px;
+    }
+    
+    .FooterHolder > .footerSocial > div{
+        height:32px;
+        width:32px;
+        opacity: .75;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(1){
+        background-size: 32px;
+        margin-left: 8px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(2){
+        background-size: 32px;
+        margin-left: 8px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(3){
+        background-size: 32px;
+        margin-left: 8px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(4){
+        background-size: 32px;
+        margin-left: 8px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(5){
+        background-size: 32px;
+        margin-left: 75px;
+    }
+    
+    .FooterHolder > .footerLocation{
+        margin-top: 53px;
+        height:55px;
+        background-size: 345px 55px;
+        background-position:335px 0px;
+    }
+    
+    .FooterHolder > .footerLocation > p{
+        padding-top: 18px;
+        padding-right: 130px;
+        font-size: 13px;
+        color: #636363;
+    }
+
+}
+
+@media screen and (max-width:749px){
+
+    .FooterHolder{
+        background: url(./../../assets/images/Footer/mapRes.png);
+        background-size: 400px 230px;
+        background-position: 0px 0px;
+        margin-top:500px;
+        height:238px;
+    }
+    
+    .FooterHolder > .footerContact{
+        margin-left: 55px;
+        padding-top: 77px;
+        float:left;
+    }
+    
+    .FooterHolder > .footerSocial{
+        margin-top: 0px;
+        float:none;
+        padding-top: 143px;
+        margin-right: 0px;
+    }
+    
+    .FooterHolder > .footerSocial > div{
+        height:20px;
+        width:20px;
+        opacity: .75;
+
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(1){
+        background-size: 20px;
+        margin-right: 53px;
+        margin-left:2px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(2){
+        background-size: 20px;
+        margin-left:2px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(3){
+        background-size: 20px;
+        margin-left: 2px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(4){
+        background-size: 20px;
+        margin-left: 2px;
+    }
+    
+    .FooterHolder > .footerSocial > div:nth-child(5){
+        background-size: 20px;
+        margin-left: 0px;
+    }
+    
+    .FooterHolder > .footerLocation{
+        margin-top: -10px;
+        height:55px;
+        background-size: 304px 48px;
+        background-position:center;
+    }
+    
+    .FooterHolder > .footerLocation > p{
+        padding-top: 18px;
+        padding-right: 100px;
+        font-size: 12px;
+        color: #4d4d4d;
+    }
+
+}
+
+
