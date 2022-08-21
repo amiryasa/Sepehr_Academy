@@ -1,0 +1,25 @@
+
+.App{
+    width:1263px;
+    margin:auto;
+    font-family: bakh;
+    direction:rtl;
+}
+
+@media screen and (max-width:1262px){
+
+    .App{
+        width:750px;
+    }
+
+}
+
+@media screen and (max-width:749px){
+
+    .App{
+        width:400px;
+    }
+
+}
+
+

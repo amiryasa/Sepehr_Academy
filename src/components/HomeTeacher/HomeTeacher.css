@@ -1,0 +1,55 @@
+/* teacher */
+
+.h25 {
+    width: 179px;
+    margin-top: 175px;
+    margin-bottom: 10px;
+}
+
+.teacherCantainer {
+    /* height:402px; */
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 173px);
+    grid-auto-rows: 346px;
+    gap: 30px;
+    padding: 54px 238px 0px 238px;
+    font-size: 23px;
+}
+
+.teacherCantainer>div {
+
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width:1266px) {
+
+    .teacherCantainer {
+        grid-template-columns: repeat(3, 173px);
+        gap: 42px;
+        padding: 54px 75px 0px 75px;
+    }
+
+    .teacherCantainer>.teacherResponsiveTab {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:749px) {
+
+    .teacherCantainer {
+        grid-template-columns: repeat(2, 137px);
+        grid-auto-rows: 273px;
+        gap: 30px;
+        padding: 54px 48px 0px 48px;
+    }
+
+    .teacherCantainer>.teacherResponsiveTab {
+        display: block;
+    }
+
+}
+
+

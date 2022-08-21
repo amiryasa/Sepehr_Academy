@@ -1,0 +1,58 @@
+/* idea */
+
+.h26 {
+    width: 341px;
+    margin-top: 200px;
+    margin-bottom: 80px;
+}
+
+.ideaCantainer {
+    background: url(./../../assets/images/Idea/ideabg.png);
+    background-size: 428px 419px;
+    background-repeat: no-repeat;
+    background-position: 225px 0px;
+}
+
+.ideaCantainer>div.ideaInput {
+    height: 396px;
+    width: 286px;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, .08);
+    border-radius: 15px;
+    margin-right: 238px;
+    padding-top: 23px;
+}
+
+
+/* idea Tab Responsive */
+
+@media screen and (max-width:1262px) {
+
+    .ideaCantainer {
+        height: 590px;
+        background-size: 450px 440px;
+        background-position: 72px 0px;
+        padding-top: 215px;
+    }
+
+    .ideaCantainer>div.ideaInput {
+        margin-right: 145px;
+        padding-top: 0px
+    }
+}
+
+/* idea Mobile Responsive */
+
+@media screen and (max-width:749px) {
+
+    .ideaCantainer {
+        height: 0px;
+        padding: 0px;
+    }
+
+    .ideaCantainer>div.ideaInput {
+        margin-right: 57px;
+        padding-top: 0px;
+    }
+}
+
+
