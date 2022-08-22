@@ -34,6 +34,7 @@ const CoursesCard = (props) => {
           text='نمایش جزئیات'
           elementClass='smallBtnCh'
           color={props.btnColor}
+          variant="contained"
         />
       
       </CardActions>

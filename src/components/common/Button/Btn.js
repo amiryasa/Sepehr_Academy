@@ -28,6 +28,12 @@ const Btn = (props) => {
         dark: '#2AB1FF',
         contrastText: '#fff',
       },
+      restore: {
+        main: '#00707F',
+        light: '#00707F',
+        dark: '#02959A',
+        contrastText: '#fff',
+      },
     },
   });
 
@@ -35,10 +41,12 @@ const Btn = (props) => {
     <ThemeProvider theme={theme}>
       <Button
         className={props.elementClass}
-        variant="contained"
+        variant={props.variant}
         color={props.color}
         style={{
-          margin: `${props.margin}`
+          margin: `${props.margin}`,
+          borderWidth: '1.5px',
+          borderColor: `${props.borderColor}`
         }}
       >
         {props.text}

@@ -1,0 +1,58 @@
+.registerHolder{
+    border: 1px solid red;
+    height:607px;
+}
+
+.registerHolder > .registerInputHolder{
+    width: 499px;
+    height: 396px;
+    border: 2px solid #00ADEF;
+    border-radius: 15px;
+    background-color:  white;
+    float:right;
+    margin-top:125px;
+    margin-right:125px;
+}
+
+.registerHolder > .registerInputHolder > p{
+    font-size: 30px;
+    color: #00ADEF;
+    background-color: white;
+    width: 183px;
+    padding-right: 12px;
+    margin-top: -27px;
+    margin-right: 26px;
+}
+
+.registerHolder > .registerInputHolder > .registerInputHolderForP{
+    font-size: 12px;
+    color: #00ADEF;
+    margin-right: 36px;
+    margin-top: 5px;
+}
+
+.registerHolder > .registerInputHolder > .registerInputHolderRemainder{
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+.registerHolder > .registerInputHolder > .registerInputHolderRemainder > .registerInputHolderRemainderP1{
+    display: inline-block; 
+    font-size: 14px;
+    margin-right: -5px;
+}
+
+.registerHolder > .registerInputHolder > .registerInputHolderRemainder > .registerInputHolderRemainderP2{
+    display: inline-block; 
+    font-size: 11px;
+    color:#787878;
+    margin-right: 5px;
+}
+
+.registerHolder > .registerImageHolder{
+    background: url('./../../assets/images/Register/register.png');
+    background-size:445px 475px;
+    height:550px;
+    background-repeat: no-repeat;
+    background-position: 105px 57px;
+}

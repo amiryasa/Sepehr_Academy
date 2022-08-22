@@ -11,7 +11,7 @@ const HomeIdeas = () => {
         <h2> انتقادات و پیشنهادات </h2>
       </div>
       <div className="ideaCantainer">
-        <div className="ideaInput">
+        <div className="ideaInput"  data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
           <Input title="نام کاربر" margin="25px 24px 0 24px" width="236px" />
           <Input title="ایمیل کاربر" margin="33px 24px 0 24px" width="236px" />
           <Input
@@ -26,6 +26,7 @@ const HomeIdeas = () => {
             text="ثبت پیام"
             margin="32px 84px 84px 18px"
             elementClass="smallBtn"
+            variant="contained"
           />
         </div>
       </div>

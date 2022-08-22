@@ -15,12 +15,14 @@ const HomeIntro = () => {
                     color='goal'
                     text='شروع یادگیری'
                     elementClass='largeBtn'
+                    variant="contained"
                 />
                 <Btn
                 color='info'
                 text='مشاهده دوره‌ها'
                 margin='0 -65px 0 0'
                 elementClass='largeBtn'
+                variant="contained"
                 />
             </div>
 

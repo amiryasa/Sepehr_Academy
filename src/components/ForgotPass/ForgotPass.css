@@ -1,0 +1,69 @@
+.forgotPassHolder{
+    border-top: 1px solid red;
+}
+
+.forgotPassHolder > .forgotPassInputHolder{
+    width: 405px;
+    height: 267px;
+    border: 2px solid #00707F;
+    border-radius: 15px;
+    background-color:  white;
+    float:right;
+    margin-top:125px;
+    margin-right:125px;
+    position: relative;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > p{
+    font-size: 30px;
+    color: #00707F;
+    background-color: white;
+    width: 183px;
+    padding-right: 12px;
+    margin-top: -27px;
+    margin-right: 26px;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > div > hr{
+    transform: rotate(90deg);
+    position:absolute;
+    width: 18px;
+    top:224px;
+    right:193px;
+    border-width: 1.5px;
+    border: .75px solid #00ADEF;
+    background-color: #00ADEF;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > .forgotPassInputHolderForP{
+    font-size: 12px;
+    color: #00ADEF;
+    margin-right: 36px;
+    margin-top: 5px;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > .forgotPassInputHolderRemainder{
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > .forgotPassInputHolderRemainder > .forgotPassInputHolderRemainderP1{
+    display: inline-block; 
+    font-size: 14px;
+    margin-right: -5px;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > .forgotPassInputHolderRemainder > .forgotPassInputHolderRemainderP2{
+    display: inline-block; 
+    font-size: 11px;
+    color:#787878;
+    margin-right: 5px;
+}
+
+.forgotPassHolder > .forgotPassImageHolder{
+    background: url('./../../assets/images/ForgotPass/forgot.png');
+    background-size:445px 475px;
+    height:550px;
+    background-repeat: no-repeat;
+    background-position: 105px 57px;
+}

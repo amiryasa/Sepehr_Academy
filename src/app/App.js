@@ -13,6 +13,9 @@ import { Footer } from './../components/Footer';
 
 import "./App.css";
 import "./../assets/fonts/fonts.css";
+import { Login } from '../components/Login/Login';
+import { Register } from '../components/Register/Register';
+import { ForgotPass } from '../components/ForgotPass/ForgotPass';
 
 
 function App() {
@@ -31,9 +34,7 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Header />
-          <Home />
-          <Footer />
+          <Register />
         </div>
       </ThemeProvider>
     </CacheProvider>

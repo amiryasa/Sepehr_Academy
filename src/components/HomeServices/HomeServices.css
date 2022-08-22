@@ -48,8 +48,8 @@
         padding: 54px 75px 0px 75px;
     }
 
-    .h21 {
-        margin-top: -100px;
+    div.h21 {
+        margin-top: 80px;
     }
 
 }
@@ -69,6 +69,10 @@
 
     .servicesCantainer>div:nth-child(odd) {
         margin-top: 0px;
+    }
+
+    div.h21 {
+        margin-top: 235px;
     }
 
 }
