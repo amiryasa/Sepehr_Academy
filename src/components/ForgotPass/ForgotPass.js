@@ -4,36 +4,37 @@ import { Input } from "../common/Input/Input";
 import "./ForgotPass.css";
 
 const ForgotPass = () => {
-
   return (
     <div className="forgotPassHolder">
       <div className="forgotPassInputHolder">
         <p>بازیابی رمز عبور</p>
-        <Input title="ایمیل کاربر" margin="0px 36px 0 36px" width="331px" />
-
-        <div>
+        <div className="forgotPassInputHolderReall">
+          <Input
+            title="ایمیل کاربر"
+            className="enterInputBig"
+          />
+        </div>
+        <div className="forgotPassButtonHolderReall01">
           <Btn
             color="restore"
             text="تایید ایمیل"
-            margin="40px 124px 20px 0"
-            elementClass="mediumBtnCh"
+            elementClass="mediumBtnCh2"
             variant="contained"
           />
         </div>
 
-        <div>
+        <div className="forgotPassButtonHolderReall02">
           <Btn
             text="ثبت نام"
-            margin="15px 37px 20px 0"
-            elementClass="mediumBtnCh"
-            color='info'
+            elementClass="mediumBtnCh2"
+            color="info"
           />
           <hr></hr>
-            <Btn
+          <Btn
             text="ورود"
-            margin="15px 15px 20px 0"
-            elementClass="mediumBtnCh"
-            color='info'
+            elementClass="mediumBtnCh2"
+            color="info"
+            className="newoskol"
           />
         </div>
       </div>

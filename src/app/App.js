@@ -34,7 +34,7 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Register />
+          <Login />
         </div>
       </ThemeProvider>
     </CacheProvider>

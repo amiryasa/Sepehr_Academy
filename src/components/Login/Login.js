@@ -8,11 +8,19 @@ const Login = () => {
   const checkboxChangeHandler = () => {};
 
   return (
-    <div className="LoginHolder">
+    <div className="loginHolder">
       <div className="loginInputHolder">
         <p> ورود کاربر </p>
-        <Input title="ایمیل کاربر" margin="0px 36px 0 36px" width="331px" />
-        <Input title="رمز عبور" margin="40px 36px 0 36px" width="331px" />
+        <div className="loginInputHolderReall">
+          <Input
+            title="ایمیل کاربر"
+            className="enterInputBig"
+          />
+          <Input
+            title="رمز عبور"
+            className="enterInputBig"
+          />
+        </div>
         <p className="loginInputHolderForP"> رمز عبورم را فراموش کرده‌ام! </p>
 
         <div className="loginInputHolderRemainder">
@@ -23,23 +31,21 @@ const Login = () => {
           />
           <p className="loginInputHolderRemainderP1"> مرا به خاطر بسپار! </p>
           <p className="loginInputHolderRemainderP2">
-            ( برای سیستم‌های اشتراکی توصیه نمی‌شود.){" "}
+            ( برای سیستم‌های اشتراکی توصیه نمی‌شود.)
           </p>
         </div>
 
-        <div>
+        <div className="loginButtonHolderReall">
           <Btn
             color="goal"
             text="ورود"
-            margin="50px 36px 20px 0"
-            elementClass="mediumBtnCh"
+            elementClass="mediumBtnCh2"
             variant="contained"
           />
           <Btn
             color="info"
             text="ثبت نام"
-            margin="50px 15px 20px 0"
-            elementClass="mediumBtnCh"
+            elementClass="mediumBtnCh2"
             variant="outlined"
             borderColor="#00ADEF"
           />

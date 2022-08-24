@@ -1,5 +1,8 @@
 .forgotPassHolder{
-    border-top: 1px solid red;
+    height:609px;
+    background: url('./../../assets/images/ForgotPass/bg.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .forgotPassHolder > .forgotPassInputHolder{
@@ -12,6 +15,21 @@
     margin-top:125px;
     margin-right:125px;
     position: relative;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > .forgotPassInputHolderReall{
+    margin-top: -40px;
+    margin-right: 36px;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > .forgotPassButtonHolderReall01{
+    margin:40px 109px 20px 0;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > .forgotPassButtonHolderReall02{
+
+    margin-top: 30px;
+    margin-right: 22px;
 }
 
 .forgotPassHolder > .forgotPassInputHolder > p{
@@ -28,7 +46,7 @@
     transform: rotate(90deg);
     position:absolute;
     width: 18px;
-    top:224px;
+    top:220px;
     right:193px;
     border-width: 1.5px;
     border: .75px solid #00ADEF;
@@ -66,4 +84,80 @@
     height:550px;
     background-repeat: no-repeat;
     background-position: 105px 57px;
+}
+
+.forgotPassHolder > .forgotPassInputHolder > div > .newoskol{
+    display:none;
+}
+
+/* Responsive */
+
+@media screen and (max-width:1262px){
+
+    .forgotPassHolder > .forgotPassInputHolder{
+        width: 304px;
+        height: 185px;
+        margin-top:65px;
+        margin-right:75px;
+    }
+
+    .forgotPassHolder > .forgotPassInputHolder > .forgotPassInputHolderReall{
+        margin-top:-35px;
+        margin-right: 22px;
+    }
+
+    .forgotPassHolder > .forgotPassInputHolder > p{
+        font-size: 25px;
+        width: 153px;
+        padding-right: 7px;
+        margin-right: 20px;
+    }
+
+    .forgotPassHolder > .forgotPassInputHolder > .forgotPassButtonHolderReall01{
+        margin-top: 22px;
+        margin-right: 87px;
+    }
+
+    .forgotPassHolder > .forgotPassInputHolder > .forgotPassButtonHolderReall02{
+        margin-top: 22px;
+        margin-right: 29px;
+        padding-bottom: 20px;
+    }
+
+    .forgotPassHolder > .forgotPassInputHolder > div > hr{
+        transform: rotate(90deg);
+        position:absolute;
+        width: 15px;
+        top:146px;
+        right:143px;
+        border-width: 1.5px;
+        border: .75px solid #00ADEF;
+        background-color: #00ADEF;
+    }
+
+    .forgotPassHolder > .forgotPassImageHolder{
+        background-size:271px 290px;
+        background-position: 62px 50px;
+        background-repeat: no-repeat;
+    }
+}
+
+
+@media screen and (max-width:749px){
+
+    .forgotPassHolder{
+        background: url('./../../assets/images/Register/bg2.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .forgotPassHolder > .forgotPassInputHolder{
+        margin-right:48px;
+        margin-top: 80px;
+    }
+
+    .forgotPassHolder > .forgotPassImageHolder{
+        display:none;
+    }
+
 }

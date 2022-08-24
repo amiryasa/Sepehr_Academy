@@ -7,7 +7,7 @@ const Input = (props) => {
     return (
         <TextField
             id="outlined-basic"
-            className='inputModel'
+            className={`inputModel ${props.className}`}
             variant="outlined"
             multiline={props.multiline}
             rows={props.row}

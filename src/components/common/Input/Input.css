@@ -2,11 +2,21 @@ div > .inputModel {
     /*margin: 10px; */
 }
 
+div > .enterInputSmall {
+    width: 200px;
+    margin-top: 45px;
+    margin-right: 26px;
+}
+
+div > .enterInputBig {
+    width: 331px;
+    margin-top: 40px;
+}
+
 .inputModel > label {
     font-size: 14px;
     font-family: 'bakh';
     color:#808080;
-    border-color: #c61010;
 }
 
 .MuiInputBase-root > input {
@@ -22,4 +32,33 @@ div > .inputModel {
     font-family: 'bakh';
     height:23px;
     color: #3c3c3c;
+}
+
+
+
+/* Responsive */
+
+@media screen and (max-width:1262px){
+
+    div > .enterInputSmall {
+        width: 123px;
+        margin-top: 20px;
+        margin-right: 19px;
+    }
+
+    div > .enterInputSmall > .MuiInputBase-root > input {
+        font-size: 12px;
+        height:21px;
+    }
+
+    div > .enterInputBig {
+        width: 260px;
+        margin-top: 20px;
+    }
+
+    div > .enterInputBig > .MuiInputBase-root > input {
+        font-size: 12px;
+        height:21px;
+    }
+    
 }
