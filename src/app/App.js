@@ -13,9 +13,10 @@ import { Footer } from './../components/Footer';
 
 import "./App.css";
 import "./../assets/fonts/fonts.css";
-import { Login } from '../components/Login/Login';
-import { Register } from '../components/Register/Register';
-import { ForgotPass } from '../components/ForgotPass/ForgotPass';
+import { Login } from '../screens/login/Login';
+import { Register } from '../screens/register/Register';
+import { ForgotPass } from '../screens/forgotPass/ForgotPass';
+import { News } from '../screens/news/News';
 
 
 function App() {
@@ -34,7 +35,9 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Login />
+          <Header />
+          <News />
+          <Footer />
         </div>
       </ThemeProvider>
     </CacheProvider>
