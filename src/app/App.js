@@ -21,7 +21,7 @@ import { News } from '../screens/news/News';
 
 function App() {
   AOS.init();
-  
+
   const theme = createTheme({
     direction: 'rtl',
   });

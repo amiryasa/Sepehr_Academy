@@ -8,7 +8,7 @@ import news01 from "./../../assets/images/News/news01.png";
 
 const NewsContainer = () => {
   return (
-    <>
+    <div>
       <div className="homeH2 n21">
         <h2> لیست تمام دوره‌ها </h2>
       </div>
@@ -64,7 +64,7 @@ const NewsContainer = () => {
         />
       </div>
       <Paginate />
-    </>
+    </div>
   );
 };
 
