@@ -16,7 +16,6 @@ import "./../assets/fonts/fonts.css";
 import { Login } from '../components/Login/Login';
 import { Register } from '../components/Register/Register';
 import { ForgotPass } from '../components/ForgotPass/ForgotPass';
-import { CourseDetail } from '../screens/courseDetail';
 
 
 function App() {
@@ -35,10 +34,7 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Header />
-          <CourseDetail />
-          {/* <Home /> */}
-          <Footer />
+          <Login />
         </div>
       </ThemeProvider>
     </CacheProvider>

@@ -1,0 +1,95 @@
+.coursesIntroContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .coursesIntroContainer > .coursesIntroContainerDes {
+    width: 52%;
+  }
+  
+  .coursesIntroContainer > .coursesIntroContainerDes > h2 {
+    font-size: 40px;
+    color: #043d72;
+    font-weight: normal;
+    margin-top: 125px;
+  }
+  
+  .coursesIntroContainer > .coursesIntroContainerDes > hr {
+    width: 60px;
+    border-width: 4px;
+    border: 2px solid #fdea00;
+    background-color: #fdea00;
+    margin-right: 0;
+    margin-top: -20px;
+  }
+  
+  .coursesIntroContainer > .coursesIntroContainerDes > p {
+    font-size: 20px;
+    color: #616d76;
+    margin-top: 25px;
+    width: 95%;
+  }
+  
+  .coursesIntroContainer > .coursesIntroContainerPic {
+    height: 432px;
+    width: 47%;
+    background: url("./../../assets/images/CoursesIntro/intro.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  
+  @media screen and (max-width: 1262px) {
+    .coursesIntroContainer > .coursesIntroContainerDes > h2 {
+      font-size: 27px;
+      margin-top: 75px;
+    }
+  
+    .coursesIntroContainer > .coursesIntroContainerDes > hr {
+      border-width: 3px;
+      border: 1.5px solid #fdea00;
+      margin-right: 0;
+      margin-top: -10px;
+    }
+  
+    .coursesIntroContainer > .coursesIntroContainerDes > p {
+      font-size: 14.5px;
+      color: #616d76;
+      margin-top: 25px;
+    }
+    .coursesIntroContainer > .coursesIntroContainerPic {
+      height: 270px;
+    }
+  }
+  
+  @media screen and (max-width: 749px) {
+  
+    .coursesIntroContainer {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .coursesIntroContainer > .coursesIntroContainerDes {
+      width: 100%;
+      order: 2;
+    }
+    .coursesIntroContainer > .coursesIntroContainerDes > h2 {
+      text-align: center;
+      margin-top: 50px;
+    }
+  
+    .coursesIntroContainer > .coursesIntroContainerDes > hr {
+      margin:auto;
+      margin-top: -5px;
+    }
+  
+    .coursesIntroContainer > .coursesIntroContainerDes > p {
+      text-align: center;
+    }
+    .coursesIntroContainer > .coursesIntroContainerPic {
+      width: 100%;
+      order: 1;
+      height: 285px;
+    }
+  }
+  

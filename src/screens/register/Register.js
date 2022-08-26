@@ -1,5 +1,5 @@
-import { Btn } from "../common/Button/Btn";
-import { Input } from "../common/Input/Input";
+import { Btn } from "../../components/common/Button/Btn";
+import { Input } from "../../components/common/Input/Input";
 
 import "./Register.css";
 

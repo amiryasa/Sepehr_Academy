@@ -1,0 +1,48 @@
+.c21 {
+  width: 285px;
+  margin-bottom: 55px;
+  margin-top: 100px;
+}
+
+.CardIncoursesContainer {
+  display: grid;
+  grid-template-columns: 215px 215px 215px 215px;
+  grid-template-rows: 337px 337px;
+  gap: 35px;
+  margin-top: 50px;
+  margin-bottom: 65px;
+}
+
+@media screen and (max-width: 1262px) {
+  .c21 {
+    font-size: 18px;
+    width: 210px;
+    border-right: 3.5px solid #fdea00;
+    margin-bottom: 45px;
+    margin-top: 70px;
+  }
+
+  .CardIncoursesContainer {
+    display: grid;
+    grid-template-columns: 136px 136px 136px 136px;
+    grid-template-rows: 234px 234px;
+    gap: 18.5px;
+    margin-top: 50px;
+    margin-bottom: 65px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .c21 {
+    margin-bottom: 30px;
+  }
+
+  .CardIncoursesContainer {
+    display: grid;
+    grid-template-columns: 136px 136px;
+    grid-template-rows: 234px 234px 234px 234px;
+    gap: 32px;
+    margin-top: 50px;
+    margin-bottom: 65px;
+  }
+}

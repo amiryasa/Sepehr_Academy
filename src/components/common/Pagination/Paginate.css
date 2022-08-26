@@ -1,0 +1,12 @@
+.paginationHolder{
+    justify-content: center;
+    direction: ltr;
+}
+
+.paginationHolder > ul > li > button {
+    min-width: 26px;
+    height:26px;
+}
+
+
+
