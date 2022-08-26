@@ -14,6 +14,7 @@ import { Login } from '../screens/login/Login';
 
 import "./App.css";
 import "./../assets/fonts/fonts.css";
+import { CourseDetail } from '../screens/courseDetail';
 
 
 
@@ -33,7 +34,9 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Login />
+          <Header />
+          <CourseDetail />
+          <Footer />
         </div>
       </ThemeProvider>
     </CacheProvider>
