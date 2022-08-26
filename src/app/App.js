@@ -10,14 +10,11 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { Home } from "../screens/home/Home";
 import { Header } from "./../components/Header";
 import { Footer } from './../components/Footer';
+import { Login } from '../screens/login/Login';
 
 import "./App.css";
 import "./../assets/fonts/fonts.css";
-import { Login } from '../screens/login/Login';
-import { Register } from '../screens/register/Register';
-import { ForgotPass } from '../screens/forgotPass/ForgotPass';
-import { News } from '../screens/news/News';
-import { Courses } from '../screens/courses/Courses';
+
 
 
 function App() {
@@ -36,9 +33,7 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Header />
-          <Courses />
-          <Footer />
+          <Login />
         </div>
       </ThemeProvider>
     </CacheProvider>

@@ -1,0 +1,226 @@
+@import "../../global.scss";
+
+.comments {
+    margin-top: 3rem !important;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    margin: auto;
+
+    @media screen and (max-width:1262px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 60rem) {
+        width: 70%;
+    }
+
+    @media screen and (max-width: 749px) {
+        width: 100%;
+    }
+
+    p {
+        font-size: 25px;
+        font-family: bakh;
+        color: $title;
+        border-right: 5px solid #FDEA00;
+        width: 166px;
+        height: 30px;
+        text-align: center;
+
+        @media (max-width: 749px) {
+            font-size: 20px;
+            width: 120px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .addNewComment {
+        margin-top: 2rem !important;
+        width: 100%;
+        margin: auto;
+
+        .MuiCard-root {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            margin: auto;
+
+            @media screen and (max-width: 60rem) {
+                width: 100%;
+            }
+
+            span {
+                padding: 1rem;
+                font-size: 20px;
+
+                @media screen and (max-width: 1262px) {
+                    font-size: 20px;
+                }
+            }
+
+            .TextComment {
+                padding: 1rem;
+
+                .MuiTextField-root {
+                    width: 100%;
+
+                    .MuiInputLabel-shrink {
+                        font-size: 25px;
+                    }
+
+                }
+            }
+
+            .MuiButton-contained {
+                width: 30%;
+                font-family: bakh;
+                align-self: center;
+                margin-bottom: 1rem;
+                margin-top: 2rem;
+
+                @media screen and (max-width: 1262px) {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+
+    .showComments {
+        width: 70%;
+        margin: auto;
+        margin-top: 2rem;
+
+        @media screen and (max-width: 60rem) {
+            width: 100%;
+        }
+
+        .firstComment {
+            display: flex;
+            margin-top: 1rem;
+
+            .MuiCard-root {
+                padding-top: 0.5rem;
+                padding-right: 0.5rem;
+                width: 100%;
+                margin-right: 1rem;
+
+                header {
+                    display: flex;
+                    color: #979797;
+                    justify-content: space-between;
+
+                    @media screen and (max-width: 749px) {
+                        font-size: 12px;
+                    }
+
+                    .name-date {
+                        display: flex;
+                        height: fit-content;
+
+                        .MuiDivider-root {
+                            padding-right: 0.5rem;
+
+                        }
+
+                        div:nth-child(3) {
+                            margin-right: 0.5rem;
+
+                        }
+                    }
+
+                    .action {
+                        width: 114px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        margin-left: 0.5rem;
+                    }
+                }
+
+                .textOfComment {
+                    padding: 0.5rem;
+
+                    @media screen and (max-width: 749px) {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .replyComment {
+            margin-top: 1rem;
+            width: 87%;
+            margin-right: auto;
+
+            @media screen and (max-width: 749px) {
+                width: 80% !important;
+            }
+
+
+            @media screen and (max-width: 1262px) {
+                width: 85%;
+            }
+
+            .MuiCard-root {
+                display: flex;
+            }
+
+            .avatar {
+                padding: 0.5rem;
+
+            }
+
+            .action-textComment {
+                width: 89%;
+                padding-top: 0.5rem;
+
+                header {
+                    display: flex;
+                    color: #979797;
+                    justify-content: space-between;
+
+                    @media screen and (max-width: 749px) {
+                        font-size: 12px;
+                    }
+
+                    .name-date {
+                        display: flex;
+                        height: fit-content;
+
+                        .MuiDivider-root {
+                            padding-right: 0.5rem;
+
+                        }
+
+                        div:nth-child(3) {
+                            margin-right: 0.5rem;
+
+                        }
+                    }
+
+                    .action {
+                        width: 114px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        margin-left: 0.5rem;
+                    }
+                }
+
+                .textOfComment {
+                    padding: 0.5rem;
+
+                    @media screen and (max-width: 749px) {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+        }
+    }
+}
