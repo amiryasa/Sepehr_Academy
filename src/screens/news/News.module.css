@@ -1,0 +1,21 @@
+.newsContainer{
+    width: 965px;
+    height:100%;
+    margin: auto;
+}
+
+@media screen and (max-width:1262px){
+
+    .newsContainer{
+        width: 600px;
+    }
+
+}
+
+@media screen and (max-width:749px){
+
+    .newsContainer{
+        width: 304px;
+    }
+
+}

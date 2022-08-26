@@ -1,0 +1,21 @@
+.coursesContainer{
+    width: 965px;
+    height:100%;
+    margin: auto;
+}
+
+@media screen and (max-width:1262px){
+
+    .coursesContainer{
+        width: 600px;
+    }
+
+}
+
+@media screen and (max-width:749px){
+
+    .coursesContainer{
+        width: 304px;
+    }
+
+}
