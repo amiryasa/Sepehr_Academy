@@ -1,9 +1,9 @@
 import './index.scss';
 
-const CourseDeatial = (props) => {
+const DetailNews = (props) => {
     return (
-        <div className='descriptionCourse'>
-            <p>توضیحات دوره</p>
+        <div className='descriptionNews'>
+            <p>توضیحات مقاله</p>
             <div>
                 <header>{props.deatils[0].name} چیست</header>
                 <span>{props.deatils[0].describe}</span>
@@ -20,4 +20,4 @@ const CourseDeatial = (props) => {
     );
 }
 
-export { CourseDeatial }
+export { DetailNews }

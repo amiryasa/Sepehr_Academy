@@ -15,6 +15,7 @@ import { Login } from '../screens/login/Login';
 import "./App.css";
 import "./../assets/fonts/fonts.css";
 import { CourseDetail } from '../screens/courseDetail';
+import { NewsDetail } from '../screens/newsDetail';
 
 
 
@@ -35,7 +36,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Header />
-          <CourseDetail />
+          <NewsDetail />
           <Footer />
         </div>
       </ThemeProvider>

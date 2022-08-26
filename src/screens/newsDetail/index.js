@@ -1,10 +1,8 @@
-import { DetailCourse } from '../../components/SingleCourse/DeatilsCourse'
-import { Comments } from '../../components/Comments'
-import { CourseDetailClass } from '../../components/SingleCourse/CourseDetailClass'
+import { Comments } from "../../components/Comments"
+import { DetailNews } from "../../components/SingleNews/DetailNews"
+import { NewsDetailClass } from "../../components/SingleNews/NewsDetailClass"
 
-
-const CourseDetail = () => {
-
+const NewsDetail = () => {
     const deatils = [{
         name: 'ری اکت',
         describe: 'یک کتابخانه جاوا اسکریپتی است که برای ساخت یوزر اینترفیس یا همان رابط کاربری مورد استقاده قرار میگیرد. همه ی این المانهای در این React صفحه کنارهم برای ما رابط کاربری را تشکیل میدهند. (یوزر اینترفیس (رابط کاربری) چیزیکه با کاربر در ارتباط است).کاربرد ری اکت این است که یوزر این قابلیت را دارد که برای ما یوزر اینترفیس ها React اینترفیس را برای ما با یک سری ویژگی های خاص میسازد.یکی از مهم ترین ویژگی ها این است که یا رابط های کاربری را با سرعت بالا بسازد. مسلما سرعت بالای هر وبسایت می تواند در جذب کاربر تاثیر داشته باشد. پس تا به اینجا همان طور که گفتم ری اکت یک کتابخانه جاوا اسکریپتی برای ساخت رابط کاربری با سرعت بالاست. اینستاگرام به تنهایی میتواند یک وزنه ی سنگین برای معرفی ری اکت نیوتیو باشد که از این کتابخانه استفاده میکند.'
@@ -42,14 +40,11 @@ const CourseDetail = () => {
         describe: 'توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ',
     },
     ]
-
-    return (
-        <>
-            <CourseDetailClass />
-            <DetailCourse deatils={deatils} />
-            <Comments comments={comments} />
-
-        </>
-    );
+    return (<>
+        <NewsDetailClass />
+        <DetailNews deatils={deatils}/>
+        <Comments comments={comments}/>
+    </>)
 }
-export { CourseDetail }
+
+export { NewsDetail }

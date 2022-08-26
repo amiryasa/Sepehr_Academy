@@ -1,10 +1,10 @@
-import teacher from '../../assets/images/Courses/teacher.png'
-import price from '../../assets/images/Courses/price.png'
-import timeStart from '../../assets/images/Courses/timeStart.png'
-import student from '../../assets/images/Courses/student.png'
-import opacity from '../../assets/images/Courses/opacity.png'
-import duringCourse from '../../assets/images/Courses/duringCourse.png'
-import reactSingle from '../../assets/images/Courses/reactSingle.png'
+import teacher from '../../../assets/images/Courses/teacher.png'
+import price from '../../../assets/images/Courses/price.png'
+import timeStart from '../../../assets/images/Courses/timeStart.png'
+import student from '../../../assets/images/Courses/student.png'
+import opacity from '../../../assets/images/Courses/opacity.png'
+import duringCourse from '../../../assets/images/Courses/duringCourse.png'
+import reactSingle from '../../../assets/images/Courses/reactSingle.png'
 import "./index.scss"
 
 const CourseDetailClass = () => {
