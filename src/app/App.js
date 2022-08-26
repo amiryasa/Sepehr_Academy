@@ -16,11 +16,12 @@ import "./../assets/fonts/fonts.css";
 import { Login } from '../components/Login/Login';
 import { Register } from '../components/Register/Register';
 import { ForgotPass } from '../components/ForgotPass/ForgotPass';
+import { CourseDetail } from '../screens/courseDetail';
 
 
 function App() {
   AOS.init();
-  
+
   const theme = createTheme({
     direction: 'rtl',
   });
@@ -34,7 +35,10 @@ function App() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Login />
+          <Header />
+          <CourseDetail />
+          {/* <Home /> */}
+          <Footer />
         </div>
       </ThemeProvider>
     </CacheProvider>
