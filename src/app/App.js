@@ -10,12 +10,11 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { Home } from "../screens/home/Home";
 import { Header } from "./../components/Header";
 import { Footer } from './../components/Footer';
+import { Login } from '../screens/login/Login';
 
 import "./App.css";
 import "./../assets/fonts/fonts.css";
-import { Login } from '../components/Login/Login';
-import { Register } from '../components/Register/Register';
-import { ForgotPass } from '../components/ForgotPass/ForgotPass';
+
 
 
 function App() {
