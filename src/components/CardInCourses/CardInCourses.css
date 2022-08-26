@@ -1,0 +1,72 @@
+
+div.cardIncoursesCardCard{
+    height:337px;
+    box-shadow:0px 3px 8px 1px rgba(0,0,0,.05); 
+    border-radius:10px;
+}
+
+div.cardIncoursesCardCard > .cardIncoursesCardMedia{
+    width: 120px; 
+    padding: 21px 48px;
+}
+
+.cardIncoursesCardCard > .MuiCardContent-root > .cardIncoursesCardTitle{
+    color: #050080;
+    font-size: 21px;
+    font-family: yekan;
+    margin-top:12px;
+}
+
+.cardIncoursesCardCard > .MuiCardContent-root > .cardIncoursesCardTeacher{
+    color: #555555;
+    font-size: 14px;
+    font-family: bakh;
+    margin-bottom: 7px;
+    margin-top: 13px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.cardIncoursesCardCard > .MuiCardContent-root > .cardIncoursesCardCost{
+    color: #EB0000;
+    font-size: 13px;
+    font-family: bakh;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+/* Mobile Responsive */
+
+@media screen and (max-width:1262px){
+
+    div.cardIncoursesCardCard{
+        height:234px;
+    }
+    
+    div.cardIncoursesCardCard > .cardIncoursesCardMedia{
+        width: 78px; 
+        padding: 13px 30px;
+    }
+    
+    .cardIncoursesCardCard > .MuiCardContent-root > .cardIncoursesCardTitle{
+        font-size: 16px;
+        margin-top:2px;
+    }
+    
+    .cardIncoursesCardCard > .MuiCardContent-root > .cardIncoursesCardTeacher{
+        font-size: 10px;
+        margin-top: 12px;
+        margin-right: 0;
+    }
+
+    .cardIncoursesCardCard > .MuiCardContent-root > .cardIncoursesCardCost{
+        font-size: 10px;
+        margin-bottom: 0px;
+        margin-top: 12px;
+        margin-right: 5px;
+    }
+
+}

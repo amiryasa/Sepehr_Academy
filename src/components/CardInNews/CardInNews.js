@@ -40,8 +40,8 @@ const CardInNews = (props) => {
 
           <div className="cardInNewsButton">
             <Btn
-              text="نمایش جزئیات"
-              elementClass="smallBtnCh"
+              text="مشاهده"
+              elementClass="newsBtnCh"
               color={props.btnColor}
               variant="contained"
             />

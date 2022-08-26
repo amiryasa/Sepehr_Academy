@@ -14,6 +14,20 @@ button.smallBtnCh{
     font-family: bakh;
 }
 
+button.newsBtnCh{
+    width:118px;
+    height:32px;
+    font-size: 13px;
+    font-family: bakh;
+}
+
+button.coursesBtnCh{
+    width:118px;
+    height:32px;
+    font-size: 13px;
+    font-family: bakh;
+}
+
 button.mediumBtnCh{
     width:158px;
     height:40px;
@@ -53,11 +67,27 @@ button.largeBtn{
         margin-right: 15px;
     }
 
-
     button.largeBtn{
         width:166px;
         height:24px;
         font-size: 16px;
+    }
+
+    button.newsBtnCh{
+        width:66px;
+        height:18px;
+        font-size: 10px;
+        font-family: bakh;
+        border-radius:2px;
+    }
+
+    button.coursesBtnCh{
+        width:95px;
+        height:26px;
+        font-size: 12px;
+        font-family: bakh;
+        border-radius:2px;
+        margin-top: -9px;
     }
 
 }

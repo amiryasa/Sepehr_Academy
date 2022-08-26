@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
 
-import styles from "./Paginate.module.css";
+import "./Paginate.css";
 
 const Paginate = () => {
   const theme = createTheme({
@@ -18,8 +18,8 @@ const Paginate = () => {
   });
   return (
     <ThemeProvider theme={theme}>
-      <Stack spacing={2} alignItems="center">
-        <Pagination count={5} color="info" showFirstButton showLastButton className={styles.paginationHolder} />
+      <Stack spacing={1} alignItems="center">
+        <Pagination count={10} color="info" boundaryCount={1} siblingCount={0} showFirstButton showLastButton className='paginationHolder' />
       </Stack>
     </ThemeProvider>
   );

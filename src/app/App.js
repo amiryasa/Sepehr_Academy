@@ -17,6 +17,7 @@ import { Login } from '../screens/login/Login';
 import { Register } from '../screens/register/Register';
 import { ForgotPass } from '../screens/forgotPass/ForgotPass';
 import { News } from '../screens/news/News';
+import { Courses } from '../screens/courses/Courses';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Header />
-          <News />
+          <Courses />
           <Footer />
         </div>
       </ThemeProvider>

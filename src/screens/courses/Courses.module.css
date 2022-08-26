@@ -1,4 +1,4 @@
-.newsContainer{
+.coursesContainer{
     width: 965px;
     height:100%;
     margin: auto;
@@ -6,7 +6,7 @@
 
 @media screen and (max-width:1262px){
 
-    .newsContainer{
+    .coursesContainer{
         width: 600px;
     }
 
@@ -14,7 +14,7 @@
 
 @media screen and (max-width:749px){
 
-    .newsContainer{
+    .coursesContainer{
         width: 304px;
     }
 

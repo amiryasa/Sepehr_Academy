@@ -10,7 +10,7 @@ const NewsContainer = () => {
   return (
     <div>
       <div className="homeH2 n21">
-        <h2> لیست تمام دوره‌ها </h2>
+        <h2> لیست تمام اخبار و مقالات </h2>
       </div>
       <NewsFilter />
       <div className="CardInNewsContainer">
@@ -19,7 +19,7 @@ const NewsContainer = () => {
           title={"عنوان مقاله"}
           btnColor="detail"
           description={
-            "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"
+            "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
           }
         />
         <CardInNews
@@ -27,7 +27,7 @@ const NewsContainer = () => {
           title={"عنوان مقاله"}
           btnColor="detail"
           description={
-            "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"
+            "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
           }
         />
         <CardInNews
@@ -35,7 +35,7 @@ const NewsContainer = () => {
           title={"عنوان مقاله"}
           btnColor="detail"
           description={
-            "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"
+            "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
           }
         />
         <CardInNews
@@ -43,7 +43,7 @@ const NewsContainer = () => {
           title={"عنوان مقاله"}
           btnColor="detail"
           description={
-            "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"
+            "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
           }
         />
                 <CardInNews
@@ -51,7 +51,7 @@ const NewsContainer = () => {
           title={"عنوان مقاله"}
           btnColor="detail"
           description={
-            "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"
+            "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
           }
         />
         <CardInNews
@@ -59,7 +59,7 @@ const NewsContainer = () => {
           title={"عنوان مقاله"}
           btnColor="detail"
           description={
-            "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"
+            "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
           }
         />
       </div>
