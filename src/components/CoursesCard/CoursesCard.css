@@ -1,23 +1,24 @@
 
-div.CoursesCardCard{
+div.coursesCardCard{
     height:293px;
     box-shadow:0px 3px 8px 1px rgba(0,0,0,.05); 
     border-radius:10px;
+    position: relative;
 }
 
-div.CoursesCardCard > .CoursesCardMedia{
+div.coursesCardCard > .coursesCardMedia{
     width: 98px; 
     padding: 16px 38px;
 }
 
-.CoursesCardCard > .MuiCardContent-root > .coursesCardTitle{
+.coursesCardCard > .MuiCardContent-root > .coursesCardTitle{
     color: #050080;
     font-size: 21px;
     font-family: yekan;
     margin-top:5px;
 }
 
-.CoursesCardCard > .MuiCardContent-root > .coursesCardTeacher{
+.coursesCardCard > .MuiCardContent-root > .coursesCardTeacher{
     color: #555555;
     font-size: 14px;
     font-family: bakh;
@@ -25,29 +26,67 @@ div.CoursesCardCard > .CoursesCardMedia{
     margin-top: 15px;
 }
 
+.coursesCardCard > .coursesCardRatNumHolder{
+    position:absolute;
+    top:0;
+    width: 171px;
+    display:flex;
+    justify-content: space-between;
+    font-family: monb;
+    font-size: 13px;
+    color: #656565;
+    padding-top: 3px;
+    text-align: center;
+}
+
+
+.coursesCardCard > .coursesCardRatNumHolder > div{
+    display: inline-block;
+    width:30px;
+    height:30px;
+    line-height:75px;
+}
+
+.coursesCardCard > .coursesCardRatNumHolder > .coursesCardRate{
+    background: url('./../../assets/images/CoursesCard/star.png');
+    background-size:20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.coursesCardCard > .coursesCardRatNumHolder > .coursesCardNum{
+    background: url('./../../assets/images/CoursesCard/man.png');
+    background-size:20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 /* Mobile Responsive */
 
 @media screen and (max-width:749px){
 
-    div.CoursesCardCard{
+    div.coursesCardCard{
         height:234px;
     }
     
-    div.CoursesCardCard > .CoursesCardMedia{
+    div.coursesCardCard > .coursesCardMedia{
         width: 78px; 
         padding: 13px 30px;
     }
     
-    .CoursesCardCard > .MuiCardContent-root > .coursesCardTitle{
+    .coursesCardCard > .MuiCardContent-root > .coursesCardTitle{
         font-size: 16px;
         margin-top:4px;
     }
     
-    .CoursesCardCard > .MuiCardContent-root > .coursesCardTeacher{
+    .coursesCardCard > .MuiCardContent-root > .coursesCardTeacher{
         font-size: 13px;
         margin-bottom: -3px;
         margin-top: 12px;
+    }
+
+    .coursesCardCard > .coursesCardRatNumHolder{
+        width: 140px;
     }
 
 }

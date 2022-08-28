@@ -30,6 +30,9 @@ const NewsCard = (props) => {
           <Typography variant="subtitle1" color="text.secondary" component="div" className="newsCardDescription">
           {props.description}
           </Typography>
+          <Typography component="div" variant="h7" className="newsCardDate">
+            25 اردیبهشت 1401
+          </Typography>
         </CardContent>
       </Box>
     </Card>

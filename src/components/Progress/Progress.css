@@ -1,0 +1,35 @@
+#cir02 {
+  stroke-width: 20;
+  stroke-dasharray: 1562.31;
+  fill: #F6FBFF;
+  cursor: pointer;
+}
+
+#svg_2 {
+  cursor: pointer;
+}
+
+svg.progressBar {
+  position: absolute;
+  top: 510px;
+  right: 18px;
+  position: fixed;
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0;
+
+}
+
+@media screen and (max-width: 1262px) {
+  svg.progressBar {
+    top: 368px;
+    right: 0px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+    svg.progressBar {
+      top: 325px;
+      right: -2px;
+    }
+  }

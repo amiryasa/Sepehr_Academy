@@ -20,6 +20,8 @@ const HomeCources = () => {
             btnColor="detail"
             title={"React native"}
             teacher={"محمد بحرالعلوم"}
+            numberOfStudent='10'
+            rateOfCourses='4.3'
           />
         </div>
         <div data-aos="fade-left" data-aos-delay="1000" data-aos-duration="800">
@@ -29,6 +31,8 @@ const HomeCources = () => {
             btnColor="detail"
             title={"React native"}
             teacher={"محمد بحرالعلوم"}
+            numberOfStudent='10'
+            rateOfCourses='4.3'
           />
         </div>
         <div data-aos="fade-left" data-aos-delay="1500" data-aos-duration="800">
@@ -38,6 +42,8 @@ const HomeCources = () => {
             btnColor="detail"
             title={"React native"}
             teacher={"محمد بحرالعلوم"}
+            numberOfStudent='10'
+            rateOfCourses='4.3'
           />
         </div>
         <div
@@ -52,6 +58,8 @@ const HomeCources = () => {
             btnColor="detail"
             title={"React native"}
             teacher={"محمد بحرالعلوم"}
+            numberOfStudent='10'
+            rateOfCourses='4.3'
           />
         </div>
       </div>

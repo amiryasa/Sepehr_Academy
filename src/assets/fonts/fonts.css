@@ -18,3 +18,8 @@
     font-family: gabriola;
     src: url(./gabriola\ Font\ Download.ttf);
 }
+
+@font-face {
+    font-family: monb;
+    src: url(./monbaiti.ttf);
+}
