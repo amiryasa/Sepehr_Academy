@@ -10,6 +10,8 @@ const Footer = () => {
         navigator.clipboard.writeText("09111231234");
     }
 
+
+
     return(
         <div className="FooterHolder">
 

@@ -1,45 +1,59 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
 
-import { Btn } from '../common/Button/Btn';
+import { Btn } from "../common/Button/Btn";
 
-import "./CoursesCard.css"
+import "./CoursesCard.css";
 
 const CoursesCard = (props) => {
-
   return (
-    <Card sx={{ maxWidth: 345 }} className='CoursesCardCard'>
+    <Card sx={{ maxWidth: 345 }} className="coursesCardCard">
       <CardMedia
-        className='CoursesCardMedia'
+        className="coursesCardMedia"
         component="img"
         image={props.image}
-        style={{backgroundColor:`${props.bgColor}`}}
-        
+        style={{ backgroundColor: `${props.bgColor}` }}
       />
+      <div className="coursesCardRatNumHolder"> 
+
+      <div className="coursesCardRate"> 3.4 </div>
+      <div className="coursesCardNum"> 10 </div>
+
+      </div>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div" align="center" className="coursesCardTitle">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          align="center"
+          className="coursesCardTitle"
+        >
           {props.title}
         </Typography>
-        <Typography gutterBottom variant="h5" component="div" align="center" className="coursesCardTeacher">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          align="center"
+          className="coursesCardTeacher"
+        >
           {props.teacher}
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
-
-        <Btn 
-          text='نمایش جزئیات'
-          elementClass='smallBtnCh'
+        <Btn
+          text="نمایش جزئیات"
+          elementClass="smallBtnCh"
           color={props.btnColor}
           variant="contained"
         />
-      
       </CardActions>
     </Card>
   );
-}
+};
 
-export {CoursesCard};
+export { CoursesCard };
