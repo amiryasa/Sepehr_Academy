@@ -3,6 +3,7 @@ import student from '../../../assets/images/Courses/student.png'
 import opacity from '../../../assets/images/Courses/opacity.png'
 import reactSingle from '../../../assets/images/Courses/reactSingle.png'
 import "./index.scss"
+import * as fa from '../../../constants/persianStrings';
 
 const NewsDetailClass = () => {
     return (<div className='aboutNews'>
@@ -16,13 +17,13 @@ const NewsDetailClass = () => {
                 </div>
                 <div className='opacity'>
                     <img src={opacity} />
-                    <span>ظرفیت دوره:
+                    <span> {fa.OPACITY_COURSE}
                         <span>40 نفر</span>
                     </span>
                 </div>
                 <div className=' numberStudent'>
                     <img src={student} />
-                    <span>دانشجویان دوره:
+                    <span>{fa.NUMBER_STUDENT}
                         <span>23 نفر</span>
                     </span>
                 </div>

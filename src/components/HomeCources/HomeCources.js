@@ -5,6 +5,7 @@ import './HomeCources.css';
 import cour01 from './../../assets/images/Courses/native.png';
 import cour02 from './../../assets/images/Courses/html.png';
 import cour03 from './../../assets/images/Courses/react.png';
+import * as fa from '../../constants/persianStrings'
 
 const HomeCources = () => {
   return (
@@ -64,7 +65,7 @@ const HomeCources = () => {
         </div>
       </div>
 
-      <p className="homeMore"> لیست کامل دوره‌ها ...</p>
+      <p className="homeMore"> {fa.MORE_COURSE} </p>
     </>
   );
 };

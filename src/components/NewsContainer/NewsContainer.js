@@ -3,14 +3,14 @@ import { Paginate } from "../common/Pagination/Paginate";
 import { NewsFilter } from "../NewsFilter/NewsFilter";
 import { NewsIntro } from "../NewsIntro/NewsIntro";
 import "./NewsContainer.css";
-
+import * as fa from '../../constants/persianStrings'
 import news01 from "./../../assets/images/News/news01.png";
 
 const NewsContainer = () => {
   return (
     <div>
       <div className="homeH2 n21">
-        <h2> لیست تمام اخبار و مقالات </h2>
+        <h2> {fa.TITLE_NEWS} </h2>
       </div>
       <NewsFilter />
       <div className="CardInNewsContainer">
@@ -46,7 +46,7 @@ const NewsContainer = () => {
             "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
           }
         />
-                <CardInNews
+        <CardInNews
           image={news01}
           title={"عنوان مقاله"}
           btnColor="detail"
