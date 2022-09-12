@@ -1,0 +1,405 @@
+.studentPanelContainer{
+  display: flex;
+  background-color: #F7FDFF;
+  overflow: hidden;
+}
+
+.sidebarContainer {
+  width: 196px;
+  height: 609px;
+  background: #f7fdff;
+}
+
+.sidebarContainer > .sidebarContainerLogo {
+  height: 25px;
+  background: url("./../../assets/images/StudentPanel/logo.png");
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: right;
+  font-size: 20px;
+  font-family: arshia;
+  color: #1762bc;
+  margin-right: 33px;
+  padding: 30px 30px 30px 0;
+  letter-spacing: 0.3px;
+}
+
+.sidebarContainer > .sidebarContainerLogo > p{
+  margin-top: 0px;
+}
+
+.sidebarContainer > .sidebarContainerInfo {
+  width: 100%;
+  text-align: center;
+  font-family: gabriola;
+  margin-top: 25px;
+}
+
+.sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoPicture {
+  width: 75px;
+  height: 75px;
+  background: url("./../../assets/images/StudentPanel/profile.jpg");
+  background-size: 75px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin: auto;
+  border: 1.5px solid #00aa1c;
+}
+
+.sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoPicture > .sidebarContainerInfoPictureIcon{
+  width: 25px;
+  height: 25px;
+  background: url("./../../assets/images/StudentPanel/pic.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  background-color: #00707F;
+  cursor: pointer;
+
+
+  position: relative;
+  top:49px;
+  right: -6px;
+}
+
+.sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoUser {
+  color: #414141;
+  font-size: 22px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoRole {
+  color: #909090;
+  font-size: 18px;
+  margin-top: -13px;
+}
+
+.sidebarContainer > .sidebarContainerItemContainer {
+  margin-top: 41px;
+}
+
+.sidebarContainer > .sidebarContainerItemContainer > div {
+  transition: 0.3s;
+  width: 108px;
+  height: 35px;
+
+  margin: auto;
+  margin-bottom: 5px;
+  line-height: 35px;
+  font-size: 15px;
+  color: #686868;
+  border-radius: 5px;
+  padding-right: 42px;
+  cursor: pointer;
+}
+
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(1):hover {
+    background-color: #E8F9FF;
+}
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(1) {
+  background: url("./../../assets/images/StudentPanel/menu.png");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 118px;
+  background-color: #def6ff;
+}
+
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(2):hover {
+    background-color: #E8F9FF;
+}
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(2) {
+  background: url("./../../assets/images/StudentPanel/user.png");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 118px;
+}
+
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(3):hover {
+    background-color: #E8F9FF;
+}
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(3) {
+  background: url("./../../assets/images/StudentPanel/archive.png");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 118px;
+}
+
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(4):hover {
+    background-color: #E8F9FF;
+}
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(4) {
+  background: url("./../../assets/images/StudentPanel/book.png");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 118px;
+}
+
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(5):hover {
+    background-color: #E8F9FF;
+}
+.sidebarContainer > .sidebarContainerItemContainer > div:nth-child(5) {
+  background: url("./../../assets/images/StudentPanel/lock.png");
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 118px;
+}
+
+.sidebarContainer > .sidebarContainerExit {
+  font-size: 14px;
+  color: #8b8b8b;
+  width: 30px;
+  padding-right: 26px;
+  margin: auto;
+  background: url("./../../assets/images/StudentPanel/exit.png");
+  background-size: 21px;
+  background-repeat: no-repeat;
+  background-position: 35px -0px;
+  margin-top: 51px;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width:1262px){
+
+  .sidebarContainer {
+    width: 120px;
+    height: 609px;
+    padding: 0 10px;
+  }
+
+  .sidebarContainer > .sidebarContainerLogo {
+    background-position: center;
+    margin-right: 0px;
+    padding: 30px 0px 30px 0;
+  }
+  
+  .sidebarContainer > .sidebarContainerLogo > p{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 28px
+  }
+
+  .sidebarContainer > .sidebarContainerInfo {
+    margin-top: 50px;
+  }
+
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoPicture {
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+    border: 1.5px solid #00aa1c;
+  }
+
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoPicture > .sidebarContainerInfoPictureIcon{
+    width: 18px;
+    height: 18px;
+    background-size: 11px;
+    border-radius: 50%;
+  
+    position: relative;
+    top:30px;
+    right: -5px;
+  }
+
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoUser {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoRole {
+    font-size: 14px;
+    margin-top: -13px;
+  }
+
+  .sidebarContainer > .sidebarContainerItemContainer {
+    /* important to focus */
+    margin-top: 75px;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div {
+    width: 93px;
+    height: 27px;
+  
+    margin-bottom: 4px;
+    line-height: 27px;
+    font-size: 13px;
+    border-radius: 4px;
+    padding-right: 27px;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(1) {
+    background-size: 13px;
+    background-position: 98px;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(2) {
+    background-size: 13px;
+    background-position: 98px;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(3) {
+    background-size: 13px;
+    background-position: 98px;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(4) {
+    background-size: 13px;
+    background-position: 98px;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(5) {
+    background-size: 13px;
+    background-position: 98px;
+  }
+
+  /**/
+
+  .sidebarContainer > .sidebarContainerExit {
+    font-size: 12px;
+    width: 25px;
+    padding-right: 20px;
+    background-size: 16px;
+    background-position: 30px 0px;
+
+    margin-top: 75px;
+  }
+
+}
+
+
+
+
+
+
+@media screen and (max-width:749px){
+
+  .sidebarContainer {
+    width: 30px;
+    height: 609px;
+    padding: 0 5px;
+    position: relative;
+  }
+
+  .sidebarContainer > .sidebarContainerLogo {
+    background-position: center;
+    margin-right: 0px;
+    padding: 30px 0px 30px 0;
+  }
+
+  /**/
+  .sidebarContainer > .sidebarContainerLogo > p{
+    display:none;
+  }
+
+  .sidebarContainer > .sidebarContainerInfo {
+    width: 300px;
+    height: 85px;
+    background-color: white;
+    position: absolute;
+    top:25px;
+    right: 70px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    margin-top: 0px;
+  }
+
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoPicture {
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+    border: 1.5px solid #00aa1c;
+    float: right;
+    margin-right: 25px;
+    margin-top: 15px;
+  }
+
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoPicture > .sidebarContainerInfoPictureIcon{
+    width: 18px;
+    height: 18px;
+    background-size: 11px;
+    border-radius: 50%;
+  
+    position: relative;
+    top:30px;
+    right: -5px;
+  }
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoUser {
+      text-align: right;
+      padding-top: 20px;
+      padding-right:90px;
+    }
+
+
+  .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoRole {
+    text-align: right;
+    padding-right:90px;
+  }
+
+  .sidebarContainer > .sidebarContainerItemContainer {
+    /* important to focus */
+    margin-top: 20px;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div {
+    width: 30px;
+    height: 30px;
+  
+    margin-bottom: 3px;
+    font-size: 0px;
+    padding-right: 0px;
+  }
+
+
+
+
+
+
+
+  /**/
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(1) {
+    background-size: 15px;
+    background-position: center;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(2) {
+    background-size: 15px;
+    background-position: center;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(3) {
+    background-size: 15px;
+    background-position: center;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(4) {
+    background-size: 15px;
+    background-position: center;
+  }
+  
+  .sidebarContainer > .sidebarContainerItemContainer > div:nth-child(5) {
+    background-size: 15px;
+    background-position: center;
+  }
+
+
+
+
+
+
+
+  /**/
+
+  .sidebarContainer > .sidebarContainerExit {
+    font-size: 0px;
+    width: 25px;
+    height: 25px;
+    padding-right: 0px;
+    background-size: 16px;
+    background-position: center;
+
+    margin-top: 35px;
+  }
+
+}

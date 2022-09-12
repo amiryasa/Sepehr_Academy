@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { CoursesCard } from "../CoursesCard/CoursesCard";
 
 import './HomeCources.css';
@@ -7,6 +9,9 @@ import cour02 from './../../assets/images/Courses/html.png';
 import cour03 from './../../assets/images/Courses/react.png';
 
 const HomeCources = () => {
+
+    const navigator = useNavigate();
+
   return (
     <>
       <div className="homeH2 h23" data-aos="fade-up" data-aos-duration="1000">
@@ -64,7 +69,7 @@ const HomeCources = () => {
         </div>
       </div>
 
-      <p className="homeMore"> لیست کامل دوره‌ها ...</p>
+      <p className="homeMore" onClick={() => navigator('/courses')}> لیست کامل دوره‌ها ...</p>
     </>
   );
 };

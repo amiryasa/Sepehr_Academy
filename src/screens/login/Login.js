@@ -1,10 +1,16 @@
+import { useNavigate } from 'react-router-dom';
+
 import { Checkbox } from "@mui/material";
+
 import { Btn } from "./../../components/common/Button/Btn";
 import { Input } from "./../../components/common/Input/Input";
 
 import "./Login.css";
 
 const Login = () => {
+
+  const navigator = useNavigate();
+
   const checkboxChangeHandler = () => {};
 
   return (
@@ -12,16 +18,10 @@ const Login = () => {
       <div className="loginInputHolder">
         <p> ورود کاربر </p>
         <div className="loginInputHolderReall">
-          <Input
-            title="ایمیل کاربر"
-            className="enterInputBig"
-          />
-          <Input
-            title="رمز عبور"
-            className="enterInputBig"
-          />
+          <Input title="ایمیل کاربر" className="enterInputBig" />
+          <Input title="رمز عبور" className="enterInputBig" />
         </div>
-        <p className="loginInputHolderForP"> رمز عبورم را فراموش کرده‌ام! </p>
+        <p className="loginInputHolderForP" onClick={() => navigator('/forgotPass')}> رمز عبورم را فراموش کرده‌ام! </p>
 
         <div className="loginInputHolderRemainder">
           <Checkbox
@@ -48,6 +48,7 @@ const Login = () => {
             elementClass="mediumBtnCh2"
             variant="outlined"
             borderColor="#00ADEF"
+            click="/register"
           />
         </div>
       </div>

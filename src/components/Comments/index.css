@@ -1,0 +1,206 @@
+.comments {
+  margin-top: 3rem !important;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  margin: auto;
+}
+@media screen and (max-width: 1262px) {
+  .comments {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 60rem) {
+  .comments {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 749px) {
+  .comments {
+    width: 100%;
+  }
+}
+.comments p {
+  font-size: 25px;
+  font-family: bakh;
+  color: #043D72;
+  border-right: 5px solid #FDEA00;
+  width: 166px;
+  height: 30px;
+  text-align: center;
+}
+@media (max-width: 749px) {
+  .comments p {
+    font-size: 20px;
+    width: 120px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+.comments .addNewComment {
+  margin-top: 2rem !important;
+  width: 100%;
+  margin: auto;
+}
+.comments .addNewComment .MuiCard-root {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+}
+@media screen and (max-width: 60rem) {
+  .comments .addNewComment .MuiCard-root {
+    width: 100%;
+  }
+}
+.comments .addNewComment .MuiCard-root span {
+  padding: 1rem;
+  font-size: 20px;
+}
+@media screen and (max-width: 1262px) {
+  .comments .addNewComment .MuiCard-root span {
+    font-size: 20px;
+  }
+}
+.comments .addNewComment .MuiCard-root .TextComment {
+  padding: 1rem;
+}
+.comments .addNewComment .MuiCard-root .TextComment .MuiTextField-root {
+  width: 100%;
+}
+.comments .addNewComment .MuiCard-root .TextComment .MuiTextField-root .MuiInputLabel-shrink {
+  font-size: 25px;
+}
+.comments .addNewComment .MuiCard-root .MuiButton-contained {
+  width: 30%;
+  font-family: bakh;
+  align-self: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 1262px) {
+  .comments .addNewComment .MuiCard-root .MuiButton-contained {
+    margin-top: 1rem;
+  }
+}
+.comments .showComments {
+  width: 70%;
+  margin: auto;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 60rem) {
+  .comments .showComments {
+    width: 100%;
+  }
+}
+.comments .showComments .firstComment {
+  display: flex;
+  margin-top: 1rem;
+}
+.comments .showComments .firstComment .MuiCard-root {
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  width: 100%;
+  margin-right: 1rem;
+}
+.comments .showComments .firstComment .MuiCard-root header {
+  display: flex;
+  color: #979797;
+  justify-content: space-between;
+}
+@media screen and (max-width: 749px) {
+  .comments .showComments .firstComment .MuiCard-root header {
+    font-size: 12px;
+  }
+}
+.comments .showComments .firstComment .MuiCard-root header .name-date {
+  display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.comments .showComments .firstComment .MuiCard-root header .name-date .MuiDivider-root {
+  padding-right: 0.5rem;
+}
+.comments .showComments .firstComment .MuiCard-root header .name-date div:nth-child(3) {
+  margin-right: 0.5rem;
+}
+.comments .showComments .firstComment .MuiCard-root header .action {
+  width: 114px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.comments .showComments .firstComment .MuiCard-root .textOfComment {
+  padding: 0.5rem;
+}
+@media screen and (max-width: 749px) {
+  .comments .showComments .firstComment .MuiCard-root .textOfComment {
+    font-size: 12px;
+  }
+}
+.comments .showComments .replyComment {
+  margin-top: 1rem;
+  width: 87%;
+  margin-right: auto;
+}
+@media screen and (max-width: 749px) {
+  .comments .showComments .replyComment {
+    width: 80% !important;
+  }
+}
+@media screen and (max-width: 1262px) {
+  .comments .showComments .replyComment {
+    width: 85%;
+  }
+}
+.comments .showComments .replyComment .MuiCard-root {
+  display: flex;
+}
+.comments .showComments .replyComment .avatar {
+  padding: 0.5rem;
+}
+.comments .showComments .replyComment .action-textComment {
+  width: 89%;
+  padding-top: 0.5rem;
+}
+.comments .showComments .replyComment .action-textComment header {
+  display: flex;
+  color: #979797;
+  justify-content: space-between;
+}
+@media screen and (max-width: 749px) {
+  .comments .showComments .replyComment .action-textComment header {
+    font-size: 12px;
+  }
+}
+.comments .showComments .replyComment .action-textComment header .name-date {
+  display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.comments .showComments .replyComment .action-textComment header .name-date .MuiDivider-root {
+  padding-right: 0.5rem;
+}
+.comments .showComments .replyComment .action-textComment header .name-date div:nth-child(3) {
+  margin-right: 0.5rem;
+}
+.comments .showComments .replyComment .action-textComment header .action {
+  width: 114px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.comments .showComments .replyComment .action-textComment .textOfComment {
+  padding: 0.5rem;
+}
+@media screen and (max-width: 749px) {
+  .comments .showComments .replyComment .action-textComment .textOfComment {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=index.css.map */
