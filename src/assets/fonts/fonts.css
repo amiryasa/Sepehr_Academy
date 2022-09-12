@@ -23,3 +23,8 @@
     font-family: monb;
     src: url(./monbaiti.ttf);
 }
+
+@font-face {
+    font-family: saye;
+    src: url(./Mj_Sayeh-1_0.TTF);
+}

@@ -36,6 +36,7 @@
     color: #00ADEF;
     margin-right: 36px;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .loginHolder > .loginInputHolder > .loginInputHolderRemainder{

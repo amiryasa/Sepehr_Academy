@@ -11,8 +11,54 @@ ul{
     background-size: 715px 568px;
     background-repeat: no-repeat;
     background-position: 550px 0px;
-    margin-top:150px;
+    margin-top: 150px;
 }
+
+.FooterHolder > .footerWeblog{
+    padding-top: 7px;
+    width: 633px;
+    height: 57px;   
+    text-align:center;
+    margin: auto;
+    padding-top: 90px;
+}
+
+
+.FooterHolder > .footerWeblog > input{
+    width: 466px;
+    height: 55px;
+    background-color: transparent;
+    border: 0px solid;
+    border-radius:29px 0 0 29px;    
+    box-shadow:0px 0px 10px 1px rgba(0,0,0,.1); 
+    padding-right: 20px;
+    margin-right: 154px;
+    outline: none;
+    font-family: bakh;
+    font-size: 16px;
+    background: white;
+}
+
+.FooterHolder > .footerWeblog > .footerWeblogMainButton:hover{
+    background-color: #06D152;
+}
+
+.FooterHolder > .footerWeblog > .footerWeblogMainButton{
+    transition: .3s;
+    font-size: 21px;
+    font-family: bakh;
+    color: #ffffff;
+    width: 155px;
+    height: 57px;
+    border-radius: 0 29px 29px 0;
+    background-color: #04A641;
+    text-align: center;
+    line-height: 57px;
+    margin-top: -57px;
+    box-shadow:0px 0px 10px 1px rgba(0,0,0,.1); 
+    cursor: pointer;
+}
+
 
 .FooterHolder > .footerContact{
     direction: ltr;
@@ -20,7 +66,7 @@ ul{
     font-family: gabriola;
     color: #2D527C;
     margin-left: 265px;
-    padding-top: 270px;
+    padding-top: 120px;
 }
 
 .FooterHolder > .footerContact > p{
@@ -128,7 +174,7 @@ ul{
     .FooterHolder > .footerContact{
         font-size: 18px;
         margin-left: 95px;
-        padding-top: 167px;
+        padding-top: 65px;
     }
     
     .FooterHolder > .footerContact > p:nth-child(1){
@@ -198,6 +244,30 @@ ul{
         color: #636363;
     }
 
+    .FooterHolder > .footerWeblog{
+        width: 418px;
+        height: 37px;   
+        padding-top: 65px;
+    }
+    
+    
+    .FooterHolder > .footerWeblog > input{
+        width: 301px;
+        height: 35px;  
+        padding-right: 15px;
+        margin-right: 102px;
+        font-size: 12px;
+        box-shadow:0px 0px 8px 1px rgba(0,0,0,.06);
+    }
+    
+    .FooterHolder > .footerWeblog > .footerWeblogMainButton{
+        font-size: 14px;
+        width: 102px;
+        height: 37px;
+        line-height: 37px;
+        margin-top: -37px;
+    }
+
 }
 
 @media screen and (max-width:749px){
@@ -212,14 +282,14 @@ ul{
     
     .FooterHolder > .footerContact{
         margin-left: 55px;
-        padding-top: 77px;
+        padding-top: 20px;
         float:left;
     }
     
     .FooterHolder > .footerSocial{
         margin-top: 0px;
         float:none;
-        padding-top: 143px;
+        padding-top: 86px;
         margin-right: 0px;
     }
     
@@ -268,6 +338,32 @@ ul{
         padding-right: 100px;
         font-size: 12px;
         color: #4d4d4d;
+    }
+
+    .FooterHolder > .footerWeblog{
+        width: 305px;
+        height: 29px;   
+        padding-top: 20px;
+    }
+    
+    
+    .FooterHolder > .footerWeblog > input{
+        width: 216px;
+        height: 27px;  
+        padding-right: 10px;
+        margin-right: 50px;
+        font-size: 9px;
+        box-shadow:0px 0px 5px 1px rgba(0,0,0,.05);
+    }
+    
+    .FooterHolder > .footerWeblog > .footerWeblogMainButton{
+        font-size: 10px;
+        width: 65px;
+        height: 29px;
+        line-height: 29px;
+        margin-top: -29px;
+        text-align: right;
+        padding-right: 13px;
     }
 
 }

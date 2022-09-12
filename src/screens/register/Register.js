@@ -1,5 +1,9 @@
+
+import { useNavigate } from 'react-router-dom';
+
 import { Btn } from "../../components/common/Button/Btn";
 import { Input } from "../../components/common/Input/Input";
+
 
 import "./Register.css";
 
@@ -37,16 +41,17 @@ const Register = () => {
         <div className="registerButtonHolderReall">
           <Btn
             color="info"
-            text="ورود"
+            text="ثبت نام"
             elementClass="mediumBtnCh"
             variant="contained"
           />
           <Btn
             color="goal"
-            text="ثبت نام"
+            text="ورود"
             elementClass="mediumBtnCh"
             variant="outlined"
             borderColor="#04A641"
+            click='/login'
           />
         </div>
       </div>

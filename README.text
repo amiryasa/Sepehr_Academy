@@ -7,6 +7,9 @@ npm i sass --save
 Change css to sass
 import router
 
+//router
+npm i react-router-dom
+
 //Pages
 1. login - registre - forget pass //Amir
 2. courses detil - news detail  //Naghme

@@ -8,6 +8,15 @@ div > .enterInputSmall {
     margin-right: 26px;
 }
 
+div > .enterInputPanel {
+    width: 260px;
+}
+
+div > .enterInputPane2 {
+    width: 445px;
+    margin-top: 45px;
+}
+
 div > .enterInputBig {
     width: 331px;
     margin-top: 40px;
@@ -60,5 +69,19 @@ div > .enterInputBig {
         font-size: 12px;
         height:21px;
     }
+
+    div > .enterInputPanel {
+        width: 195px;
+    }
+
+    div > .enterInputPane2 {
+        width: 350px;
+    }
     
+}
+
+@media screen and (max-width:749px){
+    div > .enterInputPane2 {
+        width: 220px;
+    }
 }
