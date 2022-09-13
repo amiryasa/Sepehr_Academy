@@ -94,11 +94,7 @@ const HomeNews = () => {
         </div>
       </div>
 
-<<<<<<< HEAD
-      <p className="homeMore"> {fa.MORE_NEWS} </p>
-=======
-      <p className="homeMore"  onClick={() => navigator('/news')}> لیست کامل اخبار و مقالات ...</p>
->>>>>>> origin/master
+      <p className="homeMore" onClick={() => navigator('/news')}>  {fa.MORE_NEWS}</p>
     </>
   );
 };

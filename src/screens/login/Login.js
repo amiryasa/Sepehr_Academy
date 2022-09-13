@@ -8,37 +8,20 @@ import * as fa from '../../constants/persianStrings'
 import "./Login.css";
 
 const Login = () => {
-<<<<<<< HEAD
-  const checkboxChangeHandler = () => { };
-=======
 
   const navigator = useNavigate();
 
   const checkboxChangeHandler = () => {};
->>>>>>> origin/master
 
   return (
     <div className="loginHolder">
       <div className="loginInputHolder">
         <p> {fa.TITLE_LOGIN_USER} </p>
         <div className="loginInputHolderReall">
-<<<<<<< HEAD
-          <Input
-            title={fa.TITLE_EMAIL_USER}
-            className="enterInputBig"
-          />
-          <Input
-            title={fa.TITLE_PASS}
-            className="enterInputBig"
-          />
-        </div>
-        <p className="loginInputHolderForP"> {fa.FORGET_PASS} </p>
-=======
           <Input title="ایمیل کاربر" className="enterInputBig" />
           <Input title="رمز عبور" className="enterInputBig" />
         </div>
-        <p className="loginInputHolderForP" onClick={() => navigator('/forgotPass')}> رمز عبورم را فراموش کرده‌ام! </p>
->>>>>>> origin/master
+        <p className="loginInputHolderForP" onClick={() => navigator('/forgotPass')}> {fa.FORGET_PASS} </p>
 
         <div className="loginInputHolderRemainder">
           <Checkbox

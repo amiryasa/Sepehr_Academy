@@ -11,7 +11,7 @@ import * as fa from '../../constants/persianStrings'
 
 const HomeCources = () => {
 
-    const navigator = useNavigate();
+  const navigator = useNavigate();
 
   return (
     <>
@@ -70,11 +70,7 @@ const HomeCources = () => {
         </div>
       </div>
 
-<<<<<<< HEAD
-      <p className="homeMore"> {fa.MORE_COURSE} </p>
-=======
-      <p className="homeMore" onClick={() => navigator('/courses')}> لیست کامل دوره‌ها ...</p>
->>>>>>> origin/master
+      <p className="homeMore" onClick={() => navigator('/courses')}> {fa.MORE_COURSE}</p>
     </>
   );
 };

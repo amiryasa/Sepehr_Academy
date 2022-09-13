@@ -8,17 +8,11 @@ import './HomeIntro.css';
 
 const HomeIntro = () => {
 
-<<<<<<< HEAD
-    return (
-        <div className="introContainer">
-            <h1> {fa.TITLE_HOME_PAGE}</h1>
-=======
     const navigator = useNavigate();
 
-    return (    
+    return (
         <div className="introContainer">
-            <h1 onClick={() => navigator('/courses')}> آکادمی کدنویسی بحر </h1>
->>>>>>> origin/master
+            <h1 onClick={() => navigator('/courses')}> {fa.TITLE_HOME_PAGE}</h1>
             <hr></hr>
             <p> برای یادگیری کامل و اصولی برنامه‌نویسی به همراه اساتید مجرب، با ما همراه شوید. </p>
             <div className='btn-home'>
@@ -29,20 +23,12 @@ const HomeIntro = () => {
                     variant="contained"
                 />
                 <Btn
-<<<<<<< HEAD
                     color='info'
                     text={fa.SHOW_COURSE}
                     margin='0 -65px 0 0'
                     elementClass='largeBtn'
                     variant="contained"
-=======
-                color='info'
-                text='مشاهده دوره‌ها'
-                margin='0 -65px 0 0'
-                elementClass='largeBtn'
-                variant="contained"
-                click='courses'
->>>>>>> origin/master
+                    click='courses'
                 />
             </div>
 
