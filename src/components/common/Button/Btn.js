@@ -2,11 +2,15 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
+
+import {useNavigate} from 'react-router-dom';
+
 import './Btn.css'
 
-import './Btn.css';
 
 const Btn = (props) => {
+
+  const navigator = useNavigate();
 
   const theme = createTheme({
     palette: {
@@ -34,6 +38,12 @@ const Btn = (props) => {
         dark: '#02959A',
         contrastText: '#fff',
       },
+      warning: {
+        main: '#FF0000',
+        light: '#FF0000',
+        dark: '#FF3737',
+        contrastText: '#fff',
+      },
     },
   });
 
@@ -48,6 +58,7 @@ const Btn = (props) => {
           borderWidth: '1.5px',
           borderColor: `${props.borderColor}`
         }}
+        onClick={() => navigator(props.click)}
       >
         {props.text}
       </Button>

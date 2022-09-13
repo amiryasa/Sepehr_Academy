@@ -7,6 +7,12 @@ npm i sass --save
 Change css to sass
 import router
 
+//router
+npm i react-router-dom
+
+//formik
+npm i formik
+
 //Pages
 1. login - registre - forget pass //Amir
 2. courses detil - news detail  //Naghme
@@ -18,3 +24,4 @@ import router
 //UI-UX
 1.filtering
 2.Panel
+

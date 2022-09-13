@@ -1,151 +1,189 @@
 .header1 {
-    width: 100%;
-    padding-top: 10px;
-    
+  width: 100%;
+  padding-top: 10px;
 }
 
-
-.header1>.headerRow {
-    height: 82px;
-    float: right;
+.header1 > .headerRow {
+  height: 82px;
+  float: right;
 }
 
-.header1>.headerLogo {
-    width: 45px;
-    background: url(./../../assets/images/header/logo.png);
-    font-size: 24px;
-    height: 82px;
-    margin-right: 100px;
-    background-position: 50% 12px;
+.header1 > .headerHamberMenu {
+  display: none;
+}
+
+.header1 > .headerLogo {
+  width: 45px;
+  background: url(./../../assets/images/header/logo.png);
+  font-size: 24px;
+  height: 82px;
+  margin-right: 100px;
+  background-position: 50% 12px;
+  background-repeat: no-repeat;
+  background-size: 45px;
+  text-align: center;
+}
+
+.header1 > .headerNavbar {
+  margin-right: 50px;
+  text-align: right;
+}
+
+.header1 > .headerNavbar > p:hover {
+  color: #494949;
+}
+
+.header1 > .headerNavbar > p {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 17px;
+  color: #808080;
+  margin-left: 28px;
+}
+
+.header1 > .headerNavbar > p:nth-child(1) {
+  cursor: default;
+  font-size: 20px;
+  color: #043d72;
+  text-decoration: underline;
+}
+
+.header1 > .headerLogin {
+  margin-right: 535px;
+  margin-top: 10px;
+  border-radius: 33px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header1 > .headerLogin > .loginUser {
+  transition: 0.5s;
+  background: url(./../../assets/images/header/user.png) center;
+  background-repeat: no-repeat;
+  background-size: 23px;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  margin-top: 2px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #00adef;
+}
+
+.header1 > .headerLogin > .loginSearch {
+  transition: 0.5s;
+  background: url(./../../assets/images/header/shopping.png) center;
+  background-repeat: no-repeat;
+  background-size: 23px;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  margin-top: 2px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #00adef;
+}
+
+@media screen and (max-width: 1263px) {
+  .header1 > .headerLogo {
+    margin-right: 40px;
+  }
+
+  .header1 > .headerNavbar {
+    margin-right: 40px;
+    padding-top: 2px;
+  }
+
+  .header1 > .headerNavbar > p {
+    font-size: 15px;
+    margin-left: 20px;
+  }
+
+  .header1 > .headerNavbar > p:nth-child(1) {
+    font-size: 18px;
+  }
+
+  .header1 > .headerLogin {
+    margin-right: 235px;
+  }
+
+  .header1 > .headerLogin > .loginUser {
+    background-size: 18px;
+    height: 20px;
+    width: 20px;
+  }
+
+  .header1 > .headerLogin > .loginSearch {
+    background-size: 18px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .header1 {
+    padding-top: 5px;
+  }
+
+  .header1 > .headerLogo {
+    margin-right: 30px;
+    background-size: 35px;
+  }
+
+  .header1 > .headerNavbar {
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05);
+    transition: 1s;
+    border-radius: 5px;
+    height: 0px;
+    width: 195px;
+    position: absolute;
+    top: 45px;
+    right: 85px;
+    padding: 0;
+    margin:0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .header1 > .headerNavbar > p:hover{
+    background-color: #EFFBFF;
+  }
+
+   .header1 > .headerNavbar > p {
+    display: block;
+    padding: 10px 10px 10px 0;
+    height: 10px;
+    margin: 1px 0 0 0;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 10px;
+  }
+
+  .header1 > .headerNavbar > p:nth-child(1) {
+    font-size: 13px;
+    color: #043d72;
+    margin: 0;
+  }
+
+  .header1 > .headerLogin {
+    margin-right: 217px;
+  }
+
+  .header1 > .headerHamberMenu {
+    width: 25px;
+    height: 25px;
+    display: block;
+    background: url("./../../assets/images/header/paragraph.png");
+    background-size: 22px;
     background-repeat: no-repeat;
-    background-size: 45px;
-    text-align: center;
-}
-
-
-.header1>.headerNavbar {
-    margin-right: 50px;
-    text-align: right;
-}
-
-.header1>.headerNavbar>p:hover {
-    color: #494949;
-}
-
-.header1>.headerNavbar>p {
+    position: absolute;
+    top: 23px;
+    right: 80px;
     cursor: pointer;
-    display: inline-block;
-    font-size: 17px;
-    color: #808080;
-    margin-left: 28px;
-}
-
-.header1>.headerNavbar>p:nth-child(1) {
-    cursor: default;
-    font-size: 20px;
-    color: #043D72;
-    text-decoration: underline;
-}
-
-.header1>.headerLogin {
-    margin-right: 535px;
-    margin-top: 10px;
-    border-radius: 33px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.header1>.headerLogin>.loginUser {
-    transition: .5s;
-    background: url(./../../assets/images/header/user.png) center;
-    background-repeat: no-repeat;
-    background-size: 23px;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    margin-top: 2px;
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #00ADEF;
-}
-
-
-.header1>.headerLogin>.loginSearch {
-    transition: .5s;
-    background: url(./../../assets/images/header/shopping.png) center;
-    background-repeat: no-repeat;
-    background-size: 23px;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    margin-top: 2px;
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: #00ADEF;
-}
-
-
-@media screen and (max-width:1263px) {
-
-    .header1>.headerLogo {
-        margin-right: 40px;
-    }
-
-    .header1>.headerNavbar {
-        margin-right: 40px;
-        padding-top: 2px;
-    }
-
-    .header1>.headerNavbar>p {
-        font-size: 15px;
-        margin-left: 20px;
-    }
-
-    .header1>.headerNavbar>p:nth-child(1) {
-        font-size: 18px;
-    }
-
-    .header1>.headerLogin {
-        margin-right: 235px;
-    }
-
-    .header1>.headerLogin>.loginUser {
-        background-size: 18px;
-        height: 20px;
-        width: 20px;
-    }
-
-
-    .header1>.headerLogin>.loginSearch {
-        background-size: 18px;
-        height: 20px;
-        width: 20px;
-    }
-
-}
-
-@media screen and (max-width:749px) {
-
-    .header1 {
-        padding-top: 5px;
-    }
-
-    .header1>.headerLogo {
-        margin-right: 30px;
-        background-size: 35px;
-    }
-
-    .header1>.headerNavbar>p {
-        display: none;
-    }
-
-    .header1>.headerLogin {
-        margin-right: 195px;
-    }
-
+  }
 }

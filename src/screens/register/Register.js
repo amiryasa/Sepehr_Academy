@@ -1,6 +1,14 @@
+
+import { useNavigate } from 'react-router-dom';
+
 import { Btn } from "../../components/common/Button/Btn";
 import { Input } from "../../components/common/Input/Input";
+<<<<<<< HEAD
 import * as fa from '../../constants/persianStrings';
+=======
+
+
+>>>>>>> origin/master
 import "./Register.css";
 
 const Register = () => {
@@ -37,16 +45,25 @@ const Register = () => {
         <div className="registerButtonHolderReall">
           <Btn
             color="info"
+<<<<<<< HEAD
             text={fa.LOGIN}
+=======
+            text="ثبت نام"
+>>>>>>> origin/master
             elementClass="mediumBtnCh"
             variant="contained"
           />
           <Btn
             color="goal"
+<<<<<<< HEAD
             text={fa.SIGN_UP}
+=======
+            text="ورود"
+>>>>>>> origin/master
             elementClass="mediumBtnCh"
             variant="outlined"
             borderColor="#04A641"
+            click='/login'
           />
         </div>
       </div>

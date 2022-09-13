@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { NewsCard } from "../NewsCard/NewsCard";
 
 import './HomeNews.css';
@@ -6,6 +8,9 @@ import news01 from './../../assets/images/News/news01.png';
 import * as fa from '../../constants/persianStrings';
 
 const HomeNews = () => {
+
+  const navigator = useNavigate();
+
   return (
     <>
       <div className="homeH2 h24" data-aos="fade-up" data-aos-duration="1000">
@@ -83,13 +88,17 @@ const HomeNews = () => {
             image={news01}
             title={"عنوان مقاله"}
             description={
-              "توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات"
+              "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
             }
           />
         </div>
       </div>
 
+<<<<<<< HEAD
       <p className="homeMore"> {fa.MORE_NEWS} </p>
+=======
+      <p className="homeMore"  onClick={() => navigator('/news')}> لیست کامل اخبار و مقالات ...</p>
+>>>>>>> origin/master
     </>
   );
 };

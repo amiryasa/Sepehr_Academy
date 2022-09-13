@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { Btn } from "./../../components/common/Button/Btn";
 import { Input } from "./../../components/common/Input/Input";
 import * as fa from '../../constants/persianStrings'
@@ -28,6 +30,7 @@ const ForgotPass = () => {
             text={fa.SIGN_UP}
             elementClass="mediumBtnCh2"
             color="info"
+            click="/register"
           />
           <hr></hr>
           <Btn
@@ -35,6 +38,7 @@ const ForgotPass = () => {
             elementClass="mediumBtnCh2"
             color="info"
             className="newoskol"
+            click="/login"
           />
         </div>
       </div>

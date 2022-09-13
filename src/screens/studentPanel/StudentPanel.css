@@ -1,0 +1,5 @@
+.studentPanelContainer{
+    display: flex;
+    background-color: #F7FDFF;
+    overflow: hidden;
+}
