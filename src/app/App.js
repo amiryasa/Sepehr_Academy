@@ -37,6 +37,7 @@ import { MainbarMyCourses } from "../components/MainbarMyCourses/MainbarMyCourse
 import { MainbarAllCourses } from "../components/MainbarAllCourses/MainbarAllCourses";
 import { MainbarPassword } from "../components/MainbarPassword/MainbarPassword";
 import { MainbarDashboard } from "../components/MainbarDashboard/MainbarDashboard";
+import { Validation } from "../components/common/Validation/Validation";
 
 
 function App() {
@@ -75,6 +76,9 @@ function App() {
                 <Route path="/studentPanel/allCourses" element={<MainbarAllCourses />} />
                 <Route path="/studentPanel/changePassword" element={<MainbarPassword />} />
               </Route>
+
+              <Route path="/TEST" element={<Validation />} ></Route>
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
