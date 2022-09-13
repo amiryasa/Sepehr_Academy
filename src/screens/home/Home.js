@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { HomeServices } from '../../components/HomeServices/HomeServices';
 import { HomeCategory } from '../../components/HomeCategory/HomeCategory';
 import { HomeCources } from '../../components/HomeCources/HomeCources';
