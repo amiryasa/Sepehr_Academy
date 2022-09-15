@@ -7,10 +7,11 @@ import './HomeCources.css';
 import cour01 from './../../assets/images/Courses/native.png';
 import cour02 from './../../assets/images/Courses/html.png';
 import cour03 from './../../assets/images/Courses/react.png';
+import * as fa from '../../constants/persianStrings'
 
 const HomeCources = () => {
 
-    const navigator = useNavigate();
+  const navigator = useNavigate();
 
   return (
     <>
@@ -69,7 +70,7 @@ const HomeCources = () => {
         </div>
       </div>
 
-      <p className="homeMore" onClick={() => navigator('/courses')}> لیست کامل دوره‌ها ...</p>
+      <p className="homeMore" onClick={() => navigator('/courses')}> {fa.MORE_COURSE}</p>
     </>
   );
 };

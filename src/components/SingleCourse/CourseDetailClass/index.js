@@ -6,6 +6,7 @@ import opacity from '../../../assets/images/Courses/opacity.png'
 import duringCourse from '../../../assets/images/Courses/duringCourse.png'
 import reactSingle from '../../../assets/images/Courses/reactSingle.png'
 import "./index.scss"
+import * as fa from '../../../constants/persianStrings'
 
 const CourseDetailClass = () => {
     return (
@@ -20,31 +21,31 @@ const CourseDetailClass = () => {
                     </div>
                     <div className='duringCourse'>
                         <img src={duringCourse} />
-                        <span>مدت دوره:
+                        <span>{fa.DURING_COURSE}
                             <span>05:30 (17ویدئو)</span>
                         </span>
                     </div>
                     <div className='opacity'>
                         <img src={opacity} />
-                        <span>ظرفیت دوره:
+                        <span>{fa.OPACITY_COURSE}
                             <span>40 نفر</span>
                         </span>
                     </div>
                     <div className=' numberStudent'>
                         <img src={student} />
-                        <span>دانشجویان دوره:
+                        <span>{fa.NUMBER_STUDENT}
                             <span>23 نفر</span>
                         </span>
                     </div>
                     <div className='timeStart'>
                         <img src={timeStart} />
-                        <span>زمان شروع:
+                        <span>{fa.TIME_START}
                             <span>12 شهریور 1401</span>
                         </span>
                     </div>
                     <div className='price'>
                         <img src={price} />
-                        <span>شهریه دوره:
+                        <span>{fa.PRICE_COURSE}
                             <span>500,000 </span>
                             تومان
                         </span>
@@ -55,7 +56,7 @@ const CourseDetailClass = () => {
                 <img src={reactSingle} />
                 <span className='offCourse'>
                     <span className='offCount'>25%</span>
-                    <span className='offTitle'>تخفیف هزینه دوره</span>
+                    <span className='offTitle'> {fa.OFF_COURSE} </span>
                 </span>
             </div>
         </div>

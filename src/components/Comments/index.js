@@ -8,19 +8,20 @@ import like from '../../assets/images/comment/like.png'
 import dislike from '../../assets/images/comment/dislike.png'
 import reply from '../../assets/images/comment/reply.png'
 import stop from '../../assets/images/comment/no-stopping.png'
+import * as fa from '../../constants/persianStrings'
 
 const Comments = (props) => {
     console.log(props);
     return (
         <div className='comments'>
-            <p>نظرات کاربران</p>
+            <p> {fa.TITLE_COMMENTS} </p>
             <div className='addNewComment'>
                 <Card>
-                    <span>ثبت نظر</span>
+                    <span>{fa.INSERT_COMMENT}</span>
                     <div className='TextComment'>
-                        <Input title="متن نظر" multiline={true} row={3} />
+                        <Input title={fa.TITLE_TEXT_COMMENT} multiline={true} row={3} />
                     </div>
-                    <Btn text='ثبت نظر' color='detail'
+                    <Btn text={fa.INSERT_COMMENT} color='detail'
                         variant="contained" />
                 </Card>
             </div>

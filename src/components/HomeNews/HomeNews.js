@@ -5,6 +5,7 @@ import { NewsCard } from "../NewsCard/NewsCard";
 import './HomeNews.css';
 
 import news01 from './../../assets/images/News/news01.png';
+import * as fa from '../../constants/persianStrings';
 
 const HomeNews = () => {
 
@@ -93,7 +94,7 @@ const HomeNews = () => {
         </div>
       </div>
 
-      <p className="homeMore"  onClick={() => navigator('/news')}> لیست کامل اخبار و مقالات ...</p>
+      <p className="homeMore" onClick={() => navigator('/news')}>  {fa.MORE_NEWS}</p>
     </>
   );
 };

@@ -1,9 +1,10 @@
 import './index.scss';
+import * as fa from '../../../constants/persianStrings';
 
 const DetailCourse = (props) => {
     return (
         <div className='descriptionCourse'>
-            <p>توضیحات دوره</p>
+            <p> {fa.TITLE_DETAIL_COURSE} </p>
             <div>
                 <header>{props.deatils[0].name} چیست</header>
                 <span>{props.deatils[0].describe}</span>

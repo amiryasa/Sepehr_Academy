@@ -4,7 +4,7 @@ import { Checkbox } from "@mui/material";
 
 import { Btn } from "./../../components/common/Button/Btn";
 import { Input } from "./../../components/common/Input/Input";
-
+import * as fa from '../../constants/persianStrings'
 import "./Login.css";
 
 const Login = () => {
@@ -16,12 +16,12 @@ const Login = () => {
   return (
     <div className="loginHolder">
       <div className="loginInputHolder">
-        <p> ورود کاربر </p>
+        <p> {fa.TITLE_LOGIN_USER} </p>
         <div className="loginInputHolderReall">
           <Input title="ایمیل کاربر" className="enterInputBig" />
           <Input title="رمز عبور" className="enterInputBig" />
         </div>
-        <p className="loginInputHolderForP" onClick={() => navigator('/forgotPass')}> رمز عبورم را فراموش کرده‌ام! </p>
+        <p className="loginInputHolderForP" onClick={() => navigator('/forgotPass')}> {fa.FORGET_PASS} </p>
 
         <div className="loginInputHolderRemainder">
           <Checkbox
@@ -29,22 +29,22 @@ const Login = () => {
             style={{ color: "#043D72" }}
             onChange={checkboxChangeHandler}
           />
-          <p className="loginInputHolderRemainderP1"> مرا به خاطر بسپار! </p>
+          <p className="loginInputHolderRemainderP1"> {fa.REMEMBER_ME} </p>
           <p className="loginInputHolderRemainderP2">
-            ( برای سیستم‌های اشتراکی توصیه نمی‌شود.)
+            ({fa.SHARED_SYSTEM})
           </p>
         </div>
 
         <div className="loginButtonHolderReall">
           <Btn
             color="goal"
-            text="ورود"
+            text={fa.LOGIN}
             elementClass="mediumBtnCh2"
             variant="contained"
           />
           <Btn
             color="info"
-            text="ثبت نام"
+            text={fa.SIGN_UP}
             elementClass="mediumBtnCh2"
             variant="outlined"
             borderColor="#00ADEF"
