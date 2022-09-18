@@ -13,7 +13,6 @@ const PageLayout = () => {
 
     const dontNeedHeader = ['/login', '/register', '/forgotPass'];
 
-    console.log(location.pathname);
   return (
     <>
         {!dontNeedHeader.includes(location.pathname) && <Header />}
