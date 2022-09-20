@@ -1,20 +1,21 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import { Btn } from "./../../components/common/Button/Btn";
 import { Input } from "./../../components/common/Input/Input";
-import * as fa from '../../constants/persianStrings'
+import * as fa from "../../constants/persianStrings";
 import "./ForgotPass.css";
 
 const ForgotPass = () => {
+
+  const navigator = useNavigate();
+
   return (
     <div className="forgotPassHolder">
+      <div className="forgotPassHolderLogo" onClick={() => navigator("/")}><p>آموزشگاه کدنویسی بحر</p></div>
       <div className="forgotPassInputHolder">
         <p> {fa.TITLE_AGAIN_PASS} </p>
         <div className="forgotPassInputHolderReall">
-          <Input
-            title={fa.TITLE_EMAIL_USER}
-            className="enterInputBig"
-          />
+          <Input title={fa.TITLE_EMAIL_USER} className="enterInputBig" />
         </div>
         <div className="forgotPassButtonHolderReall01">
           <Btn
@@ -33,7 +34,7 @@ const ForgotPass = () => {
             click="/register"
           />
           <hr></hr>
-          <Btn
+          <Btn  
             text={fa.LOGIN}
             elementClass="mediumBtnCh2"
             color="info"

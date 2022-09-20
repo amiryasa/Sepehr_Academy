@@ -41,6 +41,7 @@ export default function OurRoutes() {
                 <Route path={path.ALL_COURSES} element={<MainbarAllCourses />} />
                 <Route path={path.CHANGE_PASS} element={<MainbarPassword />} />
             </Route>
+            <Route path={path.TEST}/>
             <Route path={path.ANOTHER_URL} element={<NotFound />} />
 
         </Routes>
