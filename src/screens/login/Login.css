@@ -3,7 +3,30 @@
     background: url('./../../assets/images/Login/bg.png');
     background-size: 100%;
     background-repeat: no-repeat;
+    position: relative;
 }
+
+.loginHolder > .loginHolderLogo {
+    height: 25px;
+    background: url("./../../assets/images/StudentPanel/logo.png");
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: right;
+    font-size: 20px;
+    font-family: arshia;
+    color: #1762bc;
+    margin-right: 0px;
+    padding: 30px 30px 30px 0;
+    letter-spacing: 0.3px;
+    position: absolute;
+    top: 0px;
+    right:40px;
+    cursor: pointer;
+  }
+  
+  .loginHolder > .loginHolderLogo > p{
+    margin-top: 0px;
+  }
 
 .loginHolder > .loginInputHolder{
     width: 405px;
@@ -20,6 +43,15 @@
     margin-top: -40px;
     margin-right: 36px;
 }
+
+.loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallEmail{
+    margin-top: 65px;
+}
+
+.loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallPassword{
+    margin-top: 10px;
+}
+
 
 .loginHolder > .loginInputHolder > p{
     font-size: 30px;
@@ -40,19 +72,19 @@
 }
 
 .loginHolder > .loginInputHolder > .loginInputHolderRemainder{
-    margin-right: 25px;
+    margin-right: 35px;
     margin-top: 20px;
 }
 
 .loginHolder > .loginInputHolder > .loginButtonHolderReall{
-    margin-top: 50px;
+    margin-top: 35px;
     margin-right: 21px;
 }
 
 .loginHolder > .loginInputHolder > .loginInputHolderRemainder > .loginInputHolderRemainderP1{
     display: inline-block; 
     font-size: 14px;
-    margin-right: -5px;
+    margin-right: 5px;
 }
 
 .loginHolder > .loginInputHolder > .loginInputHolderRemainder > .loginInputHolderRemainderP2{
@@ -75,16 +107,34 @@
 
 @media screen and (max-width:1262px){
 
+    .loginHolder > .loginHolderLogo {
+        padding: 15px 30px 15px 0;
+        top: 0px;
+        right:20px;
+    }
+
+    .loginHolder > .loginHolderLogo > p{
+        display: none;
+      }
+
     .loginHolder > .loginInputHolder{
         width: 304px;
-        height: 270px;
-        margin-top:65px;
+        height: 295px;
+        margin-top:50px;
         margin-right:75px;
     }
 
     .loginHolder > .loginInputHolder > .loginInputHolderReall{
         margin-top:-35px;
         margin-right: 22px;
+    }
+
+    .loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallEmail{
+        margin-top: 40px;
+    }
+    
+    .loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallPassword{
+        margin-top: 0px;
     }
 
     .loginHolder > .loginInputHolder > p{
@@ -95,7 +145,7 @@
     }
 
     .loginHolder > .loginInputHolder > .loginButtonHolderReall{
-        margin-top: 22px;
+        margin-top: 15px;
         margin-right: 26px;
     }
 
@@ -106,7 +156,7 @@
     }
 
     .loginHolder > .loginInputHolder > .loginInputHolderRemainder{
-        margin-right: 10px;
+        margin-right: 25px;
         margin-top: 10px;
     }
 
@@ -134,6 +184,12 @@
         background: url('./../../assets/images/Register/bg2.png');
         background-size: 100%;
         background-repeat: no-repeat;
+    }
+
+    .loginHolder > .loginHolderLogo {
+        padding: 10px 30px 10px 0;
+        top: 0px;
+        right:10px;
     }
 
     .loginHolder > .loginInputHolder{

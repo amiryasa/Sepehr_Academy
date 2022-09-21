@@ -9,6 +9,7 @@ import "./Register.css";
 const Register = () => {
   return (
     <div className="registerHolder">
+
       <div className="registerInputHolder">
         <p> {fa.TITLE_LOGIN_USER} </p>
         <div className="registerInputHolderReall">

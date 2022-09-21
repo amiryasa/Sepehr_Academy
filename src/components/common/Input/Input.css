@@ -1,11 +1,15 @@
+div.inputContainer{
+    height:75px;
+    /* border: 1px solid red; */
+}
+
+
 div > .inputModel {
     /*margin: 10px; */
 }
 
 div > .enterInputSmall {
     width: 200px;
-    margin-top: 45px;
-    margin-right: 26px;
 }
 
 div > .enterInputPanel {
@@ -19,7 +23,6 @@ div > .enterInputPane2 {
 
 div > .enterInputBig {
     width: 331px;
-    margin-top: 40px;
 }
 
 .inputModel > label {
@@ -62,7 +65,6 @@ div > .enterInputBig {
 
     div > .enterInputBig {
         width: 260px;
-        margin-top: 20px;
     }
 
     div > .enterInputBig > .MuiInputBase-root > input {

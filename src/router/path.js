@@ -15,3 +15,6 @@ export const ALL_COURSES = "/studentPanel/allCourses"
 export const CHANGE_PASS = "/studentPanel/changePassword"
 
 export const ANOTHER_URL = "*"
+
+//test
+export const TEST = "/test"

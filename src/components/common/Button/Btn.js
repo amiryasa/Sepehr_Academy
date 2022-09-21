@@ -50,6 +50,7 @@ const Btn = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <Button
+        type={props.type}
         className={props.elementClass}
         variant={props.variant}
         color={props.color}

@@ -1,36 +1,78 @@
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+import React from "react";
+import { Formik, useFormik } from "formik";
+import * as yup from 'yup';
+import { Input } from "../Input/Input";
 import { Btn } from "../Button/Btn";
 
-import { Input } from "./../Input/Input";
-
-import "./Validation.css";
-
-
-const inputValidation = Yup.object().shape({
-    email: Yup.string().email().required(),
-})
+const validationSchema = yup.object({
+  name: yup
+    .string('Enter your username')
+    .min(4, 'Username should be of minimum 4 characters length')
+    .required('Email is required'),
+  email: yup
+    .string('Enter your email')
+    .email('Enter a valid email')
+    .required('Email is required'),
+  password: yup
+    .string('Enter your password')
+    .min(8, 'Password should be of minimum 8 characters length')
+    .required('Password is required'),
+});
 
 
 const Validation = () => {
+  const myFormik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
-    const formHandler = (values) => {
-        console.log(values);
-    }
+  // console.log("form values:", myFormik.values);
 
   return (
-    <div>
-    <h2> LoginForm </h2>
-      <Formik initialValues={{ email: "", password: "" }} onSubmit={formHandler} validationSchema={inputValidation} >
-        <Form>
+    <div style={{ width: "300px", margin: "30px auto" }}>
+      <form onSubmit={myFormik.handleSubmit}>
+        <Input
+          title="نام کاربری"
+          className="enterInputBig"
+          name="name"
+          onChange={myFormik.handleChange}
+          value={myFormik.values.name}
+        />
 
-          <Field name='email' placeholder='Enter youe email'></Field>
-          <Field name='password' type='password' placeholder='Enter youe password'></Field>
+        <Input
+          title="ایمیل کاربر"
+          className="enterInputBig"
+          name="email"
+          onChange={myFormik.handleChange}
+          value={myFormik.values.email}
+        />
 
-          <button type="submit"> login </button>
-          
-        </Form>
-      </Formik>
+        <Input
+          title="رمز عبور"
+          className="enterInputBig"
+          name="password"
+          onChange={myFormik.handleChange}
+          value={myFormik.values.password}
+        />
+
+        <div style={{ width: "300px", margin: "25px 70px" }}>
+          <Btn
+            color="goal"
+            text="ثبت نام"
+            elementClass="mediumBtnCh2"
+            variant="contained"
+            click=""
+            type="submit"
+          />
+        </div>
+      </form>
     </div>
   );
 };
