@@ -7,7 +7,7 @@
   margin-top: 34px;
 }
 
-.MainbarDashboard > .MainbarDashboardActevity {
+.MainbarDashboard>.MainbarDashboardActevity {
   width: 805px;
   height: 168px;
   grid-column-start: 1;
@@ -18,7 +18,7 @@
   display: flex;
 }
 
-.MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityTopic  > p {
+.MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityTopic>p {
   width: 256px;
   padding-right: 26px;
   margin-top: 32px;
@@ -26,7 +26,7 @@
   color: #043d72;
 }
 
-.MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityTopic  > hr {
+.MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityTopic>hr {
   width: 82px;
   border-width: 4px;
   border: 2px solid #fdea00;
@@ -35,7 +35,7 @@
   margin-top: -20px;
 }
 
-.MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityContainer {
+.MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer {
   display: grid;
   grid-template-columns: 140px 140px 140px;
   grid-template-rows: 110px;
@@ -44,17 +44,18 @@
   margin-right: 31px;
 }
 
-.MainbarDashboard > .MainbarDashboardDate {
+.MainbarDashboard>.MainbarDashboardDate {
   width: 168px;
   height: 168px;
   grid-column-start: 2;
   grid-column-end: 3;
   border-radius: 20px;
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05);
-  background-color: white;
+
 }
 
-.MainbarDashboard > .MainbarDashboardCourses {
+
+
+.MainbarDashboard>.MainbarDashboardCourses {
   width: 998px;
   height: 343px;
   grid-column-start: 1;
@@ -66,18 +67,18 @@
   display: flex;
 }
 
-.MainbarDashboard > .MainbarDashboardCourses > .MainbarDashboardCoursesTopic {
+.MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesTopic {
   font-size: 30px;
   color: #043d72;
 }
 
-.MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesTopic> p {
+.MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesTopic>p {
   width: 115px;
   padding-right: 45px;
   padding-top: 15px;
 }
 
-.MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesTopic  > hr {
+.MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesTopic>hr {
   width: 185px;
   border-width: 4px;
   border: 2px solid #fdea00;
@@ -87,7 +88,7 @@
   transform: rotate(90deg);
 }
 
-.MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesContainer {
+.MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesContainer {
   display: grid;
   grid-template-columns: 173px 173px 173px 173px;
   grid-template-rows: 293px;
@@ -96,7 +97,7 @@
   padding-right: 37px;
 }
 
-@media screen and (max-width:1262px){
+@media screen and (max-width:1262px) {
 
   .MainbarDashboard {
     display: grid;
@@ -107,7 +108,7 @@
     margin-top: 35px;
   }
 
-  .MainbarDashboard > .MainbarDashboardActevity {
+  .MainbarDashboard>.MainbarDashboardActevity {
     width: 550px;
     height: 168px;
     grid-column-start: 1;
@@ -118,40 +119,40 @@
     display: flex;
   }
 
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityTopic  > p {
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityTopic>p {
     width: 185px;
     padding-right: 20px;
     font-size: 21px;
   }
-  
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityTopic  > hr {
+
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityTopic>hr {
     border-width: 3.5px;
     border: 1.75px solid #fdea00;
     margin-right: 20px;
   }
 
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityContainer {
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer {
     grid-template-columns: 140px 140px;
     margin-right: 20px;
   }
 
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityContainer > div:nth-child(3){
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer>div:nth-child(3) {
     display: none;
   }
 
-  .MainbarDashboard > .MainbarDashboardCourses {
+  .MainbarDashboard>.MainbarDashboardCourses {
     width: 550px;
   }
 
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesTopic> p {
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesTopic>p {
     width: 115px;
     padding-right: 20px;
     font-size: 21px;
     padding-top: 15px;
     line-height: 40px;
   }
-  
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesTopic  > hr {
+
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesTopic>hr {
     width: 145px;
     margin-right: -53px;
     margin-top: 75px;
@@ -159,30 +160,30 @@
     border: 1.75px solid #fdea00;
   }
 
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesContainer {
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesContainer {
     grid-template-columns: 173px 173px;
     padding-right: 12px;
   }
 
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesContainer > div:nth-child(3) {
-    display:none;
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesContainer>div:nth-child(3) {
+    display: none;
   }
 
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesContainer > div:nth-child(4) {
-    display:none;
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesContainer>div:nth-child(4) {
+    display: none;
   }
 
-  .MainbarDashboard > .MainbarDashboardDate {
-    display:none;
+  .MainbarDashboard>.MainbarDashboardDate {
+    display: none;
   }
 
 }
 
 
-@media screen and (max-width:749px){
+@media screen and (max-width:749px) {
 
-  .MainbarContainerDashboard{
-    height:675px;
+  .MainbarContainerDashboard {
+    height: 675px;
   }
 
   .MainbarDashboard {
@@ -192,7 +193,7 @@
     margin-top: 135px;
   }
 
-  .MainbarDashboard > .MainbarDashboardActevity {
+  .MainbarDashboard>.MainbarDashboardActevity {
     height: 168px;
     grid-column-start: 1;
     grid-column-end: 2;
@@ -202,55 +203,55 @@
     display: flex;
   }
 
-  .MainbarDashboard > .MainbarDashboardActevity {
+  .MainbarDashboard>.MainbarDashboardActevity {
     width: 300px;
     height: 200px;
     display: block;
     overflow: hidden;
   }
 
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityTopic  > p {
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityTopic>p {
     width: 300px;
     padding-right: 0px;
     margin-top: 10px;
     font-size: 19px;
     text-align: center;
   }
-  
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityTopic  > hr {
+
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityTopic>hr {
     border-width: 3px;
     border: 1.5px solid #fdea00;
     margin: auto;
     margin-top: -15px;
   }
 
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityContainer > div:nth-child(2){
-    display:block;
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer>div:nth-child(2) {
+    display: block;
   }
 
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityContainer > div:nth-child(3){
-    display:block;
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer>div:nth-child(3) {
+    display: block;
   }
 
-  .MainbarDashboard  > .MainbarDashboardActevity  > .MainbarDashboardActevityContainer {
+  .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer {
     grid-template-columns: 140px 140px 140px;
     margin-right: -80px;
     margin-top: 20px;
   }
 
-  .MainbarDashboard  > .MainbarDashboardCourses{
+  .MainbarDashboard>.MainbarDashboardCourses {
     width: 300px;
     height: 285px
   }
 
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesTopic> p {
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesTopic>p {
     width: 95px;
     padding-right: 45px;
     padding-top: 15px;
     font-size: 19px;
   }
-  
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesTopic  > hr {
+
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesTopic>hr {
     width: 135px;
     border-width: 3px;
     border: 1.5px solid #fdea00;
@@ -259,8 +260,8 @@
     margin-top: -25px;
     transform: rotate(90deg);
   }
-  
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesContainer {
+
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesContainer {
     display: grid;
     grid-template-columns: 137px;
     grid-template-rows: 232px;
@@ -269,7 +270,7 @@
     padding-right: 0px;
   }
 
-  .MainbarDashboard  > .MainbarDashboardCourses  > .MainbarDashboardCoursesContainer > div:nth-child(2){
+  .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesContainer>div:nth-child(2) {
     display: none;
   }
 
