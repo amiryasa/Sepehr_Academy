@@ -1,14 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import "./MainbarDashboard.css";
-import { Calendar } from "react-multi-date-picker"
-import persian from "react-date-object/calendars/persian"
-import persian_fa from "react-date-object/locales/persian_fa"
+import CalenderCustom from "../common/datePicker/Calender"
 import cour01 from "./../../assets/images/Courses/native.png";
 import { CoursesCard } from "../CoursesCard/CoursesCard";
 import { Actevity } from "../Actevity/Actevity";
 
 const MainbarDashboard = () => {
-  const [value, setValue] = useState(new Date())
+
   return (
     <div className="MainbarContainer MainbarContainerDashboard">
       <div className="MainbarDashboard">
@@ -25,11 +23,7 @@ const MainbarDashboard = () => {
           </div>
         </div>
         <div className="MainbarDashboardDate">
-          <Calendar
-            value={value}
-            onChange={setValue}
-            calendar={persian}
-            locale={persian_fa}
+          <CalenderCustom
             readOnly
           />
         </div>
