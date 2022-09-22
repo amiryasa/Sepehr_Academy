@@ -18,14 +18,13 @@ const Progress = () => {
   };
 
   const handleScroll = () => {
-    
+    var totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const position = window.pageYOffset;
-    var scroolSize = Math.ceil((position/4662.0001) * 100);
+    var scroolSize = Math.ceil((position/totalHeight) * 100);
     var scrooler = 1562.31 - (scroolSize * 15.6231);
 
     document.getElementById('progressBar1').style.strokeDashoffset = scrooler;
-
-    console.log(position);
+    
     if(position > 300){
       document.getElementById('progressBar1').style.opacity = 1;
       document.getElementById('progressBar1').style.visibility = 'visible';

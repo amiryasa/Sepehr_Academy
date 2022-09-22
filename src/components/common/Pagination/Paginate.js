@@ -5,7 +5,7 @@ import { createTheme } from "@mui/material/styles";
 
 import "./Paginate.css";
 
-const Paginate = () => {
+const Paginate = (props) => {
   const theme = createTheme({
     palette: {
       info: {
@@ -18,9 +18,19 @@ const Paginate = () => {
   });
   return (
     <ThemeProvider theme={theme}>
-      <Stack spacing={1} alignItems="center">
-        <Pagination count={10} color="info" boundaryCount={1} siblingCount={0} showFirstButton showLastButton className='paginationHolder' />
-      </Stack>
+      {(Math.ceil(props.allItem/props.eachPageTtem)) > 1 && <Stack spacing={1} alignItems="center">
+        <Pagination
+          color="info"
+          boundaryCount={1}
+          siblingCount={0}
+          showFirstButton
+          showLastButton
+          className="paginationHolder"
+
+          onChange={props.handlePagination}
+          count={(Math.ceil(props.allItem/props.eachPageTtem))}
+        />
+      </Stack>}
     </ThemeProvider>
   );
 };
