@@ -3,7 +3,30 @@
     background: url('./../../assets/images/Register/bg.png');
     background-size: 100%;
     background-repeat: no-repeat;
+    position: relative;
 }
+
+.registerHolder > .registerHolderLogo {
+    height: 25px;
+    background: url("./../../assets/images/StudentPanel/logo.png");
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: right;
+    font-size: 20px;
+    font-family: arshia;
+    color: #1762bc;
+    margin-right: 0px;
+    padding: 30px 30px 30px 0;
+    letter-spacing: 0.3px;
+    position: absolute;
+    top: 0px;
+    right:40px;
+    cursor: pointer;
+  }
+  
+  .registerHolder > .registerHolderLogo > p{
+    margin-top: 0px;
+  }
 
 .registerHolder > .registerInputHolder{
     width: 499px;
@@ -17,8 +40,14 @@
 }
 
 .registerHolder > .registerInputHolder > .registerInputHolderReall{
-    margin-top:-45px;
-    margin-right: 10px;
+    margin-top:-5px;
+    margin-right: 36px;
+
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 75px 75px 75px;
+    grid-column-gap: 25px;
+    grid-row-gap: 12px;
 }
 
 .registerHolder > .registerInputHolder > p{
@@ -82,8 +111,14 @@
     }
 
     .registerHolder > .registerInputHolder > .registerInputHolderReall{
-        margin-top:-35px;
-        margin-right: 1px;
+        margin-top:-40px;
+        margin-right: 1px;        
+        
+        display: grid;
+        grid-template-columns: 135px 135px;
+        grid-template-rows: 75px 75px 75px;
+        grid-column-gap: 5px;
+        grid-row-gap: 3px;
     }
 
     .registerHolder > .registerInputHolder > p{

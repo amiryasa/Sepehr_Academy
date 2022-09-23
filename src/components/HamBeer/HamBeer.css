@@ -1,10 +1,4 @@
-body {
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    margin: 0;
-  }
+
   svg {
     height: 80px;
     position: absolute;
@@ -34,7 +28,7 @@ body {
   }
   .line {
     fill: none;
-    stroke: black;
+    stroke: rgb(121, 8, 197);
     stroke-width: 6px;
     stroke-linecap: round;
     stroke-linejoin: round;

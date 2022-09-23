@@ -19,6 +19,7 @@ import { Login } from "../screens/login/Login";
 import { Register } from "../screens/register/Register";
 import { ForgotPass } from "../screens/forgotPass/ForgotPass";
 import * as path from './path'
+import { HamBeer } from "../components/HamBeer/HamBeer";
 
 export default function OurRoutes() {
     return (
@@ -41,7 +42,7 @@ export default function OurRoutes() {
                 <Route path={path.ALL_COURSES} element={<MainbarAllCourses />} />
                 <Route path={path.CHANGE_PASS} element={<MainbarPassword />} />
             </Route>
-            <Route path={path.TEST}/>
+            <Route path={path.TEST} element={<HamBeer />}/>
             <Route path={path.ANOTHER_URL} element={<NotFound />} />
 
         </Routes>

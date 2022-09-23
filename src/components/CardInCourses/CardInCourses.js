@@ -17,8 +17,8 @@ const CardInCourses = (props) => {
         style={{ backgroundColor: `${props.bgColor}` }}
       />
       <div className="cardInCoursesRatNumHolder">
-        <div className="cardInCoursesRate"> 3.4 </div>
-        <div className="cardInCoursesNum"> 10 </div>
+        <div className="cardInCoursesRate"> {props.rate} </div>
+        <div className="cardInCoursesNum"> {props.studentCount} </div>
       </div>
       <CardContent>
         <Typography
@@ -46,7 +46,7 @@ const CardInCourses = (props) => {
           align="center"
           className="cardIncoursesCardCost"
         >
-          000 150 ت
+          {props.cost}
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>

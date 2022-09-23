@@ -35,7 +35,7 @@ const CardInNews = (props) => {
             {props.description}
           </Typography>
           <Typography component="div" variant="h7" className="cardInNewsDate">
-            25 اردیبهشت 1401
+            {props.date}
           </Typography>
 
           <div className="cardInNewsButton">
