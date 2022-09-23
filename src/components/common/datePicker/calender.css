@@ -1,0 +1,46 @@
+.rmdp-wrapper {
+    border-radius: 17px !important;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.rmdp-calendar {
+    width: 167px;
+    height: 161px !important;
+}
+
+.rmdp-day-picker>div {
+    width: 160px;
+    height: 111px;
+}
+
+.rmdp-header {
+    height: 22px !important;
+    margin-top: -2px !important;
+    margin-bottom: 2px !important;
+    line-height: 32px !important;
+}
+
+.rmdp-day,
+.rmdp-week-day {
+    height: 19.5px !important;
+    width: 25px !important;
+    font-size: 11px !important;
+}
+
+.rmdp-day>span {
+    font-size: 10px !important;
+}
+
+.rmdp-header,
+.rmdp-month-name {
+    font-size: 12px !important;
+}
+
+.rmdp-header-values {
+    color: #707070;
+}
+
+.rmdp-day>span {
+    bottom: 1px;
+    padding-left: 0px !important
+}

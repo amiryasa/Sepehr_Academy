@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import OurRoutes from '../router'
 import "./App.css";
 import "./../assets/fonts/fonts.css";
+import ScrollToTop from "../router/scrollTop";
 
 function App() {
   AOS.init();
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <CacheProvider value={cacheRtl}>
         <ThemeProvider theme={theme}>
           <div className="App">
