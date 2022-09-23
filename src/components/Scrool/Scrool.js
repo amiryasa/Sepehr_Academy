@@ -5,7 +5,7 @@ const Scrool = () => {
   const onClickHandler2 = () => {
     var rootElement = document.documentElement;
     rootElement.scrollTo({
-        top: 0,
+        top: 630,
         behavior: "smooth"
       })
 }

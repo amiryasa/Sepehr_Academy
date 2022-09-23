@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 
 import "./TableCom.css";
 
-const TableCom = () => {
+const TableCom = (props) => {
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -43,6 +43,8 @@ const TableCom = () => {
     createData('05',"دوره پیشرفته  Front-End", 'دکتر محمد بحرالعلوم', '01/02/25', 35, '000 125 ت'),
   ];
 
+  console.log(props.myData);
+
   return (
     <div className="tableCom">
       <TableContainer component={Paper} className="tableComContainer">
@@ -59,9 +61,9 @@ const TableCom = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.number}>
-                <StyledTableCell align="center">{row.number}</StyledTableCell>
+            {props.myData.slice((props.currentPage*props.rowsCount)-props.rowsCount,props.currentPage*props.rowsCount).map((row) => (
+              <StyledTableRow key={row.id}>
+                <StyledTableCell align="center">{row.id}</StyledTableCell>
                 <StyledTableCell component="th" scope="row">{row.name}</StyledTableCell>
                 <StyledTableCell align="left">{row.teacher}</StyledTableCell>
                 <StyledTableCell align="center">{row.date}</StyledTableCell>
