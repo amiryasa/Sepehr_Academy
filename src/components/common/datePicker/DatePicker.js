@@ -1,48 +1,35 @@
-import DatePicker from "react-multi-date-picker"
-import persian_fa from "react-date-object/locales/persian_fa"
-import persian from "react-date-object/calendars/persian"
-import InputIcon from "react-multi-date-picker/components/input_icon"
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import AdapterJalali from '@date-io/date-fns-jalali';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import moment from "moment";
 import "./datePicker.css"
 
-
 export default function DatePickerCustome(props) {
-    const weekDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"]
-    const mouths = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"]
 
     return (
-        <div className="datePicker_form">
-            <label className={`${props.value ? "label_datePicker_top" : "label_datePicker"}`}>
-                {props.label}
-            </label>
+        <LocalizationProvider dateAdapter={AdapterJalali}>
             <DatePicker
-                className="datePicker"
-                value={props.value}
-                onChange={props.setValue}
-                multiple={props.multiple}
-                range={props.range}
-                format="YYYY/MM/DD"
-                calendar={persian}
-                // locale={persian_fa}
-                readOnly={props.readOnly}
-                disabled={props.disabled}
-                hideWeekDays={props.hideWeekDays}
-                hideMonth={props.hideMonth}
-                hideYear={props.hideYear}
-                fullYear={props.fullYear}
-                weekDays={weekDays}
-                months={mouths}
+                className={props.className}
+                disableFuture
+                label={props.label}
+                mask="____/__/__"
+                value={props.value ? props.value : new Date()}
+                onChange={(newValue) => {
+                    props.onChange(newValue)
+                    console.log(newValue.toLocaleDateString('fa-IR'));
+                    console.log(moment(newValue).format(("YYYY-MM-DD")));
+                }}
+                renderInput={(params) =>
+                    <TextField {...params}
+                        helperText={props.helperText}
+                        error={props.error} />
+                }
                 minDate={props.minDate}
                 maxDate={props.maxDate}
-                render={<InputIcon />}
-                mapDays={({ date }) => {
-                    let props = {}
-                    let isWeekend = [6].includes(date.weekDay.index)
-
-                    if (isWeekend) props.className = "highlight highlight-red"
-
-                    return props
-                }}
+                views={props.view}
             />
-        </div>
+        </LocalizationProvider>
     )
-}
+};

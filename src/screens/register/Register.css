@@ -109,6 +109,8 @@
         margin-top: 17px;
     }
 
+
+
     .registerHolder>.registerInputHolder {
         width: 304px;
         height: 295px;
@@ -147,6 +149,14 @@
 
 }
 
+@media screen and (max-width:1030px) {
+    .datePicker_div>.MuiFormControl-root {
+        width: 106%;
+        margin-top: 2px;
+    }
+
+}
+
 @media screen and (max-width:749px) {
 
     .registerHolder {
@@ -154,6 +164,8 @@
         background-size: 100%;
         background-repeat: no-repeat;
     }
+
+
 
     .registerHolder>.registerInputHolder {
         margin-right: 48px;

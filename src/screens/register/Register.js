@@ -29,13 +29,12 @@ const Register = () => {
             <Input title={fa.TITLE_NATIONAL_CODE} className="enterInputSmall" />
           </div>
           <div className="datePicker_div">
-            <Input title={fa.TITLE_BIRTHDAY} className="enterInputSmall" />
-            {/* <DatePickerCustome
-              maxDate={new Date()}
+            <DatePickerCustome
               label={fa.TITLE_BIRTHDAY}
-              value={date}
+              maxDate={new Date()}
               onChange={setDate}
-            /> */}
+              value={date}
+            />
           </div>
           <div>
             <Input title={fa.TITLE_EMAIL_USER} className="enterInputSmall" />
