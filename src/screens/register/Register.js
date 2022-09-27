@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react"
 import { Btn } from "../../components/common/Button/Btn";
+import DatePickerCustome from "../../components/common/datePicker/DatePicker";
 import { Input } from "../../components/common/Input/Input";
 import * as fa from "../../constants/persianStrings";
 import "./Register.css";
 
 const Register = () => {
-
+  const [date, setDate] = useState(new Date())
   const navigator = useNavigate();
 
   return (
@@ -27,8 +28,13 @@ const Register = () => {
           <div>
             <Input title={fa.TITLE_NATIONAL_CODE} className="enterInputSmall" />
           </div>
-          <div>
-            <Input title={fa.TITLE_BIRTHDAY} className="enterInputSmall" />
+          <div className="datePicker_div">
+            <DatePickerCustome
+              label={fa.TITLE_BIRTHDAY}
+              maxDate={new Date()}
+              onChange={setDate}
+              value={date}
+            />
           </div>
           <div>
             <Input title={fa.TITLE_EMAIL_USER} className="enterInputSmall" />
@@ -37,7 +43,7 @@ const Register = () => {
             <Input title={fa.TITLE_PASS} className="enterInputSmall" />
           </div>
         </div>
-        
+
         <div className="registerButtonHolderReall">
           <Btn
             color="info"

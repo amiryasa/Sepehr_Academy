@@ -1,12 +1,12 @@
-.registerHolder{
-    height:609px;
+.registerHolder {
+    height: 609px;
     background: url('./../../assets/images/Register/bg.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
 }
 
-.registerHolder > .registerHolderLogo {
+.registerHolder>.registerHolderLogo {
     height: 25px;
     background: url("./../../assets/images/StudentPanel/logo.png");
     background-size: 25px;
@@ -20,27 +20,27 @@
     letter-spacing: 0.3px;
     position: absolute;
     top: 0px;
-    right:40px;
+    right: 40px;
     cursor: pointer;
-  }
-  
-  .registerHolder > .registerHolderLogo > p{
-    margin-top: 0px;
-  }
+}
 
-.registerHolder > .registerInputHolder{
+.registerHolder>.registerHolderLogo>p {
+    margin-top: 0px;
+}
+
+.registerHolder>.registerInputHolder {
     width: 499px;
     height: 396px;
     border: 2px solid #00ADEF;
     border-radius: 15px;
-    background-color:  white;
-    float:right;
-    margin-top:125px;
-    margin-right:125px;
+    background-color: white;
+    float: right;
+    margin-top: 125px;
+    margin-right: 125px;
 }
 
-.registerHolder > .registerInputHolder > .registerInputHolderReall{
-    margin-top:-5px;
+.registerHolder>.registerInputHolder>.registerInputHolderReall {
+    margin-top: -5px;
     margin-right: 36px;
 
     display: grid;
@@ -50,7 +50,7 @@
     grid-row-gap: 12px;
 }
 
-.registerHolder > .registerInputHolder > p{
+.registerHolder>.registerInputHolder>p {
     font-size: 30px;
     color: #00ADEF;
     background-color: white;
@@ -60,40 +60,40 @@
     margin-right: 26px;
 }
 
-.registerHolder > .registerInputHolder > .registerInputHolderForP{
+.registerHolder>.registerInputHolder>.registerInputHolderForP {
     font-size: 12px;
     color: #00ADEF;
     margin-right: 36px;
     margin-top: 5px;
 }
 
-.registerHolder > .registerInputHolder > .registerInputHolderRemainder{
+.registerHolder>.registerInputHolder>.registerInputHolderRemainder {
     margin-right: 25px;
     margin-top: 20px;
 }
 
-.registerHolder > .registerInputHolder > .registerButtonHolderReall{
+.registerHolder>.registerInputHolder>.registerButtonHolderReall {
     margin-top: 40px;
     margin-right: -13px;
 }
 
-.registerHolder > .registerInputHolder > .registerInputHolderRemainder > .registerInputHolderRemainderP1{
-    display: inline-block; 
+.registerHolder>.registerInputHolder>.registerInputHolderRemainder>.registerInputHolderRemainderP1 {
+    display: inline-block;
     font-size: 14px;
     margin-right: -5px;
 }
 
-.registerHolder > .registerInputHolder > .registerInputHolderRemainder > .registerInputHolderRemainderP2{
-    display: inline-block; 
+.registerHolder>.registerInputHolder>.registerInputHolderRemainder>.registerInputHolderRemainderP2 {
+    display: inline-block;
     font-size: 11px;
-    color:#787878;
+    color: #787878;
     margin-right: 5px;
 }
 
-.registerHolder > .registerImageHolder{
+.registerHolder>.registerImageHolder {
     background: url('./../../assets/images/Register/register.png');
-    background-size:445px 475px;
-    height:550px;
+    background-size: 445px 475px;
+    height: 550px;
     background-repeat: no-repeat;
     background-position: 105px 57px;
 }
@@ -101,19 +101,27 @@
 
 /* Responsive */
 
-@media screen and (max-width:1262px){
+@media screen and (max-width:1262px) {
 
-    .registerHolder > .registerInputHolder{
-        width: 304px;
-        height: 295px;
-        margin-top:50px;
-        margin-right:75px;
+    .datePicker_div {
+        margin: auto;
+        padding-right: 22px;
+        margin-top: 17px;
     }
 
-    .registerHolder > .registerInputHolder > .registerInputHolderReall{
-        margin-top:-40px;
-        margin-right: 1px;        
-        
+
+
+    .registerHolder>.registerInputHolder {
+        width: 304px;
+        height: 295px;
+        margin-top: 50px;
+        margin-right: 75px;
+    }
+
+    .registerHolder>.registerInputHolder>.registerInputHolderReall {
+        margin-top: -40px;
+        margin-right: 1px;
+
         display: grid;
         grid-template-columns: 135px 135px;
         grid-template-rows: 75px 75px 75px;
@@ -121,41 +129,51 @@
         grid-row-gap: 3px;
     }
 
-    .registerHolder > .registerInputHolder > p{
+    .registerHolder>.registerInputHolder>p {
         font-size: 25px;
         width: 153px;
         padding-right: 7px;
         margin-right: 20px;
     }
 
-    .registerHolder > .registerInputHolder > .registerButtonHolderReall{
+    .registerHolder>.registerInputHolder>.registerButtonHolderReall {
         margin-top: 25px;
         margin-right: -2px;
     }
 
-    .registerHolder > .registerImageHolder{
-        background-size:271px 290px;
+    .registerHolder>.registerImageHolder {
+        background-size: 271px 290px;
         background-position: 62px 50px;
         background-repeat: no-repeat;
     }
-    
+
 }
 
-@media screen and (max-width:749px){
+@media screen and (max-width:1030px) {
+    .datePicker_div>.MuiFormControl-root {
+        width: 106%;
+        margin-top: 2px;
+    }
 
-    .registerHolder{
+}
+
+@media screen and (max-width:749px) {
+
+    .registerHolder {
         background: url('./../../assets/images/Register/bg2.png');
         background-size: 100%;
         background-repeat: no-repeat;
     }
 
-    .registerHolder > .registerInputHolder{
-        margin-right:48px;
+
+
+    .registerHolder>.registerInputHolder {
+        margin-right: 48px;
         margin-top: 40px;
     }
 
-    .registerHolder > .registerImageHolder{
-        display:none;
+    .registerHolder>.registerImageHolder {
+        display: none;
     }
-    
+
 }

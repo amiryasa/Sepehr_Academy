@@ -3,10 +3,12 @@
   stroke-dasharray: 1562.31;
   fill: #F6FBFF;
   cursor: pointer;
+  
 }
 
 #svg_2 {
   cursor: pointer;
+  
 }
 
 svg.progressBar {
@@ -17,7 +19,7 @@ svg.progressBar {
   transition: .3s;
   visibility: hidden;
   opacity: 0;
-
+  z-index: 50;
 }
 
 @media screen and (max-width: 1262px) {
