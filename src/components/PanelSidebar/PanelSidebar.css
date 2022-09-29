@@ -173,12 +173,14 @@
     background-position: center;
     margin-right: 0px;
     padding: 30px 0px 30px 0;
+    
   }
   
   .sidebarContainer > .sidebarContainerLogo > p{
     text-align: center;
     font-size: 14px;
-    margin-top: 28px
+    margin-top: 28px;
+    cursor: pointer;
   }
 
   .sidebarContainer > .sidebarContainerInfo {

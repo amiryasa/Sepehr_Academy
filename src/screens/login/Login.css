@@ -39,16 +39,16 @@
     margin-right:125px;
 }
 
-.loginHolder > .loginInputHolder > .loginInputHolderReall{
+.loginHolder > .loginInputHolder > form > .loginInputHolderReall{
     margin-top: -40px;
     margin-right: 36px;
 }
 
-.loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallEmail{
+.loginHolder > .loginInputHolder > form > .loginInputHolderReall > .loginInputHolderReallEmail{
     margin-top: 65px;
 }
 
-.loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallPassword{
+.loginHolder > .loginInputHolder > form > .loginInputHolderReall > .loginInputHolderReallPassword{
     margin-top: 10px;
 }
 
@@ -63,7 +63,7 @@
     margin-right: 26px;
 }
 
-.loginHolder > .loginInputHolder > .loginInputHolderForP{
+.loginHolder > .loginInputHolder > form > .loginInputHolderForP{
     font-size: 12px;
     color: #00ADEF;
     margin-right: 36px;
@@ -71,23 +71,23 @@
     cursor: pointer;
 }
 
-.loginHolder > .loginInputHolder > .loginInputHolderRemainder{
+.loginHolder > .loginInputHolder > form > .loginInputHolderRemainder{
     margin-right: 35px;
     margin-top: 20px;
 }
 
-.loginHolder > .loginInputHolder > .loginButtonHolderReall{
+.loginHolder > .loginInputHolder > form > .loginButtonHolderReall{
     margin-top: 35px;
     margin-right: 21px;
 }
 
-.loginHolder > .loginInputHolder > .loginInputHolderRemainder > .loginInputHolderRemainderP1{
+.loginHolder > .loginInputHolder > form > .loginInputHolderRemainder > .loginInputHolderRemainderP1{
     display: inline-block; 
     font-size: 14px;
     margin-right: 5px;
 }
 
-.loginHolder > .loginInputHolder > .loginInputHolderRemainder > .loginInputHolderRemainderP2{
+.loginHolder > .loginInputHolder > form > .loginInputHolderRemainder > .loginInputHolderRemainderP2{
     display: inline-block; 
     font-size: 11px;
     color:#787878;
@@ -124,47 +124,47 @@
         margin-right:75px;
     }
 
-    .loginHolder > .loginInputHolder > .loginInputHolderReall{
+    .loginHolder > .loginInputHolder > form > .loginInputHolderReall{
         margin-top:-35px;
         margin-right: 22px;
     }
 
-    .loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallEmail{
+    .loginHolder > .loginInputHolder > form > .loginInputHolderReall > .loginInputHolderReallEmail{
         margin-top: 40px;
     }
     
-    .loginHolder > .loginInputHolder > .loginInputHolderReall > .loginInputHolderReallPassword{
+    .loginHolder > .loginInputHolder > form > .loginInputHolderReall > .loginInputHolderReallPassword{
         margin-top: 0px;
     }
 
-    .loginHolder > .loginInputHolder > p{
+    .loginHolder > .loginInputHolder > form > p{
         font-size: 25px;
         width: 153px;
         padding-right: 7px;
         margin-right: 20px;
     }
 
-    .loginHolder > .loginInputHolder > .loginButtonHolderReall{
+    .loginHolder > .loginInputHolder > form > .loginButtonHolderReall{
         margin-top: 15px;
         margin-right: 26px;
     }
 
-    .loginHolder > .loginInputHolder > .loginInputHolderForP{
+    .loginHolder > .loginInputHolder > form > .loginInputHolderForP{
         font-size: 10px;
         margin-top: 5px;
         margin-right: 28px;
     }
 
-    .loginHolder > .loginInputHolder > .loginInputHolderRemainder{
+    .loginHolder > .loginInputHolder > form > .loginInputHolderRemainder{
         margin-right: 25px;
         margin-top: 10px;
     }
 
-    .loginHolder > .loginInputHolder > .loginInputHolderRemainder > .loginInputHolderRemainderP1{
+    .loginHolder > .loginInputHolder > form > .loginInputHolderRemainder > .loginInputHolderRemainderP1{
         font-size: 11px;
     }
     
-    .loginHolder > .loginInputHolder > .loginInputHolderRemainder > .loginInputHolderRemainderP2{
+    .loginHolder > .loginInputHolder > form > .loginInputHolderRemainder > .loginInputHolderRemainderP2{
         display: inline-block; 
         font-size: 9px;
         color:#787878;

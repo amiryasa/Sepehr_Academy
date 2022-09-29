@@ -61,11 +61,13 @@
     .ideaCantainer {
         height: 0px;
         padding: 0px;
+        margin-bottom: 500px;
     }
 
     .ideaCantainer>div.ideaInput {
         margin-right: 57px;
         padding-top: 25px;
+       
     }
 }
 

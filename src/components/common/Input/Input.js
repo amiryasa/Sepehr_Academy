@@ -15,13 +15,13 @@ const Input = (props) => {
         defaultValue={props.defaultValue}
         helperText={props.errorMessage}
         style={{
-          backgroundColor: "#FCFCFC",
           margin: `${props.margin}`,
           width: `${props.width}`,
         }}
         name={props.name}
         onChange={props.onChange}
         value={props.value}
+        error={props.error}
       />
     </div>
   );
