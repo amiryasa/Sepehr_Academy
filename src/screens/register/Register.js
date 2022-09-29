@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
+import { useState } from "react"
 import { Btn } from "../../components/common/Button/Btn";
+import DatePickerCustome from "../../components/common/datePicker/DatePicker";
 import { Input } from "../../components/common/Input/Input";
 import * as fa from "../../constants/persianStrings";
 
@@ -56,6 +58,8 @@ const validationSchema = yup.object({
 
 const Register = () => {
   const navigator = useNavigate();
+
+  const [date, setDate] = useState(new Date())
 
   const myFormik = useFormik({
     initialValues: {
@@ -115,7 +119,15 @@ const Register = () => {
                 errorMessage={myFormik.touched.id && myFormik.errors.id}
               />
             </div>
-            <div>
+            <div className="datePicker_div">
+            <DatePickerCustome
+              label={fa.TITLE_BIRTHDAY}
+              maxDate={new Date()}
+              onChange={setDate}
+              value={date}
+            />
+          </div>
+            {/* <div>
               <Input
                 title={fa.TITLE_BIRTHDAY}
                 className="enterInputSmall"
@@ -125,7 +137,7 @@ const Register = () => {
                 error={myFormik.touched.birthday && Boolean(myFormik.errors.birthday)}
                 errorMessage={myFormik.touched.birthday && myFormik.errors.birthday}
               />
-            </div>
+            </div> */}
             <div>
               <Input
                 title={fa.TITLE_EMAIL_USER}

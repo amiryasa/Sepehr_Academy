@@ -1,0 +1,17 @@
+.MuiInputAdornment-root {
+    margin-left: 7px;
+}
+
+.MuiFormLabel-root {
+    font-family: bakh !important;
+}
+
+@media screen and (max-width:1030px) {
+    .MuiOutlinedInput-input {
+        font-size: 11px !important;
+    }
+
+    .muirtl-i4bv87-MuiSvgIcon-root {
+        width: 1.5rem !important;
+    }
+}

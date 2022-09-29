@@ -17,6 +17,8 @@ export const TITLE_NEWS = "لیست تمام اخبار و مقالات "
 export const TITLE_COMMENTS = "نظرات کاربران"
 export const TITLE_TEXT_COMMENT = "متن نظر"
 export const TITLE_DETAIL_COURSE = "توضیحات دوره"
+export const TITLE_EMAIL = "ایمیل"
+export const TITLE_NAME = "نام کاربری"
 
 
 //btn
@@ -31,6 +33,8 @@ export const FORGET_PASS = "رمز عبورم را فراموش کرده‌ام!
 export const REMEMBER_ME = "مرا به خاطر بسپار!"
 export const SUCESS_EMAIL = "تایید ایمیل"
 export const INSERT_COMMENT = "ثبت نظر"
+export const INSERT_NEW_CHANGES = "ثبت تغییرات"
+export const IGNORE_NEW_CHANGES = "لغو تغییرات"
 
 
 //card name

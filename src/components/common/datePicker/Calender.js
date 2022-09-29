@@ -19,10 +19,11 @@ export default function CalenderCustom(props) {
             hideYear={props.hideYear}
             fullYear={props.fullYear}
             weekDays={weekDays}
-            minDate={new Date()}
+            maxDate={props.maxDate}
+            minDate={props.minDate}
             mapDays={({ date }) => {
                 let props = {}
-                let isWeekend = [ 6].includes(date.weekDay.index)
+                let isWeekend = [6].includes(date.weekDay.index)
 
                 if (isWeekend) props.className = "highlight highlight-red"
 
