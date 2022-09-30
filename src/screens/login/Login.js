@@ -24,16 +24,16 @@ const Login = () => {
         <div className="loginInputHolderReall">
           <div className="loginInputHolderReallEmail">
             <Input
-              title="ایمیل کاربر"
+              title={fa.TITLE_EMAIL_USER}
               className="enterInputBig"
 
             />
           </div>
           <div className="loginInputHolderReallPassword">
             <Input
-              title="رمز عبور"
+              title={fa.TITLE_PASS}
               className="enterInputBig"
-
+              password={true}
             />
           </div>
         </div>
