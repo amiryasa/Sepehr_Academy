@@ -40,7 +40,11 @@ const Register = () => {
             <Input title={fa.TITLE_EMAIL_USER} className="enterInputSmall" />
           </div>
           <div>
-            <Input title={fa.TITLE_PASS} className="enterInputSmall" />
+            <Input
+              title={fa.TITLE_PASS}
+              password={true}
+              className="enterInputSmall"
+            />
           </div>
         </div>
 

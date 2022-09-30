@@ -19,6 +19,9 @@ export const TITLE_TEXT_COMMENT = "متن نظر"
 export const TITLE_DETAIL_COURSE = "توضیحات دوره"
 export const TITLE_EMAIL = "ایمیل"
 export const TITLE_NAME = "نام کاربری"
+export const TITLE_CURRENT_PASS = "رمز عبور فعلی"
+export const TITLE_NEW_PASS = "رمز عبور جدید"
+export const TITLE_AGAIN_NEW_PASS = "تکرار رمز عبور"
 
 
 //btn
