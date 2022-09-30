@@ -7,7 +7,7 @@ div.c21 {
 .CardIncoursesContainer {
   display: grid;
   grid-template-columns: 215px 215px 215px 215px;
-  grid-template-rows: 337px 337px;
+  grid-template-rows: 337px;
   gap: 35px;
   margin-top: 50px;
   margin-bottom: 65px;
@@ -25,7 +25,7 @@ div.c21 {
   .CardIncoursesContainer {
     display: grid;
     grid-template-columns: 136px 136px 136px 136px;
-    grid-template-rows: 234px 234px;
+    grid-template-rows: 234px;
     gap: 18.5px;
     margin-top: 50px;
     margin-bottom: 65px;
@@ -40,7 +40,7 @@ div.c21 {
   .CardIncoursesContainer {
     display: grid;
     grid-template-columns: 136px 136px;
-    grid-template-rows: 234px 234px 234px 234px;
+    grid-template-rows: 234px 234px;
     gap: 32px;
     margin-top: 50px;
     margin-bottom: 65px;

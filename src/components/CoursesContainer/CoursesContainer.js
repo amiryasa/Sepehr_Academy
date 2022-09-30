@@ -175,7 +175,7 @@ const CoursesContainer = () => {
       </div>
       <CoursesFilter />
       <div className="CardIncoursesContainer">
-        {CoursesData.slice((currentPage_CoursesContainer*8)-8,currentPage_CoursesContainer*8).map((item, index) => (
+        {CoursesData.slice((currentPage_CoursesContainer*4)-4,currentPage_CoursesContainer*4).map((item, index) => (
         <CardInCourses
           image={item.image}
           bgColor="#F3FFF8"
@@ -190,7 +190,7 @@ const CoursesContainer = () => {
       </div>
       <Paginate
         allItem={CoursesData.length}
-        eachPageTtem={8}
+        eachPageTtem={4}
         handlePagination={handlePagination_CoursesContainer}
       />
     </div>

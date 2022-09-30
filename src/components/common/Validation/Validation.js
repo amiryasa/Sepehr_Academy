@@ -23,7 +23,6 @@ const validationSchema = yup.object({
 const Validation = () => {
   const myFormik = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
     },
