@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-import { useState } from "react"
+import { useState } from "react";
 import { Btn } from "../../components/common/Button/Btn";
 import DatePickerCustome from "../../components/common/datePicker/DatePicker";
 import { Input } from "../../components/common/Input/Input";
@@ -12,54 +12,46 @@ import * as fa from "../../constants/persianStrings";
 import "./Register.css";
 
 const validationSchema = yup.object({
+  name: yup
+    .string("نام خود را به درستی وارد نمایید!")
+    .required("واردکردن نام الزامی است!")
+    .matches(/^[a-zA-Z]*$/, "از حروف انگلیسی استفاده نمایید!")
+    .min(3, "نام حداقل باید شامل 3 کارکتر باشد!")
+    .max(12, "نام حداکثر باید شامل 18 کارکتر باشد!"),
+
+  mobile: yup
+    .string("شماره تماس خود را وارد نمایید!")
+    .matches(/^09[0|1|2|3|9][0-9]*$/, "ساختار وارد شده اشتباه است!")
+    .min(11, "شماره تماس کمتر از حد مجاز است!")
+    .max(11, "شماره تماس بیشتر از حد مجاز است!")
+    .required("وارد کردن شماره تماس الزامی است!"),
+
+  id: yup
+    .string("شماره ملی خود را وارد نمایید!")
+    .matches(/^[0-9]*$/, "ساختار وارد شده اشتباه است!")
+    .min(10, "شماره ملی باید حداقل 10 کارکتر باشد!")
+    .required("وارد کردن شماره ملی الزامی است!"),
+
+  birthday: yup
+    .string("تاریخ تولد خود را وارد نمایید!")
+    .required("وارد کردن تاریخ تولد الزامی است!"),
+
   email: yup
     .string("ایمیل خود را وارد نمایید!")
     .email("ایمیل خود را به درستی وارد نمایید!")
-    .required("!وارد کردن ایمیل الزامی است"),
+    .required("وارد کردن ایمیل الزامی است!"),
+
   password: yup
-    .string("!رمز عبور خود را وارد نمایید")
-    .min(8, "!رمزعبورتان حداقل باید شامل 8 کارکتر باشد")
-    .required("!وارد کردن رمز عبور الزامی است")
-    .matches(/^[a-zA-Z0-9]*$/, "202"),
-
-    name: yup
-    .string("نام خود را وارد نمایید!")
-    .required("!وارد کردن نام الزامی است")
-    .matches(/^[a-zA-Z ]*$/, "نام را با حروف انگلیسی وارد نمایید!")
-    .min(3,"نام حداقل باید شامل 3 کارکتر باشد!")
-    .max(12, "نام حداقل باید شامل12  کارکتر باشد"),
-    
-    mobile: yup
     .string("ایمیل خود را وارد نمایید!")
-    .email("ایمیل خود را به درستی وارد نمایید!")
-    .required("!وارد کردن ایمیل الزامی است"),
-    
-    id: yup
-    .string("ایمیل خود را وارد نمایید!")
-    .email("ایمیل خود را به درستی وارد نمایید!")
-    .required("!وارد کردن ایمیل الزامی است"),
-
-    birthday: yup
-    .string("ایمیل خود را وارد نمایید!")
-    .email("ایمیل خود را به درستی وارد نمایید!")
-    .required("!وارد کردن ایمیل الزامی است"),
-
-    email: yup
-    .string("ایمیل خود را وارد نمایید!")
-    .email("ایمیل خود را به درستی وارد نمایید!")
-    .required("!وارد کردن ایمیل الزامی است"),
-
-    password: yup
-    .string("ایمیل خود را وارد نمایید!")
-    .email("ایمیل خود را به درستی وارد نمایید!")
-    .required("!وارد کردن ایمیل الزامی است"),
-
+    .required("وارد کردن رمزعبور الزامی است! ")
+    .min(8, "رمزعبور باید حداقل 8 کارکتر باشد!")
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,"رمزعبور به اندازه‌ی کافی قوی نیست!"),
 });
 
 const Register = () => {
   const navigator = useNavigate();
 
-  const [date, setDate] = useState(new Date())
+  const [date, setDate] = useState(new Date());
 
   const myFormik = useFormik({
     initialValues: {
@@ -104,7 +96,9 @@ const Register = () => {
                 name="mobile"
                 onChange={myFormik.handleChange}
                 value={myFormik.values.mobile}
-                error={myFormik.touched.mobile && Boolean(myFormik.errors.mobile)}
+                error={
+                  myFormik.touched.mobile && Boolean(myFormik.errors.mobile)
+                }
                 errorMessage={myFormik.touched.mobile && myFormik.errors.mobile}
               />
             </div>
@@ -120,13 +114,13 @@ const Register = () => {
               />
             </div>
             <div className="datePicker_div">
-            <DatePickerCustome
-              label={fa.TITLE_BIRTHDAY}
-              maxDate={new Date()}
-              onChange={setDate}
-              value={date}
-            />
-          </div>
+              <DatePickerCustome
+                label={fa.TITLE_BIRTHDAY}
+                maxDate={new Date()}
+                onChange={setDate}
+                value={date}
+              />
+            </div>
             {/* <div>
               <Input
                 title={fa.TITLE_BIRTHDAY}
@@ -156,8 +150,12 @@ const Register = () => {
                 name="password"
                 onChange={myFormik.handleChange}
                 value={myFormik.values.password}
-                error={myFormik.touched.password && Boolean(myFormik.errors.password)}
-                errorMessage={myFormik.touched.password && myFormik.errors.password}
+                error={
+                  myFormik.touched.password && Boolean(myFormik.errors.password)
+                }
+                errorMessage={
+                  myFormik.touched.password && myFormik.errors.password
+                }
               />
             </div>
           </div>
