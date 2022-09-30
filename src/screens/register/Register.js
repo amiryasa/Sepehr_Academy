@@ -7,7 +7,7 @@ import * as fa from "../../constants/persianStrings";
 import "./Register.css";
 
 const Register = () => {
-  const [date, setDate] = useState(new Date())
+  const [date, setDate] = useState(new Date());
   const navigator = useNavigate();
 
   return (
@@ -30,10 +30,10 @@ const Register = () => {
           </div>
           <div className="datePicker_div">
             <DatePickerCustome
-              label={fa.TITLE_BIRTHDAY}
               maxDate={new Date()}
-              onChange={setDate}
+              label={fa.TITLE_BIRTHDAY}
               value={date}
+              onChange={setDate}
             />
           </div>
           <div>
