@@ -1,17 +1,74 @@
-.MuiInputAdornment-root {
-    margin-left: 7px;
+.rmdp-input {
+    width: 108%;
+    height: 42px;
+    border-color: rgba(0, 0, 0, 0.23) !important;
+    background-color: #FCFCFC !important
 }
 
-.MuiFormLabel-root {
-    font-family: bakh !important;
+.rmdp-input:hover {
+    border-color: #2d2e2f !important;
+    border-width: 1px !important;
 }
 
-@media screen and (max-width:1030px) {
-    .MuiOutlinedInput-input {
-        font-size: 11px !important;
+.rmdp-input:focus {
+    border-color: #1976c2 !important;
+    border-width: 2px !important;
+}
+
+
+
+.rmdp-container>div>div>svg {
+    width: 25px;
+    right: 10rem !important;
+}
+
+@media screen and (max-width: 1262px) {
+    .rmdp-input {
+        width: 95%;
     }
 
-    .muirtl-i4bv87-MuiSvgIcon-root {
-        width: 1.5rem !important;
+    .rmdp-container>div>div>svg {
+
+        right: 5rem !important;
     }
+}
+
+
+.datePicker_form {
+    position: relative;
+}
+
+.label_datePicker_top {
+    position: absolute;
+    z-index: 50;
+    top: -8px;
+    background-color: #FCFCFC;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 12px;
+    right: 10px;
+    color: #808080;
+}
+
+.label_datePicker {
+    position: absolute;
+    z-index: 50;
+    top: 15px;
+    background-color: #FCFCFC;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 16px;
+    right: 7px;
+    color: #808080;
+
+}
+
+.datePicker_form:focus>.label_datePicker {
+    color: #1976c2 !important;
+}
+
+
+.rmdp-month-picker,
+.rmdp-year-picker {
+    bottom: -16px
 }

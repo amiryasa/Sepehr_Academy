@@ -68,6 +68,7 @@ const Login = () => {
                 name="password"
                 onChange={myFormik.handleChange}
                 value={myFormik.values.password}
+                password={true}
 
                 error={myFormik.touched.password && Boolean(myFormik.errors.password)}
                 errorMessage={myFormik.touched.password && myFormik.errors.password}

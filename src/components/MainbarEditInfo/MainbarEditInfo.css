@@ -15,7 +15,7 @@
   margin-top: 34px;
 }
 
-.MainbarEditInfo > .MainbarEditInfoTopic > p {
+.MainbarEditInfo>.MainbarEditInfoTopic>p {
   width: 256px;
   padding-right: 26px;
   padding-top: 32px;
@@ -23,7 +23,7 @@
   color: #043d72;
 }
 
-.MainbarEditInfo > .MainbarEditInfoTopic > hr {
+.MainbarEditInfo>.MainbarEditInfoTopic>hr {
   width: 82px;
   border-width: 4px;
   border: 2px solid #fdea00;
@@ -32,7 +32,7 @@
   margin-top: -20px;
 }
 
-.MainbarEditInfo > .MainbarEditInfoProfile {
+.MainbarEditInfo>.MainbarEditInfoProfile {
   width: 150px;
   height: 150px;
   border: 3px solid #00aa1c;
@@ -42,7 +42,7 @@
   margin: -10px auto 0 auto;
 }
 
-.MainbarEditInfo > .MainbarEditInfoProfile > .MainbarEditInfoProfileIcon {
+.MainbarEditInfo>.MainbarEditInfoProfile>.MainbarEditInfoProfileIcon {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -58,7 +58,7 @@
   right: -13px;
 }
 
-.MainbarEditInfo > .MainbarEditInfoInputs {
+.MainbarEditInfo>.MainbarEditInfoInputs {
   display: grid;
   grid-template-columns: 260px 260px 260px;
   grid-template-rows: 45px 45px;
@@ -67,21 +67,38 @@
   margin-top: 36px;
 }
 
-.MainbarEditInfo > .MainbarEditInfoInputs > div:nth-child(4) {
+.MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(4) {
+  /* margin-right: 154px; */
+}
+
+.MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(5) {
   margin-right: 154px;
 }
 
-.MainbarEditInfo > .MainbarEditInfoInputs > div:nth-child(5) {
-  margin-right: 154px;
-}
-
-.MainbarEditInfo > .MainbarEditInfoButton {
+.MainbarEditInfo>.MainbarEditInfoButton {
   width: 506px;
   margin-right: 239px;
   margin-top: 47px;
 }
 
+.MainbarEditInfoInputs>div:nth-child(4)>.datePicker_form>.rmdp-container {
+  width: 88% !important;
+}
+
+.MainbarEditInfoInputs>div:nth-child(4)>.datePicker_form>.rmdp-container>div>div>svg {
+  right: 13rem !important
+}
+
 @media screen and (max-width: 1262px) {
+
+  .MainbarEditInfoInputs>div:nth-child(4)>.datePicker_form>.rmdp-container {
+    width: 98% !important;
+  }
+
+  .MainbarEditInfoInputs>div:nth-child(4)>.datePicker_form>.rmdp-container>div>div>svg {
+    right: 10rem !important
+  }
+
   .MainbarContainer {
     width: 610px;
     height: 609px;
@@ -95,13 +112,13 @@
     margin-top: 35px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoTopic > p {
+  .MainbarEditInfo>.MainbarEditInfoTopic>p {
     width: 185px;
     padding-right: 20px;
     font-size: 21px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoTopic > hr {
+  .MainbarEditInfo>.MainbarEditInfoTopic>hr {
     border-width: 3.5px;
     border: 1.75px solid #fdea00;
     margin-right: 20px;
@@ -110,14 +127,14 @@
 
   /**/
 
-  .MainbarEditInfo > .MainbarEditInfoProfile {
+  .MainbarEditInfo>.MainbarEditInfoProfile {
     width: 100px;
     height: 100px;
     border: 2px solid #00aa1c;
     margin: 10px auto 0 auto;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoProfile > .MainbarEditInfoProfileIcon {
+  .MainbarEditInfo>.MainbarEditInfoProfile>.MainbarEditInfoProfileIcon {
     width: 34px;
     height: 34px;
     background-size: 20px;
@@ -127,7 +144,7 @@
     right: -8px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoInputs {
+  .MainbarEditInfo>.MainbarEditInfoInputs {
     display: grid;
     grid-template-columns: 195px 195px;
     grid-template-rows: 40px 40px 40px;
@@ -136,15 +153,15 @@
     margin-top: 30px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoInputs > div:nth-child(4) {
+  .MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(4) {
     margin-right: 0;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoInputs > div:nth-child(5) {
+  .MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(5) {
     margin-right: 125px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoButton {
+  .MainbarEditInfo>.MainbarEditInfoButton {
     width: 506px;
     margin-right: 128px;
     margin-top: 47px;
@@ -153,22 +170,22 @@
 
 @media screen and (max-width: 749px) {
 
-  .MainbarContainerEditInfo{
+  .MainbarContainerEditInfo {
     height: 825px;
   }
 
   .MainbarEditInfo {
     width: 300px;
-    height:660px;
+    height: 660px;
     margin-right: 30px;
     margin-top: 135px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoProfile {
-    margin-top:25px;
+  .MainbarEditInfo>.MainbarEditInfoProfile {
+    margin-top: 25px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoInputs {
+  .MainbarEditInfo>.MainbarEditInfoInputs {
     display: grid;
     grid-template-columns: 220px;
     grid-template-rows: 25px 25px 25px 25px 25px 25px;
@@ -177,7 +194,7 @@
     margin-top: 35px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoTopic > p {
+  .MainbarEditInfo>.MainbarEditInfoTopic>p {
     width: 300px;
     padding-right: 0px;
     padding-top: 20px;
@@ -185,20 +202,24 @@
     text-align: center;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoTopic > hr {    
+  .MainbarEditInfo>.MainbarEditInfoTopic>hr {
     border-width: 3px;
     border: 1.5px solid #fdea00;
     margin: auto;
     margin-top: -15px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoInputs > div:nth-child(5) {
+  .MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(5) {
     margin-right: 0px;
   }
 
-  .MainbarEditInfo > .MainbarEditInfoButton {
+  .MainbarEditInfo>.MainbarEditInfoButton {
     width: 280px;
     margin-right: 0px;
     margin-top: -10px;
+  }
+
+  .MainbarEditInfoInputs>div:nth-child(4)>.datePicker_form>.rmdp-container {
+    width: 88% !important;
   }
 }
