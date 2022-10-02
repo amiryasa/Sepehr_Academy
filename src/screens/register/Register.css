@@ -39,8 +39,8 @@
     margin-right: 125px;
 }
 
-.registerHolder>.registerInputHolder>.registerInputHolderReall {
-    margin-top: -5px;
+.registerHolder > .registerInputHolder > form > .registerInputHolderReall{
+    margin-top:-5px;
     margin-right: 36px;
 
     display: grid;
@@ -72,7 +72,7 @@
     margin-top: 20px;
 }
 
-.registerHolder>.registerInputHolder>.registerButtonHolderReall {
+.registerHolder > .registerInputHolder > form > .registerButtonHolderReall{
     margin-top: 40px;
     margin-right: -13px;
 }
@@ -118,10 +118,10 @@
         margin-right: 75px;
     }
 
-    .registerHolder>.registerInputHolder>.registerInputHolderReall {
-        margin-top: -40px;
-        margin-right: 1px;
-
+    .registerHolder > .registerInputHolder > form > .registerInputHolderReall{
+        margin-top:-40px;
+        margin-right: 1px;        
+        
         display: grid;
         grid-template-columns: 135px 135px;
         grid-template-rows: 75px 75px 75px;
@@ -136,7 +136,7 @@
         margin-right: 20px;
     }
 
-    .registerHolder>.registerInputHolder>.registerButtonHolderReall {
+    .registerHolder > .registerInputHolder > form > .registerButtonHolderReall{
         margin-top: 25px;
         margin-right: -2px;
     }
