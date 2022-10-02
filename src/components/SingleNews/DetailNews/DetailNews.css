@@ -5,6 +5,7 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   margin: auto;
+  margin-top: 50px;
 }
 @media screen and (max-width: 1262px) {
   .descriptionNews {
@@ -45,8 +46,10 @@
   text-justify: inter-word;
 }
 .descriptionNews div header {
-  color: #797b7c;
+  color: #808080;
   margin-bottom: 0.5rem;
+  margin-top: .75rem;
+  font-size: 18px;
 }
 @media (max-width: 749px) {
   .descriptionNews div header {
@@ -54,7 +57,8 @@
   }
 }
 .descriptionNews div span {
-  color: #acacac;
+  color: #9B9B9B;
+  font-size: 15px
 }
 @media (max-width: 749px) {
   .descriptionNews div span {

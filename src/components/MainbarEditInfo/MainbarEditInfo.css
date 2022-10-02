@@ -69,6 +69,8 @@
 
 .MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(4) {
   /* margin-right: 154px; */
+  position: relative;
+  right: 154px;
 }
 
 .MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(5) {
@@ -155,6 +157,7 @@
 
   .MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(4) {
     margin-right: 0;
+    right: 0px;
   }
 
   .MainbarEditInfo>.MainbarEditInfoInputs>div:nth-child(5) {

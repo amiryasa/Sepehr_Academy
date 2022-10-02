@@ -1,11 +1,11 @@
-import './index.scss';
+import './DetailNews.css';
 
 const DetailNews = (props) => {
     return (
         <div className='descriptionNews'>
             <p>توضیحات مقاله</p>
             <div>
-                <header>{props.deatils[0].name} چیست</header>
+                <header>{props.deatils[0].name} چیست؟</header>
                 <span>{props.deatils[0].describe}</span>
             </div>
             <div>

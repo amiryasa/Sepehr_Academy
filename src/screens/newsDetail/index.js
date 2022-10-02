@@ -1,6 +1,6 @@
-import { Comments } from "../../components/Comments"
-import { DetailNews } from "../../components/SingleNews/DetailNews"
-import { NewsDetailClass } from "../../components/SingleNews/NewsDetailClass"
+import { Comments } from "../../components/Comments/Comments"
+import { DetailNews } from "../../components/SingleNews/DetailNews/DetailNews"
+import { NewsDetailClass } from "../../components/SingleNews/NewsDetailClass/NewsDetailClass"
 
 const NewsDetail = () => {
     const deatils = [{

@@ -28,7 +28,7 @@ const PanelSidebar = () => {
           navigator("/");
         }}
       >
-        <p>آموزشگاه کدنویسی بحر</p>
+        <p onClick={() => navigator("/")}>آموزشگاه کدنویسی بحر</p>
       </div>
       <div className="sidebarContainerInfo">
         <Tooltips state="active">

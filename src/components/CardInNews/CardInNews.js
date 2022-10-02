@@ -44,6 +44,8 @@ const CardInNews = (props) => {
               elementClass="newsBtnCh"
               color={props.btnColor}
               variant="contained"
+
+              click='/newsDetail'
             />
           </div>
 

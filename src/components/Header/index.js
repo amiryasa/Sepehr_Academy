@@ -1,9 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useLocation} from "react-router-dom";
+
 
 import "./index.css";
 
 const Header = () => {
   const navigator = useNavigate();
+  const headerLocation = useLocation();
 
   let isHidden = true;
   const hamberMenuOnclickHandler = () => {
@@ -18,7 +21,10 @@ const Header = () => {
       myElement.style.height = 0;
       isHidden = true;
     }
+
   };
+
+
 
   const headerItems = document.getElementsByClassName("headerRowItems");
 
@@ -46,8 +52,6 @@ const Header = () => {
     headerItems[index].style.cursor = "default";
     headerItems[index].style.color = "#043d72";
     headerItems[index].style.textDecoration = "underline";
-
-    console.log(headerItems);
   };
 
   return (

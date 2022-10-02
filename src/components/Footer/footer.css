@@ -7,8 +7,8 @@ ul{
 
 .FooterHolder{
     height:568px;
-    background: url(./../../assets/images/Footer/map.png);
-    background-size: 715px 568px;
+    background: url(./../../assets/images/Footer/mapNew.png);
+    background-size: 912px 568px;
     background-repeat: no-repeat;
     background-position: 550px 0px;
     margin-top: 150px;
@@ -165,9 +165,9 @@ ul{
 @media screen and (max-width:1262px){
 
     .FooterHolder{
-        background-size: 483px 384px;
+        background-size: 616px 384px;
         background-position: 290px 0px;
-        margin-top:-75px;
+        margin-top:20px;
         height:384px;
     }
     
@@ -273,7 +273,7 @@ ul{
 @media screen and (max-width:749px){
 
     .FooterHolder{
-        background: url(./../../assets/images/Footer/mapRes.png);
+        background: url(./../../assets/images/Footer/mapRess25.png);
         background-size: 400px 230px;
         background-position: 0px 0px;
         margin-top:50px;

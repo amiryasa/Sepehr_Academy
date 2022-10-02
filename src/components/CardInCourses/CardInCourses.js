@@ -3,6 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
+
 import { Btn } from "./../common/Button/Btn";
 
 import "./CardInCourses.css";
@@ -55,6 +56,8 @@ const CardInCourses = (props) => {
           elementClass="coursesBtnCh"
           color={props.btnColor}
           variant="contained"
+
+          click='/courseDetail'
         />
       </CardActions>
     </Card>
