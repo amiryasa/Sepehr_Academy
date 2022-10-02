@@ -2,7 +2,6 @@
     width: 108%;
     height: 42px;
     border-color: rgba(0, 0, 0, 0.23) !important;
-    background-color: #FCFCFC !important
 }
 
 .rmdp-input:hover {
@@ -54,7 +53,6 @@
     position: absolute;
     z-index: 50;
     top: 15px;
-    background-color: #FCFCFC;
     padding-left: 8px;
     padding-right: 8px;
     font-size: 16px;
