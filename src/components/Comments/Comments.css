@@ -49,6 +49,8 @@
   flex-direction: column;
   width: 70%;
   margin: auto;
+  box-shadow:0px 0px 5px 1px rgba(0,0,0,.08); 
+  border-radius: 10px;
 }
 @media screen and (max-width: 60rem) {
   .comments .addNewComment .MuiCard-root {
@@ -56,8 +58,10 @@
   }
 }
 .comments .addNewComment .MuiCard-root span {
+  color:#808080;
   padding: 1rem;
-  font-size: 20px;
+  font-size: 23px;
+  
 }
 @media screen and (max-width: 1262px) {
   .comments .addNewComment .MuiCard-root span {
@@ -66,19 +70,18 @@
 }
 .comments .addNewComment .MuiCard-root .TextComment {
   padding: 1rem;
+  padding-top: 0px;
 }
 .comments .addNewComment .MuiCard-root .TextComment .MuiTextField-root {
   width: 100%;
 }
-.comments .addNewComment .MuiCard-root .TextComment .MuiTextField-root .MuiInputLabel-shrink {
-  font-size: 25px;
-}
+
 .comments .addNewComment .MuiCard-root .MuiButton-contained {
-  width: 30%;
+  width: 25%;
   font-family: bakh;
   align-self: center;
   margin-bottom: 1rem;
-  margin-top: 2rem;
+  margin-top: .75rem;
 }
 @media screen and (max-width: 1262px) {
   .comments .addNewComment .MuiCard-root .MuiButton-contained {
@@ -104,6 +107,8 @@
   padding-right: 0.5rem;
   width: 100%;
   margin-right: 1rem;
+  box-shadow:0px 0px 5px 1px rgba(0,0,0,.08); 
+  border-radius: 10px;
 }
 .comments .showComments .firstComment .MuiCard-root header {
   display: flex;
@@ -120,6 +125,9 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  color:#858585;
+  height: fit-content;
+  font-size: 15px;
 }
 .comments .showComments .firstComment .MuiCard-root header .name-date .MuiDivider-root {
   padding-right: 0.5rem;
@@ -136,6 +144,8 @@
 }
 .comments .showComments .firstComment .MuiCard-root .textOfComment {
   padding: 0.5rem;
+  font-size: 16px;
+  color: #757575;
 }
 @media screen and (max-width: 749px) {
   .comments .showComments .firstComment .MuiCard-root .textOfComment {
@@ -159,6 +169,8 @@
 }
 .comments .showComments .replyComment .MuiCard-root {
   display: flex;
+  box-shadow:0px 0px 5px 1px rgba(0,0,0,.08); 
+  border-radius: 10px;
 }
 .comments .showComments .replyComment .avatar {
   padding: 0.5rem;
@@ -181,7 +193,9 @@
   display: flex;
   height: -webkit-fit-content;
   height: -moz-fit-content;
+  color:#858585;
   height: fit-content;
+  font-size:15px;
 }
 .comments .showComments .replyComment .action-textComment header .name-date .MuiDivider-root {
   padding-right: 0.5rem;
@@ -198,6 +212,8 @@
 }
 .comments .showComments .replyComment .action-textComment .textOfComment {
   padding: 0.5rem;
+  font-size: 16px;
+  color: #757575;
 }
 @media screen and (max-width: 749px) {
   .comments .showComments .replyComment .action-textComment .textOfComment {

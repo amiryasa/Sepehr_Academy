@@ -31,7 +31,7 @@ const validationSchema = yup.object({
     .matches(/^[0-9]*$/, "ساختار وارد شده اشتباه است!")
     .min(10, "شماره ملی باید حداقل 10 کارکتر باشد!")
     .required("وارد کردن شماره ملی الزامی است!"),
-    
+
   email: yup
     .string("ایمیل خود را وارد نمایید!")
     .email("ایمیل خود را به درستی وارد نمایید!")
@@ -41,7 +41,10 @@ const validationSchema = yup.object({
     .string("ایمیل خود را وارد نمایید!")
     .required("وارد کردن رمزعبور الزامی است! ")
     .min(8, "رمزعبور باید حداقل 8 کارکتر باشد!")
-    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,"رمزعبور به اندازه‌ی کافی قوی نیست!"),
+    .matches(
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+      "رمزعبور به اندازه‌ی کافی قوی نیست!"
+    ),
 });
 
 const Register = () => {
@@ -147,7 +150,6 @@ const Register = () => {
                 onChange={myFormik.handleChange}
                 value={myFormik.values.password}
                 password={true}
-
                 error={
                   myFormik.touched.password && Boolean(myFormik.errors.password)
                 }

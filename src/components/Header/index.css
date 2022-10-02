@@ -43,10 +43,9 @@
 }
 
 .header1 > .headerNavbar > p:nth-child(1) {
-  cursor: default;
-  font-size: 17px;
+  cursor:default;
   color: #043d72;
-  text-decoration: underline;
+  text-decoration : underline;
 }
 
 .header1 > .headerLogin {
@@ -102,11 +101,7 @@
 
   .header1 > .headerNavbar > p {
     font-size: 15px;
-    margin-left: 20px;
-  }
-
-  .header1 > .headerNavbar > p:nth-child(1) {
-    font-size: 18px;
+    margin-left: 15px;
   }
 
   .header1 > .headerLogin {
@@ -151,6 +146,7 @@
     overflow: hidden;
     opacity: 0;
     background-color:white;
+    z-index: 200;
   }
 
   .header1 > .headerNavbar > p:hover{
@@ -165,12 +161,6 @@
     border-radius: 5px;
     font-size: 13px;
     line-height: 10px;
-  }
-
-  .header1 > .headerNavbar > p:nth-child(1) {
-    font-size: 13px;
-    color: #043d72;
-    margin: 0;
   }
 
   .header1 > .headerLogin {

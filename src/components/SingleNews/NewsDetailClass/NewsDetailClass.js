@@ -1,14 +1,14 @@
-import teacher from '../../../assets/images/Courses/teacher.png'
-import student from '../../../assets/images/Courses/student.png'
-import opacity from '../../../assets/images/Courses/opacity.png'
-import reactSingle from '../../../assets/images/Courses/reactSingle.png'
-import "./index.scss"
+import teacher from '../../../assets/images/News/teacher.png'
+import articlType from '../../../assets/images/News/type.png'
+import articlDate from '../../../assets/images/News/event.png'
+import reactNewsSingle from '../../../assets/images/News/newsBg.png';
+import "./NewsDetailClass.css"
 import * as fa from '../../../constants/persianStrings';
 
 const NewsDetailClass = () => {
     return (<div className='aboutNews'>
         <div className='informNews'>
-            <p> دوره کامل آموزش  React JS  </p>
+            <p> آشنایی با کتابخانه‌ی قدرتمند React  </p>
             <hr></hr>
             <div className='information'>
                 <div className='teacher'>
@@ -16,21 +16,21 @@ const NewsDetailClass = () => {
                     <span>دکتر محمدبحرالعلوم</span>
                 </div>
                 <div className='opacity'>
-                    <img src={opacity} />
-                    <span> {fa.OPACITY_COURSE}
-                        <span>40 نفر</span>
+                    <img src={articlType} />
+                    <span> دسته‌بندی:
+                        <span>مقاله</span>
                     </span>
                 </div>
                 <div className=' numberStudent'>
-                    <img src={student} />
-                    <span>{fa.NUMBER_STUDENT}
-                        <span>23 نفر</span>
+                    <img src={articlDate} />
+                    <span>تاریخ انتشار:
+                        <span>12 شهریور 1401</span>
                     </span>
                 </div>
             </div>
         </div>
         <div className='photoNews'>
-            <img src={reactSingle} />
+            <img src={reactNewsSingle} />
             <span className='offNews'>
                 <span className='offCount'>افزایش دانش</span>
                 <span className='offTitle'>اطلاعات و آگاهی</span>

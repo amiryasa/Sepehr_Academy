@@ -1,5 +1,5 @@
 .aboutNews {
-  margin-top: 8rem;
+  margin-top: 60px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -51,8 +51,8 @@
 }
 .aboutNews .informNews hr {
   width: 60px;
-  border-width: 5px;
-  border: 2.5px solid #FDEA00;
+  border-width: 4px;
+  border: 2px solid #FDEA00;
   background-color: #FDEA00;
   margin-right: -2px;
   margin-top: -30px;
@@ -101,6 +101,8 @@
 }
 .aboutNews .informNews .information div span {
   padding-right: 5px;
+  margin-right: 5px;
+  color: #616D76;
 }
 @media (max-width: 749px) {
   .aboutNews .informNews .information div span {
@@ -167,8 +169,8 @@
   }
 }
 .aboutNews .photoNews .offNews .offCount {
-  font-size: 14px;
+  font-size: 12px;
 }
 .aboutNews .photoNews .offNews .offTitle {
-  font-size: 10px;
+  font-size: 12px;
 }/*# sourceMappingURL=index.css.map */

@@ -17,8 +17,10 @@ import './NewsCard.css';
 
 const NewsCard = (props) => {
 
+  const navigator = useNavigate();
+
   return (
-    <Card sx={{ display: 'flex' }} className="newsCardCard">
+    <Card sx={{ display: 'flex' }} className="newsCardCard" onClick={() => navigator('/newsDetail')}>
         <CardMedia
         component="img"
         image={props.image}
