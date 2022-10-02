@@ -39,21 +39,19 @@ const Input = (props) => {
         onChange={props.onChange}
         value={props.value}
 
-        InputProps={{
+        InputProps={props.password && {
           endAdornment:
-            <>
-              {
-                props.password && <InputAdornment position="start">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword && props.password ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }</>,
+            <InputAdornment position="start">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {showPassword && props.password ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+
         }}
 
       />
