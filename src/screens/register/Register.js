@@ -41,16 +41,20 @@ const validationSchema = yup.object({
     .string("ایمیل خود را وارد نمایید!")
     .required("وارد کردن رمزعبور الزامی است! ")
     .min(8, "رمزعبور باید حداقل 8 کارکتر باشد!")
+<<<<<<< HEAD
     .matches(
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
       "رمزعبور به اندازه‌ی کافی قوی نیست!"
     ),
+=======
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/, "رمزعبور به اندازه‌ی کافی قوی نیست!"),
+>>>>>>> origin/master
 });
 
 const Register = () => {
   const navigator = useNavigate();
 
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(null);
 
   const myFormik = useFormik({
     initialValues: {
@@ -118,6 +122,7 @@ const Register = () => {
                 maxDate={new Date()}
                 onChange={setDate}
                 value={date}
+              
               />
             </div>
             {/* <div>

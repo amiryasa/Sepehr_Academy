@@ -7,7 +7,7 @@ import "./MainbarEditInfo.css";
 import * as fa from "../../constants/persianStrings";
 
 const MainbarEditInfo = () => {
-  const [date, setDate] = useState(new Date())
+  const [date, setDate] = useState()
   return (
     <div className="MainbarContainer MainbarContainerEditInfo">
       <div className="MainbarEditInfo">
@@ -22,20 +22,20 @@ const MainbarEditInfo = () => {
         </Tooltips>
         <div className="MainbarEditInfoInputs">
           <div>
-            
+
             <Input title="نام کاربری" className="enterInputPanel" />
           </div>
           <div>
-            
+
             <Input title="شماره تماس" className="enterInputPanel" />
           </div>
           <div>
-            
+
             <Input title="شماره ملی" className="enterInputPanel" />
           </div>
           <div>
-            
-          <DatePickerCustome
+
+            <DatePickerCustome
               className="enterInputPanel"
               label={fa.TITLE_BIRTHDAY}
               maxDate={new Date()}
@@ -43,7 +43,7 @@ const MainbarEditInfo = () => {
               value={date} />
           </div>
           <div>
-            
+
             <Input title="ایمیل" className="enterInputPanel" />
           </div>
         </div>
