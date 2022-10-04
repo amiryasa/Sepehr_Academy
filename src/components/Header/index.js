@@ -4,9 +4,13 @@ import { useNavigate, useLocation} from "react-router-dom";
 
 import "./index.css";
 
+const headerItems = document.getElementsByClassName("headerRowItems");
+
 const Header = () => {
   const navigator = useNavigate();
   const headerLocation = useLocation();
+  const [currentState, setCurrentState] = useState(headerLocation.pathname);
+  
 
   let isHidden = true;
   const hamberMenuOnclickHandler = () => {
@@ -25,34 +29,17 @@ const Header = () => {
   };
 
 
+  // headerItems[4].style.cursor = "pointer";
+  // headerItems[4].style.color = "#808080";
+  // headerItems[4].style.textDecoration = "none";
 
-  const headerItems = document.getElementsByClassName("headerRowItems");
+  // headerItems[index].style.cursor = "default";
+  // headerItems[index].style.color = "#043d72";
+  // headerItems[index].style.textDecoration = "underline";
 
-  const handleItemClick = (index) => {
-    headerItems[0].style.cursor = "pointer";
-    headerItems[0].style.color = "#808080";
-    headerItems[0].style.textDecoration = "none";
 
-    headerItems[1].style.cursor = "pointer";
-    headerItems[1].style.color = "#808080";
-    headerItems[1].style.textDecoration = "none";
+  
 
-    headerItems[2].style.cursor = "pointer";
-    headerItems[2].style.color = "#808080";
-    headerItems[2].style.textDecoration = "none";
-
-    headerItems[3].style.cursor = "pointer";
-    headerItems[3].style.color = "#808080";
-    headerItems[3].style.textDecoration = "none";
-
-    headerItems[4].style.cursor = "pointer";
-    headerItems[4].style.color = "#808080";
-    headerItems[4].style.textDecoration = "none";
-
-    headerItems[index].style.cursor = "default";
-    headerItems[index].style.color = "#043d72";
-    headerItems[index].style.textDecoration = "underline";
-  };
 
   return (
     <div
@@ -68,7 +55,6 @@ const Header = () => {
           className="headerRowItems"
           onClick={() => {
             navigator("/");
-            handleItemClick(0);
           }}
         >
           خانه
@@ -77,8 +63,7 @@ const Header = () => {
         <p
           className="headerRowItems"
           onClick={() => {
-            navigator("./courses");
-            handleItemClick(1);
+            navigator("/courses");
           }}
         >
           دوره‌ها
@@ -87,8 +72,7 @@ const Header = () => {
         <p
           className="headerRowItems"
           onClick={() => {
-            navigator("./news");
-            handleItemClick(2);
+            navigator("/news");
           }}
         >
           اخبار و مقالات
@@ -97,7 +81,6 @@ const Header = () => {
           className="headerRowItems"
           onClick={() => {
             navigator("/");
-            handleItemClick(3);
           }}
         >
           خدمات
@@ -106,7 +89,6 @@ const Header = () => {
           className="headerRowItems"
           onClick={() => {
             navigator("/");
-            handleItemClick(4);
           }}
         >
           ارتباط با ما

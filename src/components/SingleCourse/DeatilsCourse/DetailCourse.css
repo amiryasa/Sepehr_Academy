@@ -5,7 +5,7 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 @media screen and (max-width: 1262px) {
   .descriptionCourse {

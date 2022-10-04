@@ -134,6 +134,7 @@
   .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer {
     grid-template-columns: 140px 140px;
     margin-right: 20px;
+    overflow: hidden;
   }
 
   .MainbarDashboard>.MainbarDashboardCourses {
@@ -159,19 +160,13 @@
   .MainbarDashboard>.MainbarDashboardCourses>.MainbarDashboardCoursesContainer {
     grid-template-columns: 173px 173px;
     padding-right: 12px;
-    overflow: overlay;
+    overflow: hidden;
     padding-left: 23px;
     padding-bottom: 23px;
   }
 
   .MainbarDashboard>.MainbarDashboardActevity>.MainbarDashboardActevityContainer {
-    grid-template-columns: 140px 140px 140px;
-    overflow: overlay;
-    padding-top: 3px;
-    padding-bottom: 23px;
-    margin-right: 1px;
-    padding-right: 8px;
-    padding-left: 10px;
+    display: none;
   }
 
 }

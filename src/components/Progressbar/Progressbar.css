@@ -1,0 +1,10 @@
+.ProgressbarTopic {
+  margin: 3px 0;
+  color: #616d76;
+}
+
+@media (max-width: 749px) {
+  .ProgressbarTopic {
+    font-size: 14px;
+  }
+}
