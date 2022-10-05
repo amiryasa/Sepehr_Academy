@@ -19,8 +19,8 @@ import { Login } from "../screens/login/Login";
 import { Register } from "../screens/register/Register";
 import { ForgotPass } from "../screens/forgotPass/ForgotPass";
 import * as path from './path'
-import { HamBeer } from "../components/HamBeer/HamBeer";
 import { Tooltips } from "../components/Tooltive/Tooltips";
+import ShoppingCart from "../screens/shoppingCart/shoppingCart";
 
 export default function OurRoutes() {
     return (
@@ -34,6 +34,8 @@ export default function OurRoutes() {
                 <Route path={path.NEWS} element={<News />} />
                 <Route path={path.COURSE_DETAIL} element={<CourseDetail />} />
                 <Route path={path.NEWS_DETAIL} element={<NewsDetail />} />
+                <Route path={path.SHOPPING_CART} element={<ShoppingCart />} />
+                
             </Route>
 
             <Route path={path.STIDENT_PANEL} element={<StudentPanel />} >

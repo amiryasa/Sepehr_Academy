@@ -6,6 +6,7 @@ export const COURSES = "/courses"
 export const NEWS = "/news"
 export const COURSE_DETAIL = "/courseDetail"
 export const NEWS_DETAIL = "/newsDetail"
+export const SHOPPING_CART = "/shoppingCart"
 
 //panel student
 export const STIDENT_PANEL = "/studentPanel"

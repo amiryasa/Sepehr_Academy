@@ -38,6 +38,7 @@ export const SUCESS_EMAIL = "تایید ایمیل"
 export const INSERT_COMMENT = "ثبت نظر"
 export const INSERT_NEW_CHANGES = "ثبت تغییرات"
 export const IGNORE_NEW_CHANGES = "لغو تغییرات"
+export const PAY="پرداخت"
 
 
 //card name
