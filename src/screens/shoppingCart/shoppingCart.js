@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Btn } from "../../components/common/Button/Btn";
 import ShoppingList from "../../components/ShoppingList/ShoppingList";
 import * as fa from "../../constants/persianStrings"
@@ -54,7 +55,8 @@ const ShoppingCourses = [
 
 export default function ShoppingCart() {
     const [totalPay, setTotalPay] = useState(0);
-    const [data, setData] = useState(ShoppingCourses)
+    const [data, setData] = useState(ShoppingCourses);
+    const navigator = useNavigate();
 
     useEffect(() => {
         GetTotalPay()
@@ -74,48 +76,53 @@ export default function ShoppingCart() {
 
     return (
         <div className="shoppingCart">
-            <div className="shoppingCardTitle">
-                <p>سبد خرید</p>
-                <hr></hr>
-            </div>
-            {data.length === 0 ?
-                <div className="emptyShopping">
-                    <p>سبد خرید خالی است!</p>
-                </div>
-                :
-                <div className="detailShoppingCart">
 
-                    <div className="listShoppingCourse">
-                        <ShoppingList myData={data} removeCourse={removeCourse} />
+            {data.length === 0 ?
+                <>
+                    <div className="emptyShopping"></div>
+                    <p className="emptyShoppingTitle">سبد خرید شما خالی است!</p>
+                    <p className="insertInShoppingCart" onClick={() => navigator('/courses')}>افزودن به سبد خرید...</p>
+                </>
+                :
+                <>
+                    <div className="shoppingCardTitle">
+                        <p>سبد خرید</p>
+                        <hr></hr>
                     </div>
-                    <div className="totalShopping">
-                        <div className="describeShopping">
-                            <p>مدیریت صورت حساب</p>
-                            <hr></hr>
-                            <div className="allCoursePay">
-                                <p>تعداد کل:</p>
-                                <p>{data.length}</p>
+                    <div className="detailShoppingCart">
+
+                        <div className="listShoppingCourse">
+                            <ShoppingList myData={data} removeCourse={removeCourse} />
+                        </div>
+                        <div className="totalShopping">
+                            <div className="describeShopping">
+                                <p>مدیریت صورت حساب</p>
+                                <hr></hr>
+                                <div className="allCoursePay">
+                                    <p>تعداد کل:</p>
+                                    <p>{data.length}</p>
+                                </div>
+                                <div className="allSaleCourse">
+                                    <p>تخفیف</p>
+                                    <p>30%</p>
+                                </div>
+                                <hr></hr>
+                                <div className="totalPay">
+                                    <p>جمع کل</p>
+                                    <p>{totalPay}ت</p>
+                                </div>
                             </div>
-                            <div className="allSaleCourse">
-                                <p>تخفیف</p>
-                                <p>30%</p>
-                            </div>
-                            <hr></hr>
-                            <div className="totalPay">
-                                <p>جمع کل</p>
-                                <p>{totalPay}ت</p>
+                            <div className="payShoppingCart">
+                                <Btn
+                                    color="info"
+                                    text={fa.PAY}
+                                    elementClass="mediumBtnCh"
+                                    variant="contained"
+                                    type="submit" />
                             </div>
                         </div>
-                        <div className="payShoppingCart">
-                            <Btn
-                                color="info"
-                                text={fa.PAY}
-                                elementClass="mediumBtnCh"
-                                variant="contained"
-                                type="submit" />
-                        </div>
                     </div>
-                </div>}
+                </>}
 
         </div>
     )
