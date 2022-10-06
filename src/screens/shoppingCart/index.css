@@ -38,12 +38,17 @@
 }
 
 .shoppingCart .detailShoppingCart .totalShopping {
-    width: 30%;
+    width: 300px;
     display: flex;
     justify-content: center;
     margin: auto;
     margin-top: 0px;
     flex-direction: column;
+
+
+    position: fixed;
+    left: 150px;
+    z-index: 50;
 }
 
 .shoppingCart .detailShoppingCart .totalShopping .describeShopping {
@@ -51,6 +56,7 @@
     border-radius: 10px;
     box-shadow: 0px 3px 8px 1px rgb(0 0 0 / 0%);
     border: 1px solid #D4D4D4;
+    background-color: white;
 }
 
 .shoppingCart .detailShoppingCart .totalShopping .describeShopping p {
@@ -91,6 +97,7 @@
 
 .shoppingCart .detailShoppingCart .totalShopping .payShoppingCart {
     margin-top: 10px;
+
 }
 
 
@@ -147,7 +154,8 @@
     }
 
     .shoppingCart .detailShoppingCart .totalShopping {
-        width: 27%;
+        width: 200px;
+        left: 100px;
     }
 
     .shoppingCart .detailShoppingCart .totalShopping .describeShopping p {
@@ -208,6 +216,8 @@
     .shoppingCart .detailShoppingCart .totalShopping {
         margin-top: 40px;
         width: 100%;
+        position: relative;
+        left: 0%;
     }
 
     .shoppingCart .detailShoppingCart .totalShopping .describeShopping .totalPay {
@@ -217,7 +227,7 @@
     .shoppingCart .emptyShopping {
         width: 100%;
         height: 165px;
-        ;
+        
     }
 
     .shoppingCart p.emptyShoppingTitle {
