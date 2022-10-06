@@ -100,23 +100,24 @@
 }
 
 
-.shoppingCart .emptyShopping{
-    width:955px; 
-    height:395px;
+.shoppingCart .emptyShopping {
+    width: 679px;
+    height: 278px;
     background: url('./../../assets/images/shoppingCart/shoppingEmpty.png');
-    background-size:100%;
+    background-size: 100%;
     margin: auto;
+    background-repeat: no-repeat;
     /* margin-top: -10px; */
 }
 
-.shoppingCart p.emptyShoppingTitle{
+.shoppingCart p.emptyShoppingTitle {
     text-align: center;
     font-family: saye;
-    font-size: 50px;
+    font-size: 45px;
     margin-top: 10px;
 }
 
-.shoppingCart p.insertInShoppingCart{
+.shoppingCart p.insertInShoppingCart {
     transition: .5s;
     text-align: center;
     font-size: 20px;
@@ -145,35 +146,35 @@
         margin-top: -43px;
     }
 
-    .shoppingCart .detailShoppingCart .totalShopping{
+    .shoppingCart .detailShoppingCart .totalShopping {
         width: 27%;
     }
 
-    .shoppingCart .detailShoppingCart .totalShopping .describeShopping p{
+    .shoppingCart .detailShoppingCart .totalShopping .describeShopping p {
         font-size: 12px;
         padding-bottom: 0px;
     }
 
-    .shoppingCart .detailShoppingCart .totalShopping .describeShopping .allCoursePay{
+    .shoppingCart .detailShoppingCart .totalShopping .describeShopping .allCoursePay {
         height: 28px;
     }
 
-    
-    .shoppingCart .detailShoppingCart .totalShopping .describeShopping .totalPay{
+
+    .shoppingCart .detailShoppingCart .totalShopping .describeShopping .totalPay {
         height: 28px;
     }
 
-    .shoppingCart .emptyShopping{
-        width:600px; 
-        height:248px;
+    .shoppingCart .emptyShopping {
+        width: 600px;
+        height: 248px;
     }
-    
-    .shoppingCart p.emptyShoppingTitle{
+
+    .shoppingCart p.emptyShoppingTitle {
         font-size: 30px;
         margin-top: 5px;
     }
-    
-    .shoppingCart p.insertInShoppingCart{
+
+    .shoppingCart p.insertInShoppingCart {
         font-size: 18px;
         margin-top: -15px;
     }
@@ -213,17 +214,18 @@
         padding-bottom: 14px;
     }
 
-    .shoppingCart .emptyShopping{
-        width:100%; 
-        height: 165px;;
+    .shoppingCart .emptyShopping {
+        width: 100%;
+        height: 165px;
+        ;
     }
-    
-    .shoppingCart p.emptyShoppingTitle{
+
+    .shoppingCart p.emptyShoppingTitle {
         font-size: 20px;
         margin-top: 5px;
     }
-    
-    .shoppingCart p.insertInShoppingCart{
+
+    .shoppingCart p.insertInShoppingCart {
         font-size: 12px;
         margin-top: -15px;
     }
