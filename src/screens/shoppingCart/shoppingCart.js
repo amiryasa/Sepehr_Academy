@@ -10,7 +10,7 @@ const ShoppingCourses = [
         id: "01",
         name: "دوره پیشرفته  Front-End",
         teacher: "دکتر محمد بحرالعلوم",
-        cost: "50",
+        cost: "500000",
         img: require("../../assets/images/Courses/react.png"),
         sale: "40%",
         date: "1401/01/02"
@@ -19,7 +19,7 @@ const ShoppingCourses = [
         id: "02",
         name: "دوره پیشرفته  Front-End",
         teacher: "دکتر محمد بحرالعلوم",
-        cost: "20",
+        cost: "200000",
         img: require("../../assets/images/Courses/react.png"),
         sale: "0%",
         date: "1401/01/02"
@@ -28,7 +28,7 @@ const ShoppingCourses = [
         id: "03",
         name: "دوره پیشرفته  Front-End",
         teacher: "دکتر محمد بحرالعلوم",
-        cost: "20",
+        cost: "2000000",
         img: require("../../assets/images/Courses/react.png"),
         sale: "40%",
         date: "1401/01/02"
@@ -37,7 +37,7 @@ const ShoppingCourses = [
         id: "04",
         name: "دوره پیشرفته  Front-End",
         teacher: "دکتر محمد بحرالعلوم",
-        cost: "40",
+        cost: "450000",
         img: require("../../assets/images/Courses/react.png"),
         sale: "40%",
         date: "1401/01/02"
@@ -46,7 +46,7 @@ const ShoppingCourses = [
         id: "05",
         name: "دوره پیشرفته  Front-End",
         teacher: "دکتر محمد بحرالعلوم",
-        cost: "30",
+        cost: "300000",
         img: require("../../assets/images/Courses/react.png"),
         sale: "40%",
         date: "1401/01/02"
@@ -60,7 +60,7 @@ export default function ShoppingCart() {
 
     useEffect(() => {
         GetTotalPay()
-    }, [data]);
+    }, []);
 
     const GetTotalPay = () => {
         data.map((item) => {
