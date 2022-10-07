@@ -1,12 +1,13 @@
-import { useState } from "react";
-import { useNavigate, useLocation} from "react-router-dom";
-
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { GeneralContext } from "../../providers/GeneralContext"
+import * as fa from "../../constants/persianStrings"
 
 import "./index.css";
 
 const Header = () => {
   const navigator = useNavigate();
-  const headerLocation = useLocation();
+  const { language, setLanguage } = useContext(GeneralContext);
 
   let isHidden = true;
   const hamberMenuOnclickHandler = () => {
@@ -24,6 +25,12 @@ const Header = () => {
 
   };
 
+  const changeLanguage = (lng) => {
+    if (lng === 'fa')
+      setLanguage('en')
+    else
+      setLanguage('fa')
+  }
 
 
   const headerItems = document.getElementsByClassName("headerRowItems");
@@ -56,7 +63,7 @@ const Header = () => {
 
   return (
     <div
-      className="header1"
+      className={language === 'fa' ? "header1" : "header1En"}
       style={{
         display: `${window.location.pathname === "/" ? "block" : "flex"}`,
       }}
@@ -71,7 +78,7 @@ const Header = () => {
             handleItemClick(0);
           }}
         >
-          خانه
+          {language === 'fa' ? fa.HEADER_HOME : fa.HEADER_HOME_EN}
         </p>
 
         <p
@@ -81,7 +88,8 @@ const Header = () => {
             handleItemClick(1);
           }}
         >
-          دوره‌ها
+          {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN}
+
         </p>
 
         <p
@@ -91,7 +99,7 @@ const Header = () => {
             handleItemClick(2);
           }}
         >
-          اخبار و مقالات
+          {language === 'fa' ? fa.HEADER_NEWS : fa.HEADER_NEWS_EN}
         </p>
         <p
           className="headerRowItems"
@@ -100,7 +108,8 @@ const Header = () => {
             handleItemClick(3);
           }}
         >
-          خدمات
+          {language === 'fa' ? fa.HEADER_SERVICES : fa.HEADER_SERVICES_EN}
+
         </p>
         <p
           className="headerRowItems"
@@ -109,7 +118,11 @@ const Header = () => {
             handleItemClick(4);
           }}
         >
-          ارتباط با ما
+          {language === 'fa' ? fa.HEADER_CONTACT : fa.HEADER_CONTACT_EN}
+
+        </p>
+        <p onClick={() => { changeLanguage(language) }}>
+          {language}
         </p>
       </div>
       <div

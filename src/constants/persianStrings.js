@@ -22,6 +22,16 @@ export const TITLE_NAME = "نام کاربری"
 export const TITLE_CURRENT_PASS = "رمز عبور فعلی"
 export const TITLE_NEW_PASS = "رمز عبور جدید"
 export const TITLE_AGAIN_NEW_PASS = "تکرار رمز عبور"
+export const MAIN_HOME_INTRO = "برای یادگیری کامل و اصولی برنامه‌نویسی به همراه اساتید مجرب، با ما همراه شوید."
+
+
+//header
+export const HEADER_HOME = "خانه"
+export const HEADER_COURSE = "دوره‌ها"
+export const HEADER_NEWS = " اخبار و مقالات"
+export const HEADER_SERVICES = "خدمات"
+export const HEADER_CONTACT = "ارتباط با ما"
+
 
 
 //btn
@@ -38,7 +48,7 @@ export const SUCESS_EMAIL = "تایید ایمیل"
 export const INSERT_COMMENT = "ثبت نظر"
 export const INSERT_NEW_CHANGES = "ثبت تغییرات"
 export const IGNORE_NEW_CHANGES = "لغو تغییرات"
-export const PAY="پرداخت"
+export const PAY = "پرداخت"
 
 
 //card name
@@ -65,3 +75,14 @@ export const DURING_COURSE = "مدت دوره:"
 export const TIME_START = "زمان شروع:"
 export const PRICE_COURSE = "شهریه دوره:"
 export const OFF_COURSE = "تخفیف هزینه دوره"
+
+//english
+export const TITLE_HOME_PAGE_EN = "Bahr Coding Academy"
+export const MAIN_HOME_INTRO_EN = "Join us to learn the basics of programming with experienced teachers."
+export const START_LEARN_EN = "Start Learning"
+export const SHOW_COURSE_EN = 'View Courses'
+export const HEADER_HOME_EN = "Home"
+export const HEADER_COURSE_EN = "Courses"
+export const HEADER_NEWS_EN = "News"
+export const HEADER_SERVICES_EN = "Services"
+export const HEADER_CONTACT_EN = "Contact us"

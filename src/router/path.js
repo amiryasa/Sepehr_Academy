@@ -19,3 +19,4 @@ export const ANOTHER_URL = "*"
 
 //test
 export const TEST = "/test"
+export const TRANSLATE="/translate"
