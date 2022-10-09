@@ -14,11 +14,11 @@ import * as fa from '../../constants/persianStrings';
 import { GeneralContext } from "../../providers/GeneralContext"
 
 const HomeCategory = () => {
-    const { language } = useContext(GeneralContext);
+    const { language,themePage } = useContext(GeneralContext);
     return (
         <>
             <div className={language === 'fa' ? "homeH2 h22" : "homeH2En h22En"} data-aos="fade-up" data-aos-duration="1000">
-                <h2> {language === "fa" ? fa.TITLE_SELECTING : fa.TITLE_SELECTING_EN} </h2>
+                <h2 className={`${themePage}Intro`}> {language === "fa" ? fa.TITLE_SELECTING : fa.TITLE_SELECTING_EN} </h2>
             </div>
             <div className="categoryCantainer">
                 <div data-aos="zoom-in" data-aos-delay="500" data-aos-duration="800">

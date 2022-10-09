@@ -7,11 +7,11 @@ import * as fa from "../../constants/persianStrings";
 import "./HomeIdeas.css";
 
 const HomeIdeas = () => {
-  const { language } = useContext(GeneralContext);
+  const { language,themePage } = useContext(GeneralContext);
   return (
     <>
       <div className={language === 'fa' ? "homeH2 h26" : "homeH2En h26En"} data-aos="fade-up" data-aos-duration="1000">
-        <h2> {language === 'fa' ? fa.TITLE_RESPONSE : fa.TITLE_RESPONSE_EN} </h2>
+        <h2 className={`${themePage}Intro`}> {language === 'fa' ? fa.TITLE_RESPONSE : fa.TITLE_RESPONSE_EN} </h2>
       </div>
       <div className={language === 'fa' ? "ideaCantainer" : "ideaCantainerEn"}>
         <div

@@ -110,9 +110,17 @@ ul{
     direction: ltr;
     font-size: 29px;
     font-family: gabriola;
-    color: #2D527C;
+    
     margin-left: 265px;
     padding-top: 120px;
+}
+
+.FooterHolder > .darkFooter{
+    color: #0a89ff;
+}
+
+.FooterHolder > .lightFooter{
+    color: #2D527C;
 }
 
 .FooterHolder > .footerContact > p{
@@ -197,6 +205,13 @@ ul{
     background-size: 475px 80px;
     background-repeat: no-repeat;
     background-position:620px 0px;
+}
+
+.FooterHolder > .footerLocation > p{
+    padding-top: 30px;
+    padding-right: 260px;
+    font-size: 15px;
+    color: #636363;
 }
 
 .FooterHolder > .footerLocationEn{

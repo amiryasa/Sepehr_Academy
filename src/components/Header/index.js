@@ -7,7 +7,7 @@ import "./index.css";
 
 const Header = () => {
   const navigator = useNavigate();
-  const { language, setLanguage } = useContext(GeneralContext);
+  const { language, setLanguage, themePage, setThemePage } = useContext(GeneralContext);
 
   let isHidden = true;
   const hamberMenuOnclickHandler = () => {
@@ -30,6 +30,13 @@ const Header = () => {
       setLanguage('en')
     else
       setLanguage('fa')
+  }
+
+  const changeMode = (mode) => {
+    if (mode === 'light')
+      setThemePage('dark')
+    else
+      setThemePage('light')
   }
 
 
@@ -57,8 +64,12 @@ const Header = () => {
     headerItems[4].style.textDecoration = "none";
 
     headerItems[index].style.cursor = "default";
-    headerItems[index].style.color = "#043d72";
+
     headerItems[index].style.textDecoration = "underline";
+    if (themePage === 'light')
+      headerItems[index].style.color = "#043d72";
+    else
+      headerItems[index].style.color = "#0a89ff";
   };
 
   return (
@@ -72,7 +83,8 @@ const Header = () => {
 
       <div className="headerRow headerNavbar" id="navbarHamAction">
         <p
-          className="headerRowItems"
+          className={`headerRowItems ${themePage}`}
+          
           onClick={() => {
             navigator("/");
             handleItemClick(0);
@@ -125,6 +137,12 @@ const Header = () => {
       <div className="lng headerRow">
         <p onClick={() => { changeLanguage(language) }}>
           {language}
+        </p>
+      </div>
+
+      <div className="mode headerRow">
+        <p onClick={() => { changeMode(themePage) }}>
+          {themePage}
         </p>
       </div>
       <div
