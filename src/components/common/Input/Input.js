@@ -34,6 +34,7 @@ const Input = (props) => {
           margin: `${props.margin}`,
           width: `${props.width}`,
         }}
+       
         name={props.name}
         onChange={props.onChange}
         value={props.value}

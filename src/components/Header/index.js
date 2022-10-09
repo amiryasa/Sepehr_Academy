@@ -121,6 +121,8 @@ const Header = () => {
           {language === 'fa' ? fa.HEADER_CONTACT : fa.HEADER_CONTACT_EN}
 
         </p>
+      </div>
+      <div className="lng headerRow">
         <p onClick={() => { changeLanguage(language) }}>
           {language}
         </p>

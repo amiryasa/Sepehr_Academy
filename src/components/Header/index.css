@@ -3,6 +3,10 @@
   padding-top: 10px;
 }
 
+.lng{
+  cursor: pointer;
+}
+
 .header1En {
   direction: ltr;
   width: 100%;
@@ -100,7 +104,7 @@
 }
 
 .header1>.headerLogin {
-  margin-right: 535px;
+  margin-right: 502px;
   margin-top: 10px;
   border-radius: 33px;
   display: flex;
@@ -108,7 +112,7 @@
 }
 
 .header1En>.headerLogin {
-  margin-left: 520px;
+  margin-left: 502px;
   margin-top: 10px;
   border-radius: 33px;
   display: flex;
@@ -212,7 +216,7 @@
   }
 
   .header1>.headerLogin {
-    margin-right: 235px;
+    margin-right: 215px;
   }
 
   .header1En>.headerLogin {
@@ -246,6 +250,15 @@
 }
 
 @media screen and (max-width: 749px) {
+
+  .header1 .lng{
+    margin-right: 40px;
+  }
+
+  .header1En .lng{
+    margin-left: 40px;
+  }
+
   .header1 {
     padding-top: 5px;
     position: relative;
@@ -291,7 +304,7 @@
     width: 195px;
     position: absolute;
     top: 45px;
-    left: 125px;
+    left: 76px;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -317,18 +330,18 @@
 
 
   .header1En>.headerNavbar>p {
-    text-align: end;
+    text-align: inherit;
     display: block;
     padding: 10px 10px 10px 0;
     height: 10px;
-    margin: 1px 0 0 0;
+    margin:1px 1px 1px 8px;
     border-radius: 5px;
     font-size: 13px;
     line-height: 10px;
   }
 
   .header1>.headerLogin {
-    margin-right: 217px;
+    margin-right: 181px;
   }
 
   .header1En>.headerLogin {
@@ -352,12 +365,12 @@
     width: 25px;
     height: 25px;
     display: block;
-    background: url("./../../assets/images/header/paragraph.png");
+    background: url("./../../assets/images/header/paragraphEn.png");
     background-size: 22px;
     background-repeat: no-repeat;
     position: absolute;
     top: 23px;
-    right: 80px;
+    left: 80px;
     cursor: pointer;
   }
 }

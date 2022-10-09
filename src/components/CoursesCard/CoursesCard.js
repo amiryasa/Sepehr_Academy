@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,10 +7,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 import { Btn } from "../common/Button/Btn";
-
+import * as fa from "../../constants/persianStrings"
+import { GeneralContext } from "../../providers/GeneralContext"
 import "./CoursesCard.css";
 
 const CoursesCard = (props) => {
+  const { language } = useContext(GeneralContext);
   return (
     <Card sx={{ maxWidth: 345 }} className="coursesCardCard">
       <CardMedia
@@ -47,11 +49,10 @@ const CoursesCard = (props) => {
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
         <Btn
-          text="نمایش جزئیات"
+          text={language === 'fa'? fa.SHOW_MORE : fa.SHOW_MORE_EN}
           elementClass="smallBtnCh"
           color={props.btnColor}
           variant="contained"
-
           click='/courseDetail'
         />
       </CardActions>

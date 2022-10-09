@@ -17,12 +17,12 @@ function App() {
   const [language, setLanguage] = React.useState('fa')
 
   const theme = createTheme({
-    direction: "rtl",
+    direction: language === 'fa' ? "rtl" : 'ltr',
   });
 
   const cacheRtl = createCache({
-    key: "muirtl",
-    stylisPlugins: [prefixer, rtlPlugin],
+    key: language === 'fa' ? "muirtl" : "muiltr",
+    stylisPlugins: language === 'fa' && [prefixer, rtlPlugin],
   });
 
   return (

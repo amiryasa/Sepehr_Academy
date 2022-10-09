@@ -6,11 +6,27 @@
     margin-bottom: 80px;
 }
 
+
+.h26En {
+    width: 381px;
+    margin-top: 200px;
+    margin-bottom: 80px;
+}
+
 .ideaCantainer {
     background: url(./../../assets/images/Idea/ideabg.png);
     background-size: 428px 419px;
     background-repeat: no-repeat;
     background-position: 225px 0px;
+    
+}
+
+.ideaCantainerEn{
+    background: url(./../../assets/images/Idea/ideabgEn.png);
+    background-size: 382px 371px;
+    background-repeat: no-repeat;
+    background-position: 716px 0px;
+    direction: ltr;
 }
 
 .ideaCantainer>div.ideaInput {
@@ -19,6 +35,16 @@
     box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, .08);
     border-radius: 15px;
     margin-right: 238px;
+    padding-top: 25px;
+    background: white;
+}
+
+.ideaCantainerEn>div.ideaInput {
+    height: 396px;
+    width: 286px;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, .08);
+    border-radius: 15px;
+    margin-left: 238px;
     padding-top: 25px;
     background: white;
 }
@@ -36,6 +62,19 @@
     height:140px;
 }
 
+.ideaCantainerEn>div.ideaInput > .ideaInputName{
+    margin-left: 25px;
+}
+
+.ideaCantainerEn>div.ideaInput > .ideaInputEmail{
+    margin-left: 25px;
+}
+
+.ideaCantainerEn>div.ideaInput > .ideaInputMessage{
+    margin-left: 25px;
+    height:140px;
+}
+
 
 /* idea Tab Responsive */
 
@@ -48,8 +87,20 @@
         padding-top: 215px;
     }
 
+    .ideaCantainerEn {
+        height: 590px;
+        background-size: 450px 440px;
+        background-position:300px 0px;
+        padding-top: 215px;
+    }
+
     .ideaCantainer>div.ideaInput {
         margin-right: 145px;
+        padding-top: 25px
+    }
+
+    .ideaCantainerEn>div.ideaInput {
+        margin-left: 145px;
         padding-top: 25px
     }
 }
@@ -64,8 +115,20 @@
         margin-bottom: 500px;
     }
 
+    .ideaCantainerEn {
+        height: 0px;
+        padding: 0px;
+        margin-bottom: 500px;
+    }
+
     .ideaCantainer>div.ideaInput {
         margin-right: 57px;
+        padding-top: 25px;
+       
+    }
+
+    .ideaCantainerEn>div.ideaInput {
+        margin-left: 57px;
         padding-top: 25px;
        
     }
