@@ -8,11 +8,11 @@ import teach01 from './../../assets/images/Teacher/teacher01.png';
 import teach02 from './../../assets/images/Teacher/teacher02.png';
 
 const HomeTeacher = () => {
-  const { language } = useContext(GeneralContext);
+  const { language,themePage } = useContext(GeneralContext);
   return (
     <>
       <div className={language === 'fa' ? "homeH2 h25" : "homeH2En h25En"} data-aos="fade-up" data-aos-duration="1000">
-        <h2> {language === 'fa' ? fa.TITLE_BEST_TEACHER : fa.TITLE_BEST_TEACHER_EN} </h2>
+        <h2 className={`${themePage}Intro`}> {language === 'fa' ? fa.TITLE_BEST_TEACHER : fa.TITLE_BEST_TEACHER_EN} </h2>
       </div>
       <div className="teacherCantainer">
         <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="800">

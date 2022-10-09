@@ -4,7 +4,7 @@ import * as fa from '../../constants/persianStrings';
 import { GeneralContext } from "../../providers/GeneralContext"
 
 const Footer = () => {
-  const { language } = useContext(GeneralContext);
+  const { language ,themePage} = useContext(GeneralContext);
 
   const myClick1 = () => {
     navigator.clipboard.writeText("Bahr.Academy@gmail.com");
@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="footerWeblogMainButton"> {language === 'fa' ? fa.SEND_EMAIL : fa.SEND_EMAIL_EN} </div>
       </div>
 
-      <div className="footerContact">
+      <div className={`footerContact ${themePage}Footer`}>
         <p>Bahr.Academy@gmail.com</p>
         <p>0911 123 1234</p>
         <p>Noorgoon Team</p>

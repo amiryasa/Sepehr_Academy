@@ -10,11 +10,11 @@ import * as fa from '../../constants/persianStrings'
 import { GeneralContext } from "../../providers/GeneralContext"
 
 const HomeServices = () => {
-    const { language } = useContext(GeneralContext);
+    const { language,themePage } = useContext(GeneralContext);
     return (
         <>
             <div className={language === 'fa' ? "homeH2 h21" : "homeH2En h21En"} data-aos="fade-up" data-aos-duration="1000">
-                <h2> {language === 'fa' ? fa.TITLE_SERVICES : fa.TITLE_SERVICES_EN} </h2>
+                <h2 className={`${themePage}Intro`}> {language === 'fa' ? fa.TITLE_SERVICES : fa.TITLE_SERVICES_EN} </h2>
             </div>
             <div className="servicesCantainer">
                 <div data-aos="flip-right" data-aos-delay="300" data-aos-duration="1000">

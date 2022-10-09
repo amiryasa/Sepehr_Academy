@@ -15,6 +15,8 @@ import ScrollToTop from "../router/scrollTop";
 function App() {
   AOS.init();
   const [language, setLanguage] = React.useState('fa')
+  const [themePage, setThemePage] = React.useState('light')
+
 
   const theme = createTheme({
     direction: language === 'fa' ? "rtl" : 'ltr',
@@ -26,12 +28,12 @@ function App() {
   });
 
   return (
-    <GeneralContext.Provider value={{ language, setLanguage }}>
+    <GeneralContext.Provider value={{ language, setLanguage, themePage, setThemePage }}>
       <BrowserRouter>
         <ScrollToTop />
         <CacheProvider value={cacheRtl}>
           <ThemeProvider theme={theme}>
-            <div className="App">
+            <div className={`App ${themePage}`}>
               <OurRoutes />
             </div>
           </ThemeProvider>

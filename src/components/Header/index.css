@@ -3,7 +3,12 @@
   padding-top: 10px;
 }
 
-.lng{
+.lng {
+  cursor: pointer;
+}
+
+.mode {
+  padding-right: 10px;
   cursor: pointer;
 }
 
@@ -93,13 +98,21 @@
 
 .header1>.headerNavbar>p:nth-child(1) {
   cursor: default;
-  color: #043d72;
   text-decoration: underline;
+}
+
+.header1>.headerNavbar>.light,
+.header1En>.headerNavbar>.light {
+  color: #043d72;
+}
+
+.header1>.headerNavbar>.dark,
+.header1En>.headerNavbar>.dark {
+  color: #0a89ff;
 }
 
 .header1En>.headerNavbar>p:nth-child(1) {
   cursor: default;
-  color: #043d72;
   text-decoration: underline;
 }
 
@@ -251,11 +264,11 @@
 
 @media screen and (max-width: 749px) {
 
-  .header1 .lng{
+  .header1 .lng {
     margin-right: 40px;
   }
 
-  .header1En .lng{
+  .header1En .lng {
     margin-left: 40px;
   }
 
@@ -334,7 +347,7 @@
     display: block;
     padding: 10px 10px 10px 0;
     height: 10px;
-    margin:1px 1px 1px 8px;
+    margin: 1px 1px 1px 8px;
     border-radius: 5px;
     font-size: 13px;
     line-height: 10px;

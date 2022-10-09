@@ -1,25 +1,32 @@
-
-.App{
-    width:1280px;
-    margin:auto;
+.App {
+    width: 1280px;
+    margin: auto;
     font-family: bakh;
-    direction:rtl;
+    direction: rtl;
 }
 
-@media screen and (max-width:1262px){
+@media screen and (max-width:1262px) {
 
-    .App{
-        width:750px;
+    .App {
+        width: 750px;
     }
 
 }
 
-@media screen and (max-width:749px){
+@media screen and (max-width:749px) {
 
-    .App{
-        width:400px;
+    .App {
+        width: 400px;
     }
 
 }
 
+.dark {
+    background-color: #333;
+    color: #fff;
+}
 
+.light {
+    background-color: #fff;
+    color: #333;
+}

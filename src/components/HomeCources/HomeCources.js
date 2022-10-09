@@ -10,13 +10,13 @@ import cour03 from './../../assets/images/Courses/react.png';
 import * as fa from '../../constants/persianStrings'
 
 const HomeCources = () => {
-  const { language } = useContext(GeneralContext);
+  const { language ,themePage} = useContext(GeneralContext);
   const navigator = useNavigate();
 
   return (
     <>
       <div className={language === 'fa' ? "homeH2 h23" : "homeH2En h23En"} data-aos="fade-up" data-aos-duration="1000">
-        <h2> {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN} </h2>
+        <h2 className={`${themePage}Intro`}> {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN} </h2>
       </div>
       <div className="courcesCantainer">
         <div data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">

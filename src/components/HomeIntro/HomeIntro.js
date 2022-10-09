@@ -7,11 +7,11 @@ import { GeneralContext } from "../../providers/GeneralContext"
 import './HomeIntro.css';
 
 const HomeIntro = () => {
-    const { language } = useContext(GeneralContext);
+    const { language, themePage } = useContext(GeneralContext);
 
     return (
         <div className={language === 'fa' ? "introContainer" : "introContainerEn"}>
-            <h1> {language === 'fa' ? fa.TITLE_HOME_PAGE : fa.TITLE_HOME_PAGE_EN}</h1>
+            <h1 className={`${themePage}Intro`} > {language === 'fa' ? fa.TITLE_HOME_PAGE : fa.TITLE_HOME_PAGE_EN}</h1>
             <hr></hr>
             <p> {language === 'fa' ? fa.MAIN_HOME_INTRO : fa.MAIN_HOME_INTRO_EN} </p>
             <div className='btn-home'>
