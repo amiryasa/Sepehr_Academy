@@ -6,6 +6,12 @@
     margin-bottom: 10px;
 }
 
+.h24En {
+    width: 280px;
+    margin-top: 170px;
+    margin-bottom: 10px;
+}
+
 .newsCantainer {
     /* height:479px; */
     display: grid;

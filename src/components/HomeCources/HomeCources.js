@@ -1,22 +1,22 @@
 import { useNavigate } from 'react-router-dom';
-
+import { useContext } from "react";
 import { CoursesCard } from "../CoursesCard/CoursesCard";
 
 import './HomeCources.css';
-
+import { GeneralContext } from "../../providers/GeneralContext"
 import cour01 from './../../assets/images/Courses/native.png';
 import cour02 from './../../assets/images/Courses/html.png';
 import cour03 from './../../assets/images/Courses/react.png';
 import * as fa from '../../constants/persianStrings'
 
 const HomeCources = () => {
-
+  const { language } = useContext(GeneralContext);
   const navigator = useNavigate();
 
   return (
     <>
-      <div className="homeH2 h23" data-aos="fade-up" data-aos-duration="1000">
-        <h2> دوره‌ها </h2>
+      <div className={language === 'fa' ? "homeH2 h23" : "homeH2En h23En"} data-aos="fade-up" data-aos-duration="1000">
+        <h2> {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN} </h2>
       </div>
       <div className="courcesCantainer">
         <div data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
@@ -70,7 +70,7 @@ const HomeCources = () => {
         </div>
       </div>
 
-      <p className="homeMore" onClick={() => navigator('/courses')}> {fa.MORE_COURSE}</p>
+      <p className="homeMore" onClick={() => navigator('/courses')}> {language === 'fa' ? fa.MORE_COURSE : fa.MORE_COURSE_EN}</p>
     </>
   );
 };

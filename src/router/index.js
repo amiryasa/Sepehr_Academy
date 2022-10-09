@@ -21,6 +21,7 @@ import { ForgotPass } from "../screens/forgotPass/ForgotPass";
 import * as path from './path'
 import { Tooltips } from "../components/Tooltive/Tooltips";
 import ShoppingCart from "../screens/shoppingCart/shoppingCart";
+import Translate from "../screens/translate/Translate";
 
 export default function OurRoutes() {
     return (
@@ -35,7 +36,7 @@ export default function OurRoutes() {
                 <Route path={path.COURSE_DETAIL} element={<CourseDetail />} />
                 <Route path={path.NEWS_DETAIL} element={<NewsDetail />} />
                 <Route path={path.SHOPPING_CART} element={<ShoppingCart />} />
-                
+                <Route path={path.TRANSLATE} element={<Translate />} />
             </Route>
 
             <Route path={path.STIDENT_PANEL} element={<StudentPanel />} >
@@ -45,8 +46,8 @@ export default function OurRoutes() {
                 <Route path={path.ALL_COURSES} element={<MainbarAllCourses />} />
                 <Route path={path.CHANGE_PASS} element={<MainbarPassword />} />
             </Route>
-            <Route path={path.TEST} element={<Tooltips />}/>
-            <Route path={'/afterlogin'} element={<h1> با موفقیت وارد شدید </h1>}/>
+            <Route path={path.TEST} element={<Tooltips />} />
+            <Route path={'/afterlogin'} element={<h1> با موفقیت وارد شدید </h1>} />
             <Route path={path.ANOTHER_URL} element={<NotFound />} />
 
         </Routes>

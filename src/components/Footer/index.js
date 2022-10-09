@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import "./footer.css";
+import * as fa from '../../constants/persianStrings';
+import { GeneralContext } from "../../providers/GeneralContext"
 
 const Footer = () => {
+  const { language } = useContext(GeneralContext);
+
   const myClick1 = () => {
     navigator.clipboard.writeText("Bahr.Academy@gmail.com");
   };
@@ -17,9 +22,9 @@ const Footer = () => {
 
   return (
     <div className="FooterHolder">
-      <div className="footerWeblog">
-          <input onClick={handleInputClick} id='webgah' type="text" placeholder="جهت عضویت در خبرنامه، ایمیل خود را وارد نمایید."/> 
-          <div className="footerWeblogMainButton"> ارسال ایمیل </div>
+      <div className={language === 'fa' ? "footerWeblog" : "footerWeblogEn"}>
+        <input onClick={handleInputClick} id='webgah' type="text" placeholder={language === 'fa' ? fa.PLACEHOLDER_BTN : fa.PLACEHOLDER_BTN_EN} />
+        <div className="footerWeblogMainButton"> {language === 'fa' ? fa.SEND_EMAIL : fa.SEND_EMAIL_EN} </div>
       </div>
 
       <div className="footerContact">
@@ -36,9 +41,9 @@ const Footer = () => {
         <div></div>
       </div>
 
-      <div className="footerLocation">
+      <div className={language === 'fa' ? "footerLocation" : "footerLocationEn"}>
         {" "}
-        <p> ساری، جاده دریا، بعد از دنیای آرزو، پژوهشگاه سپهر </p>{" "}
+        <p>{language === 'fa' ? fa.ADDRESS : fa.ADDRESS_EN}</p>{" "}
       </div>
     </div>
   );

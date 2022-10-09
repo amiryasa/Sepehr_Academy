@@ -1,27 +1,27 @@
 import { useNavigate } from 'react-router-dom';
-
+import { useContext } from "react";
 import { NewsCard } from "../NewsCard/NewsCard";
 
 import './HomeNews.css';
-
+import { GeneralContext } from "../../providers/GeneralContext"
 import news01 from './../../assets/images/News/news01.png';
 import * as fa from '../../constants/persianStrings';
 
 const HomeNews = () => {
-
+  const { language } = useContext(GeneralContext);
   const navigator = useNavigate();
 
   return (
     <>
-      <div className="homeH2 h24" data-aos="fade-up" data-aos-duration="1000">
-        <h2> اخبار و مقالات </h2>
+      <div className={language === 'fa' ? "homeH2 h24" : "homeH2En h24En"} data-aos="fade-up" data-aos-duration="1000">
+        <h2> {language === 'fa' ? fa.TITLE_NEWS_HOME : fa.TITLE_NEWS_HOME_EN} </h2>
       </div>
       <div className="newsCantainer">
         <div data-aos="flip-up" data-aos-delay="400" data-aos-duration="800">
           {" "}
           <NewsCard
             image={news01}
-            title={"عنوان مقاله"}
+            title={language === 'fa' ? fa.ATRICHE_TITLE : fa.ATRICHE_TITLE_EN}
             description={
               "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
             }
@@ -32,7 +32,8 @@ const HomeNews = () => {
           {" "}
           <NewsCard
             image={news01}
-            title={"عنوان مقاله"}
+            title={language === 'fa' ? fa.ATRICHE_TITLE : fa.ATRICHE_TITLE_EN}
+
             description={
               "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
             }
@@ -43,7 +44,8 @@ const HomeNews = () => {
           {" "}
           <NewsCard
             image={news01}
-            title={"عنوان خبر"}
+            title={language === 'fa' ? fa.ATRICHE_TITLE : fa.ATRICHE_TITLE_EN}
+
             description={
               "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
             }
@@ -54,7 +56,8 @@ const HomeNews = () => {
           {" "}
           <NewsCard
             image={news01}
-            title={"عنوان خبر"}
+            title={language === 'fa' ? fa.ATRICHE_TITLE : fa.ATRICHE_TITLE_EN}
+
             description={
               "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
             }
@@ -70,7 +73,8 @@ const HomeNews = () => {
           {" "}
           <NewsCard
             image={news01}
-            title={"عنوان مقاله"}
+            title={language === 'fa' ? fa.ATRICHE_TITLE : fa.ATRICHE_TITLE_EN}
+
             description={
               "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
             }
@@ -86,7 +90,8 @@ const HomeNews = () => {
           {" "}
           <NewsCard
             image={news01}
-            title={"عنوان مقاله"}
+            title={language === 'fa' ? fa.ATRICHE_TITLE : fa.ATRICHE_TITLE_EN}
+
             description={
               "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
             }
@@ -94,7 +99,7 @@ const HomeNews = () => {
         </div>
       </div>
 
-      <p className="homeMore" onClick={() => navigator('/news')}>  {fa.MORE_NEWS}</p>
+      <p className="homeMore" onClick={() => navigator('/news')}>  {language === 'fa' ? fa.MORE_NEWS : fa.MORE_NEWS_EN}</p>
     </>
   );
 };
