@@ -20,6 +20,9 @@ function App() {
 
   const theme = createTheme({
     direction: language === 'fa' ? "rtl" : 'ltr',
+    palette: {
+      mode: themePage,
+    },
   });
 
   const cacheRtl = createCache({
