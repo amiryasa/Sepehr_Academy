@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import FormControlLabel from '@mui/material/FormControlLabel';
 import { GeneralContext } from "../../providers/GeneralContext"
 import * as fa from "../../constants/persianStrings"
 
 import "./index.css";
+import { ThemeButton } from "../ThemeButton/ThemeButton";
 
 const Header = () => {
   const navigator = useNavigate();
@@ -84,7 +86,7 @@ const Header = () => {
       <div className="headerRow headerNavbar" id="navbarHamAction">
         <p
           className={`headerRowItems ${themePage}`}
-          
+
           onClick={() => {
             navigator("/");
             handleItemClick(0);
@@ -141,9 +143,16 @@ const Header = () => {
       </div>
 
       <div className="mode headerRow">
-        <p onClick={() => { changeMode(themePage) }}>
-          {themePage}
-        </p>
+        <FormControlLabel
+          control={<ThemeButton sx={{ m: 1 }}
+            checked={themePage === 'light' ? true : false}
+            onChange={
+              (theme) => {
+                console.log(theme.target.checked);
+                if (theme.target.checked === true) setThemePage('light')
+                else setThemePage("dark")
+              }} />}
+        />
       </div>
       <div
         className="headerHamberMenu"

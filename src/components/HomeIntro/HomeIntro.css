@@ -122,7 +122,6 @@ div.introContainer>.btn-home>button.infoBut {
         padding-right: 100px;
         font-size: 50px;
         font-weight: normal;
-        color: #043D72;
         margin-bottom: 20px;
     }
 
@@ -132,7 +131,6 @@ div.introContainer>.btn-home>button.infoBut {
         padding-left: 100px;
         font-size: 50px;
         font-weight: normal;
-        color: #043D72;
         margin-bottom: 20px;
     }
 
@@ -154,10 +152,10 @@ div.introContainer>.btn-home>button.infoBut {
     }
 
     div.introContainerEn>.btn-home {
-        width: 325px;
+        width: 207px;
         display: flex;
         justify-content: space-around;
-        margin-left: 35px;
+        margin-left: 75px;
         margin-top: 30px;
     }
 
