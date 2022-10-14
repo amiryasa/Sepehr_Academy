@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
+import { FileUploader } from "react-drag-drop-files";
 import { Btn } from "../common/Button/Btn.js";
 import PopUp from "../common/PopUp/PopUp.js"
 import * as fa from "../../constants/persianStrings"
 import "./index.scss"
 import AvatarCostomize from "../common/avatar/index.js";
-import { FileUploader } from "react-drag-drop-files";
 import imagePicker from "./imagePicker"
+import CropPhoto from "../common/CropPhoto/CropPhoto.js";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -15,6 +16,8 @@ export default function UploadPhoto(props) {
     const [img, setImg] = useState(null);
     const upsertImgRef = useRef(null);
     const [imgRef, setImgRef] = useState(false);
+
+    const [optionPhoto, setOptionPhoto] = useState(false);
 
     useEffect(() => {
         if (!imgRef) return;
@@ -113,33 +116,52 @@ export default function UploadPhoto(props) {
                 open={props.showPop}
                 handleClose={props.handleClose}
                 title={"عکس پروفایل"}>
-                <div className="editPohotoForm">
-                    <AvatarCostomize name="naghme" size="lg" className="avaratPic" src={img} />
-                    <div className="btnEditPhoto">
-                        <input
-                            hidden
-                            type="file"
-                            accept="image/*"
-                            onChange={onUploadingImg}
-                            ref={upsertImgRef}
-                        />
-                        <Btn text={fa.EDIT_PHOTO}
-                            color="restore"
-                            variant="contained"
-                            onChange={() => {
-                                setImgRef(false);
-                                addImgOkHandler()
-                            }} />
-                        <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
+
+                {optionPhoto ?
+                    <CropPhoto
+                        className="crop_photo"
+                        src={img}
+                        onChange={(c) => {
+                            setImg(c);
+                            setOptionPhoto(false)
+                        }} />
+                    :
+                    <div className="editPohotoForm">
+                        <AvatarCostomize name="naghme" size="lg" className="avaratPic" src={img} />
+                        <div className="btnEditPhoto">
+                            <input
+                                hidden
+                                type="file"
+                                accept="image/*"
+                                onChange={onUploadingImg}
+                                ref={upsertImgRef}
+                            />
+                            <Btn text={fa.EDIT_PHOTO}
+                                color="restore"
+                                variant="contained"
+                                onChange={() => {
+                                    setImgRef(false);
+                                    addImgOkHandler()
+                                }} />
+                            <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
+                            <Btn
+                                text={fa.REMOVE_PHOTO}
+                                color="warning"
+                                variant="contained"
+                                onChange={() => {
+                                    setImg(null)
+                                }} />
+                        </div>
                         <Btn
-                            text={fa.REMOVE_PHOTO}
-                            color="warning"
+                            text={fa.OPTIOANL_PHOTO}
+                            color="info"
                             variant="contained"
                             onChange={() => {
-                                setImg(null)
+                                if (img)
+                                    setOptionPhoto(true)
                             }} />
                     </div>
-                </div>
+                }
             </PopUp>
         </>)
 }
