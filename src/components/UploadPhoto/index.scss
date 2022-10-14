@@ -1,0 +1,25 @@
+.editPohotoForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Photo {
+    width: 250px;
+    height: 250px;
+    border: 1.5px solid #00aa1c;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.btnEditPhoto {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.avaratPic {
+    border: 1.5px solid #00aa1c;
+}
