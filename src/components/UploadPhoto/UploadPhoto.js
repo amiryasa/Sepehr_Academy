@@ -4,10 +4,13 @@ import PopUp from "../common/PopUp/PopUp.js"
 import * as fa from "../../constants/persianStrings"
 import "./index.scss"
 import AvatarCostomize from "../common/avatar/index.js";
+import { FileUploader } from "react-drag-drop-files";
 import imagePicker from "./imagePicker"
 
+const fileTypes = ["JPG", "PNG", "GIF"];
+
 export default function UploadPhoto(props) {
-    const [imgVolumeLimit, setImgVolumeLimit] = useState(100000);
+    const [imgVolumeLimit, setImgVolumeLimit] = useState(1000000);
     const [imgLimitViolated, setImgLimitViolated] = useState(false);
     const [img, setImg] = useState(null);
     const upsertImgRef = useRef(null);
@@ -37,7 +40,6 @@ export default function UploadPhoto(props) {
     };
 
     const onUploadingImg = async (e) => {
-        debugger
         const files = e.target.files[0];
         if (
             files.type === "image/png" ||
@@ -81,6 +83,30 @@ export default function UploadPhoto(props) {
         // }
     };
 
+    // const [file, setFile] = useState(null);
+    const handleChange = async (file) => {
+
+        let blob = await imagePicker(file);
+
+        if (blob === undefined) return;
+        if (blob.size > imgVolumeLimit) {
+
+            setImgLimitViolated(true);
+            // toast.error("حجم عکس بیش از حد مجاز است.");
+            return;
+        }
+
+        setImgLimitViolated(false);
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+            (imgUpdateHandler(reader.result));
+        };
+
+    };
+
+
+
     return (
         <>
             <PopUp
@@ -88,7 +114,6 @@ export default function UploadPhoto(props) {
                 handleClose={props.handleClose}
                 title={"عکس پروفایل"}>
                 <div className="editPohotoForm">
-                    {/* <div className="Photo"></div> */}
                     <AvatarCostomize name="naghme" size="lg" className="avaratPic" src={img} />
                     <div className="btnEditPhoto">
                         <input
@@ -105,7 +130,14 @@ export default function UploadPhoto(props) {
                                 setImgRef(false);
                                 addImgOkHandler()
                             }} />
-                        <Btn text={fa.REMOVE_PHOTO} color="warning" variant="contained" />
+                        <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
+                        <Btn
+                            text={fa.REMOVE_PHOTO}
+                            color="warning"
+                            variant="contained"
+                            onChange={() => {
+                                setImg(null)
+                            }} />
                     </div>
                 </div>
             </PopUp>
