@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './Btn.css'
 
@@ -59,7 +59,8 @@ const Btn = (props) => {
           borderWidth: '1.5px',
           borderColor: `${props.borderColor}`
         }}
-        onClick={() => navigator(props.click)}
+        // onClick={() => navigator(props.click)}
+        onClick={props.onChange}
       >
         {props.text}
       </Button>

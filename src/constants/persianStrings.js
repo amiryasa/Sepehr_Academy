@@ -53,6 +53,9 @@ export const IGNORE_NEW_CHANGES = "لغو تغییرات"
 export const PAY = "پرداخت"
 export const SHOW_MORE = "نمایش جزئیات"
 export const PLACEHOLDER_BTN = "جهت عضویت در خبرنامه، ایمیل خود را وارد نمایید."
+export const REMOVE_PHOTO = "حذف عکس"
+export const EDIT_PHOTO = "تغییر عکس"
+export const OPTIOANL_PHOTO = "آپشن"
 
 export const ADDRESS = "ساری، جاده دریا، بعد از دنیای آرزو، پژوهشگاه سپهر "
 
