@@ -11,25 +11,17 @@ export default function (props) {
     const imgRef = useRef(null)
     const previewCanvasRef = useRef(null);
     const [completedCrop, setCompletedCrop] = useState(null)
-    const [imgNew, setImgNew] = useState(null)
 
 
     const cropImageNow = () => {
-        // if (
-        //     completedCrop?.width &&
-        //     completedCrop?.height &&
-        //     imgRef.current &&
-        //     previewCanvasRef.current
-        // ) {
 
         var newSize = canvasPreview(
             imgRef.current,
             previewCanvasRef.current,
-            completedCrop,
+            completedCrop ,
             scale,
             rotate,
         )
-        setImgNew(newSize)
         props.onChange(newSize)
 
     }
@@ -74,7 +66,7 @@ export default function (props) {
             <div className='crop'>
                 <button onClick={cropImageNow}>Crop</button>
             </div>
-            {imgNew && <img src={imgNew} width="100%" />}
+         
 
         </div>
     )
