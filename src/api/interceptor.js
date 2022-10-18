@@ -3,7 +3,7 @@ import { getItem } from "./storage/storage"
 
 
 const api = axios.create({
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
