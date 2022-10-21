@@ -1,0 +1,28 @@
+.selectbox{
+    width: 180px;
+    margin: auto;
+}
+
+.selectbox > .MuiFormControl-root{
+    margin-top: 5px;
+}
+
+.selectbox > .MuiFormControl-root > .MuiInputBase-root > .MuiSelect-select{
+    font-family: 'bakh';
+    color: #616161;
+    font-size: 15px
+}
+
+.selectbox > .MuiBox-root > .MuiFormControl-root > .MuiInputBase-root{
+    font-family: 'bakh';
+    color: #616161;
+}
+
+.selectbox > .MuiBox-root > .MuiFormControl-root > label{
+    font-family: 'bakh';
+}
+
+.MuiPaper-root > .MuiList-root > li{
+    font-family: 'bakh';
+    color: #616161;
+}

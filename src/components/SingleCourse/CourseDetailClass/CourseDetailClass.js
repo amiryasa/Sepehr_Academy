@@ -88,7 +88,7 @@ const CourseDetailClass = () => {
           />
         </div>
         <div className="CourseDetailClassActionProgressbar">
-          <Progressbar capacity={47}/>
+          <Progressbar capacity={76} message='ظرفیت باقیمانده' size={250} type='capacity' tooltiveMes={100-76}/>
         </div>
       </div>
     </>

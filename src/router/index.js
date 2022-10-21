@@ -23,6 +23,8 @@ import { HamBeer } from "../components/HamBeer/HamBeer";
 import { Tooltips } from "../components/Tooltive/Tooltips";
 import { Sliderrr } from "../components/sliderrrr/Sliderrr";
 import { Progressbar } from "../components/Progressbar/Progressbar";
+import { Compair } from "../components/Compair/Compair";
+import { SelectBox } from "../components/common/SelectBox/SelectBox";
 
 export default function OurRoutes() {
     return (
@@ -36,6 +38,7 @@ export default function OurRoutes() {
                 <Route path={path.NEWS} element={<News />} />
                 <Route path={path.COURSE_DETAIL} element={<CourseDetail />} />
                 <Route path={path.NEWS_DETAIL} element={<NewsDetail />} />
+                <Route path={path.COMPAIR} element={<Compair />} />
             </Route>
 
             <Route path={path.STIDENT_PANEL} element={<StudentPanel />} >
@@ -45,7 +48,7 @@ export default function OurRoutes() {
                 <Route path={path.ALL_COURSES} element={<MainbarAllCourses />} />
                 <Route path={path.CHANGE_PASS} element={<MainbarPassword />} />
             </Route>
-            <Route path={path.TEST} element={<Progressbar />}/>
+            <Route path={path.TEST} element={<SelectBox />}/>
             <Route path={'/afterlogin'} element={<h1> با موفقیت وارد شدید </h1>}/>
             <Route path={path.ANOTHER_URL} element={<NotFound />} />
 
