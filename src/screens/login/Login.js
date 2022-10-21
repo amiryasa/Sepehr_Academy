@@ -9,6 +9,7 @@ import "./Login.css";
 
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { loginUser } from "../../api/Core/Login_Register";
 
 const validationSchema = yup.object({
   email: yup
@@ -20,12 +21,12 @@ const validationSchema = yup.object({
     .string("ایمیل خود را وارد نمایید!")
     .required("وارد کردن رمزعبور الزامی است! ")
     .min(8, "رمزعبور باید حداقل 8 کارکتر باشد!")
-    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,"رمزعبور به اندازه‌ی کافی قوی نیست!"),
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/, "رمزعبور به اندازه‌ی کافی قوی نیست!"),
 });
 
 const Login = () => {
   const navigator = useNavigate();
-  const checkboxChangeHandler = () => {};
+  const checkboxChangeHandler = () => { };
 
   const myFormik = useFormik({
     initialValues: {
@@ -34,10 +35,16 @@ const Login = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
-      navigator("/afterlogin");
+      login(values)
     },
   });
+
+  const login = async (data) => {
+    let response = await loginUser(data)
+    if (response.data.result) {
+      navigator("/afterlogin");
+    }
+  }
 
   return (
     <div className="loginHolder">
@@ -100,7 +107,6 @@ const Login = () => {
               text={fa.LOGIN}
               elementClass="mediumBtnCh2"
               variant="contained"
-
               type="submit"
             />
             <Btn
@@ -109,7 +115,9 @@ const Login = () => {
               elementClass="mediumBtnCh2"
               variant="outlined"
               borderColor="#00ADEF"
-              click="/register"
+              onChange={() => {
+                navigator("/register");
+              }}
             />
           </div>
         </form>

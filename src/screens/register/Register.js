@@ -10,6 +10,7 @@ import { Input } from "../../components/common/Input/Input";
 import * as fa from "../../constants/persianStrings";
 
 import "./Register.css";
+import { registerUser } from "../../api/Core/Login_Register";
 
 const validationSchema = yup.object({
   name: yup
@@ -51,22 +52,40 @@ const Register = () => {
   const navigator = useNavigate();
 
   const [date, setDate] = useState(null);
+  const [birth, setBirth] = useState(null);
+
 
   const myFormik = useFormik({
     initialValues: {
       name: "",
       mobile: "",
       id: "",
-      birthday: "",
       email: "",
       password: "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
-      navigator("/login");
+      ;
+      const dataUser = {
+        fullName: values.name,
+        email: values.email,
+        password: values.password,
+        phoneNumber: values.mobile,
+        birthDate: birth,
+        nationalId: values.id,
+        profile: ""
+      }
+      insertNewUser(dataUser);
     },
   });
+
+  const insertNewUser = async (data) => {
+    let response = await registerUser(data);
+    if (response.data.result) {
+      console.log(response.data.result);
+      // navigator("/login");
+    }
+  }
 
   return (
     <div className="registerHolder">
@@ -116,9 +135,12 @@ const Register = () => {
               <DatePickerCustome
                 label={fa.TITLE_BIRTHDAY}
                 maxDate={new Date()}
-                onChange={setDate}
+                onChange={(e) => {
+                  setDate(e);
+                  setBirth(`${e.year}/${e.month.number}/${e.day}`)
+                }}
                 value={date}
-              
+
               />
             </div>
             {/* <div>
@@ -175,7 +197,9 @@ const Register = () => {
               elementClass="mediumBtnCh"
               variant="outlined"
               borderColor="#04A641"
-              click="/login"
+              onChange={() => {
+                navigator("/login");
+              }}
             />
           </div>
         </form>

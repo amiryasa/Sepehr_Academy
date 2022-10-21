@@ -1,7 +1,6 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { getAllNews } from "../../api/Core/News";
 import * as fa from "../../constants/persianStrings";
-
 import { CardInNews } from "../CardInNews/CardInNews";
 import { Paginate } from "../common/Pagination/Paginate";
 import { NewsFilter } from "../NewsFilter/NewsFilter";
@@ -11,125 +10,28 @@ import news01 from "./../../assets/images/News/news01.png";
 
 import "./NewsContainer.css";
 
-const newsData = [
-  {
-    title: "عنوان مقاله 01",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 02",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 03",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 04",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 05",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 06",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 07",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 08",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 09",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 10",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 11",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 12",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 13",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 14",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 15",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 16",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 17",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-  {
-    title: "عنوان مقاله 18",
-    image: news01,
-    description: "توضیحات توضیحات توضیحات توضیحات توضیحات ...",
-    date: "25 اردیبهشت 1401",
-  },
-];
 
 const NewsContainer = () => {
-
+  const [newsArticleData, setNewsArticleData] = useState(null)
   const [currentPage_NewsContainer, setCurrentPage_NewsContainer] = useState(1);
+
+  useEffect(() => {
+    getAllNewsArticles()
+  }, [])
+
+
+  const getAllNewsArticles = async () => {
+    let response = await getAllNews();
+    if (response.data.result) {
+      setNewsArticleData(response.data.result)
+    }
+  }
 
   const handlePagination_NewsContainer = (e, value) => {
     setCurrentPage_NewsContainer(value);
     console.log(value)
   }
+
 
   return (
     <div>
@@ -138,20 +40,21 @@ const NewsContainer = () => {
       </div>
       <NewsFilter />
       <div className="CardInNewsContainer">
-        {newsData.slice((currentPage_NewsContainer*6)-6,currentPage_NewsContainer*6).map((item, index) => (
+        {newsArticleData != null && newsArticleData.slice((currentPage_NewsContainer * 6) - 6, currentPage_NewsContainer * 6).map((item, index) => (
           <CardInNews
             image={item.image}
             title={item.title}
             btnColor="detail"
-            description={item.description}
+            description={item.text}
             date={item.date}
+            id={item._id}
           />
         ))}
       </div>
-      <Paginate 
-      allItem={newsData.length}
-      eachPageTtem={6}
-      handlePagination={handlePagination_NewsContainer}
+      <Paginate
+        allItem={newsArticleData && newsArticleData.length}
+        eachPageTtem={6}
+        handlePagination={handlePagination_NewsContainer}
       />
     </div>
   );

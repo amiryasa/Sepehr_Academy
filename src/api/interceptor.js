@@ -20,6 +20,16 @@ api.interceptors.response.use(
     async (error) => {
         // check if error is expected from backend
         try {
+
+            if (error.code === 'ERR_NETWORK') {
+                // GLOBAL.appGlobalAccess.setState((prevState) => ({
+                //     errors: [...prevState.errors, { title: 'لطفا اینترنت را بررسی کنید' }]
+                // }))
+                alert('لطفا اینترنت را بررسی کنید')
+                return Promise.reject(error);
+            }
+
+
             const expectedError =
                 error.response &&
                 error.response.state >= 400 &&

@@ -8,7 +8,6 @@ import "./datePicker.css"
 export default function DatePickerCustome(props) {
     const weekDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"]
     const mouths = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"]
-   
     return (
         <div className="datePicker_form">
             <label className={`${props.value ? "label_datePicker_top" : "label_datePicker"}`}>
