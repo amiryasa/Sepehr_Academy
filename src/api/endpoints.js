@@ -1,4 +1,4 @@
-export const API = 'https://academy-sepehr.iran.liara.run/api/';
+export const API = 'https://api.noorgon.sepehracademy.ir/api/';
 
 //login register
 export const REGISTER = `${API}auth/register`

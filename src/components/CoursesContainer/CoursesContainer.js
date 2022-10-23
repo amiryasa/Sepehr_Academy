@@ -1,6 +1,6 @@
 import * as React from "react";
 import _ from "lodash";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 
 import { CardInCourses } from "../CardInCourses/CardInCourses";
 import { Paginate } from "../common/Pagination/Paginate";
@@ -212,44 +212,44 @@ const CoursesContainer = () => {
 
   //Filtering sortby
 
-  const [sortby, setSortby] = React.useState([]);
+  // const [sortby, setSortby] = React.useState([]);
 
   const sortbyItem = ["عنوان", "امتیاز", "قیمت", "تعداد دانشجو", "مدرس دوره"];
 
   const handleSelectboxSortby = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setSortby(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+    // const {
+    //   target: { value },
+    // } = event;
+    // setSortby(
+    //   // On autofill we get a stringified value.
+    //   typeof value === "string" ? value.split(",") : value
+    // );
 
-    if (event.target.value === "عنوان") {
-      var movieOriginal = _.orderBy(coursesData01, ["title"], [upOrDownData]);
-      setCoursesData01([...movieOriginal]);
-      setCoursesCurrentData("title");
-    } else if (event.target.value === "امتیاز") {
-      var movieOriginal = _.orderBy(coursesData01, ["rate"], [upOrDownData]);
-      setCoursesData01([...movieOriginal]);
-      setCoursesCurrentData("rate");
-    } else if (event.target.value === "قیمت") {
-      var movieOriginal = _.orderBy(coursesData01, ["cost"], [upOrDownData]);
-      setCoursesData01([...movieOriginal]);
-      setCoursesCurrentData("cost");
-    } else if (event.target.value === "تعداد دانشجو") {
-      var movieOriginal = _.orderBy(
-        coursesData01,
-        ["studentCount"],
-        [upOrDownData]
-      );
-      setCoursesData01([...movieOriginal]);
-      setCoursesCurrentData("studentCount");
-    } else if (event.target.value === "مدرس دوره") {
-      var movieOriginal = _.orderBy(coursesData01, ["teacher"], [upOrDownData]);
-      setCoursesData01([...movieOriginal]);
-      setCoursesCurrentData("teacher");
-    }
+    // if (event.target.value === "عنوان") {
+    //   var movieOriginal = _.orderBy(coursesData01, ["title"], [upOrDownData]);
+    //   setCoursesData01([...movieOriginal]);
+    //   setCoursesCurrentData("title");
+    // } else if (event.target.value === "امتیاز") {
+    //   var movieOriginal = _.orderBy(coursesData01, ["rate"], [upOrDownData]);
+    //   setCoursesData01([...movieOriginal]);
+    //   setCoursesCurrentData("rate");
+    // } else if (event.target.value === "قیمت") {
+    //   var movieOriginal = _.orderBy(coursesData01, ["cost"], [upOrDownData]);
+    //   setCoursesData01([...movieOriginal]);
+    //   setCoursesCurrentData("cost");
+    // } else if (event.target.value === "تعداد دانشجو") {
+    //   var movieOriginal = _.orderBy(
+    //     coursesData01,
+    //     ["studentCount"],
+    //     [upOrDownData]
+    //   );
+    //   setCoursesData01([...movieOriginal]);
+    //   setCoursesCurrentData("studentCount");
+    // } else if (event.target.value === "مدرس دوره") {
+    //   var movieOriginal = _.orderBy(coursesData01, ["teacher"], [upOrDownData]);
+    //   setCoursesData01([...movieOriginal]);
+    //   setCoursesCurrentData("teacher");
+    // }
   };
 
   // *
@@ -265,27 +265,27 @@ const CoursesContainer = () => {
   const upOrDownItem = ["صعودی", "نزولی"];
 
   const handleSelectboxUpOrDown = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setUpOrDown(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+    // const {
+    //   target: { value },
+    // } = event;
+    // setUpOrDown(
+    //   // On autofill we get a stringified value.
+    //   typeof value === "string" ? value.split(",") : value
+    // );
 
-    if (event.target.value === "صعودی") {
-      setupOrDownData("asc");
-      var movieOriginal = _.orderBy(coursesData01, [coursesCurrentData], ["asc"]);
-      setCoursesData01([...movieOriginal]);
-    } else if (event.target.value === "نزولی") {
-      setupOrDownData("desc");
-      var movieOriginal = _.orderBy(
-        coursesData01,
-        [coursesCurrentData],
-        ["desc"]
-      );
-      setCoursesData01([...movieOriginal]);
-    }
+    // if (event.target.value === "صعودی") {
+    //   setupOrDownData("asc");
+    //   var movieOriginal = _.orderBy(coursesData01, [coursesCurrentData], ["asc"]);
+    //   setCoursesData01([...movieOriginal]);
+    // } else if (event.target.value === "نزولی") {
+    //   setupOrDownData("desc");
+    //   var movieOriginal = _.orderBy(
+    //     coursesData01,
+    //     [coursesCurrentData],
+    //     ["desc"]
+    //   );
+    //   setCoursesData01([...movieOriginal]);
+    // }
   };
 
   // *
@@ -300,32 +300,32 @@ const CoursesContainer = () => {
   // 01
   // 01
 
-  let allCount = coursesData.map((a) => a.cost);
-  allCount.sort();
+  // let allCount = coursesData && coursesData.map((a) => a.cost);
+  // allCount.sort();
 
-  const [valueOf2step01, setValueOf2step01] = React.useState([allCount[0]/1000, (allCount[allCount.length - 1])/1000]);
+  // const [valueOf2step01, setValueOf2step01] = React.useState([allCount[0] / 1000, (allCount[allCount.length - 1]) / 1000]);
 
   const handleProgress2step01 = (event, newValue) => {
 
-    let newData;
-    
-    if((teacherName).length > 0){
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= newValue[0] && item.cost/1000 <= newValue[1]) && 
-      (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) && 
-      (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]) &&
-      ((teacherName).includes(item.teacher)));
-    }
-    else{
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= newValue[0] && item.cost/1000 <= newValue[1]) && 
-      (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) && 
-      (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]));
-    }
-    
-    setCoursesData01([...newData]);
+    // let newData;
 
-    setValueOf2step01(newValue);
+    // if ((teacherName).length > 0) {
+    //   newData =coursesData&& coursesData.filter(item =>
+    //     (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1]) &&
+    //     (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) &&
+    //     (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]) &&
+    //     ((teacherName).includes(item.teacher)));
+    // }
+    // else {
+    //   newData =coursesData&& coursesData.filter(item =>
+    //     (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1]) &&
+    //     (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) &&
+    //     (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]));
+    // }
+
+    // setCoursesData01([...newData]);
+
+    // setValueOf2step01(newValue);
 
   };
 
@@ -334,69 +334,69 @@ const CoursesContainer = () => {
   // 02
   // 02
 
-  let allRate = coursesData.map((a) => a.rate);
-  allRate.sort();
+  // let allRate =coursesData&& coursesData.map((a) => a.rate);
+  // allRate.sort();
 
   const [valueOf2step02, setValueOf2step02] = React.useState([0, 5]);
 
   const handleProgress2step02 = (event, newValue) => {
 
-    let newData;
-    
-    if((teacherName).length > 0){
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= valueOf2step01[0] && item.cost/1000 <= valueOf2step01[1]) && 
-      (item.rate >= newValue[0] && item.rate <= newValue[1]) && 
-      (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]) &&
-      ((teacherName).includes(item.teacher)));
-    }
-    else{
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= valueOf2step01[0] && item.cost/1000 <= valueOf2step01[1]) && 
-      (item.rate >= newValue[0] && item.rate <= newValue[1]) && 
-      (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]));
-    }
-    
+    // let newData;
 
-    setCoursesData01([...newData]);
+    // if ((teacherName).length > 0) {
+    //   newData =coursesData&& coursesData.filter(item =>
+    //     (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1]) &&
+    //     (item.rate >= newValue[0] && item.rate <= newValue[1]) &&
+    //     (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]) &&
+    //     ((teacherName).includes(item.teacher)));
+    // }
+    // else {
+    //   newData = coursesData&&coursesData.filter(item =>
+    //     (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1]) &&
+    //     (item.rate >= newValue[0] && item.rate <= newValue[1]) &&
+    //     (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]));
+    // }
 
-    setValueOf2step02(newValue);
 
-    console.log(newData);
+    // setCoursesData01([...newData]);
+
+    // setValueOf2step02(newValue);
+
+    // console.log(newData);
   };
-  
+
 
   // 03
   // 03
   // 03
 
-  let allCapacity = coursesData.map((a) => a.studentCount);
-  allCapacity.sort();
+  // let allCapacity =coursesData&& coursesData.map((a) => a.studentCount);
+  // allCapacity.sort();
 
-  const [valueOf2step03, setValueOf2step03] = React.useState([allCapacity[0], allCapacity[allCapacity.length-1]]);
+  // const [valueOf2step03, setValueOf2step03] = React.useState([allCapacity[0], allCapacity[allCapacity.length - 1]]);
 
   const handleProgress2step03 = (event, newValue) => {
 
-    let newData;
-    
-    if((teacherName).length > 0){
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= valueOf2step01[0] && item.cost/1000 <= valueOf2step01[1]) && 
-      (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) && 
-      (item.studentCount >= newValue[0] && item.studentCount <= newValue[1]) &&
-      ((teacherName).includes(item.teacher)));
-    }
-    else{
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= valueOf2step01[0] && item.cost/1000 <= valueOf2step01[1]) && 
-      (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) && 
-      (item.studentCount >= newValue[0] && item.studentCount <= newValue[1]));
-    }
-    
+    // let newData;
 
-    setCoursesData01([...newData]);
+    // if ((teacherName).length > 0) {
+    //   newData =coursesData&& coursesData.filter(item =>
+    //     (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1]) &&
+    //     (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) &&
+    //     (item.studentCount >= newValue[0] && item.studentCount <= newValue[1]) &&
+    //     ((teacherName).includes(item.teacher)));
+    // }
+    // else {
+    //   newData =coursesData&& coursesData.filter(item =>
+    //     (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1]) &&
+    //     (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) &&
+    //     (item.studentCount >= newValue[0] && item.studentCount <= newValue[1]));
+    // }
 
-    setValueOf2step03(newValue);
+
+    // setCoursesData01([...newData]);
+
+    // setValueOf2step03(newValue);
   };
 
   // *
@@ -407,38 +407,38 @@ const CoursesContainer = () => {
 
   // Teacher selection
 
-  let allTeacher = coursesData.map((a) => a.teacher);
-  allTeacher = [...new Set(allTeacher)];
+  // let allTeacher = coursesData&&coursesData.map((a) => a.teacher);
+  // allTeacher = [...new Set(allTeacher)];
 
   const [teacherName, setTeacherName] = React.useState([]);
 
   const handleSelection = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setTeacherName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+    // const {
+    //   target: { value },
+    // } = event;
+    // setTeacherName(
+    //   // On autofill we get a stringified value.
+    //   typeof value === "string" ? value.split(",") : value
+    // );
 
-    let newData;
+    // let newData;
 
-    if((event.target.value).length > 0){
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= valueOf2step01[0] && item.cost/1000 <= valueOf2step01[1]) && 
-      (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) && 
-      (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]) &&
-      ((event.target.value).includes(item.teacher)));
-    }
-    else{
-      newData = coursesData.filter(item => 
-      (item.cost/1000 >= valueOf2step01[0] && item.cost/1000 <= valueOf2step01[1]) && 
-      (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) && 
-      (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]));
-    }
+    // if ((event.target.value).length > 0 &&coursesData) {
+    //   newData = coursesData.filter(item =>
+    //     (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1]) &&
+    //     (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) &&
+    //     (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]) &&
+    //     ((event.target.value).includes(item.teacher)));
+    // }
+    // else {
+    //   newData =coursesData&& coursesData.filter(item =>
+    //     (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1]) &&
+    //     (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1]) &&
+    //     (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1]));
+    // }
 
-    
-    setCoursesData01([...newData]);
+
+    // setCoursesData01([...newData]);
 
   };
 
@@ -449,7 +449,7 @@ const CoursesContainer = () => {
         <h2> {fa.TITLE_COURSES} </h2>
       </div>
 
-      <CoursesFilter
+      {/* <CoursesFilter
         handleSelectboxSortby={handleSelectboxSortby}
         selectStateSortby={sortby}
         sortbyItem={sortbyItem}
@@ -462,11 +462,11 @@ const CoursesContainer = () => {
 
 
         // progress 2 step
-        minCount01={allCount[0]/1000}
+        minCount01={allCount[0] / 1000}
         minCount02={0}
         minCount03={allCapacity[0]}
 
-        maxCount01={(allCount[allCount.length - 1])/1000}
+        maxCount01={(allCount[allCount.length - 1]) / 1000}
         maxCount02={5}
         maxCount03={(allCapacity[allCapacity.length - 1])}
 
@@ -491,7 +491,7 @@ const CoursesContainer = () => {
         listOfTeacher={allTeacher}
         handleSelection={handleSelection}
         teacherState={teacherName}
-      />
+      /> */}
 
       <div className="CardIncoursesContainer">
         {coursesData != null && coursesData.slice((currentPage_CoursesContainer * 4) - 4, currentPage_CoursesContainer * 4).map((item, index) => (
