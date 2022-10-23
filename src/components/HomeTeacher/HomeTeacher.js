@@ -1,12 +1,10 @@
 import { useContext, useState, useEffect } from "react";
-
 import { GeneralContext } from "../../providers/GeneralContext"
 import { TeacherCard } from "../TeacherCard/TeacherCard";
 import './HomeTeacher.css';
 import * as fa from '../../constants/persianStrings';
-import teach01 from './../../assets/images/Teacher/teacher01.png';
-import teach02 from './../../assets/images/Teacher/teacher02.png';
-import { getLastTeachers } from "../../api/Core/Employe_Manage";
+import { getAllTeachers } from "../../api/Core/Employe_Manage";
+import { DescriptionTeacher } from "../../constants/staticData"
 
 const HomeTeacher = () => {
   const [teachersBest, setTeachersBest] = useState(null)
@@ -18,33 +16,25 @@ const HomeTeacher = () => {
 
 
   const getTeachers = async () => {
-    let response = await getLastTeachers();
+    let response = await getAllTeachers();
     if (response.data.result) {
       setTeachersBest(response.data.result.slice(0, 4))
     }
   }
-
+console.log(DescriptionTeacher);
   return (
     <>
       <div className={language === 'fa' ? "homeH2 h25" : "homeH2En h25En"} data-aos="fade-up" data-aos-duration="1000">
         <h2 className={`${themePage}Intro`}> {language === 'fa' ? fa.TITLE_BEST_TEACHER : fa.TITLE_BEST_TEACHER_EN} </h2>
       </div>
       <div className="teacherCantainer">
-        {/* <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="800">
-          <TeacherCard
-            img={teach01}
-            name={"دکتر محمد بحرالعلوم"}
-            description={
-              "مدیریت آموزشگاه و مدرس دروس کامپیوتر در دانشگاه‌های معتبر شمال کشور"
-            }
-          />
-        </div> */}
-        {teachersBest && teachersBest.map((item) => (
+
+        {teachersBest && teachersBest.map((item, key) => (
           <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="800">
             <TeacherCard
-              img={item.image}
-              name={item.name}
-              // description={item.discription}
+              img={item.profile}
+              name={item.fullName}
+              description={DescriptionTeacher[key]}
             />
           </div>
         ))}
