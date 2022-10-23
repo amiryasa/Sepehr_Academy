@@ -1,9 +1,13 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Tooltips } from "../Tooltive/Tooltips";
+import UploadPhoto from "../UploadPhoto/UploadPhoto";
 
 import "./PanelSidebar.css";
 
 const PanelSidebar = () => {
+  const [show, setShow] = useState(false)
+
   const items = document.getElementsByClassName(
     "sidebarContainerItemContaineritems"
   );
@@ -21,79 +25,82 @@ const PanelSidebar = () => {
   const navigator = useNavigate();
 
   return (
-    <div className="sidebarContainer">
-      <div
-        className="sidebarContainerLogo"
-        onClick={() => {
-          navigator("/");
-        }}
-      >
-        <p onClick={() => navigator("/")}>آموزشگاه کدنویسی بحر</p>
-      </div>
-      <div className="sidebarContainerInfo">
-        <Tooltips color="#04A641" message='کاربری فعال'>
-          <div
-            className="sidebarContainerInfoPicture"
-            style={{ borderColor: "#00aa1c" }}
-          >
-            <div className="sidebarContainerInfoPictureIcon"></div>
-          </div>
-        </Tooltips>
+    <>
+      <div className="sidebarContainer">
+        <div
+          className="sidebarContainerLogo"
+          onClick={() => {
+            navigator("/");
+          }}
+        >
+          <p onClick={() => navigator("/")}>آموزشگاه کدنویسی بحر</p>
+        </div>
+        <div className="sidebarContainerInfo">
+          <Tooltips color="#04A641" message='کاربری فعال'>
+            <div
+              className="sidebarContainerInfoPicture"
+              style={{ borderColor: "#00aa1c" }}
+            >
+              <div className="sidebarContainerInfoPictureIcon"></div>
+            </div>
+          </Tooltips>
 
-        <p className="sidebarContainerInfoUser"> MohammadRZ </p>
-        <p className="sidebarContainerInfoRole"> Student </p>
+          <p className="sidebarContainerInfoUser"> MohammadRZ </p>
+          <p className="sidebarContainerInfoRole"> Student </p>
+        </div>
+        <div className="sidebarContainerItemContainer">
+          <div
+            className="sidebarContainerItemContaineritems"
+            onClick={() => {
+              handleItemClick(0);
+              navigator("/studentPanel");
+            }}
+          >
+            داشبورد
+          </div>
+          <div
+            className="sidebarContainerItemContaineritems"
+            onClick={() => {
+              handleItemClick(1);
+              navigator("/studentPanel/editInfo");
+            }}
+          >
+            ویرایش اطلاعات
+          </div>
+          <div
+            className="sidebarContainerItemContaineritems"
+            onClick={() => {
+              handleItemClick(2);
+              navigator("/studentPanel/myCourses");
+            }}
+          >
+            دوره‌های من
+          </div>
+          <div
+            className="sidebarContainerItemContaineritems"
+            onClick={() => {
+              handleItemClick(3);
+              navigator("/studentPanel/allCourses");
+            }}
+          >
+            لیست کل دوره‌ها
+          </div>
+          <div
+            className="sidebarContainerItemContaineritems"
+            onClick={() => {
+              handleItemClick(4);
+              navigator("/studentPanel/changePassword");
+            }}
+          >
+            تغییر رمز عبور
+          </div>
+        </div>
+        <div className="sidebarContainerExit" onClick={() => navigator("/")}>
+          خروج
+        </div>
       </div>
-      <div className="sidebarContainerItemContainer">
-        <div
-          className="sidebarContainerItemContaineritems"
-          onClick={() => {
-            handleItemClick(0);
-            navigator("/studentPanel");
-          }}
-        >
-          داشبورد
-        </div>
-        <div
-          className="sidebarContainerItemContaineritems"
-          onClick={() => {
-            handleItemClick(1);
-            navigator("/studentPanel/editInfo");
-          }}
-        >
-          ویرایش اطلاعات
-        </div>
-        <div
-          className="sidebarContainerItemContaineritems"
-          onClick={() => {
-            handleItemClick(2);
-            navigator("/studentPanel/myCourses");
-          }}
-        >
-          دوره‌های من
-        </div>
-        <div
-          className="sidebarContainerItemContaineritems"
-          onClick={() => {
-            handleItemClick(3);
-            navigator("/studentPanel/allCourses");
-          }}
-        >
-          لیست کل دوره‌ها
-        </div>
-        <div
-          className="sidebarContainerItemContaineritems"
-          onClick={() => {
-            handleItemClick(4);
-            navigator("/studentPanel/changePassword");
-          }}
-        >
-          تغییر رمز عبور
-        </div>
-      </div>
-      <div className="sidebarContainerExit" onClick={() => navigator("/")}>
-        خروج
-      </div>
-    </div>
+      {show && <UploadPhoto showPop={show} handleClose={() => { setShow(!show) }} />}
+    </>
   );
 };
 

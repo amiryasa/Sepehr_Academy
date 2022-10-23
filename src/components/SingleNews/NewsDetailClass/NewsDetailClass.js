@@ -5,10 +5,12 @@ import reactNewsSingle from '../../../assets/images/News/newsBg.png';
 import "./NewsDetailClass.css"
 import * as fa from '../../../constants/persianStrings';
 
-const NewsDetailClass = () => {
+
+const NewsDetailClass = ({ detailsNews }) => {
+
     return (<div className='aboutNews'>
         <div className='informNews'>
-            <p> آشنایی با کتابخانه‌ی قدرتمند React  </p>
+            <p> {detailsNews.title}  </p>
             <hr></hr>
             <div className='information'>
                 <div className='teacher'>
@@ -18,7 +20,7 @@ const NewsDetailClass = () => {
                 <div className='opacity'>
                     <img src={articlType} />
                     <span> دسته‌بندی:
-                        <span>مقاله</span>
+                        <span>{detailsNews.category}</span>
                     </span>
                 </div>
                 <div className=' numberStudent'>
@@ -30,7 +32,7 @@ const NewsDetailClass = () => {
             </div>
         </div>
         <div className='photoNews'>
-            <img src={reactNewsSingle} />
+            <img src={detailsNews.image} />
             <span className='offNews'>
                 <span className='offCount'>افزایش دانش</span>
                 <span className='offTitle'>اطلاعات و آگاهی</span>

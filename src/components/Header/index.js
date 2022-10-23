@@ -1,8 +1,11 @@
-import { useState } from "react";
-import { useNavigate, useLocation} from "react-router-dom";
-
+import { useContext, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { GeneralContext } from "../../providers/GeneralContext"
+import * as fa from "../../constants/persianStrings"
 
 import "./index.css";
+import { ThemeButton } from "../ThemeButton/ThemeButton";
 
 const headerItems = document.getElementsByClassName("headerRowItems");
 
@@ -10,7 +13,8 @@ const Header = () => {
   const navigator = useNavigate();
   const headerLocation = useLocation();
   const [currentState, setCurrentState] = useState(headerLocation.pathname);
-  
+
+  const { language, setLanguage, themePage, setThemePage } = useContext(GeneralContext);
 
   let isHidden = true;
   const hamberMenuOnclickHandler = () => {
@@ -28,6 +32,19 @@ const Header = () => {
 
   };
 
+  const changeLanguage = (lng) => {
+    if (lng === 'fa')
+      setLanguage('en')
+    else
+      setLanguage('fa')
+  }
+
+  const changeMode = (mode) => {
+    if (mode === 'light')
+      setThemePage('dark')
+    else
+      setThemePage('light')
+  }
 
   // headerItems[4].style.cursor = "pointer";
   // headerItems[4].style.color = "#808080";
@@ -38,12 +55,10 @@ const Header = () => {
   // headerItems[index].style.textDecoration = "underline";
 
 
-  
-
 
   return (
     <div
-      className="header1"
+      className={language === 'fa' ? "header1" : "header1En"}
       style={{
         display: `${window.location.pathname === "/" ? "block" : "flex"}`,
       }}
@@ -52,12 +67,13 @@ const Header = () => {
 
       <div className="headerRow headerNavbar" id="navbarHamAction">
         <p
-          className="headerRowItems"
+          className={`headerRowItems ${themePage}`}
+
           onClick={() => {
             navigator("/");
           }}
         >
-          خانه
+          {language === 'fa' ? fa.HEADER_HOME : fa.HEADER_HOME_EN}
         </p>
 
         <p
@@ -66,7 +82,8 @@ const Header = () => {
             navigator("/courses");
           }}
         >
-          دوره‌ها
+          {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN}
+
         </p>
 
         <p
@@ -75,7 +92,7 @@ const Header = () => {
             navigator("/news");
           }}
         >
-          اخبار و مقالات
+          {language === 'fa' ? fa.HEADER_NEWS : fa.HEADER_NEWS_EN}
         </p>
         <p
           className="headerRowItems"
@@ -83,7 +100,8 @@ const Header = () => {
             navigator("/");
           }}
         >
-          خدمات
+          {language === 'fa' ? fa.HEADER_SERVICES : fa.HEADER_SERVICES_EN}
+
         </p>
         <p
           className="headerRowItems"
@@ -91,8 +109,27 @@ const Header = () => {
             navigator("/");
           }}
         >
-          ارتباط با ما
+          {language === 'fa' ? fa.HEADER_CONTACT : fa.HEADER_CONTACT_EN}
+
         </p>
+      </div>
+      <div className="lng headerRow">
+        <p onClick={() => { changeLanguage(language) }}>
+          {language}
+        </p>
+      </div>
+
+      <div className="mode headerRow">
+        <FormControlLabel
+          control={<ThemeButton sx={{ m: 1 }}
+            checked={themePage === 'light' ? true : false}
+            onChange={
+              (theme) => {
+                console.log(theme.target.checked);
+                if (theme.target.checked === true) setThemePage('light')
+                else setThemePage("dark")
+              }} />}
+        />
       </div>
       <div
         className="headerHamberMenu"

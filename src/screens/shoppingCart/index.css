@@ -1,0 +1,242 @@
+.shoppingCart {
+    width: 965px;
+    height: 100%;
+    margin: auto;
+}
+
+
+.shoppingCart .shoppingCardTitle {
+    height: 80px;
+}
+
+.shoppingCart .shoppingCardTitle p {
+    padding-right: 26px;
+    margin-top: 32px;
+    font-size: 30px;
+    color: #043d72;
+}
+
+.shoppingCart .shoppingCardTitle hr {
+    width: 50px;
+    border-width: 3px;
+    border: 2px solid #fdea00;
+    background-color: #fdea00;
+    margin-right: -1%;
+    margin-top: -55px;
+    transform: rotate(90deg);
+}
+
+.shoppingCart .detailShoppingCart {
+    width: 100%;
+    display: flex;
+}
+
+.shoppingCart .detailShoppingCart .listShoppingCourse {
+    width: 65%;
+    /* height: 300px;
+    overflow-y: scroll; */
+}
+
+.shoppingCart .detailShoppingCart .totalShopping {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 0px;
+    flex-direction: column;
+
+
+    position: fixed;
+    left: 150px;
+    z-index: 50;
+}
+
+.shoppingCart .detailShoppingCart .totalShopping .describeShopping {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px 1px rgb(0 0 0 / 0%);
+    border: 1px solid #D4D4D4;
+    background-color: white;
+}
+
+.shoppingCart .detailShoppingCart .totalShopping .describeShopping p {
+    padding: 10px;
+    padding-bottom: 5px;
+}
+
+.shoppingCart .detailShoppingCart .totalShopping .describeShopping hr {
+    border: 0.2px solid #e8e8e8;
+    background-color: #e8e8e8;
+}
+
+.shoppingCart .detailShoppingCart .totalShopping .describeShopping .allCoursePay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+
+.shoppingCart .detailShoppingCart .totalShopping .describeShopping .allSaleCourse {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+
+.shoppingCart .detailShoppingCart .totalShopping .describeShopping .totalPay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    padding-bottom: 7px;
+}
+
+
+.shoppingCart .detailShoppingCart .totalShopping .payShoppingCart {
+    margin-top: 10px;
+
+}
+
+
+.shoppingCart .detailShoppingCart .totalShopping .payShoppingCart .MuiButtonBase-root {
+    width: 100%;
+    margin-right: 0px;
+}
+
+
+.shoppingCart .emptyShopping {
+    width: 679px;
+    height: 278px;
+    background: url('./../../assets/images/shoppingCart/shoppingEmpty.png');
+    background-size: 100%;
+    margin: auto;
+    background-repeat: no-repeat;
+    /* margin-top: -10px; */
+}
+
+.shoppingCart p.emptyShoppingTitle {
+    text-align: center;
+    font-family: saye;
+    font-size: 45px;
+    margin-top: 10px;
+}
+
+.shoppingCart p.insertInShoppingCart {
+    transition: .5s;
+    text-align: center;
+    font-size: 20px;
+    color: #00ADEF;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:1262px) {
+
+    .shoppingCart {
+        width: 600px;
+    }
+
+    .shoppingCart .shoppingCardTitle {
+        height: 50px;
+    }
+
+    .shoppingCart .shoppingCardTitle p {
+        font-size: 21px;
+    }
+
+    .shoppingCart .shoppingCardTitle hr {
+        width: 40px;
+        border: 1.75px solid #fdea00;
+        margin-top: -43px;
+    }
+
+    .shoppingCart .detailShoppingCart .totalShopping {
+        width: 200px;
+        left: 100px;
+    }
+
+    .shoppingCart .detailShoppingCart .totalShopping .describeShopping p {
+        font-size: 12px;
+        padding-bottom: 0px;
+    }
+
+    .shoppingCart .detailShoppingCart .totalShopping .describeShopping .allCoursePay {
+        height: 28px;
+    }
+
+
+    .shoppingCart .detailShoppingCart .totalShopping .describeShopping .totalPay {
+        height: 28px;
+    }
+
+    .shoppingCart .emptyShopping {
+        width: 600px;
+        height: 248px;
+    }
+
+    .shoppingCart p.emptyShoppingTitle {
+        font-size: 30px;
+        margin-top: 5px;
+    }
+
+    .shoppingCart p.insertInShoppingCart {
+        font-size: 18px;
+        margin-top: -15px;
+    }
+
+}
+
+@media screen and (max-width:749px) {
+
+    .shoppingCart {
+        width: 304px;
+    }
+
+    .shoppingCart .shoppingCardTitle p {
+        font-size: 19px;
+    }
+
+    .shoppingCart .shoppingCardTitle hr {
+        border-width: 3px;
+        border: 1.5px solid #fdea00;
+        margin-top: -37px;
+    }
+
+    .shoppingCart .detailShoppingCart {
+        flex-direction: column;
+    }
+
+    .shoppingCart .detailShoppingCart .listShoppingCourse {
+        width: 100%;
+    }
+
+    .shoppingCart .detailShoppingCart .totalShopping {
+        margin-top: 40px;
+        width: 100%;
+        position: relative;
+        left: 0%;
+    }
+
+    .shoppingCart .detailShoppingCart .totalShopping .describeShopping .totalPay {
+        padding-bottom: 14px;
+    }
+
+    .shoppingCart .emptyShopping {
+        width: 100%;
+        height: 165px;
+        
+    }
+
+    .shoppingCart p.emptyShoppingTitle {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .shoppingCart p.insertInShoppingCart {
+        font-size: 12px;
+        margin-top: -15px;
+    }
+}

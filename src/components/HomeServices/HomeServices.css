@@ -11,12 +11,34 @@
     margin-bottom: 60px;
 }
 
+.homeH2En {
+    width: 220px;
+    height: 30px;
+    text-align: center;
+    margin: auto;
+    color: #043D72;
+    font-size: 25px;
+    border-left: 5px solid #FDEA00;
+    margin-bottom: 60px;
+}
+
 .homeH2>h2 {
     line-height: 37px;
     font-weight: normal;
 }
 
+.homeH2En>h2 {
+    line-height: 35px;
+    font-weight: normal;
+    
+}
+
 .h21 {
+    margin-top: -34px;
+    margin-bottom: 20px;
+}
+
+.h21En {
     margin-top: -34px;
     margin-bottom: 20px;
 }
@@ -52,6 +74,10 @@
         margin-top: 80px;
     }
 
+    div.h21En {
+        margin-top: 80px;
+    }
+
 }
 
 @media screen and (max-width:749px) {
@@ -72,6 +98,10 @@
     }
 
     div.h21 {
+        margin-top: 235px;
+    }
+
+    div.h21En {
         margin-top: 235px;
     }
 

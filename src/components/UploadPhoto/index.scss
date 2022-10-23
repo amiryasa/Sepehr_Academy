@@ -1,0 +1,49 @@
+.editPohotoForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Photo {
+    width: 250px;
+    height: 250px;
+    border: 1.5px solid #00aa1c;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.btnEditPhoto {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.avaratPic {
+    border: 1.5px solid #00aa1c;
+}
+
+.lkjDVC{
+    position: absolute !important;
+    top: 52px;
+    border: none !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+    height: 135px !important;
+    width: 135px !important;
+    border-radius: 50% !important;
+}
+
+.lkjDVC > svg{
+    display: none;
+}
+
+.dmajdp span{
+    display: none;
+}
+
+.iThIFr span{
+display: none;
+}
+

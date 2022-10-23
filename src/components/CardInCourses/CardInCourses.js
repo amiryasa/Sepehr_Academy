@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,6 +10,8 @@ import { Btn } from "./../common/Button/Btn";
 import "./CardInCourses.css";
 
 const CardInCourses = (props) => {
+  const navigator = useNavigate();
+
   return (
     <Card sx={{ maxWidth: 345 }} className="cardIncoursesCardCard">
       <CardMedia
@@ -56,8 +59,10 @@ const CardInCourses = (props) => {
           elementClass="coursesBtnCh"
           color={props.btnColor}
           variant="contained"
+          onChange={() => {
+            navigator(`/courseDetail/${props.id}`)
+          }}
 
-          click='/courseDetail'
         />
       </CardActions>
     </Card>

@@ -1,8 +1,13 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react"
 import { Comments } from "../../components/Comments/Comments"
 import { DetailNews } from "../../components/SingleNews/DetailNews/DetailNews"
 import { NewsDetailClass } from "../../components/SingleNews/NewsDetailClass/NewsDetailClass"
+import { getNewsById } from "../../api/Core/News";
 
 const NewsDetail = () => {
+    const { id } = useParams();
+    const [detailNews, setDetailNews] = useState()
     const deatils = [{
         name: 'ری اکت',
         describe: 'یک کتابخانه جاوا اسکریپتی است که برای ساخت یوزر اینترفیس یا همان رابط کاربری مورد استقاده قرار میگیرد. همه ی این المانهای در این React صفحه کنارهم برای ما رابط کاربری را تشکیل میدهند. (یوزر اینترفیس (رابط کاربری) چیزیکه با کاربر در ارتباط است).کاربرد ری اکت این است که یوزر این قابلیت را دارد که برای ما یوزر اینترفیس ها React اینترفیس را برای ما با یک سری ویژگی های خاص میسازد.یکی از مهم ترین ویژگی ها این است که یا رابط های کاربری را با سرعت بالا بسازد. مسلما سرعت بالای هر وبسایت می تواند در جذب کاربر تاثیر داشته باشد. پس تا به اینجا همان طور که گفتم ری اکت یک کتابخانه جاوا اسکریپتی برای ساخت رابط کاربری با سرعت بالاست. اینستاگرام به تنهایی میتواند یک وزنه ی سنگین برای معرفی ری اکت نیوتیو باشد که از این کتابخانه استفاده میکند.'
@@ -40,11 +45,28 @@ const NewsDetail = () => {
         describe: 'توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات ',
     },
     ]
-    return (<>
-        <NewsDetailClass />
-        <DetailNews deatils={deatils}/>
-        <Comments comments={comments}/>
-    </>)
+
+    useEffect(() => {
+        getDetailNews(id)
+    }, [])
+
+    const getDetailNews = async () => {
+        let response = await getNewsById(id);
+        if (response.data.result) {
+            setDetailNews(response.data.result)
+        }
+    }
+    console.log(detailNews);
+
+    return (
+        <>
+            {detailNews && <>
+                <NewsDetailClass detailsNews={detailNews} />
+                <DetailNews detailsNews={detailNews} />
+                <Comments comments={comments} />
+            </>}
+        </>
+    )
 }
 
 export { NewsDetail }

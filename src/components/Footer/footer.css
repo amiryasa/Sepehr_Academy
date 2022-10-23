@@ -23,6 +23,15 @@ ul{
     padding-top: 90px;
 }
 
+.FooterHolder > .footerWeblogEn{
+    padding-top: 7px;
+    width: 633px;
+    height: 57px;   
+    text-align:center;
+    margin: auto;
+    padding-top: 90px;
+}
+
 
 .FooterHolder > .footerWeblog > input{
     width: 466px;
@@ -37,6 +46,23 @@ ul{
     font-family: bakh;
     font-size: 16px;
     background: white;
+}
+
+.FooterHolder > .footerWeblogEn > input{
+    width: 466px;
+    height: 55px;
+    background-color: transparent;
+    border: 0px solid;
+    border-radius:29px 0 0 29px;    
+    box-shadow:0px 0px 10px 1px rgba(0,0,0,.1); 
+    padding-left: 20px;
+    margin-right: 154px;
+    outline: none;
+    font-family: bakh;
+    font-size: 16px;
+    background: white;
+    direction: ltr;
+
 }
 
 .FooterHolder > .footerWeblog > .footerWeblogMainButton:hover{
@@ -59,14 +85,42 @@ ul{
     cursor: pointer;
 }
 
+.FooterHolder > .footerWeblogEn > .footerWeblogMainButton:hover{
+    background-color: #06D152;
+}
+
+.FooterHolder > .footerWeblogEn > .footerWeblogMainButton{
+    transition: .3s;
+    font-size: 21px;
+    font-family: bakh;
+    color: #ffffff;
+    width: 155px;
+    height: 57px;
+    border-radius: 0 29px 29px 0;
+    background-color: #04A641;
+    text-align: center;
+    line-height: 57px;
+    margin-top: -57px;
+    box-shadow:0px 0px 10px 1px rgba(0,0,0,.1); 
+    cursor: pointer;
+}
+
 
 .FooterHolder > .footerContact{
     direction: ltr;
     font-size: 29px;
     font-family: gabriola;
-    color: #2D527C;
+    
     margin-left: 265px;
     padding-top: 120px;
+}
+
+.FooterHolder > .darkFooter{
+    color: #0a89ff;
+}
+
+.FooterHolder > .lightFooter{
+    color: #2D527C;
 }
 
 .FooterHolder > .footerContact > p{
@@ -154,9 +208,25 @@ ul{
 }
 
 .FooterHolder > .footerLocation > p{
-    padding-top: 26px;
+    padding-top: 30px;
     padding-right: 260px;
-    font-size: 20px;
+    font-size: 15px;
+    color: #636363;
+}
+
+.FooterHolder > .footerLocationEn{
+    margin-top: 43px;
+    height:80px;
+    background: url(./../../assets/images/Footer/pointerEn.png);
+    background-size: 475px 80px;
+    background-repeat: no-repeat;
+    background-position:620px 0px;
+}
+
+.FooterHolder > .footerLocationEn > p{
+    padding-top: 30px;
+    padding-right: 220px;
+    font-size: 15px;
     color: #636363;
 }
 
@@ -236,11 +306,25 @@ ul{
         background-size: 345px 55px;
         background-position:335px 0px;
     }
+
+    .FooterHolder > .footerLocationEn{
+        margin-top: 53px;
+        height:55px;
+        background-size: 345px 55px;
+        background-position:335px 0px;
+    }
     
     .FooterHolder > .footerLocation > p{
         padding-top: 18px;
         padding-right: 130px;
         font-size: 13px;
+        color: #636363;
+    }
+
+    .FooterHolder > .footerLocationEn > p{
+        padding-top: 20px;
+        padding-right: 90px;
+        font-size: 11px;
         color: #636363;
     }
 
@@ -263,6 +347,30 @@ ul{
     .FooterHolder > .footerWeblog > .footerWeblogMainButton{
         font-size: 14px;
         width: 102px;
+        height: 37px;
+        line-height: 37px;
+        margin-top: -37px;
+    }
+
+    .FooterHolder > .footerWeblogEn{
+        width: 418px;
+        height: 37px;   
+        padding-top: 65px;
+    }
+    
+    
+    .FooterHolder > .footerWeblogEn > input{
+        width: 301px;
+        height: 35px;  
+        padding-right: 15px;
+        margin-right: 102px;
+        font-size: 12px;
+        box-shadow:0px 0px 8px 1px rgba(0,0,0,.06);
+    }
+    
+    .FooterHolder > .footerWeblogEn > .footerWeblogMainButton{
+        font-size: 14px;
+        width: 120px;
         height: 37px;
         line-height: 37px;
         margin-top: -37px;
@@ -340,6 +448,20 @@ ul{
         color: #4d4d4d;
     }
 
+    .FooterHolder > .footerLocationEn{
+        margin-top: -10px;
+        height:55px;
+        background-size: 304px 48px;
+        background-position:center;
+    }
+    
+    .FooterHolder > .footerLocationEn > p{
+        padding-top: 20px;
+        padding-right: 60px;
+        font-size: 10px;
+        color: #4d4d4d;
+    }
+
     .FooterHolder > .footerWeblog{
         width: 305px;
         height: 29px;   
@@ -359,6 +481,32 @@ ul{
     .FooterHolder > .footerWeblog > .footerWeblogMainButton{
         font-size: 10px;
         width: 65px;
+        height: 29px;
+        line-height: 29px;
+        margin-top: -29px;
+        text-align: right;
+        padding-right: 13px;
+    }
+
+    .FooterHolder > .footerWeblogEn{
+        width: 305px;
+        height: 29px;   
+        padding-top: 20px;
+    }
+    
+    
+    .FooterHolder > .footerWeblogEn > input{
+        width: 216px;
+        height: 27px;  
+        padding-right: 10px;
+        margin-right: 50px;
+        font-size: 9px;
+        box-shadow:0px 0px 5px 1px rgba(0,0,0,.05);
+    }
+    
+    .FooterHolder > .footerWeblogEn > .footerWeblogMainButton{
+        font-size: 8.5px;
+        width: 50px;
         height: 29px;
         line-height: 29px;
         margin-top: -29px;

@@ -12,7 +12,7 @@ import stop from "../../assets/images/comment/no-stopping.png";
 import * as fa from "../../constants/persianStrings";
 
 const Comments = (props) => {
-  console.log(props);
+
   return (
     <div className="comments">
       <p> {fa.TITLE_COMMENTS} </p>

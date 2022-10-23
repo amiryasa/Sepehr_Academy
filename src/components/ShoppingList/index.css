@@ -1,0 +1,107 @@
+.shoppingTable {
+    /* width:878px; */
+    margin: auto;
+}
+
+.shoppingTable>.MuiPaper-elevation>.muirtl-1pclhgl-MuiTable-root {
+    font-family: bakh;
+}
+
+.shoppingTable .muirtl-132a6sb-MuiTableCell-root {
+    padding: 20px;
+    padding-right: 5px;
+}
+
+
+/* frame asli */
+.shoppingTable>.MuiPaper-root {
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px 1px rgb(0 0 0 / 0%);
+    border: 1px solid #ffffff;
+    width: 99%;
+}
+
+
+/* frame unic header */
+.shoppingTable>.MuiPaper-root>.MuiTable-root>thead>tr>th {
+    font-family: bakh;
+    background-color: #FFFFFF;
+    color: #8E8E8E;
+    font-size: 15px;
+}
+
+/* frame Rows */
+.shoppingTable>.MuiPaper-root>.MuiTable-root>tbody>tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.shoppingTable>.MuiPaper-root>.MuiTable-root>tbody>tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* frame unic Rows */
+.shoppingTable>.MuiPaper-root>.MuiTable-root>tbody>tr>th {
+    font-family: bakh;
+    color: #676767;
+    font-size: 15px;
+}
+
+.shoppingTable>.MuiPaper-root>.MuiTable-root>tbody>tr>td {
+    font-family: bakh;
+    color: #676767;
+    font-size: 15px;
+}
+
+/* 01 */
+
+.shoppingTable>.MuiPaper-root>.MuiTable-root>thead>tr>th:nth-child(1) {
+    width: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.shoppingTable>.MuiPaper-root>.MuiTable-root>thead>tr>th:nth-child(4    ) {
+    width: 70px;
+}
+
+.shoppingTable>.MuiPaper-root>.MuiTable-root>thead>tr>th:nth-child(5) {
+    width: 30px;
+}
+
+/**/
+.shoppingTable>.MuiPaper-root>.MuiTable-root>tbody>tr>td:nth-child(6) {
+    background: url('./../../assets/images/Table/delete.png');
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width:1262px) {
+    .shoppingTable {
+        width: 400px;
+        margin: auto;
+    }
+
+    .shoppingTable>.MuiPaper-root>.MuiTable-root>thead>tr>th {
+        font-size: 13px;
+    }
+
+    .shoppingTable>.MuiPaper-root>.MuiTable-root>tbody>tr>th {
+        font-size: 13px;
+    }
+
+    .shoppingTable>.MuiPaper-root>.MuiTable-root>tbody>tr>td {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:749px) {
+    .shoppingTable {
+        width: 260px;
+        margin: auto;
+    }
+}

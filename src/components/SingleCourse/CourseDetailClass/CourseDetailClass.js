@@ -10,56 +10,60 @@ import * as fa from "../../../constants/persianStrings";
 import { Progressbar } from "../../Progressbar/Progressbar";
 import { Btn } from "../../common/Button/Btn";
 
-const CourseDetailClass = () => {
+const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
+
   return (
     <>
-      <div className="aboutCourse">
-        <div className="informCourse">
-          <p> دوره کامل آموزش React JS </p>
+      <div className='aboutCourse'>
+        <div className='informCourse'>
+          <p> {deatilsCouse.title} </p>
           <hr></hr>
-          <div className="information">
-            <div className="teacher">
+          <div className='information'>
+            <div className='teacher'>
               <img src={teacher} />
-              <span>دکتر محمدبحرالعلوم</span>
+              <span> {detailTeacher.fullName} </span>
             </div>
-            <div className="duringCourse">
+            <div className='duringCourse'>
               <img src={duringCourse} />
-              <span>
-                {fa.DURING_COURSE}
+              <span>{fa.DURING_COURSE}
                 <span>05:30 (17 ویدئو)</span>
               </span>
             </div>
-            <div className="opacity">
+            <div className='opacity'>
               <img src={opacity} />
-              <span>
-                {fa.OPACITY_COURSE}
-                <span>40 نفر</span>
+              <span>{fa.OPACITY_COURSE}
+                <span>{deatilsCouse.capacity} نفر</span>
               </span>
             </div>
-            <div className=" numberStudent">
+            <div className=' numberStudent'>
               <img src={student} />
-              <span>
-                {fa.NUMBER_STUDENT}
-                <span>23 نفر</span>
+              <span>{fa.NUMBER_STUDENT}
+                <span>{deatilsCouse.student && deatilsCouse.students.length} نفر</span>
               </span>
             </div>
-            <div className="timeStart">
+            <div className='timeStart'>
               <img src={timeStart} />
-              <span>
-                {fa.TIME_START}
-                <span>12 شهریور 1401</span>
+              <span>{fa.TIME_START}
+                <span> {deatilsCouse.startDate.split("T")[0]} </span>
               </span>
             </div>
-            <div className="price">
+            <div className='price'>
               <img src={price} />
-              <span>
-                {fa.PRICE_COURSE}
-                <span>500,000 </span>
+              <span>{fa.PRICE_COURSE}
+                <span>{deatilsCouse.cost} </span>
                 تومان
               </span>
             </div>
           </div>
         </div>
+        <div className='photoCourse'>
+          <img src={detailLesson.image} />
+          <span className='offCourse'>
+            <span className='offCount'>25%</span>
+            <span className='offTitle'> {fa.OFF_COURSE} </span>
+          </span>
+        </div>
+
         <div className="photoCourse">
           <img src={reactSingle} />
           <span className="offCourse">
@@ -88,7 +92,7 @@ const CourseDetailClass = () => {
           />
         </div>
         <div className="CourseDetailClassActionProgressbar">
-          <Progressbar capacity={76} message='ظرفیت باقیمانده' size={250} type='capacity' tooltiveMes={100-76}/>
+          <Progressbar capacity={76} message='ظرفیت باقیمانده' size={250} type='capacity' tooltiveMes={100 - 76} />
         </div>
       </div>
     </>

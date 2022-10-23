@@ -6,6 +6,7 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import AOS from "aos";
 import { BrowserRouter } from "react-router-dom";
+import { GeneralContext } from "../providers/GeneralContext";
 import OurRoutes from '../router'
 import "./App.css";
 import "./../assets/fonts/fonts.css";
@@ -13,27 +14,35 @@ import ScrollToTop from "../router/scrollTop";
 
 function App() {
   AOS.init();
+  const [language, setLanguage] = React.useState('fa')
+  const [themePage, setThemePage] = React.useState('light')
+
 
   const theme = createTheme({
-    direction: "rtl",
+    direction: language === 'fa' ? "rtl" : 'ltr',
+    palette: {
+      mode: themePage,
+    },
   });
 
   const cacheRtl = createCache({
-    key: "muirtl",
-    stylisPlugins: [prefixer, rtlPlugin],
+    key: language === 'fa' ? "muirtl" : "muiltr",
+    stylisPlugins: language === 'fa' && [prefixer, rtlPlugin],
   });
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <CacheProvider value={cacheRtl}>
-        <ThemeProvider theme={theme}>
-          <div className="App">
-            <OurRoutes />
-          </div>
-        </ThemeProvider>
-      </CacheProvider>
-    </BrowserRouter>
+    <GeneralContext.Provider value={{ language, setLanguage, themePage, setThemePage }}>
+      <BrowserRouter>
+        <ScrollToTop />
+        <CacheProvider value={cacheRtl}>
+          <ThemeProvider theme={theme}>
+            <div className={`App ${themePage}`}>
+              <OurRoutes />
+            </div>
+          </ThemeProvider>
+        </CacheProvider>
+      </BrowserRouter>
+    </GeneralContext.Provider>
   );
 }
 

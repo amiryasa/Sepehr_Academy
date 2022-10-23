@@ -1,0 +1,11 @@
+.btn_crop {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.crop{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

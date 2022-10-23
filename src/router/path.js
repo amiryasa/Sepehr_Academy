@@ -5,8 +5,9 @@ export const REGISTER = "/register"
 export const FORGET_PASS = "/forgetPass"
 export const COURSES = "/courses"
 export const NEWS = "/news"
-export const COURSE_DETAIL = "/courseDetail"
-export const NEWS_DETAIL = "/newsDetail"
+export const COURSE_DETAIL = "/courseDetail/:id"
+export const NEWS_DETAIL = "/newsDetail/:id"
+export const SHOPPING_CART = "/shoppingCart"
 export const COMPAIR = '/compair'
 
 //panel student
@@ -20,3 +21,4 @@ export const ANOTHER_URL = "*"
 
 //test
 export const TEST = "/test"
+export const TRANSLATE="/translate"
