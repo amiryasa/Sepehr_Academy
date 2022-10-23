@@ -36,13 +36,10 @@ const PanelSidebar = () => {
           <p onClick={() => navigator("/")}>آموزشگاه کدنویسی بحر</p>
         </div>
         <div className="sidebarContainerInfo">
-          <Tooltips state="active">
+          <Tooltips color="#04A641" message='کاربری فعال'>
             <div
               className="sidebarContainerInfoPicture"
               style={{ borderColor: "#00aa1c" }}
-              onClick={() => {
-                setShow(true)
-              }}
             >
               <div className="sidebarContainerInfoPictureIcon"></div>
             </div>

@@ -20,6 +20,10 @@ import { Register } from "../screens/register/Register";
 import { ForgotPass } from "../screens/forgotPass/ForgotPass";
 import * as path from './path'
 import { Tooltips } from "../components/Tooltive/Tooltips";
+import { Sliderrr } from "../components/sliderrrr/Sliderrr";
+import { Progressbar } from "../components/Progressbar/Progressbar";
+import { Compair } from "../components/Compair/Compair";
+import { SelectBox } from "../components/common/SelectBox/SelectBox";
 import ShoppingCart from "../screens/shoppingCart/shoppingCart";
 import Translate from "../screens/translate/Translate";
 
@@ -35,6 +39,7 @@ export default function OurRoutes() {
                 <Route path={path.NEWS} element={<News />} />
                 <Route path={path.COURSE_DETAIL} element={<CourseDetail />} />
                 <Route path={path.NEWS_DETAIL} element={<NewsDetail />} />
+                <Route path={path.COMPAIR} element={<Compair />} />
                 <Route path={path.SHOPPING_CART} element={<ShoppingCart />} />
                 <Route path={path.TRANSLATE} element={<Translate />} />
             </Route>
@@ -46,8 +51,9 @@ export default function OurRoutes() {
                 <Route path={path.ALL_COURSES} element={<MainbarAllCourses />} />
                 <Route path={path.CHANGE_PASS} element={<MainbarPassword />} />
             </Route>
+            <Route path={path.TEST} element={<SelectBox />}/>
+            <Route path={'/afterlogin'} element={<h1> با موفقیت وارد شدید </h1>}/>
             <Route path={path.TEST} element={<Tooltips />} />
-            <Route path={'/afterlogin'} element={<h1> با موفقیت وارد شدید </h1>} />
             <Route path={path.ANOTHER_URL} element={<NotFound />} />
 
         </Routes>

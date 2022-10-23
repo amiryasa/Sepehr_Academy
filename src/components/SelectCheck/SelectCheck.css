@@ -1,0 +1,17 @@
+.SelectCheck{
+    width: 180px;
+    margin: auto;
+}
+
+.SelectCheck > .MuiFormControl-root > .MuiInputBase-root{
+    font-family: 'bakh';
+    color: #616161;
+    font-size: 15px
+}
+
+.MuiPaper-root > ul > li > .MuiListItemText-root > span {
+    font-family: 'bakh';
+    color: #616161;
+    margin-right: 5px;
+}
+

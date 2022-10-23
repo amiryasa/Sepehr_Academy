@@ -50,7 +50,7 @@ const CardInCourses = (props) => {
           align="center"
           className="cardIncoursesCardCost"
         >
-          {props.cost} تومان
+          {props.cost} ت
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>

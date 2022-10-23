@@ -1,3 +1,4 @@
+//pageLayout
 export const LAYOUT_PAGE = "/"
 export const LOGIN = "/login"
 export const REGISTER = "/register"
@@ -7,6 +8,7 @@ export const NEWS = "/news"
 export const COURSE_DETAIL = "/courseDetail/:id"
 export const NEWS_DETAIL = "/newsDetail/:id"
 export const SHOPPING_CART = "/shoppingCart"
+export const COMPAIR = '/compair'
 
 //panel student
 export const STIDENT_PANEL = "/studentPanel"

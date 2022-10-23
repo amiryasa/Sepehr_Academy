@@ -1,0 +1,20 @@
+.CompairItemContainer{
+    display: flex;
+    width: 880px;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 15px;
+}
+
+@media (max-width: 1262px) {
+    .CompairItemContainer{
+        width: 670px;
+    }
+}
+
+@media (max-width: 749px) {
+    .CompairItemContainer{
+        width: 300px;
+        flex-direction: column;
+    }
+}

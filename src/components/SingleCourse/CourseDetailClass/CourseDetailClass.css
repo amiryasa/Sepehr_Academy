@@ -176,3 +176,37 @@
   font-size: 10px;
   margin-top: 0px;
 }/*# sourceMappingURL=index.css.map */
+
+.CourseDetailClassActionContainer{
+  display: flex;
+  margin-top: 35px;
+}
+
+.CourseDetailClassActionButton{
+  display: flex;
+  margin-right: 220px;
+}
+
+.CourseDetailClassActionProgressbar{
+  margin-right: 135px;
+}
+
+@media (max-width: 1262px) {
+  .CourseDetailClassActionContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+  }
+  
+  .CourseDetailClassActionButton{
+    order: 2;
+    margin-right:0px;
+    margin-top: 15px
+  }
+  
+  .CourseDetailClassActionProgressbar{
+    order: 1;
+    margin-right: 0px;
+  }
+}
