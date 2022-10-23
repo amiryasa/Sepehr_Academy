@@ -55,6 +55,7 @@ const HomeCources = () => {
               teacher={item.teacher.fullName}
               numberOfStudent='5'
               rateOfCourses='4.3'
+              id={item._id}
             />
           </div>
         ))}

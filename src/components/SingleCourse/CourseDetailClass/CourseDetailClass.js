@@ -64,13 +64,6 @@ const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
           </span>
         </div>
 
-        <div className="photoCourse">
-          <img src={reactSingle} />
-          <span className="offCourse">
-            <span className="offCount">25%</span>
-            <span className="offTitle"> {fa.OFF_COURSE} </span>
-          </span>
-        </div>
       </div>
 
       <div className="CourseDetailClassActionContainer">

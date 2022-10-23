@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,6 +14,8 @@ import "./CoursesCard.css";
 
 const CoursesCard = (props) => {
   const { language } = useContext(GeneralContext);
+  const navigator = useNavigate();
+
   return (
     <Card sx={{ maxWidth: 345 }} className="coursesCardCard">
       <CardMedia
@@ -21,10 +24,10 @@ const CoursesCard = (props) => {
         image={props.image}
         style={{ backgroundColor: `${props.bgColor}` }}
       />
-      <div className="coursesCardRatNumHolder"> 
+      <div className="coursesCardRatNumHolder">
 
-      <div className="coursesCardRate"> 3.4 </div>
-      <div className="coursesCardNum"> 10 </div>
+        <div className="coursesCardRate"> 3.4 </div>
+        <div className="coursesCardNum"> 10 </div>
 
       </div>
       <CardContent>
@@ -49,11 +52,14 @@ const CoursesCard = (props) => {
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
         <Btn
-          text={language === 'fa'? fa.SHOW_MORE : fa.SHOW_MORE_EN}
+          text={language === 'fa' ? fa.SHOW_MORE : fa.SHOW_MORE_EN}
           elementClass="smallBtnCh"
           color={props.btnColor}
           variant="contained"
-          click='/courseDetail'
+          // click='/courseDetail'
+          onChange={() => {
+            navigator(`/courseDetail/${props.id}`)
+          }}
         />
       </CardActions>
     </Card>

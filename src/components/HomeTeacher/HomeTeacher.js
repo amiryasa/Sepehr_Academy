@@ -19,7 +19,6 @@ const HomeTeacher = () => {
 
   const getTeachers = async () => {
     let response = await getLastTeachers();
-    console.log(response.data.result.length);
     if (response.data.result) {
       setTeachersBest(response.data.result.slice(0, 4))
     }
@@ -45,7 +44,7 @@ const HomeTeacher = () => {
             <TeacherCard
               img={item.image}
               name={item.name}
-              description={item.discription}
+              // description={item.discription}
             />
           </div>
         ))}
