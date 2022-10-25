@@ -4,7 +4,6 @@ import timeStart from "../../../assets/images/Courses/timeStart.png";
 import student from "../../../assets/images/Courses/student.png";
 import opacity from "../../../assets/images/Courses/opacity.png";
 import duringCourse from "../../../assets/images/Courses/duringCourse.png";
-import reactSingle from "../../../assets/images/Courses/reactSingle.png";
 import "./CourseDetailClass.css";
 import * as fa from "../../../constants/persianStrings";
 import { Progressbar } from "../../Progressbar/Progressbar";
