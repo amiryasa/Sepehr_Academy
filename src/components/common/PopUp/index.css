@@ -3,14 +3,15 @@
 }
 
 
-.MuiPaper-root {
-    min-width: 160px;
+.popUp .MuiDialog-container .MuiPaper-root {
+    min-width: 160px !important;
 }
 
 .muirtl-bdhsul-MuiTypography-root-MuiDialogTitle-root {
     font-family: bakh !important;
 }
 
-.muirtl-1t1j96h-MuiPaper-root-MuiDialog-paper{
+
+.popUp .MuiDialog-container .muirtl-1t1j96h-MuiPaper-root-MuiDialog-paper{
     width: 400px;
 }

@@ -36,6 +36,7 @@ export default function PopUp(props) {
             TransitionComponent={Transition}
             keepMounted
             aria-describedby="alert-dialog-slide-description"
+            className="popUp"
         >
             {props.handleClose ? (
                 <IconButton
