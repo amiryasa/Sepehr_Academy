@@ -41,6 +41,7 @@ const PanelSidebar = () => {
             <div
               className="sidebarContainerInfoPicture"
               style={{ borderColor: "#00aa1c" }}
+              onClick={() => { setShow(true) }}
             >
               <div className="sidebarContainerInfoPictureIcon"></div>
             </div>
