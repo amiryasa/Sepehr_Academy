@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { removeItem } from "../../api/storage/storage";
 import { Tooltips } from "../Tooltive/Tooltips";
 import UploadPhoto from "../UploadPhoto/UploadPhoto";
 
@@ -95,7 +96,11 @@ const PanelSidebar = () => {
             تغییر رمز عبور
           </div>
         </div>
-        <div className="sidebarContainerExit" onClick={() => navigator("/")}>
+        <div className="sidebarContainerExit" onClick={() => {
+          removeItem('token');
+          removeItem('id');
+          navigator("/")
+        }}>
           خروج
         </div>
       </div>
