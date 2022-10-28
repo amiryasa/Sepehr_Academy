@@ -15,7 +15,7 @@ const ITEM_PADDING_TOP = 1;
 const MenuProps = {
   PaperProps: {
     style: {
-      maxHeight: ITEM_HEIGHT * 3 + ITEM_PADDING_TOP,
+      maxHeight: ITEM_HEIGHT * 3.4 + ITEM_PADDING_TOP,
       width: 180,
     },
   },
@@ -29,12 +29,12 @@ const SelectCheck = (props) => {
         <Select
           multiple
           displayEmpty
-          value={props.teacherState}
+          value={props.state}
           onChange={props.handleSelection}
           input={<OutlinedInput />}
           renderValue={(selected) => {
             if (selected.length === 0) {
-              return <em>مدرس دوره</em>;
+              return <em>{props.title}</em>;
             }
 
             return selected.join(", ");
@@ -43,11 +43,11 @@ const SelectCheck = (props) => {
           inputProps={{ "aria-label": "Without label" }}
         >
           <MenuItem disabled value="">
-            <em>مدرس دوره</em>
+            <em>{props.title}</em>
           </MenuItem>
-          {props.listOfTeacher.map((name) => (
+          {props.listOfItem.map((name) => (
             <MenuItem key={name} value={name}>
-              <Checkbox checked={props.teacherState.indexOf(name) > -1} />
+              <Checkbox checked={props.state.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}
