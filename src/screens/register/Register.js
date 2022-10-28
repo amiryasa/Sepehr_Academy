@@ -8,9 +8,10 @@ import { Btn } from "../../components/common/Button/Btn";
 import DatePickerCustome from "../../components/common/datePicker/DatePicker";
 import { Input } from "../../components/common/Input/Input";
 import * as fa from "../../constants/persianStrings";
-
+import photo from "../../assets/images/Register/photo.png"
 import "./Register.css";
 import { registerUser } from "../../api/Core/Login_Register";
+import { setItem } from "../../api/storage/storage";
 
 const validationSchema = yup.object({
   name: yup
@@ -73,7 +74,7 @@ const Register = () => {
         phoneNumber: values.mobile,
         birthDate: birth,
         nationalId: values.id,
-        profile: ""
+        profile: photo
       }
       insertNewUser(dataUser);
     },
@@ -81,10 +82,7 @@ const Register = () => {
 
   const insertNewUser = async (data) => {
     let response = await registerUser(data);
-    if (response.data.result) {
-      console.log(response.data.result);
-      // navigator("/login");
-    }
+    alert(response.message.message);
   }
 
   return (

@@ -3,13 +3,11 @@ import { getItem } from "./storage/storage"
 
 
 const api = axios.create({
-    // withCredentials: true,
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
     },
-    timeout: 5000
-    // withCredentials: true,
+    // timeout: 5000,
 });
 
 api.interceptors.response.use(
@@ -40,7 +38,7 @@ api.interceptors.response.use(
                 // tweak it later
                 // get error message from backend (see object of response later... maybe its changed)
                 try {
-                    console.log(error.response.data.message[0].message);
+                    alert(error.response.data.message[0].message);
                 } catch (error) { }
             }
         } catch (error) { }

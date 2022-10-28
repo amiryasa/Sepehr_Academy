@@ -10,6 +10,7 @@ import "./Login.css";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { loginUser } from "../../api/Core/Login_Register";
+import { setItem } from "../../api/storage/storage";
 
 const validationSchema = yup.object({
   email: yup
@@ -40,9 +41,10 @@ const Login = () => {
   });
 
   const login = async (data) => {
-    let response = await loginUser(data)
+    let response = await loginUser(data);
     if (response.data.result) {
-      navigator("/afterlogin");
+      setItem("token", response.data.result.jwtToken);
+      setItem('id', response.data.result.studentModel._id);
     }
   }
 
