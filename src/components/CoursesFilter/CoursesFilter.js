@@ -49,6 +49,7 @@ const CoursesFilter = (props) => {
 
           <hr></hr>
 
+
           <div>
             <Progress2step
               min={props.minCount01}
@@ -86,11 +87,75 @@ const CoursesFilter = (props) => {
 
           <div>
             <SelectCheck
+              listOfItem={props.listOfTeacher}
+              handleSelection={props.handleSelection}
+              state={props.teacherState}
+              title={props.selectionTitle01}
+            />
+          </div>
+
+          <div>
+            <SelectCheck
+              listOfItem={props.listOfCost}
+              handleSelection={props.handleSelection01}
+              state={props.costState}
+              title={props.selectionTitle02}
+            />
+          </div>
+
+          <div>
+            <SelectCheck
+              listOfItem={props.listOfCategory}
+              handleSelection={props.handleSelection02}
+              state={props.categoryState}
+              title={props.selectionTitle03}
+            />
+          </div>
+
+
+          {/* <div>
+            <Progress2step
+              min={props.minCount01}
+              max={props.maxCount01}
+              handleProgress2step={props.handleProgress2step01}
+              valueOf2step={props.valueOf2step01}
+              title={props.titleOf2step01}
+              step={props.step01}
+            />
+          </div>
+
+          <div>
+            <Progress2step
+              min={props.minCount02}
+              max={props.maxCount02}
+              handleProgress2step={props.handleProgress2step02}
+              valueOf2step={props.valueOf2step02}
+              title={props.titleOf2step02}
+              step={props.step02}
+            />
+          </div>
+
+          <div>
+            <Progress2step
+              min={props.minCount03}
+              max={props.maxCount03}
+              handleProgress2step={props.handleProgress2step03}
+              valueOf2step={props.valueOf2step03}
+              title={props.titleOf2step03}
+              step={props.step03}
+            />
+          </div>
+
+          <div>
+            <SelectCheck
               listOfTeacher={props.listOfTeacher}
               handleSelection={props.handleSelection}
               teacherState={props.teacherState}
             />
           </div>
+
+
+          <hr></hr> */}
         </div>
       </div>
     </div>
