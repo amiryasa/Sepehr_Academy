@@ -39,7 +39,7 @@
 .sidebarContainer > .sidebarContainerInfo > .sidebarContainerInfoPicture {
   width: 75px;
   height: 75px;
-  background: url("./../../assets/images/StudentPanel/profile.jpg");
+  /* background: url("./../../assets/images/StudentPanel/profile.jpg"); */
   background-size: 75px;
   background-repeat: no-repeat;
   border-radius: 50%;
