@@ -3,13 +3,11 @@ import { getItem } from "./storage/storage"
 
 
 const api = axios.create({
-    // withCredentials: true,
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
     },
-    timeout: 5000
-    // withCredentials: true,
+    // timeout: 5000,
 });
 
 api.interceptors.response.use(

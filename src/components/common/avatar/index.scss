@@ -2,11 +2,29 @@ $lg-avatar: 8rem;
 $sm-avatar: 3rem;
 
 .lg-avatar {
-    width: $lg-avatar  !important;
-    height: $lg-avatar  !important;
+    width: $lg-avatar !important;
+    height: $lg-avatar !important;
 }
 
 .sm-avatar {
-    width: $sm-avatar  !important;
-    height: $sm-avatar  !important;
+    width: $sm-avatar !important;
+    height: $sm-avatar !important;
+}
+
+
+.sidebarContainerInfoPictureIcon {
+    width: 25px;
+    height: 25px;
+    background: url("./../../../assets/images/StudentPanel/pic.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    background-color: #00707F;
+    cursor: pointer;
+
+
+    position: relative;
+    top: 49px;
+    right: -6px;
 }
