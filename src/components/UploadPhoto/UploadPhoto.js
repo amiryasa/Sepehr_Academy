@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 import { FileUploader } from "react-drag-drop-files";
 import { Btn } from "../common/Button/Btn.js";
 import PopUp from "../common/PopUp/PopUp.js"
@@ -7,6 +8,7 @@ import "./index.scss"
 import AvatarCostomize from "../common/avatar/index.js";
 import imagePicker from "./imagePicker"
 import CropPhoto from "../common/CropPhoto/CropPhoto.js";
+import { uploadPhotoDataBase } from "../../api/Core/Student_Manage.js";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -18,6 +20,13 @@ export default function UploadPhoto(props) {
     const [imgRef, setImgRef] = useState(false);
 
     const [optionPhoto, setOptionPhoto] = useState(false);
+
+    useEffect(() => {
+        if (props.src) {
+            setImg(props.src)
+        }
+    }, [])
+
 
     useEffect(() => {
         if (!imgRef) return;
@@ -49,6 +58,7 @@ export default function UploadPhoto(props) {
             files.type === "image/jpeg" ||
             files.type === "image/jpg"
         ) {
+            console.log(files, "files");
             let blob = await imagePicker(files);
 
             if (blob === undefined) return;
@@ -108,13 +118,40 @@ export default function UploadPhoto(props) {
 
     };
 
+    const uploadImgToDatabase = async () => {
+        const blob = await fetch(img).then(res => res.blob());
+        let formData = new FormData();
+        console.log(blob, "img");
+        formData.append('image', blob);
+
+        axios({
+            method: "post",
+            url: "https://api.noorgon.sepehracademy.ir/api/upload/image",
+            data: formData,
+            headers: { "Content-Type": "multipart/form-data" },
+        })
+            .then(function (response) {
+                //handle success
+                console.log(response);
+                props.handleClose(img)
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });
+
+    }
+
 
 
     return (
         <>
             <PopUp
                 open={props.showPop}
-                handleClose={props.handleClose}
+                handleClose={() => {
+                    uploadImgToDatabase()
+
+                }}
                 title={"عکس پروفایل"}>
 
                 {optionPhoto ?
@@ -143,7 +180,7 @@ export default function UploadPhoto(props) {
                                     setImgRef(false);
                                     addImgOkHandler()
                                 }} />
-                            <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
+                            <FileUploader handleChange={handleChange} name="file" accept="image/*" types={fileTypes} />
                             <Btn
                                 text={fa.REMOVE_PHOTO}
                                 color="warning"

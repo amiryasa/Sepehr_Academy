@@ -1,22 +1,22 @@
-import { useContext, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { GeneralContext } from "../../providers/GeneralContext"
 import * as fa from "../../constants/persianStrings"
 
 import "./index.css";
 import { ThemeButton } from "../ThemeButton/ThemeButton";
-
-const headerItems = document.getElementsByClassName("headerRowItems");
+import AvatarCostomize from "../common/avatar";
+import { getItem } from "../../api/storage/storage";
 
 const Header = () => {
   const navigator = useNavigate();
-  const headerLocation = useLocation();
-  const [currentState, setCurrentState] = useState(headerLocation.pathname);
+  const idUser = JSON.parse(getItem('id'))
+  const { language, setLanguage, themePage, setThemePage, dataUser } = useContext(GeneralContext);
 
-  const { language, setLanguage, themePage, setThemePage } = useContext(GeneralContext);
 
   let isHidden = true;
+
   const hamberMenuOnclickHandler = () => {
     const myElement = document.getElementById("navbarHamAction");
 
@@ -39,12 +39,6 @@ const Header = () => {
       setLanguage('fa')
   }
 
-  const changeMode = (mode) => {
-    if (mode === 'light')
-      setThemePage('dark')
-    else
-      setThemePage('light')
-  }
 
   // headerItems[4].style.cursor = "pointer";
   // headerItems[4].style.color = "#808080";
@@ -134,13 +128,27 @@ const Header = () => {
       <div
         className="headerHamberMenu"
         onClick={hamberMenuOnclickHandler}
-      ></div>
+      >
+
+      </div>
       <div className="headerRow headerLogin">
         <div
           className="loginSearch"
           onClick={() => navigator("./shopping")}
-        ></div>
-        <div className="loginUser" onClick={() => navigator("./login")}></div>
+        >
+
+        </div>
+
+        {idUser && dataUser ?
+          <AvatarCostomize
+            src={dataUser.profile}
+            className="avatarHeader"
+            onClick={() => {
+              navigator("./studentPanel")
+            }} /> :
+          <div className="loginUser" onClick={() => navigator("./login")}>
+
+          </div>}
       </div>
     </div>
   );

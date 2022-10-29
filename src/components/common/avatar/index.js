@@ -1,8 +1,5 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import CreateIcon from '@mui/icons-material/Create';
 import "./index.scss"
 
 export default function AvatarCostomize(props) {
@@ -33,11 +30,14 @@ export default function AvatarCostomize(props) {
             {props.src ?
                 <>
                     <Avatar
-                        className={`${props.size === "lg" ? "lg-avatar" : "sm-avatar"
+                        className={`${props.size === "lg" ? "lg-avatar" : props.size === "xs" ? "xs-avatar" : "sm-avatar"
                             } ${props.className} 
                `}
+                        style={{ cursor: "pointer" }}
                         src={props.src}
-                        sx={{ width: props.width, height: props.width }} />
+                        sx={{ width: props.width, height: props.width, bgcolor: props.bgcolor }}
+                        onClick={props.onClick} />
+
                 </>
                 :
                 <Avatar

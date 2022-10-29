@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
-
+import { useContext } from "react";
 import { Checkbox } from "@mui/material";
-
 import { Btn } from "./../../components/common/Button/Btn";
 import { Input } from "./../../components/common/Input/Input";
 import * as fa from "../../constants/persianStrings";
 import "./Login.css";
-
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { loginUser } from "../../api/Core/Login_Register";
 import { setItem } from "../../api/storage/storage";
+import { GeneralContext } from "../../providers/GeneralContext";
+import { getStudentById } from "../../api/Core/Student_Manage";
 
 const validationSchema = yup.object({
   email: yup
@@ -27,6 +27,7 @@ const validationSchema = yup.object({
 
 const Login = () => {
   const navigator = useNavigate();
+  const { setDataUser } = useContext(GeneralContext)
   const checkboxChangeHandler = () => { };
 
   const myFormik = useFormik({
@@ -44,8 +45,15 @@ const Login = () => {
     let response = await loginUser(data);
     if (response.data.result) {
       setItem("token", response.data.result.jwtToken);
-      setItem('id', response.data.result.studentModel._id);
+      setItem('id', JSON.stringify(response.data.result.studentModel._id));
+      getDataUserById(response.data.result.studentModel._id)
     }
+  }
+
+  const getDataUserById = async (id) => {
+    let response = await getStudentById(id)
+    setDataUser(response.data.result);
+    navigator("/")
   }
 
   return (

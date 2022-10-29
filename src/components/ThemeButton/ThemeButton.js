@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 
 const ThemeButton = styled(Switch)(({ theme }) => (
-    console.log(theme, "theme.palette.mode"),
+    
     {
         width: 62,
         height: 34,

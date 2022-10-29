@@ -11,8 +11,8 @@ const PageLayout = () => {
   const location = useLocation();
 
   const dontNeedHeader = ["/login", "/register", "/forgetPass"];
+  
 
-  console.log(location.pathname);
 
   return (
     <>
