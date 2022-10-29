@@ -15,6 +15,7 @@
     visibility: hidden;
     opacity: 0;
     transition:.8s;
+    padding: 10px 0;
 }
 
 .CoursesFilterIcon{
