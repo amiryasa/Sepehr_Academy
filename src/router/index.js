@@ -2,13 +2,13 @@ import {
     Route,
     Routes,
 } from "react-router-dom";
+import { useContext } from "react";
 import { CourseDetail } from "../screens/courseDetail";
 import { NewsDetail } from "../screens/newsDetail";
 import { Courses } from "../screens/courses/Courses";
 import { News } from "../screens/news/News";
 import { NotFound } from "../screens/notFound/NotFound";
 import { PageLayout } from "../components/pageLayout/PageLayout";
-import { StudentPanel } from "../screens/studentPanel/StudentPanel";
 import { MainbarEditInfo } from "../components/MainbarEditInfo/MainbarEditInfo";
 import { MainbarMyCourses } from "../components/MainbarMyCourses/MainbarMyCourses";
 import { MainbarAllCourses } from "../components/MainbarAllCourses/MainbarAllCourses";
@@ -20,19 +20,17 @@ import { Register } from "../screens/register/Register";
 import { ForgotPass } from "../screens/forgotPass/ForgotPass";
 import * as path from './path'
 import { Tooltips } from "../components/Tooltive/Tooltips";
-import { Sliderrr } from "../components/sliderrrr/Sliderrr";
-import { Progressbar } from "../components/Progressbar/Progressbar";
 import { Compair } from "../components/Compair/Compair";
 import { SelectBox } from "../components/common/SelectBox/SelectBox";
 import ShoppingCart from "../screens/shoppingCart/shoppingCart";
 import Translate from "../screens/translate/Translate";
-import { useEffect } from "react";
 import { getItem } from "../api/storage/storage";
 import ProtectedRoute from "./ProtectedRoute"
+import { GeneralContext } from "../providers/GeneralContext";
 
 export default function OurRoutes() {
-    const storageUser = getItem("token")
-
+    const storageUser = getItem("id")
+    const { dataUser } = useContext(GeneralContext)
 
     return (
         <Routes>
@@ -50,8 +48,7 @@ export default function OurRoutes() {
                 <Route path={path.TRANSLATE} element={<Translate />} />
             </Route>
 
-            {/* <Route path={path.STIDENT_PANEL} element={<StudentPanel />} > */}
-            <Route path={path.STIDENT_PANEL} element={<ProtectedRoute isAllowed={storageUser} />} >
+            <Route path={path.STIDENT_PANEL} element={<ProtectedRoute isAllowed={storageUser} dataUser={dataUser} />} >
 
                 <Route index element={<MainbarDashboard />} />
                 <Route path={path.EDIT_INFO} element={<MainbarEditInfo />} />

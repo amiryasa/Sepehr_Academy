@@ -125,7 +125,7 @@
 }
 
 .header1En>.headerLogin {
-  margin-left: 502px;
+  margin-left: 464px;
   margin-top: 10px;
   border-radius: 33px;
   display: flex;
@@ -166,6 +166,19 @@
   background-color: #00adef;
 }
 
+.header1>.headerLogin>.avatarHeader {
+  background-size: 18px;
+  height: 40px !important;
+  width: 40px !important;
+  margin-top: 3px;
+}
+
+.header1En>.headerLogin>.avatarHeader {
+  background-size: 18px;
+  height: 40px !important;
+  width: 40px !important;
+}
+
 .header1>.headerLogin>.loginSearch {
   transition: 0.5s;
   background: url(./../../assets/images/header/shopping.png) center;
@@ -191,10 +204,14 @@
   width: 30px;
   display: inline-block;
   margin-top: 2px;
-  margin-left: 10px;
+  margin-right: 10px;
   padding: 5px;
   border-radius: 50%;
   cursor: pointer;
+  background-color: #00adef;
+}
+
+.avatarHeader{
   background-color: #00adef;
 }
 
@@ -241,6 +258,20 @@
     background-size: 18px;
     height: 20px;
     width: 20px;
+  }
+
+  .header1>.headerLogin>.avatarHeader {
+    background-size: 18px;
+    height: 30px !important;
+    width: 30px !important;
+   
+  }
+
+  .header1En>.headerLogin>.avatarHeader {
+    background-size: 18px;
+    height: 30px !important;
+    width: 30px !important;
+    margin-top: 2px !important;
   }
 
   .header1En>.headerLogin>.loginUser {

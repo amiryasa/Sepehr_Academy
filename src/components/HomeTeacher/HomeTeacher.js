@@ -21,7 +21,7 @@ const HomeTeacher = () => {
       setTeachersBest(response.data.result.slice(0, 4))
     }
   }
-console.log(DescriptionTeacher);
+
   return (
     <>
       <div className={language === 'fa' ? "homeH2 h25" : "homeH2En h25En"} data-aos="fade-up" data-aos-duration="1000">

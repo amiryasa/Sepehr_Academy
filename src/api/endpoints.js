@@ -66,11 +66,3 @@ export const ALL_TEACHER = `${API}employee/getallteachers`
 export const LAST_TEACHERS = `${API}employee/getlastteachers`
 
 export const GETALL_MAIN_CATEGORY = `${API}category/getall`
-
-
-
-
-
-
-
-

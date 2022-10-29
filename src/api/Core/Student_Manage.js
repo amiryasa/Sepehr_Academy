@@ -1,4 +1,4 @@
-import { GETALL_STUDENT, GET_STUDENT_BY_ID, PAGINATION_GETALL_STUDENT, UPDATE_STUDENT } from "../endpoints";
+import { GETALL_STUDENT, UPLOD_PHOTO, GET_STUDENT_BY_ID, PAGINATION_GETALL_STUDENT, UPDATE_STUDENT } from "../endpoints";
 import api from "../interceptor";
 
 export const getAllStudet = () => api.get(GETALL_STUDENT)
@@ -17,6 +17,7 @@ export const updateStudetInform = payload =>
         nationalId: payload.nationalId,
         profile: payload.profile
     })
+
 
 
 

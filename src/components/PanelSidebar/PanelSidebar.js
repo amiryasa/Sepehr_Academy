@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { removeItem } from "../../api/storage/storage";
-import { Tooltips } from "../Tooltive/Tooltips";
+import { GeneralContext } from "../../providers/GeneralContext";
+import AvatarPhoto from "../common/avatar/AvatarPhoto";
 import UploadPhoto from "../UploadPhoto/UploadPhoto";
 
 import "./PanelSidebar.css";
 
 const PanelSidebar = () => {
-  const [show, setShow] = useState(false)
-
+  const { dataUser, setDataUser } = useContext(GeneralContext)
+  const [show, setShow] = useState(false);
+  
   const items = document.getElementsByClassName(
     "sidebarContainerItemContaineritems"
   );
@@ -37,18 +39,15 @@ const PanelSidebar = () => {
           <p onClick={() => navigator("/")}>آموزشگاه کدنویسی بحر</p>
         </div>
         <div className="sidebarContainerInfo">
-          <Tooltips color="#04A641" message='کاربری فعال'>
-            <div
-              className="sidebarContainerInfoPicture"
-              style={{ borderColor: "#00aa1c" }}
-              onClick={() => { setShow(true) }}
-            >
-              <div className="sidebarContainerInfoPictureIcon"></div>
-            </div>
-          </Tooltips>
+          <AvatarPhoto
+            size="md"
+            changePic={() => { setShow(true) }}
+            activation={dataUser.isActive ? "active" : 'deAvtice'}
+            className="sidebarContainerInfoPicture"
+            src={dataUser.profile} />
 
-          <p className="sidebarContainerInfoUser"> MohammadRZ </p>
-          <p className="sidebarContainerInfoRole"> Student </p>
+          <p className="sidebarContainerInfoUser"> {dataUser.fullName} </p>
+          <p className="sidebarContainerInfoRole"> {dataUser.role} </p>
         </div>
         <div className="sidebarContainerItemContainer">
           <div
@@ -100,12 +99,13 @@ const PanelSidebar = () => {
         <div className="sidebarContainerExit" onClick={() => {
           removeItem('token');
           removeItem('id');
-          navigator("/")
+          navigator("/");
+          setDataUser(null)
         }}>
           خروج
         </div>
       </div>
-      {show && <UploadPhoto showPop={show} handleClose={() => { setShow(!show) }} />}
+      {show && <UploadPhoto src={dataUser.profile} showPop={show} handleClose={() => { setShow(!show) }} />}
     </>
   );
 };

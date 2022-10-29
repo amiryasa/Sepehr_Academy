@@ -4,7 +4,6 @@ import { NewsCard } from "../NewsCard/NewsCard";
 
 import './HomeNews.css';
 import { GeneralContext } from "../../providers/GeneralContext"
-import news01 from './../../assets/images/News/news01.png';
 import * as fa from '../../constants/persianStrings';
 import { getAllNews } from "../../api/Core/News"
 
@@ -17,7 +16,6 @@ const HomeNews = () => {
     showAllNews()
   }, [])
 
-  console.log(newsData);
   const showAllNews = async () => {
     let response = await getAllNews();
 

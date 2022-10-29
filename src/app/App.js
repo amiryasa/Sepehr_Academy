@@ -11,12 +11,26 @@ import OurRoutes from '../router'
 import "./App.css";
 import "./../assets/fonts/fonts.css";
 import ScrollToTop from "../router/scrollTop";
+import { getItem } from "../api/storage/storage";
+import { getStudentById } from "../api/Core/Student_Manage";
 
 function App() {
   AOS.init();
+  const userId = JSON.parse(getItem('id'))
   const [language, setLanguage] = React.useState('fa')
   const [themePage, setThemePage] = React.useState('light')
+  const [dataUser, setDataUser] = React.useState()
 
+
+  React.useEffect(() => {
+    if (userId)
+      getDataUser(userId)
+  }, [userId])
+
+  const getDataUser = async (id) => {
+    let response = await getStudentById(id);
+    setDataUser(response.data.result);
+  }
 
   const theme = createTheme({
     direction: language === 'fa' ? "rtl" : 'ltr',
@@ -31,7 +45,7 @@ function App() {
   });
 
   return (
-    <GeneralContext.Provider value={{ language, setLanguage, themePage, setThemePage }}>
+    <GeneralContext.Provider value={{ language, setLanguage, themePage, setThemePage, dataUser, setDataUser }}>
       <BrowserRouter>
         <ScrollToTop />
         <CacheProvider value={cacheRtl}>

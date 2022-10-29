@@ -8,7 +8,6 @@ import { Sliderrr } from "../sliderrrr/Sliderrr";
 
 const MainbarDashboard = () => {
 
-  console.log(window.innerWidth);
 
   return (
     <div className="MainbarContainer MainbarContainerDashboard">
