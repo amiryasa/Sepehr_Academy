@@ -14,7 +14,7 @@ import "./TableCom.css";
 
 const TableCom = (props) => {
 
-  const[num, setNum] = useState(1);
+  const [num, setNum] = useState(1);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -53,15 +53,19 @@ const TableCom = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.myData ? props.myData.slice((props.currentPage*props.rowsCount)-props.rowsCount,props.currentPage*props.rowsCount).map((row, index) => (
-              <StyledTableRow key={index}> 
-                <StyledTableCell align="left">{((props.currentPage-1)*5)+(index+1) < 10 ? `0${((props.currentPage-1)*5)+(index+1)}` : ((props.currentPage-1)*5)+(index+1)}</StyledTableCell>
+            {props.myData ? props.myData.slice((props.currentPage * props.rowsCount) - props.rowsCount, props.currentPage * props.rowsCount).map((row, index) => (
+              <StyledTableRow key={index}>
+                <StyledTableCell align="left">{((props.currentPage - 1) * 5) + (index + 1) < 10 ? `0${((props.currentPage - 1) * 5) + (index + 1)}` : ((props.currentPage - 1) * 5) + (index + 1)}</StyledTableCell>
                 <StyledTableCell component="th" scope="row">{row.title}</StyledTableCell>
                 <StyledTableCell align="left">{row.teacher.fullName}</StyledTableCell>
                 <StyledTableCell align="center">1401/02/25</StyledTableCell>
                 <StyledTableCell align="center">1401/02/25</StyledTableCell>
                 <StyledTableCell align="center">{row.cost > 0 ? `${row.cost} ت` : 'رایگان!'}</StyledTableCell>
-                <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell
+                  align="center"
+                  onClick={() => {
+                    props.onClick(row._id)
+                  }}></StyledTableCell>
               </StyledTableRow>
             )) : ''}
           </TableBody>
