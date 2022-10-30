@@ -8,9 +8,9 @@ import UploadPhoto from "../UploadPhoto/UploadPhoto";
 import "./PanelSidebar.css";
 
 const PanelSidebar = () => {
-  const { dataUser, setDataUser } = useContext(GeneralContext)
+  const { dataUser, onConfirmSetter, setConfirmPopupOpen, setDataUser } = useContext(GeneralContext)
   const [show, setShow] = useState(false);
-  
+
   const items = document.getElementsByClassName(
     "sidebarContainerItemContaineritems"
   );
@@ -96,12 +96,21 @@ const PanelSidebar = () => {
             تغییر رمز عبور
           </div>
         </div>
-        <div className="sidebarContainerExit" onClick={() => {
-          removeItem('token');
-          removeItem('id');
-          navigator("/");
-          setDataUser(null)
-        }}>
+        <div className="sidebarContainerExit"
+          onClick={() => {
+
+            onConfirmSetter("آیا برای خروج اطمینان دارید؟",
+              () => {
+                removeItem('token');
+                removeItem('id');
+                navigator("/");
+                setDataUser(null)
+              },
+              () => {
+                setConfirmPopupOpen(false)
+              })
+            setConfirmPopupOpen(true)
+          }}>
           خروج
         </div>
       </div>

@@ -18,6 +18,7 @@ export default function UploadPhoto(props) {
     const [img, setImg] = useState(null);
     const upsertImgRef = useRef(null);
     const [imgRef, setImgRef] = useState(false);
+    const [filesImg, setFileImg] = useState()
 
     const [optionPhoto, setOptionPhoto] = useState(false);
 
@@ -53,6 +54,7 @@ export default function UploadPhoto(props) {
 
     const onUploadingImg = async (e) => {
         const files = e.target.files[0];
+        setFileImg(e.target.files[0])
         if (
             files.type === "image/png" ||
             files.type === "image/jpeg" ||
@@ -98,7 +100,7 @@ export default function UploadPhoto(props) {
 
     // const [file, setFile] = useState(null);
     const handleChange = async (file) => {
-
+        setFileImg(file)
         let blob = await imagePicker(file);
 
         if (blob === undefined) return;
@@ -121,8 +123,8 @@ export default function UploadPhoto(props) {
     const uploadImgToDatabase = async () => {
         const blob = await fetch(img).then(res => res.blob());
         let formData = new FormData();
-        console.log(blob, "img");
-        formData.append('image', blob);
+        console.log(filesImg, "img");
+        formData.append('image', filesImg);
 
         axios({
             method: "post",

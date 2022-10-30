@@ -7,7 +7,12 @@ export const GeneralContext = createContext({
     themePage: 'light',
     setThemePage: (themePage) => console.warn('no mode page'),
     dataUser: {},
-    setDataUser: (dataUser) => console.warn('no user')
+    setDataUser: (dataUser) => console.warn('no user'),
+    confirmMsg: null,
+    confirmPopupOpen: false,
+    setConfirmPopupOpen: () => { },
+    confirmCallback: () => { },
+    rejectCallback: () => { },
+    onConfirmSetter: (msg, confirmCallback, rejectCallback) => { },
 });
 
-export const useGeneralContext = () => useContext(GeneralContext);
