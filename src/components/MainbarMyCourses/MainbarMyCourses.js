@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Paginate } from "../common/Pagination/Paginate";
 import { TableCom } from "../TableCom/TableCom";
+
+import { getItem } from "./../../api/storage/storage";
+import { getStudentById } from "./../../api/Core/Student_Manage";
+
 import "./MainbarMyCourses.css";
 
 const myCoursesData = [
@@ -128,8 +132,22 @@ const myCoursesData = [
 ];
 
 const MainbarMyCourses = () => {
-  const [currentPage_MainbarMyCourses, setCurrentPage_MainbarMyCourses] =
-    useState(1);
+  const [currentPage_MainbarMyCourses, setCurrentPage_MainbarMyCourses] = useState(1);
+
+  const [studentInfo, setStudentInfo] = useState();
+
+  const getUserId = async () => {
+    let result = JSON.parse(getItem('id'));
+    let response = await getStudentById(result);
+
+    if(response){
+      setStudentInfo(response.data.result);
+    }
+  }
+
+  useEffect(() => {
+    getUserId();
+  }, []);
 
   const handlePagination_MainbarMyCourses = (e, value) => {
     setCurrentPage_MainbarMyCourses(value);
@@ -144,19 +162,19 @@ const MainbarMyCourses = () => {
           <hr></hr>
         </div>
         <div className="mainbarCoursesFilter">
-          {" "}
-          فیلتر فیلتر فیلتر فیلتر فیلتر{" "}
+          {studentInfo ? "yes" : "no"}
         </div>
         <div className="mainbarCoursesTable">
           <TableCom
-            myData={myCoursesData}
+            lastColumnTitle={'حذف دوره'}
+            myData={studentInfo ? studentInfo.courses : ""}
             currentPage={currentPage_MainbarMyCourses}
             rowsCount={5}
           />
         </div>
         <div className="mainbarCoursesPaginatin">
           <Paginate 
-            allItem={myCoursesData.length}
+            allItem={studentInfo ? studentInfo.courses.length : 5}
             eachPageTtem={5}
             handlePagination={handlePagination_MainbarMyCourses}
           />

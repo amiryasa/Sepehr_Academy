@@ -40,6 +40,7 @@
     font-family: bakh;
     color: #676767;
     font-size: 15px;
+    
 }
 
 .tableCom > .MuiPaper-root > .MuiTable-root > tbody > tr > td {
@@ -57,27 +58,29 @@
 }
 
 .tableCom > .MuiPaper-root > .MuiTable-root > thead > tr > th:nth-child(2){
-    
-}
-
-.tableCom > .MuiPaper-root > .MuiTable-root > thead > tr > th:nth-child(3){
     width:150px;
 }
 
+.tableCom > .MuiPaper-root > .MuiTable-root > thead > tr > th:nth-child(3){
+    width:100px;
+}
+
 .tableCom > .MuiPaper-root > .MuiTable-root > thead > tr > th:nth-child(4){
-    width:50px;
+    width:60px;
+    text-align: center;
 }
 
 .tableCom > .MuiPaper-root > .MuiTable-root > thead > tr > th:nth-child(5){
-    width:22px;
+    width:60px;
+    text-align: center;
 }
 
 .tableCom > .MuiPaper-root > .MuiTable-root > thead > tr > th:nth-child(6){
-    width:67px;
+    width:50px;
 }
 
 .tableCom > .MuiPaper-root > .MuiTable-root > thead > tr > th:nth-child(7){
-    width:60px;
+    width:50px;
 }
 
 /**/

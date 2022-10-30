@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Paginate } from "../common/Pagination/Paginate";
 import { TableCom } from "../TableCom/TableCom";
+
+import { getAllCourse } from "./../../api/Core/Course";
+import { getStudentById } from "./../../api/Core/Student_Manage"
 
 import "./MainbarAllCourses.css";
 
@@ -131,8 +134,21 @@ const allCoursesData = [
 
 
 const MainbarAllCourses = () => {
-  const [currentPage_MainbarAllCourses, setCurrentPage_MainbarAllCourses] =
-    useState(1);
+  const [currentPage_MainbarAllCourses, setCurrentPage_MainbarAllCourses] = useState(1);
+
+  const [studentInfo, setStudentInfo] = useState();
+
+  const getCourses = async () => {
+    let response = await getAllCourse();
+
+    if(response.data.result){
+      setStudentInfo(response.data.result);
+    }
+  }
+
+  useEffect(() => {
+    getCourses();
+  }, []);
 
   const handlePagination_MainbarAllCourses = (e, value) => {
     setCurrentPage_MainbarAllCourses(value);
@@ -150,11 +166,15 @@ const MainbarAllCourses = () => {
           فیلتر فیلتر فیلتر فیلتر فیلتر
         </div>
         <div className="mainbarAllCoursesTable">
-          <TableCom myData={allCoursesData} currentPage={currentPage_MainbarAllCourses} rowsCount={5}/>
+          <TableCom 
+          lastColumnTitle={'خرید دوره'}
+          myData={studentInfo ? studentInfo : ""}
+          currentPage={currentPage_MainbarAllCourses} 
+          rowsCount={5}/>
         </div>
         <div className="mainbarAllCoursesPaginatin">
           <Paginate 
-            allItem={allCoursesData.length}
+            allItem={studentInfo ? studentInfo.length : 5}
             eachPageTtem={5}
             handlePagination={handlePagination_MainbarAllCourses}
           />

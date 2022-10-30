@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState } from 'react';
+
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,6 +13,9 @@ import Paper from "@mui/material/Paper";
 import "./TableCom.css";
 
 const TableCom = (props) => {
+
+  const[num, setNum] = useState(1);
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -31,19 +36,6 @@ const TableCom = (props) => {
     },
   }));
 
-  function createData(number, name, teacher, date, capacity, cost) {
-    return { number, name, teacher, date, capacity, cost };
-  }
-
-  const rows = [
-    createData('01',"دوره پیشرفته  Front-End", 'دکتر محمد بحرالعلوم', '01/02/25', 35, '000 125 ت'),
-    createData('02',"دوره پیشرفته  Front-End", 'دکتر محمد بحرالعلوم', '01/02/25', 35, '000 125 ت'),
-    createData('03',"دوره پیشرفته  Front-End", 'دکتر محمد بحرالعلوم', '01/02/25', 35, '000 125 ت'),
-    createData('04',"دوره پیشرفته  Front-End", 'دکتر محمد بحرالعلوم', '01/02/25', 35, '000 125 ت'),
-    createData('05',"دوره پیشرفته  Front-End", 'دکتر محمد بحرالعلوم', '01/02/25', 35, '000 125 ت'),
-  ];
-
-  console.log(props.myData);
 
   return (
     <div className="tableCom">
@@ -55,23 +47,23 @@ const TableCom = (props) => {
               <StyledTableCell> نام دوره </StyledTableCell>
               <StyledTableCell align="left"> مدرس دوره </StyledTableCell>
               <StyledTableCell> تاریخ شروع </StyledTableCell>
-              <StyledTableCell> ظرفیت </StyledTableCell>
+              <StyledTableCell> تاریخ پایان </StyledTableCell>
               <StyledTableCell> قیمت دوره </StyledTableCell>
-              <StyledTableCell> حذف دوره </StyledTableCell>
+              <StyledTableCell> {props.lastColumnTitle} </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.myData.slice((props.currentPage*props.rowsCount)-props.rowsCount,props.currentPage*props.rowsCount).map((row) => (
-              <StyledTableRow key={row.id}>
-                <StyledTableCell align="center">{row.id}</StyledTableCell>
-                <StyledTableCell component="th" scope="row">{row.name}</StyledTableCell>
-                <StyledTableCell align="left">{row.teacher}</StyledTableCell>
-                <StyledTableCell align="center">{row.date}</StyledTableCell>
-                <StyledTableCell align="center">{row.capacity}</StyledTableCell>
-                <StyledTableCell align="center">{row.cost}</StyledTableCell>
+            {props.myData ? props.myData.slice((props.currentPage*props.rowsCount)-props.rowsCount,props.currentPage*props.rowsCount).map((row, index) => (
+              <StyledTableRow key={index}> 
+                <StyledTableCell align="left">{((props.currentPage-1)*5)+(index+1) < 10 ? `0${((props.currentPage-1)*5)+(index+1)}` : ((props.currentPage-1)*5)+(index+1)}</StyledTableCell>
+                <StyledTableCell component="th" scope="row">{row.title}</StyledTableCell>
+                <StyledTableCell align="left">{row.teacher.fullName}</StyledTableCell>
+                <StyledTableCell align="center">1401/02/25</StyledTableCell>
+                <StyledTableCell align="center">1401/02/25</StyledTableCell>
+                <StyledTableCell align="center">{row.cost > 0 ? `${row.cost} ت` : 'رایگان!'}</StyledTableCell>
                 <StyledTableCell align="center"></StyledTableCell>
               </StyledTableRow>
-            ))}
+            )) : ''}
           </TableBody>
         </Table>
       </TableContainer>
