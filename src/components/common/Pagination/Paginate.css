@@ -8,5 +8,14 @@
     height:26px;
 }
 
+.MuiPagination-ul{
+    margin-top: 40px !important;
+}
+
+@media screen and (max-width: 1262px) {
+    .MuiPagination-ul{
+        margin-top: 20px !important;
+    }
+}
 
 

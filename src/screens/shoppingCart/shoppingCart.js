@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import { addStudentToCourse, getCourseById } from "../../api/Core/Course";
+import { getItem, removeItem, setItem } from "../../api/storage/storage";
 import { Btn } from "../../components/common/Button/Btn";
 import ShoppingList from "../../components/ShoppingList/ShoppingList";
 import * as fa from "../../constants/persianStrings"
+import { GeneralContext } from "../../providers/GeneralContext";
 import "./index.css"
 
 const ShoppingCourses = [
@@ -54,30 +57,80 @@ const ShoppingCourses = [
 ];
 
 export default function ShoppingCart() {
+    const NewCourse = JSON.parse(getItem('NewCourse'))
+    const userId = JSON.parse(getItem('id'))
+
     const [totalPay, setTotalPay] = useState(0);
-    const [data, setData] = useState(ShoppingCourses);
     const navigator = useNavigate();
+    const data = useRef([])
+    const { setConfirmPopupOpen, onConfirmSetter } = useContext(GeneralContext)
 
     useEffect(() => {
-        GetTotalPay()
-    }, []);
+        getCoursesById()
+    }, [])
+
+    //    useEffect(() => {
+    //         GetTotalPay()
+    //     }, []);
+
+    const getCoursesById = () => {
+        if (NewCourse && data.current.length != NewCourse.length) {
+            NewCourse.map(async (item) => {
+                getDetailShopp(item)
+            })
+        }
+    }
+
+    const getDetailShopp = async (item) => {
+        let response = await getCourseById(item);
+        if (response.data.result) {
+            if (data.current.length != NewCourse.length) {
+                data.current.push(response.data.result)
+            }
+        }
+    }
 
     const GetTotalPay = () => {
-        data.map((item) => {
+        data.current.map((item) => {
             setTotalPay((Prev) => Prev + (item.cost * 1))
         })
     }
 
     const removeCourse = (course) => {
-        const newData = data.filter(item => item.id != course.id)
-        setData(newData)
+        onConfirmSetter("آیا برای حذف دوره اطمینان دارید؟", () => {
+            let oldCourse = NewCourse;
+            let New = oldCourse.filter(item => item != course._id)
+            setItem('NewCourse', JSON.stringify(New));
+            let NewRef = data.current.filter(item => item._id != course._id);
+            data.current = NewRef
+        })
+        setConfirmPopupOpen(true)
     }
+
+    const submitCourseToStudent = () => {
+        data.current.map(async (item) => {
+            const data = {
+                userId: userId,
+                courseId: item._id
+            }
+            let response = await addStudentToCourse(data);
+            if (response.data.message) {
+                // let NewRef = data.current.filter(id => id._id != item._id);
+                // data.current = NewRef
+                removeItem('NewCourse')
+            }
+        })
+        data.current = null;
+
+    }
+
+    console.log(data.current.values);
 
 
     return (
         <div className="shoppingCart">
 
-            {data.length === 0 ?
+            {data.current.length === 0 ?
                 <>
                     <div className="emptyShopping"></div>
                     <p className="emptyShoppingTitle">سبد خرید شما خالی است!</p>
@@ -92,7 +145,7 @@ export default function ShoppingCart() {
                     <div className="detailShoppingCart">
 
                         <div className="listShoppingCourse">
-                            <ShoppingList myData={data} removeCourse={removeCourse} />
+                            <ShoppingList myData={data.current} removeCourse={removeCourse} />
                         </div>
                         <div className="totalShopping">
                             <div className="describeShopping">
@@ -100,7 +153,7 @@ export default function ShoppingCart() {
                                 <hr></hr>
                                 <div className="allCoursePay">
                                     <p>تعداد کل:</p>
-                                    <p>{data.length}</p>
+                                    <p>{data.current && data.current.length}</p>
                                 </div>
                                 <div className="allSaleCourse">
                                     <p>تخفیف</p>
@@ -118,7 +171,9 @@ export default function ShoppingCart() {
                                     text={fa.PAY}
                                     elementClass="mediumBtnCh"
                                     variant="contained"
-                                    type="submit" />
+                                    onChange={() => {
+                                        submitCourseToStudent()
+                                    }} />
                             </div>
                         </div>
                     </div>

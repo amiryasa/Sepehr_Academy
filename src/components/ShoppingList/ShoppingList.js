@@ -32,8 +32,6 @@ export default function ShoppingList(props) {
         },
     }));
 
-
-
     return (
         <div className="shoppingTable">
             <TableContainer component={Paper} className="shoppingTableContainer">
@@ -49,11 +47,11 @@ export default function ShoppingList(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {props.myData.map((row) => (
-                            <StyledTableRow key={row.id}>
-                                <StyledTableCell align="center">{row.id}</StyledTableCell>
+                        {props.myData && props.myData.map((row, key) => (
+                            <StyledTableRow key={key}>
+                                <StyledTableCell align="center">{key}</StyledTableCell>
                                 <StyledTableCell component="th" style={{ display: "flex" }}>
-                                    <img width={60} src={row.img} />
+                                    <img width={60} src={row.lesson.image} />
                                     <div
                                         style={{
                                             display: "flex",
@@ -61,21 +59,20 @@ export default function ShoppingList(props) {
                                             marginTop: "10px",
                                             paddingRight: "8px"
                                         }}>
-                                        <div>{row.name}</div>
+                                        <div>{row.title}</div>
                                         <div
                                             style={{
                                                 fontSize: "12px",
                                                 marginTop: "5px",
                                                 color: "#a99a9a"
                                             }}>
-                                            {row.teacher}
+                                            {row.teacher.fullName}
                                         </div>
                                     </div>
-
                                 </StyledTableCell>
                                 <StyledTableCell align="center">{row.date}</StyledTableCell>
                                 <StyledTableCell align="left">{row.cost} ت</StyledTableCell>
-                                <StyledTableCell align="center">{row.sale === "0%" ? "-" : row.sale}</StyledTableCell>
+                                <StyledTableCell align="center"></StyledTableCell>
                                 <StyledTableCell align="center" onClick={() => { props.removeCourse(row) }} ></StyledTableCell>
                             </StyledTableRow>
                         ))}
