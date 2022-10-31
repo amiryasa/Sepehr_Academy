@@ -5,7 +5,7 @@ import DatePickerCustome from "../common/datePicker/DatePicker";
 import { Input } from "../common/Input/Input";
 import "./MainbarEditInfo.css";
 import * as fa from "../../constants/persianStrings";
-import { getItem} from "../../api/storage/storage";
+import { getItem } from "../../api/storage/storage";
 import AvatarPhoto from "../common/avatar/AvatarPhoto";
 import UploadPhoto from "../UploadPhoto/UploadPhoto";
 import { updateStudetInform } from "../../api/Core/Student_Manage";
@@ -30,15 +30,14 @@ const MainbarEditInfo = () => {
     setDate(new Date(`${dateEnglish.gy}/${dateEnglish.gm}/${dateEnglish.gd}`))
   }, [])
 
-  const updateDataUser = async () => {
-    console.log(date, "23333");
+  const updateDataUser = async (image) => {
     const UpdatedataUser = {
       fullName: name,
       email,
       phoneNumber: phone,
       birthDate: birth,
       nationalId: national,
-      profile: img,
+      profile: image ? image : img,
       id: studentid
     }
     const response = await updateStudetInform(UpdatedataUser);
@@ -56,7 +55,7 @@ const MainbarEditInfo = () => {
         role: response.data.result.role,
         isActive: response.data.result.isActive,
       }
-
+      setImg(image)
       setDataUser(data)
       alert(response.data.message[0].message)
     }
@@ -159,8 +158,7 @@ const MainbarEditInfo = () => {
         showPop={show}
         handleClose={(imgUpdate) => {
           setShow(!show);
-          setImg(imgUpdate);
-          console.log(imgUpdate, "123");
+          // setImg(imgUpdate);
           updateDataUser(imgUpdate)
         }} />}
     </>

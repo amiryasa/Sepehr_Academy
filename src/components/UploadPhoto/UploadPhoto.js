@@ -121,7 +121,6 @@ export default function UploadPhoto(props) {
     };
 
     const uploadImgToDatabase = async () => {
-        const blob = await fetch(img).then(res => res.blob());
         let formData = new FormData();
         console.log(filesImg, "img");
         formData.append('image', filesImg);
@@ -134,8 +133,9 @@ export default function UploadPhoto(props) {
         })
             .then(function (response) {
                 //handle success
-                console.log(response);
-                props.handleClose(img)
+                console.log(response.data.result);
+                if (response.data.result)
+                    props.handleClose(response.data.result)
             })
             .catch(function (response) {
                 //handle error

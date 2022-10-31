@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { updateStudetInform } from "../../api/Core/Student_Manage";
 import { removeItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
 import AvatarPhoto from "../common/avatar/AvatarPhoto";
@@ -8,6 +9,7 @@ import UploadPhoto from "../UploadPhoto/UploadPhoto";
 import "./PanelSidebar.css";
 
 const PanelSidebar = () => {
+  const navigator = useNavigate();
   const { dataUser, onConfirmSetter, setConfirmPopupOpen, setDataUser } = useContext(GeneralContext)
   const [show, setShow] = useState(false);
 
@@ -25,7 +27,21 @@ const PanelSidebar = () => {
     items[index].style.backgroundColor = "#DEF6FF";
   };
 
-  const navigator = useNavigate();
+  const updatePhoto = async (img) => {
+    const dataUpdate = {
+      fullName: dataUser.fullName,
+      email: dataUser.email,
+      phoneNumber: dataUser.phoneNumber,
+      birthDate: dataUser.birthDate,
+      nationalId: dataUser.nationalId,
+      profile: img,
+      id:dataUser._id
+    }
+    let response =await updateStudetInform(dataUpdate);
+    setDataUser(response.data.result)
+    setShow(!show)
+  }
+
 
   return (
     <>
@@ -114,7 +130,10 @@ const PanelSidebar = () => {
           خروج
         </div>
       </div>
-      {show && <UploadPhoto src={dataUser.profile} showPop={show} handleClose={() => { setShow(!show) }} />}
+      {show && <UploadPhoto
+        src={dataUser.profile}
+        showPop={show}
+        handleClose={(img) => { updatePhoto(img) }} />}
     </>
   );
 };
