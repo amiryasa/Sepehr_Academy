@@ -6,7 +6,7 @@ import { getStudentById } from "./../../api/Core/Student_Manage";
 import "./MainbarMyCourses.css";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { removeStudentToCourse } from "../../api/Core/Course";
-
+import deleteCourse from "../../assets/images/Table/delete.png"
 
 const MainbarMyCourses = () => {
   const userId = JSON.parse(getItem('id'));
@@ -41,6 +41,7 @@ const MainbarMyCourses = () => {
         </div>
         <div className="mainbarCoursesTable">
           <TableCom
+            actionPic={deleteCourse}
             lastColumnTitle={'حذف دوره'}
             myData={studentInfo ? studentInfo.courses : ""}
             currentPage={currentPage_MainbarMyCourses}

@@ -83,16 +83,6 @@
     width:50px;
 }
 
-/**/
-.tableCom > .MuiPaper-root > .MuiTable-root > tbody > tr > td:nth-child(7){
-    background: url('./../../assets/images/Table/delete.png');
-    background-size: 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-}
-
-
 
 @media screen and (max-width:1262px){
     .tableCom{
