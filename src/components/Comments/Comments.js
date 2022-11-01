@@ -5,8 +5,8 @@ import { Input } from "../common/Input/Input";
 import { Btn } from "../common/Button/Btn";
 import AvatarCostomize from "../common/avatar";
 
-import { useState } from "react";
-import { sendNewComment } from "./../../api/Core/Comment";
+import { useEffect, useState } from "react";
+import { getComment, sendNewComment } from "./../../api/Core/Comment";
 
 import like from "../../assets/images/comment/like.png";
 import dislike from "../../assets/images/comment/dislike.png";
@@ -25,6 +25,9 @@ import bad from './../../assets/images/CourseDetails/bad.png';
 const Comments = (props) => {
   const [idea, setIdea] = useState();
 
+  const [courseId, setCourseId] = useState();
+  const [allComent, setAllComent] = useState();
+
   const handleChange = (event) => {
     setIdea(event.target.value);
   }
@@ -36,6 +39,7 @@ const Comments = (props) => {
 
     if(id){
       var student = await getStudentById(id);
+      setCourseId(id);
     }
 
     if(student){
@@ -60,6 +64,24 @@ const Comments = (props) => {
   }
 
 
+  const fixComments = async() => {
+    const result = await getComment();
+
+    if(result){
+      let currentResult = result.data.filter((item) => {
+        return ((item.postId === props.postId)
+        && item.verified);
+      })
+      setAllComent([...currentResult]);
+      console.log('currentResult', currentResult);
+    }
+  }
+
+  useEffect(() => {
+    fixComments();
+  },[])
+
+
 
   return (
     <>
@@ -81,127 +103,51 @@ const Comments = (props) => {
             <Btn text={fa.INSERT_COMMENT} color="info" variant="contained" onChange={handleAddId}/>
         </Card>
       </div>
-      <div className="showComments">
-        {props.comments.map((item) => {
-          if (item.idParent) {
-            return (
-              <div className="replyComment">
-                <Card>
-                  <div className="avatar">
-                    <AvatarCostomize name={item.name} width={66} />
-                  </div>
-                  <div className="action-textComment">
-                    <header>
-                      <div className="name-date">
-                        <div>{item.name}</div>
-                        <Divider orientation="vertical" flexItem />
-                        <div>{item.date}</div>
-                      </div>
-                      <div className="action">
-                        <img src={like} width={30} />
-                        <img src={dislike} width={30} />
-                        <img
-                          src={reply}
-                          style={{
-                            marginBottom: "6px",
-                            width: "20px",
-                            height: "20px",
-                          }}
-                        />
-                        <img
-                          src={stop}
-                          style={{
-                            marginBottom: "6px",
-                            width: "20px",
-                            height: "20px",
-                          }}
-                        />
-                      </div>
-                    </header>
-                    <div className="textOfComment">{item.describe}</div>
-                  </div>
-                </Card>
-              </div>
-            );
-          } else {
-            return (
-              <div className="firstComment">
-                <AvatarCostomize name={item.name} width={66} />
-                <Card>
-                  <header>
-                    <div className="name-date">
-                      <div>{item.name}</div>
-                      <Divider orientation="vertical" flexItem />
-                      <div>{item.date}</div>
-                    </div>
-                    <div className="action">
-                      <img src={like} width={30} />
-                      <img src={dislike} width={30} />
-                      <img
-                        alt={''}
-                        src={reply}
-                        style={{
-                          marginBottom: "6px",
-                          width: "20px",
-                          height: "20px",
-                        }}
-                      />
-                      <img
-                        alt={''}
-                        src={stop}
-                        style={{
-                          marginBottom: "6px",
-                          width: "20px",
-                          height: "20px",
-                        }}
-                      />
-                    </div>
-                  </header>
-                  <div className="textOfComment">{item.describe}</div>
-                </Card>
-              </div>
-            );
-          }
-        })}
-      </div>
     </div>
-    
+
     <div className="showCommentsItems">
+    {(allComent) ? allComent.map((item, index) => (
+
+        
           <div className="showCommentsItems01">
             <div className="showCommentsItemsHolderName">
-              <p className="showCommentsItemsStudentName">amirhossein</p>
+              <p className="showCommentsItemsStudentName">{item.username}</p>
             </div>
             <div className="showCommentsItemsHolderComment"> 
-              <p className="showCommentsItemsStudentComment"> یکی از رشته‌های مهندسی بوده و ترکیبی از نرم‌افزار و سخت‌افزار است که به توسعه‌ی سیستم‌های کامپیوتری می‌پردازد .</p>
+              <p className="showCommentsItemsStudentComment">{item.comment}</p>
             </div>
 
             <hr></hr>
 
             <div className="showCommentsItemsHolderName">
-              <p className="showCommentsItemsStudentName">amirhossein</p>
+              {item.answer ? 
+                <p className="showCommentsItemsStudentNameAn" > پاسخ: </p>
+              : ''}
             </div>
-            <div className="showCommentsItemsHolderComment"> 
-              <p className="showCommentsItemsStudentComment"> یکی از رشته‌های مهندسی بوده و ترکیبی از نرم‌افزار و سخت‌افزار است که به توسعه‌ی سیستم‌های کامپیوتری می‌پردازد .</p>
+
+            <div className="showCommentsItemsHolderComment">
+              <p className="showCommentsItemsStudentComment">{item.answer ? item.answer : 'پاسخی ثبت نشده است.'}</p> 
             </div>
-            
+
             <div className="showCommentsItemsHolderIcon">
               <div></div>
               <div></div>
               <div></div>
               <div></div>
             </div>
-            
             <div className="showCommentsItemsHolderMode">
               <img src={good} alt='' style={{width:'30px', position:'absolute', top:'10px', right:'5px'}} />
             </div>
 
           </div>
-          <div className="showCommentsItems02"></div>
-          <div className="showCommentsItems03"></div>
-          <div className="showCommentsItems04"></div>
-          <div className="showCommentsItems05"></div>
-          <div className="showCommentsItems06"></div>
-        </div>
+        
+     )): ''}
+     </div>
+
+
+
+    
+
     </>
   );
 };
