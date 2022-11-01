@@ -54,19 +54,20 @@ const TableCom = (props) => {
   }
 
   const foundFailAdd = (courseId) => {
-    var iconShop;
-    if (props.buyCourseLast.length > 0) {
-      iconShop = props.buyCourseLast.map((item) => {
-        if (item === courseId) return true
-        else return false
-      })
+    // var iconShop;
+    // if (props.buyCourseLast.length > 0) {
+    //   iconShop = props.buyCourseLast.map((item) => {
+    //     if (item === courseId) return true
+    //     else return false
+    //   })
 
-      if (iconShop[0]) return
-      else return props.onClick(courseId)
+    //   if (iconShop[0]) return
+    //   else return props.onClick(courseId)
 
-    }
-    else
-      return props.onClick(courseId)
+    // }
+    // else
+      // return props.onClick(courseId)
+      props.onClick(courseId);
   }
 
 
