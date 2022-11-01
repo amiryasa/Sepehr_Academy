@@ -220,3 +220,97 @@
     font-size: 12px;
   }
 }/*# sourceMappingURL=index.css.map */
+
+
+
+.showCommentsItems{
+  display:grid;
+  width:965px;
+  margin: auto;
+  grid-template-columns: 280px 280px 280px;
+  gap:62px;
+}
+
+.showCommentsItems > div {
+  position: relative;
+  width: 280px;
+  height: 365px;
+  background-color: #FFF3F3;
+  border-radius: 10px;
+  box-shadow:0px 0px 5px 1px rgba(0,0,0,.08); 
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderName{
+  height:45px;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderName >.showCommentsItemsStudentName{
+  margin-top: 15px;
+  text-align: center;
+  font-size: 20px;
+  color:#909090;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderComment{
+  height:75px;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderComment > .showCommentsItemsStudentComment{
+  text-align: center;
+  font-size: 16px;
+  color:#757575;
+  width:90%;
+  margin: auto;
+  margin-top: 0;
+}
+
+.showCommentsItems > div > hr{
+  width:85%;
+  border: .75px solid #cfcfcf;
+  background-color: #cfcfcf;
+  margin-top: 25px;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderIcon{
+  display:flex;
+  justify-content: space-between;
+  width:50%;
+  margin: auto;
+  margin-top:25px;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderIcon > div{
+  width:30px;
+  height:30px;
+  background-color: #043D72;
+  cursor: pointer;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderIcon > div:nth-child(1){
+  background: url('./../../assets/images/CourseDetails/block.png');
+  background-repeat: no-repeat;
+  background-size: 23px;
+  background-position: center;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderIcon > div:nth-child(2){
+  background: url('./../../assets/images/CourseDetails/answer.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderIcon > div:nth-child(3){
+  background: url('./../../assets/images/CourseDetails/dislike.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+
+.showCommentsItems > div > .showCommentsItemsHolderIcon > div:nth-child(4){
+  background: url('./../../assets/images/CourseDetails/like.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+}
+

@@ -13,7 +13,7 @@ const MainbarPassword = () => {
         </div>
 
         <div className="mainbarPasswordInputs">
-          <Input title={fa.TITLE_CURRENT_PASS} className="enterInputPane2" password={true} />
+          <Input title={fa.TITLE_EMAIL} className="enterInputPane2"/>
           <Input title={fa.TITLE_NEW_PASS} className="enterInputPane2" password={true} />
           <Input title={fa.TITLE_AGAIN_NEW_PASS} className="enterInputPane2" password={true} />
         </div>

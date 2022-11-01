@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useState } from 'react';
 
+import { formatDate } from './../../constants/usefulFunc';
+
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -13,8 +15,6 @@ import Paper from "@mui/material/Paper";
 import "./TableCom.css";
 
 const TableCom = (props) => {
-
-  const[num, setNum] = useState(1);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -58,8 +58,8 @@ const TableCom = (props) => {
                 <StyledTableCell align="left">{((props.currentPage-1)*5)+(index+1) < 10 ? `0${((props.currentPage-1)*5)+(index+1)}` : ((props.currentPage-1)*5)+(index+1)}</StyledTableCell>
                 <StyledTableCell component="th" scope="row">{row.title}</StyledTableCell>
                 <StyledTableCell align="left">{row.teacher.fullName}</StyledTableCell>
-                <StyledTableCell align="center">1401/02/25</StyledTableCell>
-                <StyledTableCell align="center">1401/02/25</StyledTableCell>
+                <StyledTableCell align="center">{formatDate(row.startDate)}</StyledTableCell>
+                <StyledTableCell align="center">{formatDate(row.endDate)}</StyledTableCell>
                 <StyledTableCell align="center">{row.cost > 0 ? `${row.cost} ت` : 'رایگان!'}</StyledTableCell>
                 <StyledTableCell align="center"></StyledTableCell>
               </StyledTableRow>

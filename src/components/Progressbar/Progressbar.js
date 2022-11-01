@@ -13,13 +13,13 @@ const Progressbar = (props) => {
   let color;
 
   if (props.type === 'capacity') {
-    if (props.capacity < 26) {
+    if ((props.student === 0) || (((props.student/props.capacity)*100) < 26)) {
       color = "#0ED600";
-    } else if (props.capacity > 25 && props.capacity < 51) {
+    } else if (((props.student/props.capacity)*100) > 25 && ((props.student/props.capacity)*100) < 51) {
       color = "#00D2E7";
-    } else if (props.capacity > 50 && props.capacity < 76) {
+    } else if (((props.student/props.capacity)*100) > 50 && ((props.student/props.capacity)*100) < 76) {
       color = "#FD9814";
-    } else if (props.capacity > 75) {
+    } else if (((props.student/props.capacity)*100) > 75) {
       color = "#FD2414";
     }
   }
@@ -41,7 +41,7 @@ const Progressbar = (props) => {
 
         <Slider
           aria-label="Temperature"
-          defaultValue={props.capacity}
+          defaultValue={Math.ceil((props.student/props.capacity)*100)}
           getAriaValueText={valuetext}
           color="secondary"
           disabled
