@@ -56,7 +56,8 @@ export const PLACEHOLDER_BTN = "جهت عضویت در خبرنامه، ایمی
 export const REMOVE_PHOTO = "حذف عکس"
 export const EDIT_PHOTO = "تغییر عکس"
 export const OPTIOANL_PHOTO = "آپشن"
-
+export const CANCEL_ACT="انصراف"
+export const ACCEPT_ACT="تایید"
 export const ADDRESS = "ساری، جاده دریا، بعد از دنیای آرزو، پژوهشگاه سپهر "
 
 //card name

@@ -134,7 +134,7 @@ const Header = () => {
       <div className="headerRow headerLogin">
         <div
           className="loginSearch"
-          onClick={() => navigator("./shopping")}
+          onClick={() => navigator("/shoppingCart")}
         >
 
         </div>

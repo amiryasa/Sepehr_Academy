@@ -13,6 +13,7 @@ import "./../assets/fonts/fonts.css";
 import ScrollToTop from "../router/scrollTop";
 import { getItem } from "../api/storage/storage";
 import { getStudentById } from "../api/Core/Student_Manage";
+import ConfirmPopUp from "../components/common/PopUpAction/ConfirmPopUp";
 
 function App() {
   AOS.init();
@@ -20,7 +21,8 @@ function App() {
   const [language, setLanguage] = React.useState('fa')
   const [themePage, setThemePage] = React.useState('light')
   const [dataUser, setDataUser] = React.useState()
-
+  const [confirm, setConfirm] = React.useState({});
+  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
     if (userId)
@@ -44,13 +46,35 @@ function App() {
     stylisPlugins: language === 'fa' && [prefixer, rtlPlugin],
   });
 
+  const onConfirmSetter = (
+    msg,
+    confirmCallback,
+    rejectCallback,
+  ) => setConfirm({ msg, confirmCallback, rejectCallback });
+
+
   return (
-    <GeneralContext.Provider value={{ language, setLanguage, themePage, setThemePage, dataUser, setDataUser }}>
+    <GeneralContext.Provider
+      value={{
+        language,
+        setLanguage,
+        themePage,
+        setThemePage,
+        dataUser,
+        setDataUser,
+        confirmPopupOpen: open,
+        setConfirmPopupOpen: setOpen,
+        confirmMsg: confirm.msg,
+        confirmCallback: confirm.confirmCallback,
+        rejectCallback: confirm.rejectCallback,
+        onConfirmSetter,
+      }}>
       <BrowserRouter>
         <ScrollToTop />
         <CacheProvider value={cacheRtl}>
           <ThemeProvider theme={theme}>
             <div className={`App ${themePage}`}>
+              <ConfirmPopUp />
               <OurRoutes />
             </div>
           </ThemeProvider>

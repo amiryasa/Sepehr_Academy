@@ -1,0 +1,29 @@
+.confirm-popup .MuiDialog-container .MuiPaper-root {
+    width: 313px !important;
+}
+
+.confirm-popup p {
+    text-align: center !important;
+    white-space: unset;
+}
+
+.confirm-popup .confirm-popup-btns-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm-popup .MuiTypography-root {
+    padding: 0px 24px;
+}
+
+@media screen and (max-width:749px) {
+    .confirm-popup .confirm-popup-btns-wrapper {
+        width: 80%;
+        margin: auto;
+    }
+    .confirm-popup-content{
+        font-size: smaller;
+    }
+}

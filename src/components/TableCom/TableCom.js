@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from 'react';
+import { useEffect } from "react";
 
 import { formatDate } from './../../constants/usefulFunc';
 
@@ -11,8 +11,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import shoppingAction from "../../assets/images/Table/shopping.png"
+import shoppingDisable from "../../assets/images/Table/shoppingDisable.png"
 
 import "./TableCom.css";
+
 
 const TableCom = (props) => {
 
@@ -37,6 +40,36 @@ const TableCom = (props) => {
   }));
 
 
+
+  const getPhoto = (courseId) => {
+
+    if (props.buyCourseLast.length > 0) {
+      let iconShop = props.buyCourseLast.map((item) => (item === courseId))
+      console.log(iconShop, "iconShop");
+      if (iconShop[0]) return shoppingDisable
+      else return shoppingAction
+    }
+    else
+      return shoppingAction
+  }
+
+  const foundFailAdd = (courseId) => {
+    var iconShop;
+    if (props.buyCourseLast.length > 0) {
+      iconShop = props.buyCourseLast.map((item) => {
+        if (item === courseId) return true
+        else return false
+      })
+
+      if (iconShop[0]) return
+      else return props.onClick(courseId)
+
+    }
+    else
+      return props.onClick(courseId)
+  }
+
+
   return (
     <div className="tableCom">
       <TableContainer component={Paper} className="tableComContainer">
@@ -53,15 +86,21 @@ const TableCom = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.myData ? props.myData.slice((props.currentPage*props.rowsCount)-props.rowsCount,props.currentPage*props.rowsCount).map((row, index) => (
-              <StyledTableRow key={index}> 
-                <StyledTableCell align="left">{((props.currentPage-1)*5)+(index+1) < 10 ? `0${((props.currentPage-1)*5)+(index+1)}` : ((props.currentPage-1)*5)+(index+1)}</StyledTableCell>
+            {props.myData ? props.myData.slice((props.currentPage * props.rowsCount) - props.rowsCount, props.currentPage * props.rowsCount).map((row, index) => (
+              <StyledTableRow key={index}>
+                <StyledTableCell align="left">{((props.currentPage - 1) * 5) + (index + 1) < 10 ? `0${((props.currentPage - 1) * 5) + (index + 1)}` : ((props.currentPage - 1) * 5) + (index + 1)}</StyledTableCell>
                 <StyledTableCell component="th" scope="row">{row.title}</StyledTableCell>
                 <StyledTableCell align="left">{row.teacher.fullName}</StyledTableCell>
                 <StyledTableCell align="center">{formatDate(row.startDate)}</StyledTableCell>
                 <StyledTableCell align="center">{formatDate(row.endDate)}</StyledTableCell>
                 <StyledTableCell align="center">{row.cost > 0 ? `${row.cost} ت` : 'رایگان!'}</StyledTableCell>
-                <StyledTableCell align="center"></StyledTableCell>
+                <StyledTableCell
+                  align="center"
+                  onClick={() => {
+                    foundFailAdd(row._id)
+                  }}>
+                  <img style={{ cursor: "pointer" }} width={24} src={props.allCourse ? getPhoto(row._id) : props.actionPic} />
+                </StyledTableCell>
               </StyledTableRow>
             )) : ''}
           </TableBody>

@@ -36,9 +36,9 @@ export default function PopUp(props) {
             TransitionComponent={Transition}
             keepMounted
             aria-describedby="alert-dialog-slide-description"
-            className="popUp"
+            className={`popUp ${props.className}`}
         >
-            {props.handleClose ? (
+            {props.closeBtn ? (
                 <IconButton
                     aria-label="close"
                     onClick={props.handleClose}
