@@ -4,6 +4,9 @@ import timeStart from "../../../assets/images/Courses/timeStart.png";
 import student from "../../../assets/images/Courses/student.png";
 import opacity from "../../../assets/images/Courses/opacity.png";
 import duringCourse from "../../../assets/images/Courses/duringCourse.png";
+
+import { formatDate } from './../../../constants/usefulFunc';
+
 import "./CourseDetailClass.css";
 import * as fa from "../../../constants/persianStrings";
 import { Progressbar } from "../../Progressbar/Progressbar";
@@ -37,30 +40,25 @@ const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
             <div className=' numberStudent'>
               <img src={student} />
               <span>{fa.NUMBER_STUDENT}
-                <span>{deatilsCouse.student && deatilsCouse.students.length} نفر</span>
+                <span>{(deatilsCouse.students && deatilsCouse.students.length > 0) ? `${deatilsCouse.students.length} نفر` : "فاقد دانشجو"} </span>
               </span>
             </div>
             <div className='timeStart'>
               <img src={timeStart} />
               <span>{fa.TIME_START}
-                <span> {deatilsCouse.startDate.split("T")[0]} </span>
+                <span> {formatDate(deatilsCouse.startDate)} </span>
               </span>
             </div>
             <div className='price'>
               <img src={price} />
               <span>{fa.PRICE_COURSE}
-                <span>{deatilsCouse.cost} </span>
-                تومان
+                <span>{deatilsCouse.cost > 0 ? `${deatilsCouse.cost} ت` : 'دوره رایگان!'} </span>
               </span>
             </div>
           </div>
         </div>
         <div className='photoCourse'>
           <img src={detailLesson.image} />
-          <span className='offCourse'>
-            <span className='offCount'>25%</span>
-            <span className='offTitle'> {fa.OFF_COURSE} </span>
-          </span>
         </div>
 
       </div>
@@ -84,7 +82,7 @@ const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
           />
         </div>
         <div className="CourseDetailClassActionProgressbar">
-          <Progressbar capacity={76} message='ظرفیت باقیمانده' size={250} type='capacity' tooltiveMes={100 - 76} />
+          <Progressbar capacity={deatilsCouse.capacity} student={(deatilsCouse.students && deatilsCouse.students.length > 0) ? deatilsCouse.students.length : 0} message='ظرفیت باقیمانده' size={250} type='capacity' tooltiveMes={(deatilsCouse.students && deatilsCouse.students.length > 0) ? deatilsCouse.capacity - deatilsCouse.students.length : deatilsCouse.capacity - 0} />
         </div>
       </div>
     </>

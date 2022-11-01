@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useEffect } from "react";
 
+import { formatDate } from './../../constants/usefulFunc';
+
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -52,19 +54,20 @@ const TableCom = (props) => {
   }
 
   const foundFailAdd = (courseId) => {
-    var iconShop;
-    if (props.buyCourseLast.length > 0) {
-      iconShop = props.buyCourseLast.map((item) => {
-        if (item === courseId) return true
-        else return false
-      })
+    // var iconShop;
+    // if (props.buyCourseLast.length > 0) {
+    //   iconShop = props.buyCourseLast.map((item) => {
+    //     if (item === courseId) return true
+    //     else return false
+    //   })
 
-      if (iconShop[0]) return
-      else return props.onClick(courseId)
+    //   if (iconShop[0]) return
+    //   else return props.onClick(courseId)
 
-    }
-    else
-      return props.onClick(courseId)
+    // }
+    // else
+      // return props.onClick(courseId)
+      props.onClick(courseId);
   }
 
 
@@ -89,9 +92,9 @@ const TableCom = (props) => {
                 <StyledTableCell align="left">{((props.currentPage - 1) * 5) + (index + 1) < 10 ? `0${((props.currentPage - 1) * 5) + (index + 1)}` : ((props.currentPage - 1) * 5) + (index + 1)}</StyledTableCell>
                 <StyledTableCell component="th" scope="row">{row.title}</StyledTableCell>
                 <StyledTableCell align="left">{row.teacher.fullName}</StyledTableCell>
-                <StyledTableCell align="center">1401/02/25</StyledTableCell>
-                <StyledTableCell align="center">1401/02/25</StyledTableCell>
-                <StyledTableCell className="actionPic" align="center">{row.cost > 0 ? `${row.cost} ت` : 'رایگان!'}</StyledTableCell>
+                <StyledTableCell align="center">{formatDate(row.startDate)}</StyledTableCell>
+                <StyledTableCell align="center">{formatDate(row.endDate)}</StyledTableCell>
+                <StyledTableCell align="center">{row.cost > 0 ? `${row.cost} ت` : 'رایگان!'}</StyledTableCell>
                 <StyledTableCell
                   align="center"
                   onClick={() => {

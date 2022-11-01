@@ -49,7 +49,6 @@ const CourseDetail = () => {
     }
   }
 
-
   return (
     <>
       {detailCourse &&
@@ -59,7 +58,7 @@ const CourseDetail = () => {
             detailTeacher={detailCourse.teacher}
             detailLesson={detailCourse.lesson} />
           <DetailCourse detailLesson={detailCourse.lesson} />
-          <Comments comments={comments} />
+          <Comments comments={comments} postId={id} />
         </>
       }
     </>

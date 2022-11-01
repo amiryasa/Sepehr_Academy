@@ -33,10 +33,6 @@ const NewsDetailClass = ({ detailsNews }) => {
         </div>
         <div className='photoNews'>
             <img src={detailsNews.image} />
-            <span className='offNews'>
-                <span className='offCount'>افزایش دانش</span>
-                <span className='offTitle'>اطلاعات و آگاهی</span>
-            </span>
         </div>
     </div>)
 }
