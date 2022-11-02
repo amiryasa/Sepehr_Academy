@@ -37,7 +37,6 @@ export default function AvatarCostomize(props) {
                         src={props.src}
                         sx={{ width: props.width, height: props.width, bgcolor: props.bgcolor }}
                         onClick={props.onClick} />
-
                 </>
                 :
                 <Avatar
