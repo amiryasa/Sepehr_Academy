@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import axios from "axios";
 import { FileUploader } from "react-drag-drop-files";
 import { Btn } from "../common/Button/Btn.js";
@@ -9,11 +9,12 @@ import AvatarCostomize from "../common/avatar/index.js";
 import imagePicker from "./imagePicker"
 import CropPhoto from "../common/CropPhoto/CropPhoto.js";
 import { uploadPhotoDataBase } from "../../api/Core/Student_Manage.js";
+import { GeneralContext } from "../../providers/GeneralContext.js";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
 export default function UploadPhoto(props) {
-    const [imgVolumeLimit, setImgVolumeLimit] = useState(1000000);
+    const { dataUser } = useContext(GeneralContext)
     const [imgLimitViolated, setImgLimitViolated] = useState(false);
     const [img, setImg] = useState(null);
     const upsertImgRef = useRef(null);
@@ -139,7 +140,7 @@ export default function UploadPhoto(props) {
                         }} />
                     :
                     <div className="editPohotoForm">
-                        <AvatarCostomize name="naghme" size="lg" className="avaratPic" src={img} />
+                        <AvatarCostomize name={dataUser.fullName} size="lg" className="avaratPic" src={img} />
                         <div className="btnEditPhoto">
                             <input
                                 hidden
