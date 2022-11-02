@@ -1,84 +1,72 @@
 import * as React from "react";
 import _ from "lodash";
 import { useState, useEffect } from "react";
-
 import { CardInCourses } from "../CardInCourses/CardInCourses";
 import { Paginate } from "../common/Pagination/Paginate";
 import { CoursesFilter } from "../CoursesFilter/CoursesFilter";
-import { CoursesIntro } from "../CoursesIntro/CoursesIntro";
-
 import * as fa from "../../constants/persianStrings";
-
-import "./CoursesContainer.css";
-
-import cour03 from "./../../assets/images/Courses/react.png";
 import { getAllCourse } from "../../api/Core/Course";
+import "./CoursesContainer.css";
 
 const CoursesContainer = () => {
   const [originalCoursesData, setOriginalCoursesData] = useState(null);
   const [rightCoursesData, setRightCoursesData] = useState(null);
   const [rightCoursesData01, setRightCoursesData01] = useState(null);
-  
-
-  // مرتب سازی
-
+  const [categoryName, setCategoryName] = React.useState([]);
+  const [currentPage_CoursesContainer, setCurrentPage_CoursesContainer] = useState(1);
+  const [coursesCurrentData, setCoursesCurrentData] = useState("title");
+  const [valueOf2step01, setValueOf2step01] = React.useState([0, 950]);
+  const [valueOf2step02, setValueOf2step02] = React.useState([0, 5]);
+  const [valueOf2step03, setValueOf2step03] = React.useState([10, 95]);
+  const [teacherName, setTeacherName] = React.useState([]);
+  const [costName, setCostName] = React.useState([]);
   const [sortby, setSortby] = React.useState([]);
   const [upOrDown, setUpOrDown] = React.useState([]);
   const [upOrDownData, setupOrDownData] = useState("desc");
 
+  let allCost = ["رایگان", "خریدنی"];
   const sortbyItem = ["عنوان", "امتیاز", "قیمت", "ظرفیت", "مدرس دوره"];
   const upOrDownItem = ["صعودی", "نزولی"];
-  
+
+  useEffect(() => {
+    getAllCourses();
+  }, []);
+
   // مرتب سازی 
 
   let allCount;
-  if(rightCoursesData){
+  if (rightCoursesData) {
     allCount = rightCoursesData.map((a) => a.cost);
     allCount.sort();
   }
-  const [valueOf2step01, setValueOf2step01] = React.useState([0,950]);
 
 
   let allRate;
-  if(rightCoursesData){
+  if (rightCoursesData) {
     allRate = rightCoursesData.map((a) => a.rate);
     allRate.sort();
   }
-  const [valueOf2step02, setValueOf2step02] = React.useState([0,5]);
 
 
   let allCapacity;
-  if(rightCoursesData){
+  if (rightCoursesData) {
     allCapacity = rightCoursesData.map((a) => a.studentCount);
     allCapacity.sort();
   }
-  const [valueOf2step03, setValueOf2step03] = React.useState([10,95]);
-  
+
 
   let allTeacher;
-  if(rightCoursesData){
+  if (rightCoursesData) {
     allTeacher = rightCoursesData.map((a) => a.teacher);
     allTeacher = [...new Set(allTeacher)];
   }
-  const [teacherName, setTeacherName] = React.useState([]);
 
-  let allCost = ["رایگان","خریدنی"];
-  const [costName, setCostName] = React.useState([]);
 
   let allCategory;
-  if(rightCoursesData){
+  if (rightCoursesData) {
     allCategory = rightCoursesData.map((a) => a.category);
     allCategory = [...new Set(allCategory)];
   }
-  const [categoryName, setCategoryName] = React.useState([]);
-
-  
-  const [coursesData, setCoursesData] = useState(null);
-  const [currentPage_CoursesContainer, setCurrentPage_CoursesContainer] = useState(1);
-  const [coursesCurrentData, setCoursesCurrentData] = useState("title");
-  const [coursesData01, setCoursesData01] = useState(coursesData);
-
-
 
 
   const getAllCourses = async () => {
@@ -94,9 +82,9 @@ const CoursesContainer = () => {
         rate: Math.ceil(Math.random() * (5 - 0) + 0),
         cost: item.cost,
         id: item._id,
-        category:item.lesson.topics[0],
+        category: item.lesson.topics[0],
       }));
-    
+
       setRightCoursesData([...rightData]);
       setRightCoursesData01([...rightData]);
     }
@@ -104,9 +92,7 @@ const CoursesContainer = () => {
 
 
   // pagination
-  useEffect(() => {
-    getAllCourses();
-  }, []);
+
 
   const handlePagination_CoursesContainer = (e, value) => {
     setCurrentPage_CoursesContainer(value);
@@ -205,983 +191,983 @@ const CoursesContainer = () => {
 
 
 
-    
-    
 
-    
-    //01
-    const handleProgress2step01 = (event, newValue) => {
 
-     let newData;
 
-     if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
 
-      else if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
+  //01
+  const handleProgress2step01 = (event, newValue) => {
 
-      else if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-        );
-      }
+    let newData;
 
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && teacherName.includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
+    if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
 
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && teacherName.includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
+    else if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
 
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && teacherName.includes(item.teacher)
-        );
-      }
+    else if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+      );
+    }
 
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (item.cost === 0)
-        );
-      }
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && teacherName.includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
 
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (item.cost > 0)
-        );
-      }
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && teacherName.includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
 
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-        );
-      }
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && teacherName.includes(item.teacher)
+      );
+    }
 
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (item.cost === 0)
-        );
-      }
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost === 0)
+      );
+    }
 
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (item.cost > 0)
-        );
-      }
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost > 0)
+      );
+    }
 
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      || (costName).length < 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-        );
-      }
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        || (costName).length < 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= newValue[0] && item.cost / 1000 <= newValue[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+      );
+    }
 
     setValueOf2step01(newValue);
     setRightCoursesData01([...newData]);
-    };
+  };
 
 
 
-    //02
-    const handleProgress2step02 = (event, newValue) => {
+  //02
+  const handleProgress2step02 = (event, newValue) => {
 
-      let newData;
+    let newData;
 
-      if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && teacherName.includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && teacherName.includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && teacherName.includes(item.teacher)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      || (costName).length < 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= newValue[0] && item.rate <= newValue[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-        );
-      }
- 
-      setValueOf2step02(newValue);
-      setRightCoursesData01([...newData]);
-    };
-
-
-
-    //03
-    const handleProgress2step03 = (event, newValue) => {
-
-      let newData;
-
-      if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (categoryName).includes(item.category)
-          && (event.target.value).includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length > 0 
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (categoryName).includes(item.category)
-          && teacherName.includes(item.teacher)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && teacherName.includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && teacherName.includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length > 0 && categoryName.length === 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && teacherName.includes(item.teacher)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (categoryName).includes(item.category)
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (categoryName).includes(item.category)
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length > 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (categoryName).includes(item.category)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (item.cost === 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-          && (item.cost > 0)
-        );
-      }
-
-      else if (teacherName.length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      || (costName).length < 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
-        );
-      }
- 
-      setValueOf2step03(newValue);
-      setRightCoursesData01([...newData]);
-    };
-
-
-
-    //Teacher selection
-    const handleSelection = (event) => {
-
-      const {
-        target: { value },
-      } = event;
-      setTeacherName(
-        // On autofill we get a stringified value.
-        typeof value === "string" ? value.split(",") : value
+    if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+        && (item.cost === 0)
       );
+    }
 
-      let newData;
-
-
-      if ((event.target.value).length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (event.target.value).includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
-
-      else if ((event.target.value).length > 0 && categoryName.length > 0 
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (event.target.value).includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
-
-      else if ((event.target.value).length > 0 && categoryName.length > 0 
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (event.target.value).includes(item.teacher)
-        );
-      }
-
-      else if ((event.target.value).length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (event.target.value).includes(item.teacher)
-          && (item.cost === 0)
-        );
-      }
-
-      else if ((event.target.value).length > 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (event.target.value).includes(item.teacher)
-          && (item.cost > 0)
-        );
-      }
-
-      else if ((event.target.value).length > 0 && categoryName.length === 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (event.target.value).includes(item.teacher)
-        );
-      }
-
-      else if ((event.target.value).length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (item.cost === 0)
-        );
-      }
-
-      else if ((event.target.value).length === 0 && categoryName.length > 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-          && (item.cost > 0)
-        );
-      }
-
-      else if ((event.target.value).length === 0 && categoryName.length > 0
-      &&((costName).length === 0 
-      || (costName).length === 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (categoryName).includes(item.category)
-        );
-      }
-
-      else if ((event.target.value).length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'رایگان')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (item.cost === 0)
-        );
-      }
-
-      else if ((event.target.value).length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      && (costName).length < 2 
-      && costName[0] === 'خریدنی')) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          && (item.cost > 0)
-        );
-      }
-
-      else if ((event.target.value).length === 0 && categoryName.length === 0
-      &&((costName).length > 0 
-      || (costName).length < 2 )) {
-        newData = rightCoursesData && rightCoursesData.filter(item => 
-          (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-          && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-          && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-        );
-      }
-
-      setRightCoursesData01([...newData]);
-
-    };
-
-
-       //Teacher selection
-       const handleSelection01 = (event) => {
-
-        const {
-          target: { value },
-        } = event;
-        setCostName(
-          // On autofill we get a stringified value.
-          typeof value === "string" ? value.split(",") : value
-        );
-  
-        let newData;
-
-        if ((teacherName).length > 0 && categoryName.length > 0 
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (categoryName).includes(item.category)
-            && (teacherName).includes(item.teacher)
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && categoryName.length > 0 
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (categoryName).includes(item.category)
-            && (teacherName).includes(item.teacher)
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && categoryName.length > 0 
-        &&((event.target.value).length === 0 
-        || (event.target.value).length === 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (categoryName).includes(item.category)
-            && (teacherName).includes(item.teacher)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && categoryName.length === 0
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (teacherName).includes(item.teacher)
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && categoryName.length === 0
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (teacherName).includes(item.teacher)
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && categoryName.length === 0
-        &&((event.target.value).length === 0 
-        || (event.target.value).length === 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (teacherName).includes(item.teacher)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && categoryName.length > 0
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (categoryName).includes(item.category)
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && categoryName.length > 0
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (categoryName).includes(item.category)
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && categoryName.length > 0
-        &&((event.target.value).length === 0 
-        || (event.target.value).length === 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (categoryName).includes(item.category)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && categoryName.length === 0
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && categoryName.length === 0
-        &&((event.target.value).length > 0 
-        && (event.target.value).length < 2 
-        && event.target.value[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && categoryName.length === 0
-        &&((event.target.value).length > 0 
-        || (event.target.value).length < 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          );
-        }
-  
-        setRightCoursesData01([...newData]);
-  
-      };
-
-
-      const handleSelection02 = (event) => {
-
-        const {
-          target: { value },
-        } = event;
-        setCategoryName(
-          // On autofill we get a stringified value.
-          typeof value === "string" ? value.split(",") : value
-        );
-  
-        let newData;
-
-        if ((teacherName).length > 0 && (event.target.value).length > 0 
-        &&(costName.length > 0 
-        && costName.length < 2 
-        && costName[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (event.target.value).includes(item.category)
-            && (teacherName).includes(item.teacher)
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && (event.target.value).length > 0 
-        &&(costName.length > 0 
-        && costName.length < 2 
+    else if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
         && costName[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (event.target.value).includes(item.category)
-            && (teacherName).includes(item.teacher)
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && (event.target.value).length > 0 
-        &&(costName.length === 0 
-        || costName.length === 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (event.target.value).includes(item.category)
-            && (teacherName).includes(item.teacher)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && (event.target.value).length === 0
-        &&(costName.length > 0 
-        && costName.length < 2 
-        && costName[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (teacherName).includes(item.teacher)
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && (event.target.value).length === 0
-        &&(costName.length > 0 
-        && costName.length < 2 
-        && costName[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (teacherName).includes(item.teacher)
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length > 0 && (event.target.value).length === 0
-        &&(costName.length === 0 
-        || costName.length === 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (teacherName).includes(item.teacher)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && (event.target.value).length > 0
-        &&(costName.length > 0 
-        && costName.length < 2 
-        && costName[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (event.target.value).includes(item.category)
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && (event.target.value).length > 0
-        &&(costName.length > 0 
-        && costName.length < 2 
-        && costName[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (event.target.value).includes(item.category)
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && (event.target.value).length > 0
-        &&(costName.length === 0 
-        || costName.length === 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (event.target.value).includes(item.category)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && (event.target.value).length === 0
-        &&(costName.length > 0 
-        && costName.length < 2 
-        && costName[0] === 'رایگان')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (item.cost === 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && (event.target.value).length === 0
-        &&(costName.length > 0 
-        && costName.length < 2 
-        && costName[0] === 'خریدنی')) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-            && (item.cost > 0)
-          );
-        }
-  
-        else if ((teacherName).length === 0 && (event.target.value).length === 0
-        &&(costName.length > 0 
-        || costName.length < 2 )) {
-          newData = rightCoursesData && rightCoursesData.filter(item => 
-            (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
-            && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
-            && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
-          );
-        }
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
 
-        setRightCoursesData01([...newData]);
-  
-      };
+    else if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && teacherName.includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && teacherName.includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && teacherName.includes(item.teacher)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        || (costName).length < 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= newValue[0] && item.rate <= newValue[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+      );
+    }
+
+    setValueOf2step02(newValue);
+    setRightCoursesData01([...newData]);
+  };
+
+
+
+  //03
+  const handleProgress2step03 = (event, newValue) => {
+
+    let newData;
+
+    if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (categoryName).includes(item.category)
+        && (event.target.value).includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (categoryName).includes(item.category)
+        && teacherName.includes(item.teacher)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && teacherName.includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && teacherName.includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length > 0 && categoryName.length === 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && teacherName.includes(item.teacher)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (categoryName).includes(item.category)
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (categoryName).includes(item.category)
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (categoryName).includes(item.category)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (item.cost === 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+        && (item.cost > 0)
+      );
+    }
+
+    else if (teacherName.length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        || (costName).length < 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= newValue[0] && item.studentCount <= newValue[1])
+      );
+    }
+
+    setValueOf2step03(newValue);
+    setRightCoursesData01([...newData]);
+  };
+
+
+
+  //Teacher selection
+  const handleSelection = (event) => {
+
+    const {
+      target: { value },
+    } = event;
+    setTeacherName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+
+    let newData;
+
+
+    if ((event.target.value).length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (event.target.value).includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((event.target.value).length > 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (event.target.value).includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((event.target.value).length > 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (event.target.value).includes(item.teacher)
+      );
+    }
+
+    else if ((event.target.value).length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((event.target.value).length > 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((event.target.value).length > 0 && categoryName.length === 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.teacher)
+      );
+    }
+
+    else if ((event.target.value).length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((event.target.value).length === 0 && categoryName.length > 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((event.target.value).length === 0 && categoryName.length > 0
+      && ((costName).length === 0
+        || (costName).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+      );
+    }
+
+    else if ((event.target.value).length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((event.target.value).length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        && (costName).length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((event.target.value).length === 0 && categoryName.length === 0
+      && ((costName).length > 0
+        || (costName).length < 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+      );
+    }
+
+    setRightCoursesData01([...newData]);
+
+  };
+
+
+  //Teacher selection
+  const handleSelection01 = (event) => {
+
+    const {
+      target: { value },
+    } = event;
+    setCostName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+
+    let newData;
+
+    if ((teacherName).length > 0 && categoryName.length > 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (teacherName).includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && categoryName.length > 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (teacherName).includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && categoryName.length > 0
+      && ((event.target.value).length === 0
+        || (event.target.value).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (teacherName).includes(item.teacher)
+      );
+    }
+
+    else if ((teacherName).length > 0 && categoryName.length === 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (teacherName).includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && categoryName.length === 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (teacherName).includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && categoryName.length === 0
+      && ((event.target.value).length === 0
+        || (event.target.value).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (teacherName).includes(item.teacher)
+      );
+    }
+
+    else if ((teacherName).length === 0 && categoryName.length > 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && categoryName.length > 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && categoryName.length > 0
+      && ((event.target.value).length === 0
+        || (event.target.value).length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (categoryName).includes(item.category)
+      );
+    }
+
+    else if ((teacherName).length === 0 && categoryName.length === 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && categoryName.length === 0
+      && ((event.target.value).length > 0
+        && (event.target.value).length < 2
+        && event.target.value[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && categoryName.length === 0
+      && ((event.target.value).length > 0
+        || (event.target.value).length < 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+      );
+    }
+
+    setRightCoursesData01([...newData]);
+
+  };
+
+
+  const handleSelection02 = (event) => {
+
+    const {
+      target: { value },
+    } = event;
+    setCategoryName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+
+    let newData;
+
+    if ((teacherName).length > 0 && (event.target.value).length > 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.category)
+        && (teacherName).includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && (event.target.value).length > 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.category)
+        && (teacherName).includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && (event.target.value).length > 0
+      && (costName.length === 0
+        || costName.length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.category)
+        && (teacherName).includes(item.teacher)
+      );
+    }
+
+    else if ((teacherName).length > 0 && (event.target.value).length === 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (teacherName).includes(item.teacher)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && (event.target.value).length === 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (teacherName).includes(item.teacher)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length > 0 && (event.target.value).length === 0
+      && (costName.length === 0
+        || costName.length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (teacherName).includes(item.teacher)
+      );
+    }
+
+    else if ((teacherName).length === 0 && (event.target.value).length > 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.category)
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && (event.target.value).length > 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.category)
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && (event.target.value).length > 0
+      && (costName.length === 0
+        || costName.length === 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (event.target.value).includes(item.category)
+      );
+    }
+
+    else if ((teacherName).length === 0 && (event.target.value).length === 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'رایگان')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost === 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && (event.target.value).length === 0
+      && (costName.length > 0
+        && costName.length < 2
+        && costName[0] === 'خریدنی')) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+        && (item.cost > 0)
+      );
+    }
+
+    else if ((teacherName).length === 0 && (event.target.value).length === 0
+      && (costName.length > 0
+        || costName.length < 2)) {
+      newData = rightCoursesData && rightCoursesData.filter(item =>
+        (item.cost / 1000 >= valueOf2step01[0] && item.cost / 1000 <= valueOf2step01[1])
+        && (item.rate >= valueOf2step02[0] && item.rate <= valueOf2step02[1])
+        && (item.studentCount >= valueOf2step03[0] && item.studentCount <= valueOf2step03[1])
+      );
+    }
+
+    setRightCoursesData01([...newData]);
+
+  };
 
 
   return (
@@ -1242,20 +1228,20 @@ const CoursesContainer = () => {
 
       <div className="CardIncoursesContainer">
         {rightCoursesData01 != null && rightCoursesData01
-        .slice(currentPage_CoursesContainer * 4 - 4,currentPage_CoursesContainer * 4)
-        .map((item, index) => (
-              <CardInCourses
-                image={item.image}
-                bgColor={index % 2 ? "#F3FFF8" : "#F5FCFF"}
-                btnColor="detail"
-                title={item.title}
-                teacher={item.teacher}
-                studentCount={item.studentCount}
-                rate={item.rate}
-                cost={item.cost}
-                id={item.id}
-              />
-            ))}
+          .slice(currentPage_CoursesContainer * 4 - 4, currentPage_CoursesContainer * 4)
+          .map((item, index) => (
+            <CardInCourses
+              image={item.image}
+              bgColor={index % 2 ? "#F3FFF8" : "#F5FCFF"}
+              btnColor="detail"
+              title={item.title}
+              teacher={item.teacher}
+              studentCount={item.studentCount}
+              rate={item.rate}
+              cost={item.cost}
+              id={item.id}
+            />
+          ))}
       </div>
       <Paginate
         allItem={rightCoursesData01 && rightCoursesData01.length}
