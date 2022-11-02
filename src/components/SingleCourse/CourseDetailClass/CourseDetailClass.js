@@ -11,8 +11,13 @@ import "./CourseDetailClass.css";
 import * as fa from "../../../constants/persianStrings";
 import { Progressbar } from "../../Progressbar/Progressbar";
 import { Btn } from "../../common/Button/Btn";
+import { useContext } from "react";
+import { GeneralContext } from "../../../providers/GeneralContext";
 
 const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
+  const { setCompairCourse, compairCourse } = useContext(GeneralContext)
+  console.log(detailLesson, "detailLesson");
+  console.log(compairCourse, "compairCourse");
 
   return (
     <>
@@ -78,7 +83,17 @@ const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
             margin="0 35px 0 0"
             elementClass="largeBtn"
             variant="contained"
-            click=""
+            onChange={() => {
+              if (compairCourse.length === 2) alert("امکان اضافه کردن بیشتر از دو دوره را ندارید.")
+              if (compairCourse.length > 0 && compairCourse[0].topic != detailLesson.topics[0]) alert('امکان مقایسه وجود ندارد!')
+              else {
+                const compairData = {
+                  id: deatilsCouse._id,
+                  topic: detailLesson.topics[0]
+                }
+                setCompairCourse((prev) => [...prev, (compairData)])
+              }
+            }}
           />
         </div>
         <div className="CourseDetailClassActionProgressbar">

@@ -8,7 +8,6 @@ import "./index.scss"
 import AvatarCostomize from "../common/avatar/index.js";
 import imagePicker from "./imagePicker"
 import CropPhoto from "../common/CropPhoto/CropPhoto.js";
-import { uploadPhotoDataBase } from "../../api/Core/Student_Manage.js";
 import { GeneralContext } from "../../providers/GeneralContext.js";
 
 const fileTypes = ["JPG", "PNG", "GIF"];

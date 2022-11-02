@@ -14,5 +14,7 @@ export const GeneralContext = createContext({
     confirmCallback: () => { },
     rejectCallback: () => { },
     onConfirmSetter: (msg, confirmCallback, rejectCallback) => { },
+    compairCourse: [],
+    setCompairCourse: (compairCourse) => console.warn('no course to compair')
 });
 

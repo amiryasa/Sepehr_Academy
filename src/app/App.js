@@ -23,6 +23,8 @@ function App() {
   const [dataUser, setDataUser] = React.useState()
   const [confirm, setConfirm] = React.useState({});
   const [open, setOpen] = React.useState(false);
+  const [compairCourse, setCompairCourse] = React.useState([]);
+
 
   React.useEffect(() => {
     if (userId)
@@ -68,6 +70,8 @@ function App() {
         confirmCallback: confirm.confirmCallback,
         rejectCallback: confirm.rejectCallback,
         onConfirmSetter,
+        compairCourse,
+        setCompairCourse
       }}>
       <BrowserRouter>
         <ScrollToTop />
