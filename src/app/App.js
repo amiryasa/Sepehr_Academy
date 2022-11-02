@@ -6,6 +6,9 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import AOS from "aos";
 import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { GeneralContext } from "../providers/GeneralContext";
 import OurRoutes from '../router'
 import "./App.css";
@@ -79,6 +82,19 @@ function App() {
           <ThemeProvider theme={theme}>
             <div className={`App ${themePage}`}>
               <ConfirmPopUp />
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                // hideProgressBar={true}
+                newestOnTop={false}
+                closeOnClick
+                rtl={true}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover={false}
+                className={'toastFont'}
+                transition={Zoom}
+              />
               <OurRoutes />
             </div>
           </ThemeProvider>

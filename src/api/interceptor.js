@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getItem } from "./storage/storage"
+import { toast } from "react-toastify";
 
 
 const api = axios.create({
@@ -20,13 +21,9 @@ api.interceptors.response.use(
         try {
 
             if (error.code === 'ERR_NETWORK') {
-                // GLOBAL.appGlobalAccess.setState((prevState) => ({
-                //     errors: [...prevState.errors, { title: 'لطفا اینترنت را بررسی کنید' }]
-                // }))
-                alert('لطفا اینترنت را بررسی کنید')
+                toast.warning('لطفا اینترنت را بررسی کنید')
                 return Promise.reject(error);
             }
-
 
             const expectedError =
                 error.response &&

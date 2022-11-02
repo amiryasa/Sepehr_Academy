@@ -5,6 +5,10 @@
     direction: rtl;
 }
 
+.Toastify__toast-body div{
+    font-family: bakh !important;
+}
+
 @media screen and (max-width:1262px) {
 
     .App {
