@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 import { getItem, removeItem, setItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { Paginate } from "../common/Pagination/Paginate";
@@ -13,7 +14,6 @@ const MainbarAllCourses = () => {
   const [currentPage_MainbarAllCourses, setCurrentPage_MainbarAllCourses] = useState(1);
   const [buyCourseLast, setBuyCourseLast] = useState();
   const { setConfirmPopupOpen, onConfirmSetter, shoppCourse, setShopCourse } = useContext(GeneralContext)
-
   const userId = JSON.parse(getItem('id'))
   const [allCourse, setAllCourse] = useState();
 
@@ -38,7 +38,7 @@ const MainbarAllCourses = () => {
         endDate: item.endDate,
         cost: item.cost,
         id: item._id,
-        icon: holder.includes(item._id) ? 'gray' : 'green',
+        icon: holder.includes(item._id) ? 'gray' : shoppCourse && shoppCourse.includes(item._id) ? 'blue' : 'green',
       }));
 
       setAllCourse(...[rightData]);
@@ -50,8 +50,8 @@ const MainbarAllCourses = () => {
   };
 
 
-  const handleAddToShop = (event) => {
-    var index = allCourse.findIndex(item => item.id === event);
+  const handleAddToShop = (courseId) => {
+    var index = allCourse.findIndex(item => item.id === courseId);
     allCourse[index].icon = 'blue';
     setAllCourse([...allCourse]);
   }
@@ -79,8 +79,17 @@ const MainbarAllCourses = () => {
             onClick={(courseId) => {
               onConfirmSetter("آیا برای اضافه کردن دوره به سبد خرید خود اطمینان دارید؟",
                 () => {
-                  setShopCourse(current => [...current, courseId]);
-                  handleAddToShop(courseId);
+                  if (shoppCourse && shoppCourse.length > 0) {
+                    shoppCourse.map((id) => {
+                      if (id === courseId) { toast.error('این دوره قبلا اضافه شده!'); return }
+
+                    })
+                    setShopCourse(current => [...current, courseId]);
+                    handleAddToShop(courseId);
+                  } else {
+                    setShopCourse(current => [...current, courseId]);
+                    handleAddToShop(courseId);
+                  }
                 }, () => {
                   setConfirmPopupOpen(false)
                 })

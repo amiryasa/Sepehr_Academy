@@ -59,7 +59,6 @@ const Btn = (props) => {
           borderWidth: '1.5px',
           borderColor: `${props.borderColor}`
         }}
-        // onClick={() => navigator(props.click)}
         onClick={props.onChange}
       >
         {props.text}

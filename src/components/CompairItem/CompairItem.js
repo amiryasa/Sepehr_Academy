@@ -1,20 +1,11 @@
 import React from "react";
-
-import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
-import HighlightOffRoundedIcon from "@mui/icons-material/HighlightOffRounded";
-import CachedRoundedIcon from "@mui/icons-material/CachedRounded";
-import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
-import PauseCircleOutlineRoundedIcon from "@mui/icons-material/PauseCircleOutlineRounded";
 import RemoveCircleOutlineRoundedIcon from "@mui/icons-material/RemoveCircleOutlineRounded";
-
-import ExpandCircleDownOutlinedIcon from "@mui/icons-material/ExpandCircleDownOutlined";
-import ExpandCircleDownRoundedIcon from "@mui/icons-material/ExpandCircleDownRounded";
 import ArrowCircleUpRoundedIcon from "@mui/icons-material/ArrowCircleUpRounded";
 import ArrowCircleDownRoundedIcon from "@mui/icons-material/ArrowCircleDownRounded";
-
-import "./CompairItem.css";
+import CloseIcon from '@mui/icons-material/Close';
 import { Progressbar } from "../Progressbar/Progressbar";
 import { Btn } from "../common/Button/Btn";
+import "./CompairItem.css";
 
 const CompairItem = (props) => {
   const selectIcon = {};
@@ -80,6 +71,13 @@ const CompairItem = (props) => {
 
   return (
     <div className="CompairItem">
+      <div onClick={() => {
+        props.removeCourseInCompair(props.couurseInfo.id)
+      }}>
+        <CloseIcon
+          className="close_btn"
+        />
+      </div>
       <div className="CompairItemCenter">
         <img src={props.couurseInfo.image} alt="course" />
         <p className="CompairItemTitle">{props.couurseInfo.title}</p>
@@ -154,6 +152,9 @@ const CompairItem = (props) => {
           text="افزودن به سبد"
           elementClass="largeBtn"
           variant="contained"
+          onChange={() => {
+            props.AddCourseToShop(props.couurseInfo.id)
+          }}
         />
       </div>
     </div>
