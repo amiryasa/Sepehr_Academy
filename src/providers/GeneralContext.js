@@ -17,6 +17,6 @@ export const GeneralContext = createContext({
     compairCourse: [],
     setCompairCourse: (compairCourse) => console.warn('no course to compair'),
     shoppCourse: [],
-    setShopSourse: (shoppCourse) => console.warn(' no course to shop')
+    setShopCourse: (shoppCourse) => console.warn(' no course to shop')
 });
 

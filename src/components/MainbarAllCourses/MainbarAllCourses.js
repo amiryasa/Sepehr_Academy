@@ -12,25 +12,15 @@ const MainbarAllCourses = () => {
 
   const [currentPage_MainbarAllCourses, setCurrentPage_MainbarAllCourses] = useState(1);
   const [buyCourseLast, setBuyCourseLast] = useState();
-  const { setConfirmPopupOpen, onConfirmSetter, shoppCourse, setShopSourse } = useContext(GeneralContext)
-  const newCourse = useRef([])
+  const { setConfirmPopupOpen, onConfirmSetter, shoppCourse, setShopCourse } = useContext(GeneralContext)
 
-
-
-  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
   const userId = JSON.parse(getItem('id'))
   const [allCourse, setAllCourse] = useState();
-  // const [shopping, setShopping] = useState(['']);
 
   useEffect(() => {
     getCourses();
   }, []);
 
-
-  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-
-
-  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
 
   const getCourses = async () => {
     let response = await getAllCourse();
@@ -55,19 +45,14 @@ const MainbarAllCourses = () => {
     }
   }
 
-  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-
-
   const handlePagination_MainbarAllCourses = (e, value) => {
     setCurrentPage_MainbarAllCourses(value);
   };
 
 
   const handleAddToShop = (event) => {
-
     var index = allCourse.findIndex(item => item.id === event);
     allCourse[index].icon = 'blue';
-
     setAllCourse([...allCourse]);
   }
 
@@ -94,7 +79,7 @@ const MainbarAllCourses = () => {
             onClick={(courseId) => {
               onConfirmSetter("آیا برای اضافه کردن دوره به سبد خرید خود اطمینان دارید؟",
                 () => {
-                  setShopSourse(current => [...current, courseId]);
+                  setShopCourse(current => [...current, courseId]);
                   handleAddToShop(courseId);
                 }, () => {
                   setConfirmPopupOpen(false)
