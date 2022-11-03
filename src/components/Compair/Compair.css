@@ -1,4 +1,4 @@
-.CompairItemContainer{
+.CompairItemContainer {
     display: flex;
     width: 880px;
     justify-content: space-between;
@@ -6,14 +6,47 @@
     margin-top: 15px;
 }
 
+.compairBtn {
+    position: absolute;
+    top: 480px;
+    left: 18px;
+    position: fixed;
+    transition: .3s;
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    z-index: 50;
+    background-color: #f6fbff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: auto;
+    /* align-items: center; */
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.numberCompair {
+    color: #f6fbff;
+    position: absolute;
+    right: 6px;
+    width: 18px;
+    height: 18px;
+    background-color: #00adef;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
 @media (max-width: 1262px) {
-    .CompairItemContainer{
+    .CompairItemContainer {
         width: 670px;
     }
 }
 
 @media (max-width: 749px) {
-    .CompairItemContainer{
+    .CompairItemContainer {
         width: 300px;
         flex-direction: column;
     }

@@ -13,17 +13,49 @@ export default function (props) {
     const [completedCrop, setCompletedCrop] = useState(null)
 
 
+
+
     const cropImageNow = () => {
+        if (imgRef.current.src.includes('base64')) {
+            var newSize = canvasPreview(
+                imgRef.current,
+                previewCanvasRef.current,
+                completedCrop,
+                scale,
+                rotate,
+            )
+            props.onChange(newSize)
+        }
+        else {
+            toDataURL(imgRef.current.src, function (dataUrl) {
+                imgRef.current.src = dataUrl;
+                var newSize = canvasPreview(
+                    imgRef.current,
+                    previewCanvasRef.current,
+                    completedCrop,
+                    scale,
+                    rotate,
+                )
+                props.onChange(newSize)
 
-        var newSize = canvasPreview(
-            imgRef.current,
-            previewCanvasRef.current,
-            completedCrop ,
-            scale,
-            rotate,
-        )
-        props.onChange(newSize)
+            })
 
+        }
+
+    }
+
+    function toDataURL(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                callback(reader.result);
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+        xhr.open('GET', url);
+        xhr.responseType = 'blob';
+        xhr.send();
     }
 
 
@@ -66,7 +98,7 @@ export default function (props) {
             <div className='crop'>
                 <button onClick={cropImageNow}>Crop</button>
             </div>
-         
+
 
         </div>
     )

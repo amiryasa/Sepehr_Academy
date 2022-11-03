@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import axios from "axios";
 import { FileUploader } from "react-drag-drop-files";
 import { Btn } from "../common/Button/Btn.js";
@@ -8,23 +8,24 @@ import "./index.scss"
 import AvatarCostomize from "../common/avatar/index.js";
 import imagePicker from "./imagePicker"
 import CropPhoto from "../common/CropPhoto/CropPhoto.js";
-import { uploadPhotoDataBase } from "../../api/Core/Student_Manage.js";
+import { GeneralContext } from "../../providers/GeneralContext.js";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
 export default function UploadPhoto(props) {
-    const [imgVolumeLimit, setImgVolumeLimit] = useState(1000000);
+    const { dataUser } = useContext(GeneralContext)
     const [imgLimitViolated, setImgLimitViolated] = useState(false);
     const [img, setImg] = useState(null);
     const upsertImgRef = useRef(null);
     const [imgRef, setImgRef] = useState(false);
     const [filesImg, setFileImg] = useState()
-
+    const fileName = useRef('')
     const [optionPhoto, setOptionPhoto] = useState(false);
 
     useEffect(() => {
         if (props.src) {
             setImg(props.src)
+            fileName.current = props.src.split('/')[7]
         }
     }, [])
 
@@ -35,42 +36,18 @@ export default function UploadPhoto(props) {
     }, [imgRef]);
 
     const addImgOkHandler = () => {
-
-        //   if (img != null) {
-
-
-
-        //     //   toast.info(msg);
-        //       upsertImgRef.current.value = "";
-        //       setImgRef(true);
-        //       return;
-
-
-        // toast.info(msg);
         upsertImgRef.current.click();
-
-
     };
 
     const onUploadingImg = async (e) => {
         const files = e.target.files[0];
-        setFileImg(e.target.files[0])
+        fileName.current = files.name
         if (
             files.type === "image/png" ||
             files.type === "image/jpeg" ||
             files.type === "image/jpg"
         ) {
-            console.log(files, "files");
             let blob = await imagePicker(files);
-
-            if (blob === undefined) return;
-            if (blob.size > imgVolumeLimit) {
-
-                setImgLimitViolated(true);
-                // toast.error("حجم عکس بیش از حد مجاز است.");
-                return;
-            }
-
             setImgLimitViolated(false);
             const reader = new FileReader();
             reader.readAsDataURL(blob);
@@ -83,34 +60,23 @@ export default function UploadPhoto(props) {
         }
     };
 
-    const imgUpdateHandler = (img) => {
-        // if (storageUser != null) {
-        //     const data = {
-        //         id: storageUser?.Id,
-        //         picture: img,
-        //     };
+    function dataURLtoFile(dataurl, filename) {
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]),
+            n = bstr.length,
+            u8arr = new Uint8Array(n);
 
-        if (imgLimitViolated) return;
-        setImg(img);
-
-        //     // await service.imgUpdate(data);
-        //     setImg(img);
-        // }
-    };
-
-    // const [file, setFile] = useState(null);
-    const handleChange = async (file) => {
-        setFileImg(file)
-        let blob = await imagePicker(file);
-
-        if (blob === undefined) return;
-        if (blob.size > imgVolumeLimit) {
-
-            setImgLimitViolated(true);
-            // toast.error("حجم عکس بیش از حد مجاز است.");
-            return;
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
         }
 
+        return new File([u8arr], filename, { type: mime });
+    }
+
+    const handleChange = async (file) => {
+        let blob = await imagePicker(file);
+        fileName.current = file.name
         setImgLimitViolated(false);
         const reader = new FileReader();
         reader.readAsDataURL(blob);
@@ -120,11 +86,18 @@ export default function UploadPhoto(props) {
 
     };
 
+    const imgUpdateHandler = (img) => {
+        if (imgLimitViolated) return;
+        setImg(img);
+        var fileImg = dataURLtoFile(img, fileName.current);
+        setFileImg(fileImg)
+    };
+
+
+
     const uploadImgToDatabase = async () => {
         let formData = new FormData();
-        console.log(filesImg, "img");
         formData.append('image', filesImg);
-
         axios({
             method: "post",
             url: "https://api.noorgon.sepehracademy.ir/api/upload/image",
@@ -132,8 +105,7 @@ export default function UploadPhoto(props) {
             headers: { "Content-Type": "multipart/form-data" },
         })
             .then(function (response) {
-                //handle success
-                console.log(response.data.result);
+
                 if (response.data.result)
                     props.handleClose(response.data.result)
             })
@@ -152,7 +124,6 @@ export default function UploadPhoto(props) {
                 open={props.showPop}
                 handleClose={() => {
                     uploadImgToDatabase()
-
                 }}
                 title={"عکس پروفایل"}>
 
@@ -162,11 +133,13 @@ export default function UploadPhoto(props) {
                         src={img}
                         onChange={(c) => {
                             setImg(c);
-                            setOptionPhoto(false)
+                            setOptionPhoto(false);
+                            var fileImg = dataURLtoFile(c, fileName.current);
+                            setFileImg(fileImg)
                         }} />
                     :
                     <div className="editPohotoForm">
-                        <AvatarCostomize name="naghme" size="lg" className="avaratPic" src={img} />
+                        <AvatarCostomize name={dataUser.fullName} size="lg" className="avaratPic" src={img} />
                         <div className="btnEditPhoto">
                             <input
                                 hidden

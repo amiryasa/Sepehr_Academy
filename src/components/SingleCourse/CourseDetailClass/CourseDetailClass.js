@@ -1,18 +1,22 @@
+import { toast } from "react-toastify";
 import teacher from "../../../assets/images/Courses/teacher.png";
 import price from "../../../assets/images/Courses/price.png";
 import timeStart from "../../../assets/images/Courses/timeStart.png";
 import student from "../../../assets/images/Courses/student.png";
 import opacity from "../../../assets/images/Courses/opacity.png";
 import duringCourse from "../../../assets/images/Courses/duringCourse.png";
-
 import { formatDate } from './../../../constants/usefulFunc';
-
-import "./CourseDetailClass.css";
 import * as fa from "../../../constants/persianStrings";
 import { Progressbar } from "../../Progressbar/Progressbar";
 import { Btn } from "../../common/Button/Btn";
+import { useContext } from "react";
+import { GeneralContext } from "../../../providers/GeneralContext";
+import "./CourseDetailClass.css";
 
 const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
+  const { setCompairCourse, compairCourse } = useContext(GeneralContext)
+  console.log(detailLesson, "detailLesson");
+  console.log(compairCourse, "compairCourse");
 
   return (
     <>
@@ -78,7 +82,17 @@ const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
             margin="0 35px 0 0"
             elementClass="largeBtn"
             variant="contained"
-            click=""
+            onChange={() => {
+              if (compairCourse.length === 2) toast.error("امکان اضافه کردن بیشتر از دو دوره را ندارید.")
+              if (compairCourse.length > 0 && compairCourse[0].topic != detailLesson.topics[0]) toast.error("امکان اضافه کردن این دوره وجود ندارد.");
+              else {
+                const compairData = {
+                  id: deatilsCouse._id,
+                  topic: detailLesson.topics[0]
+                }
+                setCompairCourse((prev) => [...prev, (compairData)])
+              }
+            }}
           />
         </div>
         <div className="CourseDetailClassActionProgressbar">

@@ -78,8 +78,6 @@ const CompairItem = (props) => {
     }
   }
 
-  console.log(counter);
-
   return (
     <div className="CompairItem">
       <div className="CompairItemCenter">
