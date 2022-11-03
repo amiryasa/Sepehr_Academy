@@ -94,7 +94,7 @@ const CompairItem = (props) => {
       <hr></hr>
       <div className="CompairItemElement">
         <p className="CompairItemElementTitle">قیمت:</p>
-        <p className="CompairItemElementCount">{props.couurseInfo.cost}</p>
+        <p className="CompairItemElementCount">{props.couurseInfo.cost > 0 ? `${props.couurseInfo.cost} ت` : 'رایگان!'}</p>
         <div>{selectIcon.cost}</div>
       </div>
       <hr></hr>
