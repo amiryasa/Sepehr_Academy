@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 import { addStudentToCourse, getCourseById } from "../../api/Core/Course";
+import { getStudentById } from "../../api/Core/Student_Manage";
 import { getItem } from "../../api/storage/storage";
 import { Btn } from "../../components/common/Button/Btn";
 import ShoppingList from "../../components/ShoppingList/ShoppingList";
@@ -16,10 +18,12 @@ export default function ShoppingCart() {
     const navigator = useNavigate();
     const data = useRef([])
     const [showShop, setShowShop] = useState([])
-    const { setConfirmPopupOpen, onConfirmSetter } = useContext(GeneralContext)
+    const oldData = useRef([])
+    const { setConfirmPopupOpen, onConfirmSetter, setBackShop } = useContext(GeneralContext)
 
     useEffect(() => {
-        getCoursesById()
+        getCoursesById();
+        if (userId) getMyOldCourse(userId)
     }, [])
 
     useEffect(() => {
@@ -29,6 +33,12 @@ export default function ShoppingCart() {
         }, 1000);
 
     }, [data.current.length])
+
+    const getMyOldCourse = async (userId) => {
+        let response = await getStudentById(userId);
+        let holder = response.data.result.courses;
+        oldData.current = holder.map(item => item._id);
+    }
 
     const getCoursesById = () => {
         if (shoppCourse && data.current.length != shoppCourse.length) {
@@ -42,10 +52,13 @@ export default function ShoppingCart() {
         let response = await getCourseById(item);
         if (response.data.result) {
             if (data.current.length != shoppCourse.length) {
-                data.current.push(response.data.result)
+                if (oldData.current && oldData.current.length > 0) {
+                    if (oldData.current.includes(response.data.result._id)) { toast.warning('دوره انتخاب شده قبلا خریداری شده بود!'); return }
+                    else data.current.push(response.data.result)
+                } else
+                    data.current.push(response.data.result)
             }
         }
-
     }
 
     const GetTotalPay = () => {
@@ -79,7 +92,6 @@ export default function ShoppingCart() {
 
     }
 
-    console.log(showShop, "showShop");
 
     return (
         <div className="shoppingCart">
@@ -126,7 +138,13 @@ export default function ShoppingCart() {
                                     elementClass="mediumBtnCh"
                                     variant="contained"
                                     onChange={() => {
-                                        submitCourseToStudent()
+                                        if (userId)
+                                            submitCourseToStudent()
+                                        else {
+                                            toast.error('ابتدا وارد شوید!');
+                                            setBackShop(true)
+                                            navigator('/login');
+                                        }
                                     }} />
                             </div>
                         </div>

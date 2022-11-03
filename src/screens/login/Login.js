@@ -27,7 +27,7 @@ const validationSchema = yup.object({
 
 const Login = () => {
   const navigator = useNavigate();
-  const { setDataUser } = useContext(GeneralContext)
+  const { setDataUser, backShop, setBackShop } = useContext(GeneralContext)
   const checkboxChangeHandler = () => { };
 
   const myFormik = useFormik({
@@ -53,7 +53,8 @@ const Login = () => {
   const getDataUserById = async (id) => {
     let response = await getStudentById(id)
     setDataUser(response.data.result);
-    navigator("/")
+    if (backShop) { setBackShop(false); navigator('/shoppingCart') }
+    else navigator("/")
   }
 
   return (
