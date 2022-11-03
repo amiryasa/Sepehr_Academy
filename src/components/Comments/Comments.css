@@ -322,3 +322,22 @@
   background-position: center;
 }
 
+
+@media screen and (max-width: 1262px) {
+  .showCommentsItems{
+    width:600px;
+    grid-template-columns: 280px 280px;
+    gap:40px;
+    margin-top: 85px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .showCommentsItems{
+    width:280px;
+    grid-template-columns: 280px;
+    gap:20px;
+    margin-top: 85px;
+  }
+}
+

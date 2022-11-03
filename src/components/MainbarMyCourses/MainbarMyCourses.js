@@ -21,9 +21,22 @@ const MainbarMyCourses = () => {
   const getUserId = async () => {
     let response = await getStudentById(userId);
     if (response) {
-      setStudentInfo(response.data.result);
+
+      let rightData = response.data.result.courses.map((item) => ({
+        title: item.title,
+        teacher: item.teacher.fullName,
+        startDate: item.startDate,
+        endDate: item.endDate,
+        cost: item.cost,
+        id: item._id,
+        icon:true,
+      }));
+      
+      setStudentInfo(rightData);
     }
   }
+
+  
 
   const handlePagination_MainbarMyCourses = (e, value) => {
     setCurrentPage_MainbarMyCourses(value);
@@ -43,9 +56,10 @@ const MainbarMyCourses = () => {
           <TableCom
             actionPic={deleteCourse}
             lastColumnTitle={'حذف دوره'}
-            myData={studentInfo ? studentInfo.courses : ""}
+            myCourses={studentInfo ? studentInfo : ""}
             currentPage={currentPage_MainbarMyCourses}
             rowsCount={5}
+            comFrom={'my'}
             onClick={(courseId) => {
               onConfirmSetter('آیا برای حذف دوره اطمینان دارید؟',
                 async () => {
@@ -64,7 +78,7 @@ const MainbarMyCourses = () => {
         </div>
         <div className="mainbarCoursesPaginatin">
           <Paginate
-            allItem={studentInfo ? studentInfo.courses.length : 5}
+            allItem={studentInfo ? studentInfo.length : 5}
             eachPageTtem={5}
             handlePagination={handlePagination_MainbarMyCourses}
           />

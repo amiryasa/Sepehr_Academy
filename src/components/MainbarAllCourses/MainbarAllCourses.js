@@ -7,54 +7,69 @@ import { getAllCourse } from "./../../api/Core/Course";
 import { getStudentById } from "./../../api/Core/Student_Manage"
 import "./MainbarAllCourses.css";
 
+
 const MainbarAllCourses = () => {
-  const userId = JSON.parse(getItem('id'))
-  const courseNew = JSON.parse(getItem('NewCourse'))
+  
   const [currentPage_MainbarAllCourses, setCurrentPage_MainbarAllCourses] = useState(1);
-  const [studentInfo, setStudentInfo] = useState();
   const [buyCourseLast, setBuyCourseLast] = useState();
   const { setConfirmPopupOpen, onConfirmSetter } = useContext(GeneralContext)
   const newCourse = useRef([])
 
+
+  
+  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+  const userId = JSON.parse(getItem('id'))
+  const [allCourse, setAllCourse] = useState();
+  const [shopping, setShopping] = useState(['']);
+
   useEffect(() => {
     getCourses();
-    getMyCourse();
+    // getMyCourse();
   }, []);
 
-  // useEffect(() => {
-  //   let c;
-  //   console.log(courseNew, "++++++++++++");
-  //   if (courseNew && studentInfo) {
-  //     studentInfo.map((allCourse) => {
-  //       c = courseNew.map((item) => {
-  //         console.log(item, allCourse._id, "33333333333333");
-  //         if (item === allCourse._id) return allCourse
-  //       })
-  //     })
-  //     console.log(c, "________________");
-  //   }
+  
+  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
 
-
-  // }, [courseNew, studentInfo])
-
-console.log(buyCourseLast,"buyCourseLast");
+  
+  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
 
   const getCourses = async () => {
     let response = await getAllCourse();
-    if (response.data.result) {
-      let acceptData = response.data.result.map((item) => ({
+
+    let response02 = await getStudentById(userId);
+
+    if (response02.data.result && response) {
+      //setMyCourse(response02.data.result.courses);
+
+      let holder = response02.data.result.courses;
+
+      holder = holder.map(item => item._id);
+
+      
+      let rightData = response.data.result.map((item) => ({
         title: item.title,
         teacher: item.teacher.fullName,
+        startDate: item.startDate,
+        endDate: item.endDate,
         cost: item.cost,
         id: item._id,
-        endDate: item.endDate,
-        startDate: item.startDate,
-        action: false
+        icon:holder.includes(item._id) ? 'gray' : 'green',
       }));
 
-      setStudentInfo(response.data.result);
+      setAllCourse(...[rightData]);
+
     }
   }
+
+  // Amirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+
+
+
+
+
+
+
+
 
   const handlePagination_MainbarAllCourses = (e, value) => {
     setCurrentPage_MainbarAllCourses(value);
@@ -74,15 +89,16 @@ console.log(buyCourseLast,"buyCourseLast");
     }
   }
 
-  const getMyCourse = async () => {
-    let response = await getStudentById(userId);
-    if (response.data.result) {
-      let rightData = response.data.result.courses.map((item) => {
-        return item._id
-      });
-      setBuyCourseLast(rightData)
-    }
+
+  const handleAddToShop = (event) => {
+
+    var index = allCourse.findIndex(item => item.id === event);
+    allCourse[index].icon = 'blue';
+
+    setAllCourse([...allCourse]);
+
   }
+
 
   return (
     <div className="MainbarContainerInTable">
@@ -99,28 +115,25 @@ console.log(buyCourseLast,"buyCourseLast");
             buyCourseLast={buyCourseLast}
             allCourse
             lastColumnTitle={'خرید دوره'}
-            myData={studentInfo ? studentInfo : ""}
+            myCourses = {allCourse ? allCourse : ''}
             currentPage={currentPage_MainbarAllCourses}
             rowsCount={5}
+            comFrom={'all'}
             onClick={(courseId) => {
               onConfirmSetter("آیا برای اضافه کردن دوره به سبد خرید خود اطمینان دارید؟",
                 () => {
-                  if (newCourse.current.length > 0) {
-                    newCourse.current.push(courseId)
-                  }
-                  else {
-                    newCourse.current = [courseId]
-                  }
-                  setTimeout(() => addNewCourse(), 1000);
+                  setShopping(current => [...current, courseId]);
+                  handleAddToShop(courseId); 
                 }, () => {
                   setConfirmPopupOpen(false)
                 })
               setConfirmPopupOpen(true)
-            }} />
+            }} 
+            />
         </div>
         <div className="mainbarAllCoursesPaginatin">
           <Paginate
-            allItem={studentInfo ? studentInfo.length : 5}
+            allItem={allCourse ? allCourse.length : 5}
             eachPageTtem={5}
             handlePagination={handlePagination_MainbarAllCourses}
           />
