@@ -1,80 +1,86 @@
-.CompairItem{
-    width:400px;
+.CompairItem {
+    width: 400px;
     border: 1px solid rgb(241, 241, 241);
     border-radius: 10px;
-    box-shadow: 0px 0px 8px 1px rgba(0,0,0,.05);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, .05);
 }
 
-.CompairItemCenter{
-    width:100%;
+.close_btn {
+    margin-top: 10px;
+    margin-right: 91.5%;
+    cursor: pointer;
+}
+
+.CompairItemCenter {
+    width: 100%;
     display: flex;
-    flex-direction:column;
-    align-items:center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.CompairItemCenter > .CompairItemTitle{
-    color:#043D72;
+.CompairItemCenter>.CompairItemTitle {
+    color: #043D72;
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 8px;
 }
 
-.CompairItemCenter > .CompairItemTeacher{
-    color:#6c6c6c;
+.CompairItemCenter>.CompairItemTeacher {
+    color: #6c6c6c;
     font-size: 17px;
     margin-top: 0px;
 }
 
 
-.CompairItemCenter > img {
-    width:150px;
+.CompairItemCenter>img {
+    width: 150px;
     margin-top: 20px;
 }
 
-.CompairItem > div.CompairItemElement{
+.CompairItem>div.CompairItemElement {
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 25px;
 }
 
-.CompairItem > div > p.CompairItemElementTitle{
-    font-size:15px;
+.CompairItem>div>p.CompairItemElementTitle {
+    font-size: 15px;
     color: #616D76;
-    margin:0px;
+    margin: 0px;
 }
 
-.CompairItem > div > p.CompairItemElementCount{
-    font-size:16px;
+.CompairItem>div>p.CompairItemElementCount {
+    font-size: 16px;
     color: #424c54;
     margin: 0;
     margin-right: 5px;
 }
 
-.CompairItem > hr{
-    width:90%;
-    color:rgb(235, 235, 235)
+.CompairItem>hr {
+    width: 90%;
+    color: rgb(235, 235, 235)
 }
 
-.CompairItem > div.CompairItemElement > div{
+.CompairItem>div.CompairItemElement>div {
     margin-right: auto;
     margin-left: 45px;
 }
 
-.CompairItem > .CompairItemprogressbar01{
+.CompairItem>.CompairItemprogressbar01 {
     margin-right: 20px;
     margin-top: 15px;
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
-.CompairItem > .CompairItemprogressbar02{
+.CompairItem>.CompairItemprogressbar02 {
     margin-right: 20px;
     margin-top: 15px;
-    margin-bottom:15px;
-    display:none;
+    margin-bottom: 15px;
+    display: none;
 }
 
-.CompairItem > .CompairItemButton{
+.CompairItem>.CompairItemButton {
     display: flex;
     justify-content: center;
     margin-top: 35px;
@@ -84,19 +90,18 @@
 
 
 @media (max-width: 1262px) {
-    .CompairItem{
-        width:310px;
+    .CompairItem {
+        width: 310px;
         border: 1px solid rgb(241, 241, 241);
         border-radius: 10px;
-        box-shadow: 0px 0px 8px 1px rgba(0,0,0,.05);
+        box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, .05);
     }
 
-    .CompairItem > .CompairItemprogressbar01{
-        display:none
+    .CompairItem>.CompairItemprogressbar01 {
+        display: none
     }
-    
-    .CompairItem > .CompairItemprogressbar02{
-        display:block;
+
+    .CompairItem>.CompairItemprogressbar02 {
+        display: block;
     }
 }
-

@@ -13,10 +13,9 @@ import { useContext } from "react";
 import { GeneralContext } from "../../../providers/GeneralContext";
 import "./CourseDetailClass.css";
 
-const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
+const CourseDetailClass = ({ AddToShop, deatilsCouse, detailTeacher, detailLesson }) => {
   const { setCompairCourse, compairCourse } = useContext(GeneralContext)
-  console.log(detailLesson, "detailLesson");
-  console.log(compairCourse, "compairCourse");
+
 
   return (
     <>
@@ -75,6 +74,9 @@ const CourseDetailClass = ({ deatilsCouse, detailTeacher, detailLesson }) => {
             text='افزودن به سبد'
             elementClass="largeBtn"
             variant="contained"
+            onChange={() => {
+              AddToShop(deatilsCouse._id)
+            }}
           />
           <Btn
             color="info"

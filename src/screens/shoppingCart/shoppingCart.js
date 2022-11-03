@@ -1,81 +1,38 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { addStudentToCourse, getCourseById } from "../../api/Core/Course";
-import { getItem, removeItem, setItem } from "../../api/storage/storage";
+import { getItem } from "../../api/storage/storage";
 import { Btn } from "../../components/common/Button/Btn";
 import ShoppingList from "../../components/ShoppingList/ShoppingList";
 import * as fa from "../../constants/persianStrings"
 import { GeneralContext } from "../../providers/GeneralContext";
 import "./index.css"
 
-const ShoppingCourses = [
-    {
-        id: "01",
-        name: "دوره پیشرفته  Front-End",
-        teacher: "دکتر محمد بحرالعلوم",
-        cost: "500000",
-        img: require("../../assets/images/Courses/react.png"),
-        sale: "40%",
-        date: "1401/01/02"
-    },
-    {
-        id: "02",
-        name: "دوره پیشرفته  Front-End",
-        teacher: "دکتر محمد بحرالعلوم",
-        cost: "200000",
-        img: require("../../assets/images/Courses/react.png"),
-        sale: "0%",
-        date: "1401/01/02"
-    },
-    {
-        id: "03",
-        name: "دوره پیشرفته  Front-End",
-        teacher: "دکتر محمد بحرالعلوم",
-        cost: "2000000",
-        img: require("../../assets/images/Courses/react.png"),
-        sale: "40%",
-        date: "1401/01/02"
-    },
-    {
-        id: "04",
-        name: "دوره پیشرفته  Front-End",
-        teacher: "دکتر محمد بحرالعلوم",
-        cost: "450000",
-        img: require("../../assets/images/Courses/react.png"),
-        sale: "40%",
-        date: "1401/01/02"
-    },
-    {
-        id: "05",
-        name: "دوره پیشرفته  Front-End",
-        teacher: "دکتر محمد بحرالعلوم",
-        cost: "300000",
-        img: require("../../assets/images/Courses/react.png"),
-        sale: "40%",
-        date: "1401/01/02"
-    },
-];
 
 export default function ShoppingCart() {
-    const NewCourse = JSON.parse(getItem('NewCourse'))
+    const { shoppCourse, setShopCourse } = useContext(GeneralContext)
     const userId = JSON.parse(getItem('id'))
-
     const [totalPay, setTotalPay] = useState(0);
     const navigator = useNavigate();
     const data = useRef([])
+    const [showShop, setShowShop] = useState([])
     const { setConfirmPopupOpen, onConfirmSetter } = useContext(GeneralContext)
 
     useEffect(() => {
         getCoursesById()
     }, [])
 
-    //    useEffect(() => {
-    //         GetTotalPay()
-    //     }, []);
+    useEffect(() => {
+        setTimeout(() => {
+            setShowShop(data.current);
+            GetTotalPay()
+        }, 1000);
+
+    }, [data.current.length])
 
     const getCoursesById = () => {
-        if (NewCourse && data.current.length != NewCourse.length) {
-            NewCourse.map(async (item) => {
+        if (shoppCourse && data.current.length != shoppCourse.length) {
+            shoppCourse.map(async (item) => {
                 getDetailShopp(item)
             })
         }
@@ -84,53 +41,50 @@ export default function ShoppingCart() {
     const getDetailShopp = async (item) => {
         let response = await getCourseById(item);
         if (response.data.result) {
-            if (data.current.length != NewCourse.length) {
+            if (data.current.length != shoppCourse.length) {
                 data.current.push(response.data.result)
             }
         }
+
     }
 
     const GetTotalPay = () => {
         data.current.map((item) => {
-            setTotalPay((Prev) => Prev + (item.cost * 1))
+            setTotalPay((Prev) => Prev + (item.cost))
         })
     }
 
     const removeCourse = (course) => {
         onConfirmSetter("آیا برای حذف دوره اطمینان دارید؟", () => {
-            let oldCourse = NewCourse;
-            let New = oldCourse.filter(item => item != course._id)
-            setItem('NewCourse', JSON.stringify(New));
-            let NewRef = data.current.filter(item => item._id != course._id);
-            data.current = NewRef
+            let newCourseToShop = showShop.filter(item => item._id != course._id);
+            setShowShop(newCourseToShop)
+            let newShop = shoppCourse.filter(item => item != course._id)
+            setShopCourse(newShop)
         })
         setConfirmPopupOpen(true)
     }
 
     const submitCourseToStudent = () => {
-        data.current.map(async (item) => {
+        showShop.map(async (item) => {
             const data = {
                 userId: userId,
                 courseId: item._id
             }
-            let response = await addStudentToCourse(data);
-            if (response.data.message) {
-                // let NewRef = data.current.filter(id => id._id != item._id);
-                // data.current = NewRef
-                removeItem('NewCourse')
-            }
+            await addStudentToCourse(data);
+
         })
-        data.current = null;
+        setShowShop([]);
+        setShopCourse([]);
+        data.current = null
 
     }
 
-    console.log(data.current.values);
-
+    console.log(showShop, "showShop");
 
     return (
         <div className="shoppingCart">
 
-            {data.current.length === 0 ?
+            {!showShop || showShop.length === 0 ?
                 <>
                     <div className="emptyShopping"></div>
                     <p className="emptyShoppingTitle">سبد خرید شما خالی است!</p>
@@ -145,7 +99,7 @@ export default function ShoppingCart() {
                     <div className="detailShoppingCart">
 
                         <div className="listShoppingCourse">
-                            <ShoppingList myData={data.current} removeCourse={removeCourse} />
+                            <ShoppingList myData={showShop} removeCourse={removeCourse} />
                         </div>
                         <div className="totalShopping">
                             <div className="describeShopping">

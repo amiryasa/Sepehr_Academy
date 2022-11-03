@@ -25,7 +25,6 @@ const Progressbar = (props) => {
   }
 
   if (props.type === 'compair') {
-    console.log(props.capacity);
 
     if (props.capacity < 50) {
       color = "#FD2414";
