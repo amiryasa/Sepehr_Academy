@@ -40,7 +40,7 @@ const Compair = () => {
   const { compairCourse } = useContext(GeneralContext)
   const courseToCompair = useRef([])
   const [data, setData] = useState([])
-  const listCompairer = {};
+  const listCompairer = useRef([]);
 
   useEffect(() => {
     if (compairCourse.length === 2) {
@@ -80,63 +80,63 @@ const Compair = () => {
 
   const getCompairAllCourse = () => {
     if (courseToCompair.current[0].rate > courseToCompair.current[1].rate) {
-      listCompairer['rate'] = 1;
+      listCompairer.current['rate'] = 1;
     }
     else if (courseToCompair.current[0].rate < courseToCompair.current[1].rate) {
-      listCompairer['rate'] = 2;
+      listCompairer.current['rate'] = 2;
     }
     else {
-      listCompairer['rate'] = 0;
+      listCompairer.current['rate'] = 0;
     }
 
     if (courseToCompair.current[0].cost < courseToCompair.current[1].cost) {
-      listCompairer['cost'] = 1;
+      listCompairer.current['cost'] = 1;
     }
     else if (courseToCompair.current[0].cost > courseToCompair.current[1].cost) {
-      listCompairer['cost'] = 2;
+      listCompairer.current['cost'] = 2;
     }
     else {
-      listCompairer['cost'] = 0;
+      listCompairer.current['cost'] = 0;
     }
 
     if (courseToCompair.current[0].studentCount > courseToCompair.current[1].studentCount) {
-      listCompairer['studentCount'] = 1;
+      listCompairer.current['studentCount'] = 1;
     }
     else if (courseToCompair.current[0].studentCount < courseToCompair.current[1].studentCount) {
-      listCompairer['studentCount'] = 2;
+      listCompairer.current['studentCount'] = 2;
     }
     else {
-      listCompairer['studentCount'] = 0;
+      listCompairer.current['studentCount'] = 0;
     }
 
     if (courseToCompair.current[0].capacity > courseToCompair.current[1].capacity) {
-      listCompairer['capacity'] = 1;
+      listCompairer.current['capacity'] = 1;
     }
     else if (courseToCompair.current[0].capacity < courseToCompair.current[1].capacity) {
-      listCompairer['capacity'] = 2;
+      listCompairer.current['capacity'] = 2;
     }
     else {
-      listCompairer['capacity'] = 0;
+      listCompairer.current['capacity'] = 0;
     }
 
     if (courseToCompair.current[0].start < courseToCompair.current[1].start) {
-      listCompairer['start'] = 1;
+      listCompairer.current['start'] = 1;
     }
     else if (courseToCompair.current[0].start > courseToCompair.current[1].start) {
-      listCompairer['start'] = 2;
+      listCompairer.current['start'] = 2;
     }
     else {
-      listCompairer['start'] = 0;
+      listCompairer.current['start'] = 0;
     }
 
     if (courseToCompair.current[0].section > courseToCompair.current[1].section) {
-      listCompairer['section'] = 1;
+      listCompairer.current['section'] = 1;
     }
     else if (courseToCompair.current[0].section < courseToCompair.current[1].section) {
-      listCompairer['section'] = 2;
+      listCompairer.current['section'] = 2;
     }
     else {
-      listCompairer['section'] = 0;
+      listCompairer.current['section'] = 0;
     }
   }
 
@@ -144,8 +144,8 @@ const Compair = () => {
     <div>
       {(data && data.length > 1) ?
         <div className="CompairItemContainer">
-          <CompairItem couurseInfo={courseToCompair.current[0]} comperList={listCompairer} itemId={1} />
-          <CompairItem couurseInfo={courseToCompair.current[1]} comperList={listCompairer} itemId={2} />
+          <CompairItem couurseInfo={courseToCompair.current[0]} comperList={listCompairer.current} itemId={1} />
+          <CompairItem couurseInfo={courseToCompair.current[1]} comperList={listCompairer.current} itemId={2} />
         </div> : <div> دوره ای برای مقایسه انتخاب نشده است </div>}
     </div>
   );
