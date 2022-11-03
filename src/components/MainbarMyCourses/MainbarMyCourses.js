@@ -29,7 +29,7 @@ const MainbarMyCourses = () => {
         endDate: item.endDate,
         cost: item.cost,
         id: item._id,
-        icon:true,
+        icon:'red',
       }));
       
       setStudentInfo(rightData);

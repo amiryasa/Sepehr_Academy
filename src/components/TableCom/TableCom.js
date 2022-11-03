@@ -18,6 +18,7 @@ import shoppingDisable from "../../assets/images/Table/shoppingDis.png";
 import delete01 from "../../assets/images/Table/delete.png";
 
 import "./TableCom.css";
+import { toast } from "react-toastify";
 
 
 const TableCom = (props) => {
@@ -87,7 +88,12 @@ const TableCom = (props) => {
                 <StyledTableCell
                   align="center"
                   onClick={() => {
-                    props.onClick(row.id);
+                    if(row.icon === 'green' || row.icon === 'red'){
+                      props.onClick(row.id);
+                    }
+                    else{
+                      toast.warning('!امکان خرید این دوره وجود ندارد')
+                    }
                   }}>
                   <img alt="Shopping_icon" style={{ cursor: "pointer" }} width={24} src={props.comFrom === 'all' ? (row.icon === 'gray' ? shoppingDisable : (row.icon === 'green' ? shoppingAction : shoppingBag )) : delete01} />
                 </StyledTableCell>
