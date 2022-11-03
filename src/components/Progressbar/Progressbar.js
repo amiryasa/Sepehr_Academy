@@ -25,6 +25,8 @@ const Progressbar = (props) => {
   }
 
   if (props.type === 'compair') {
+    console.log(props.capacity);
+
     if (props.capacity < 50) {
       color = "#FD2414";
     } else if (props.capacity === 50) {
@@ -41,7 +43,7 @@ const Progressbar = (props) => {
 
         <Slider
           aria-label="Temperature"
-          defaultValue={Math.ceil((props.student/props.capacity)*100)}
+          defaultValue={props.type === 'capacity' ? (Math.ceil((props.student/props.capacity)*100)) : (props.capacity)}
           getAriaValueText={valuetext}
           color="secondary"
           disabled
