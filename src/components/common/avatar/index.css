@@ -1,0 +1,87 @@
+.lg-avatar {
+  width: 8rem !important;
+  height: 8rem !important;
+}
+
+.sm-avatar {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+.md-avatar {
+  width: 5rem !important;
+  height: 5rem !important;
+}
+
+.xl-avatar {
+  width: 10rem !important;
+  height: 10rem !important;
+}
+
+.xs-avatar {
+  width: 2.6rem !important;
+  height: 2.6rem !important;
+}
+
+.sidebarContainerInfoPictureIcon {
+  width: 25px;
+  height: 25px;
+  background: url("./../../../assets/images/StudentPanel/pic.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  background-color: #00707F;
+  cursor: pointer;
+  position: relative;
+  top: 23px;
+  right: 18px;
+}
+
+.sidebarContainerInfoPictureIconLG {
+  width: 30px;
+  height: 30px;
+  background: url("./../../../assets/images/StudentPanel/pic.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  background-color: #00707F;
+  cursor: pointer;
+  position: relative;
+  top: 23px;
+  right: 18px;
+}
+
+.sidebarContainerInfoPictureIconXL {
+  width: 50px;
+  height: 50px;
+  background: url("./../../../assets/images/StudentPanel/pic.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  background-color: #00707F;
+  cursor: pointer;
+  position: relative;
+  top: 23px;
+  right: 18px;
+}
+
+@media screen and (max-width: 1262px) {
+  .md-avatar {
+    width: 4rem !important;
+    height: 4rem !important;
+  }
+  .sidebarContainerInfoPictureIcon {
+    width: 20px;
+    height: 20px;
+    background-size: 11px;
+    border-radius: 50%;
+    right: 15px;
+  }
+  .xs-avatar {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+}/*# sourceMappingURL=index.css.map */
