@@ -29,8 +29,4 @@ export const dislikeCourse = payload =>
     })
 
 export const countLikeCourse = payload =>
-    api.get(COUNT_LIKE_COURSE(payload.courseId), {
-        termId: payload.termId,
-        userId: payload.userId,
-        like: true
-    })
+    api.get(COUNT_LIKE_COURSE(payload))

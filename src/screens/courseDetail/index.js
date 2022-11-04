@@ -3,7 +3,7 @@ import { DetailCourse } from "../../components/SingleCourse/DeatilsCourse/Detail
 import { Comments } from "../../components/Comments/Comments";
 import { CourseDetailClass } from "../../components/SingleCourse/CourseDetailClass/CourseDetailClass";
 import { useContext, useEffect, useState } from "react";
-import { getCourseById } from "../../api/Core/Course";
+import { countLikeCourse, dislikeCourse, getCourseById, likeCourse } from "../../api/Core/Course";
 import { getStudentById } from "../../api/Core/Student_Manage";
 import { getItem } from "../../api/storage/storage";
 import { toast } from "react-toastify";
@@ -15,8 +15,13 @@ const CourseDetail = () => {
   const [detailCourse, setDetailCourse] = useState()
   const [shoppingCourses, setShoppingCourses] = useState([])
   const { shoppCourse, setShopCourse } = useContext(GeneralContext)
+  const [countLike, setCountLike] = useState(0)
+  const [countDislike, setCountDislike] = useState(0)
+  const [likeCourses, setLikeCourse] = useState(false)
+  const [disLikeCourses, setDisLikeCourse] = useState(false)
 
   useEffect(() => {
+    getCountLike(id);
     getDetailCourse(id)
     if (userId) {
       getMyCourse(userId)
@@ -34,6 +39,14 @@ const CourseDetail = () => {
     let response = await getStudentById(userId)
     let holder = response.data.result.courses;
     setShoppingCourses(holder.map(item => item._id));
+  }
+
+  const getCountLike = async (id) => {
+    let response = await countLikeCourse(id);
+    if (response.data.result) {
+      setCountLike(response.data.result.like)
+      setCountDislike(response.data.result.dislike)
+    }
   }
 
   const AddToShop = (courseId) => {
@@ -68,6 +81,47 @@ const CourseDetail = () => {
     }
   }
 
+  const actionLike = async () => {
+    if (userId) {
+      const payload = {
+        courseId: id,
+        userId
+      }
+      let response = await likeCourse(payload);
+      if (response.data.result) {
+        getCountLike(id);
+        setLikeCourse(true);
+        setDisLikeCourse(false);
+        toast.success('با موفقیت ثبت شد')
+      }
+      else if (response.data.message) {
+        toast.warning(response.data.message[0].message)
+      }
+    } else toast.error('ابتدا وارد شوید تا بتوانید نظر خودرا ثبت کنید')
+
+  }
+
+  const actionDislike = async () => {
+    if (userId) {
+      const payload = {
+        courseId: id,
+        userId
+      }
+      let response = await dislikeCourse(payload);
+      if (response.data.result) {
+        getCountLike(id);
+        setDisLikeCourse(true);
+        setLikeCourse(false);
+        toast.success('با موفقیت ثبت شد.')
+      }
+      else if (response.data.message) {
+        toast.warning(response.data.message[0].message)
+      }
+    }
+    else toast.error('ابتدا وارد شوید تا بتوانید نظر خودرا ثبت کنید')
+
+  }
+
   return (
     <>
       {detailCourse &&
@@ -76,7 +130,13 @@ const CourseDetail = () => {
             deatilsCouse={detailCourse}
             detailTeacher={detailCourse.teacher}
             detailLesson={detailCourse.lesson}
-            AddToShop={AddToShop} />
+            AddToShop={AddToShop}
+            actionLike={actionLike}
+            actionDislike={actionDislike}
+            countLike={countLike}
+            countDislike={countDislike}
+            likeCourses={likeCourses}
+            disLikeCourses={disLikeCourses} />
           <DetailCourse detailLesson={detailCourse.lesson} />
           <Comments postId={id} />
         </>

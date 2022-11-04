@@ -7,6 +7,48 @@
   align-items: flex-start;
   flex-wrap: nowrap;
 }
+
+.actionsPhoto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.likeDislikeCourse {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.likeDislikeCourse img {
+  cursor: pointer;
+}
+
+.actions {
+  position: relative;
+}
+
+.actions p {
+  width: 19px;
+
+  color: white;
+  height: 19px;
+  border-radius: 50px;
+  text-align: center;
+  position: absolute;
+  /* top: 2px; */
+  top: -24px;
+}
+
+.like p {
+  background-color: green;
+}
+
+.dislike p {
+  background-color: red;
+}
+
 @media (max-width: 60rem) {
   .aboutCourse {
     display: flex;
@@ -16,40 +58,47 @@
     flex-wrap: nowrap;
   }
 }
-.aboutCourse > .informCourse {
+
+.aboutCourse>.informCourse {
   width: 40%;
   height: 100%;
 }
+
 @media (max-width: 1262px) {
-  .aboutCourse > .informCourse {
+  .aboutCourse>.informCourse {
     width: 70%;
     margin: auto;
   }
 }
+
 @media (max-width: 749px) {
-  .aboutCourse > .informCourse {
+  .aboutCourse>.informCourse {
     width: 100%;
     margin: auto;
   }
 }
-.aboutCourse > .informCourse > p {
+
+.aboutCourse>.informCourse>p {
   font-size: 35px;
   font-family: bakh;
   color: #043D72;
 }
+
 @media (max-width: 60rem) {
-  .aboutCourse > .informCourse > p {
+  .aboutCourse>.informCourse>p {
     width: 450px;
     margin-bottom: 2rem;
     margin-top: 2rem;
   }
 }
+
 @media (max-width: 749px) {
-  .aboutCourse > .informCourse > p {
+  .aboutCourse>.informCourse>p {
     font-size: 23px;
   }
 }
-.aboutCourse > .informCourse > hr {
+
+.aboutCourse>.informCourse>hr {
   width: 60px;
   border-width: 4px;
   border: 2px solid #FDEA00;
@@ -58,28 +107,33 @@
   margin-top: -30px;
   margin-bottom: 2rem;
 }
+
 @media (max-width: 749px) {
-  .aboutCourse > .informCourse > hr {
+  .aboutCourse>.informCourse>hr {
     margin-top: -25px;
     margin-right: 0rem;
   }
 }
+
 .aboutCourse .informCourse .information {
   display: grid;
   gap: 2rem;
   grid-template-areas: "myArea .";
   height: auto;
 }
+
 @media (max-width: 1262px) {
   .aboutCourse .informCourse .information {
     width: 100%;
   }
 }
+
 @media (max-width: 60rem) {
   .aboutCourse .informCourse .information {
     width: 450px;
   }
 }
+
 @media (max-width: 749px) {
   .aboutCourse .informCourse .information {
     width: 410px;
@@ -88,55 +142,67 @@
     gap: 1rem;
   }
 }
+
 .aboutCourse .informCourse .information .teacher {
   grid-area: myArea;
 }
+
 .aboutCourse .informCourse .information div {
   display: flex;
   justify-content: normal;
   align-items: center;
 }
+
 .aboutCourse .informCourse .information div img {
   width: 30px;
 }
+
 .aboutCourse .informCourse .information div span {
   padding-right: 5px;
   margin-right: 5px;
   color: #616D76;
 }
+
 @media (max-width: 749px) {
   .aboutCourse .informCourse .information div span {
     font-size: 13px;
   }
 }
+
 .aboutCourse .informCourse .information .timeStart img {
   width: 27px;
 }
+
 .aboutCourse .photoCourse {
   position: relative;
   width: 30%;
   height: 100%;
   margin-top: -60px;
 }
+
 @media (max-width: 60rem) {
   .aboutCourse .photoCourse {
     width: 100%;
     text-align: center;
   }
 }
+
 @media (max-width: 1262px) {
   .aboutCourse .photoCourse {
     margin-top: -20px;
   }
 }
+
 .aboutCourse .photoCourse img {
   width: 380px;
 }
+
 @media (max-width: 1262px) {
   .aboutCourse .photoCourse img {
     width: 300px;
   }
 }
+
 .aboutCourse .photoCourse .offCourse {
   position: absolute;
   bottom: 1rem;
@@ -146,66 +212,76 @@
   align-items: center;
   color: white;
 }
+
 @media (max-width: 749px) {
   .aboutCourse .photoCourse .offCourse {
     bottom: 1rem !important;
     right: 5.5rem !important;
   }
 }
+
 @media (max-width: 60rem) {
   .aboutCourse .photoCourse .offCourse {
     right: 16.5rem;
     bottom: 1rem;
   }
 }
+
 @media (max-width: 1262px) {
   .aboutCourse .photoCourse .offCourse {
     right: 2.3rem;
   }
 }
+
 @media (max-width: 1000px) {
   .aboutCourse .photoCourse .offCourse {
     right: 16.3rem;
   }
 }
+
 .aboutCourse .photoCourse .offCourse .offCount {
   font-size: 25px;
   margin-bottom: -5px;
 }
+
 .aboutCourse .photoCourse .offCourse .offTitle {
   font-size: 10px;
   margin-top: 0px;
-}/*# sourceMappingURL=index.css.map */
+}
 
-.CourseDetailClassActionContainer{
+/*# sourceMappingURL=index.css.map */
+
+.CourseDetailClassActionContainer {
   display: flex;
   margin-top: 35px;
 }
 
-.CourseDetailClassActionButton{
+.CourseDetailClassActionButton {
   display: flex;
   margin-right: 220px;
 }
 
-.CourseDetailClassActionProgressbar{
+.CourseDetailClassActionProgressbar {
   margin-right: 135px;
 }
 
+
+
 @media (max-width: 1262px) {
-  .CourseDetailClassActionContainer{
+  .CourseDetailClassActionContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 35px;
   }
-  
-  .CourseDetailClassActionButton{
+
+  .CourseDetailClassActionButton {
     order: 2;
-    margin-right:0px;
+    margin-right: 0px;
     margin-top: 15px
   }
-  
-  .CourseDetailClassActionProgressbar{
+
+  .CourseDetailClassActionProgressbar {
     order: 1;
     margin-right: 0px;
   }

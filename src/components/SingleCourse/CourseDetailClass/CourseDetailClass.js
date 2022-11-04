@@ -11,11 +11,26 @@ import { Progressbar } from "../../Progressbar/Progressbar";
 import { Btn } from "../../common/Button/Btn";
 import { useContext } from "react";
 import { GeneralContext } from "../../../providers/GeneralContext";
+import like from "../../../assets/images/CourseDetails/like-mood.png"
+import disLike from "../../../assets/images/CourseDetails/dislike-mood.png"
+import disLikeAction from "../../../assets/images/CourseDetails/dislike-action.png"
+import likeAction from "../../../assets/images/CourseDetails/like-action.png"
+
 import "./CourseDetailClass.css";
 
-const CourseDetailClass = ({ AddToShop, deatilsCouse, detailTeacher, detailLesson }) => {
+const CourseDetailClass = (
+  { countLike,
+    countDislike,
+    actionDislike,
+    actionLike,
+    AddToShop,
+    deatilsCouse,
+    detailTeacher,
+    detailLesson,
+    likeCourses,
+    disLikeCourses
+  }) => {
   const { setCompairCourse, compairCourse } = useContext(GeneralContext)
-
 
   return (
     <>
@@ -60,9 +75,35 @@ const CourseDetailClass = ({ AddToShop, deatilsCouse, detailTeacher, detailLesso
             </div>
           </div>
         </div>
-        <div className='photoCourse'>
-          <img src={detailLesson.image} />
+        <div className="actionsPhoto">
+          <div className='photoCourse'>
+            <img src={detailLesson.image} />
+          </div>
+          <div className="likeDislikeCourse">
+            <div className="actions like">
+              <p>{countLike}</p>
+              <img
+                src={likeCourses === false ? like : likeAction}
+                width={40}
+                height={40}
+                style={{ marginLeft: "10px" }}
+                onClick={() => {
+                  actionLike()
+                }} />
+            </div>
+            <div className="actions dislike">
+              <p>{countDislike}</p>
+              <img
+                src={disLikeCourses === false ? disLike : disLikeAction}
+                width={40}
+                height={40}
+                onClick={() => {
+                  actionDislike()
+                }} />
+            </div>
+          </div>
         </div>
+
 
       </div>
 
@@ -98,7 +139,17 @@ const CourseDetailClass = ({ AddToShop, deatilsCouse, detailTeacher, detailLesso
           />
         </div>
         <div className="CourseDetailClassActionProgressbar">
-          <Progressbar capacity={deatilsCouse.capacity} student={(deatilsCouse.students && deatilsCouse.students.length > 0) ? deatilsCouse.students.length : 0} message='ظرفیت باقیمانده' size={250} type='capacity' tooltiveMes={(deatilsCouse.students && deatilsCouse.students.length > 0) ? deatilsCouse.capacity - deatilsCouse.students.length : deatilsCouse.capacity - 0} />
+
+          <Progressbar
+            capacity={deatilsCouse.capacity}
+            student={(deatilsCouse.students && deatilsCouse.students.length > 0) ? deatilsCouse.students.length : 0}
+            message='ظرفیت باقیمانده'
+            size={250}
+            type='capacity'
+            tooltiveMes={(deatilsCouse.students && deatilsCouse.students.length > 0)
+              ? deatilsCouse.capacity - deatilsCouse.students.length :
+              deatilsCouse.capacity - 0}
+          />
         </div>
       </div>
     </>
