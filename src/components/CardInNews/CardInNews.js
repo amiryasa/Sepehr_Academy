@@ -43,7 +43,6 @@ const CardInNews = (props) => {
               variant="contained"
 
               onChange={() => {
-                console.log(1);
                 navigator(`/newsDetail/${props.id}`)
               }}
             />

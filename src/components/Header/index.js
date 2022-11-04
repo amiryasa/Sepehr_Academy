@@ -119,7 +119,6 @@ const Header = () => {
             checked={themePage === 'light' ? true : false}
             onChange={
               (theme) => {
-                console.log(theme.target.checked);
                 if (theme.target.checked === true) setThemePage('light')
                 else setThemePage("dark")
               }} />}

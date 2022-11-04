@@ -28,11 +28,9 @@ const Validation = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
     },
   });
 
-  // console.log("form values:", myFormik.values);
 
   return (
     <div style={{ width: "300px", margin: "30px auto" }}>

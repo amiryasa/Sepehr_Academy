@@ -4,9 +4,6 @@ import { CoursesCard } from "../CoursesCard/CoursesCard";
 
 import './HomeCources.css';
 import { GeneralContext } from "../../providers/GeneralContext"
-import cour01 from './../../assets/images/Courses/native.png';
-import cour02 from './../../assets/images/Courses/html.png';
-import cour03 from './../../assets/images/Courses/react.png';
 import * as fa from '../../constants/persianStrings'
 import { getAllCourse } from '../../api/Core/Course';
 
@@ -22,7 +19,6 @@ const HomeCources = () => {
 
   const getAllCourses = async () => {
     let response = await getAllCourse();
-
     if (response.data.result) {
       setCoursesData(response.data.result.slice(0, 4))
     }
@@ -34,17 +30,6 @@ const HomeCources = () => {
         <h2 className={`${themePage}Intro`}> {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN} </h2>
       </div>
       <div className="courcesCantainer">
-        {/* <div data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
-          <CoursesCard
-            image={cour03}
-            bgColor="#F3FFF8"
-            btnColor="detail"
-            title={"React native"}
-            teacher={"محمد بحرالعلوم"}
-            numberOfStudent='10'
-            rateOfCourses='4.3'
-          />
-        </div> */}
         {coursesData != null && coursesData.map((item) => (
           <div data-aos="fade-left" data-aos-delay="1000" data-aos-duration="800">
             <CoursesCard

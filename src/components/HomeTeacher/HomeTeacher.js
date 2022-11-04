@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect } from "react";
 import { GeneralContext } from "../../providers/GeneralContext"
 import { TeacherCard } from "../TeacherCard/TeacherCard";
-import './HomeTeacher.css';
 import * as fa from '../../constants/persianStrings';
 import { getAllTeachers } from "../../api/Core/Employe_Manage";
 import { DescriptionTeacher } from "../../constants/staticData"
+import './HomeTeacher.css';
 
 const HomeTeacher = () => {
   const [teachersBest, setTeachersBest] = useState(null)

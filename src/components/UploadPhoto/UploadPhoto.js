@@ -110,7 +110,6 @@ export default function UploadPhoto(props) {
                     props.handleClose(response.data.result)
             })
             .catch(function (response) {
-                //handle error
                 console.log(response);
             });
 

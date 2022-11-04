@@ -31,7 +31,7 @@ const HomeIntro = () => {
                 />
             </div>
 
-            <Scrool onClick={() => console.log('test')} />
+            <Scrool />
         </div>
     );
 
