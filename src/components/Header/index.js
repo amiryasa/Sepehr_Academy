@@ -12,7 +12,7 @@ import { getItem } from "../../api/storage/storage";
 const Header = () => {
   const navigator = useNavigate();
   const idUser = JSON.parse(getItem('id'))
-  const { language, setLanguage, themePage, setThemePage, dataUser } = useContext(GeneralContext);
+  const { language, setLanguage, themePage, shoppCourse, setThemePage, dataUser } = useContext(GeneralContext);
 
 
   let isHidden = true;
@@ -136,7 +136,7 @@ const Header = () => {
           className="loginSearch"
           onClick={() => navigator("/shoppingCart")}
         >
-
+          {shoppCourse.length > 0 && <p className="numberOfShopp">{shoppCourse && shoppCourse.length}</p>}
         </div>
 
         {idUser && dataUser ?

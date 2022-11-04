@@ -194,6 +194,17 @@
   cursor: pointer;
   background-color: #00adef;
 }
+.header1>.headerLogin>.loginSearch>.numberOfShopp{
+  margin-top: -10px;
+  width: 19px;
+  height: 19px;
+  background-color: #04a641;
+  align-items: center;
+  border-radius: 50px;
+  text-align: center;
+  color: white;
+  margin-right: -10px;
+}
 
 .header1En>.headerLogin>.loginSearch {
   transition: 0.5s;
@@ -284,6 +295,12 @@
     background-size: 18px;
     height: 20px;
     width: 20px;
+  }
+
+  .header1>.headerLogin>.loginSearch>.numberOfShopp{
+    width: 16px;
+    height: 16px;
+    font-size: 13px;
   }
 
   .header1En>.headerLogin>.loginSearch {

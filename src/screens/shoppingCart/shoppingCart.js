@@ -84,12 +84,10 @@ export default function ShoppingCart() {
                 courseId: item._id
             }
             await addStudentToCourse(data);
-
         })
         setShowShop([]);
         setShopCourse([]);
         data.current = null
-
     }
 
 
