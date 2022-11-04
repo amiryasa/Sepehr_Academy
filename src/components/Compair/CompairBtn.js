@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import compairPhoto from "../../assets/images/Compair/compair.png"
 import { GeneralContext } from "../../providers/GeneralContext"
 import { Tooltips } from "../Tooltive/Tooltips";
@@ -12,6 +13,7 @@ export default function CompairBtn() {
     return (
         <div className="compairBtn" onClick={() => {
             if (compairCourse.length === 2) navigator('/compair')
+            else toast.warning('باید برای مقایسه حتما 2 دوره انتخاب شود!!')
         }}>
             <div className="numberCompair">{compairCourse.length}</div>
             <Tooltips color={"#00adef"} message={'مقایسه'} >

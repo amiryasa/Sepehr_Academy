@@ -126,8 +126,18 @@ const CourseDetailClass = (
             elementClass="largeBtn"
             variant="contained"
             onChange={() => {
-              if (compairCourse.length === 2) toast.error("امکان اضافه کردن بیشتر از دو دوره را ندارید.")
-              if (compairCourse.length > 0 && compairCourse[0].topic != detailLesson.topics[0]) toast.error("امکان اضافه کردن این دوره وجود ندارد.");
+              if (compairCourse.length === 2) { toast.error("امکان اضافه کردن بیشتر از دو دوره را ندارید."); return }
+              if (compairCourse.length > 0) {
+                if (compairCourse[0].topic != detailLesson.topics[0]) { toast.error("امکان اضافه کردن این دوره وجود ندارد."); return }
+                else if (compairCourse[0].id === deatilsCouse._id) { toast.error('این دوره برای مقایسه اضافه شده است!'); return }
+                else {
+                  const compairData = {
+                    id: deatilsCouse._id,
+                    topic: detailLesson.topics[0]
+                  }
+                  setCompairCourse((prev) => [...prev, (compairData)])
+                }
+              }
               else {
                 const compairData = {
                   id: deatilsCouse._id,
@@ -135,6 +145,8 @@ const CourseDetailClass = (
                 }
                 setCompairCourse((prev) => [...prev, (compairData)])
               }
+
+
             }}
           />
         </div>
