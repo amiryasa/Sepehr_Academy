@@ -42,7 +42,6 @@ const NewsContainer = () => {
 
   const handlePagination_NewsContainer = (e, value) => {
     setCurrentPage_NewsContainer(value);
-    console.log(value)
   }
 
 

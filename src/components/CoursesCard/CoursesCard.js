@@ -13,7 +13,7 @@ import { GeneralContext } from "../../providers/GeneralContext"
 import "./CoursesCard.css";
 
 const CoursesCard = (props) => {
-  const { language } = useContext(GeneralContext);
+  const { language, themePage } = useContext(GeneralContext);
   const navigator = useNavigate();
 
   return (
@@ -36,7 +36,7 @@ const CoursesCard = (props) => {
           variant="h5"
           component="div"
           align="center"
-          className="coursesCardTitle"
+          className={`coursesCardTitle ${themePage === 'light' ? 'lightColor' : 'darkColor'}`}
         >
           {props.title}
         </Typography>
@@ -45,7 +45,7 @@ const CoursesCard = (props) => {
           variant="h5"
           component="div"
           align="center"
-          className="coursesCardTeacher"
+          className={`coursesCardTeacher ${themePage === 'light' ? 'lightColorTeacher' : 'darkColorTeacher'}`}
         >
           {props.teacher}
         </Typography>

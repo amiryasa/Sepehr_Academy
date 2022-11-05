@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from "react";
 import { NewsCard } from "../NewsCard/NewsCard";
-
-import './HomeNews.css';
 import { GeneralContext } from "../../providers/GeneralContext"
 import * as fa from '../../constants/persianStrings';
 import { getAllNews } from "../../api/Core/News"
+import './HomeNews.css';
 
 const HomeNews = () => {
   const [newsData, setNewsData] = useState(null)
@@ -41,19 +40,7 @@ const HomeNews = () => {
             />
           </div>
         ))}
-        {/* <div data-aos="flip-up" data-aos-delay="400" data-aos-duration="800">
-          {" "}
-          <NewsCard
-            image={news01}
-            title={language === 'fa' ? fa.ATRICHE_TITLE : fa.ATRICHE_TITLE_EN}
-            description={
-              "توضیحات توضیحات توضیحات توضیحات توضیحات ..."
-            }
-          />
-        </div> */}
-
       </div>
-
       <p className="homeMore" onClick={() => navigator('/news')}>  {language === 'fa' ? fa.MORE_NEWS : fa.MORE_NEWS_EN}</p>
     </>
   );

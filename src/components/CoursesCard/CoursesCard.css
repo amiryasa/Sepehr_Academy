@@ -12,18 +12,32 @@ div.coursesCardCard > .coursesCardMedia{
 }
 
 .coursesCardCard > .MuiCardContent-root > .coursesCardTitle{
-    color: #050080;
     font-size: 21px;
     font-family: yekan;
     margin-top:5px;
 }
 
+.lightColor{
+    color: #050080;
+}
+
+.darkColor{
+    color: #8b87fb;
+}
+
 .coursesCardCard > .MuiCardContent-root > .coursesCardTeacher{
-    color: #555555;
     font-size: 14px;
     font-family: bakh;
     margin-bottom: 5px;
     margin-top: 15px;
+}
+
+.lightColorTeacher{
+    color: #555555;
+}
+
+.darkColorTeacher{
+    color: rgb(223, 222, 245);
 }
 
 .coursesCardCard > .coursesCardRatNumHolder{

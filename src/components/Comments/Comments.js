@@ -1,5 +1,4 @@
 import "./Comments.css";
-import Divider from "@mui/material/Divider";
 import Card from "@mui/material/Card";
 import { Input } from "../common/Input/Input";
 import { Btn } from "../common/Button/Btn";
@@ -7,11 +6,6 @@ import AvatarCostomize from "../common/avatar";
 
 import { useEffect, useRef, useState } from "react";
 import { getComment, sendNewComment } from "./../../api/Core/Comment";
-
-import like from "../../assets/images/comment/like.png";
-import dislike from "../../assets/images/comment/dislike.png";
-import reply from "../../assets/images/comment/reply.png";
-import stop from "../../assets/images/comment/no-stopping.png";
 import * as fa from "../../constants/persianStrings";
 import { getItem } from "../../api/storage/storage";
 import { getStudentById } from "../../api/Core/Student_Manage";
@@ -52,7 +46,7 @@ const Comments = (props) => {
     console.log('goods ->', goods, 'bads -->', bads);
   }
 
-  const handleAddId = async() => {
+  const handleAddId = async () => {
 
   //   const id = await JSON.parse(getItem('id'));
 
@@ -86,32 +80,24 @@ const Comments = (props) => {
   //   }
   }
 
-
-  const fixComments = async() => {
+  const fixComments = async () => {
     const result = await getComment();
 
-    if(result){
+    if (result) {
       let currentResult = result.data.filter((item) => {
         return ((item.postId === props.postId)
-        && item.verified);
+          && item.verified);
       })
       setAllComent([...currentResult]);
-      console.log('currentResult', currentResult);
     }
   }
 
-  useEffect(() => {
-    fixComments();
-  },[])
-
-
-
   return (
     <>
-    <div className="comments">
-      <p> {fa.TITLE_COMMENTS} </p>
-      <div className="addNewComment">
-        <Card>
+      <div className="comments">
+        <p> {fa.TITLE_COMMENTS} </p>
+        <div className="addNewComment">
+          <Card>
             <span>{fa.INSERT_COMMENT}</span>
             <div className="TextComment">
               <Input 
@@ -123,33 +109,32 @@ const Comments = (props) => {
               onChange={handleChange}
               />
             </div>
-            <Btn text={fa.INSERT_COMMENT} color="info" variant="contained" onChange={handleAddId}/>
-        </Card>
+            <Btn text={fa.INSERT_COMMENT} color="info" variant="contained" onChange={handleAddId} />
+          </Card>
+        </div>
       </div>
-    </div>
 
-    <div className="showCommentsItems">
-    {(allComent) ? allComent.map((item, index) => (
+      <div className="showCommentsItems">
+        {(allComent) ? allComent.map((item, index) => (
 
-        
           <div className="showCommentsItems01">
             <div className="showCommentsItemsHolderName">
               <p className="showCommentsItemsStudentName">{item.username}</p>
             </div>
-            <div className="showCommentsItemsHolderComment"> 
+            <div className="showCommentsItemsHolderComment">
               <p className="showCommentsItemsStudentComment">{item.comment}</p>
             </div>
 
             <hr></hr>
 
             <div className="showCommentsItemsHolderName">
-              {item.answer ? 
+              {item.answer ?
                 <p className="showCommentsItemsStudentNameAn" > پاسخ: </p>
-              : ''}
+                : ''}
             </div>
 
             <div className="showCommentsItemsHolderComment">
-              <p className="showCommentsItemsStudentComment">{item.answer ? item.answer : 'پاسخی ثبت نشده است.'}</p> 
+              <p className="showCommentsItemsStudentComment">{item.answer ? item.answer : 'پاسخی ثبت نشده است.'}</p>
             </div>
 
             <div className="showCommentsItemsHolderIcon">
@@ -159,17 +144,13 @@ const Comments = (props) => {
               <div></div>
             </div>
             <div className="showCommentsItemsHolderMode">
-              <img src={good} alt='' style={{width:'30px', position:'absolute', top:'10px', right:'5px'}} />
+              <img src={good} alt='' style={{ width: '30px', position: 'absolute', top: '10px', right: '5px' }} />
             </div>
 
           </div>
-        
-     )): ''}
-     </div>
 
-
-
-    
+        )) : ''}
+      </div>
 
     </>
   );

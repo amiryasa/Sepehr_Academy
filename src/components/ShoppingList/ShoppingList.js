@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 import "./index.css"
+import { formatDate } from "../../constants/usefulFunc";
 
 export default function ShoppingList(props) {
 
@@ -70,7 +71,7 @@ export default function ShoppingList(props) {
                                         </div>
                                     </div>
                                 </StyledTableCell>
-                                <StyledTableCell align="center">{row.date}</StyledTableCell>
+                                <StyledTableCell align="center">{formatDate(row.startDate)}</StyledTableCell>
                                 <StyledTableCell align="left">{row.cost} ت</StyledTableCell>
                                 <StyledTableCell align="center"></StyledTableCell>
                                 <StyledTableCell align="center" onClick={() => { props.removeCourse(row) }} ></StyledTableCell>

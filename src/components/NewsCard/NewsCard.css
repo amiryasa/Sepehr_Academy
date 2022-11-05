@@ -23,8 +23,16 @@ div.newsCardCard{
 .newsCardCard > .MuiBox-root > .MuiCardContent-root > .newsCardTitle{
     font-family: bakh;
     font-size: 16px;
-    color: #808080;
+    /* color: #808080; */
     margin-right: -2px;
+}
+
+.lightColorNews{
+    color: #808080;
+}
+
+.darkColorNews{
+    color: #d3d1d1;
 }
 
 .newsCardCard > .MuiBox-root > .MuiCardContent-root > .newsCardDescription{

@@ -6,7 +6,6 @@ const HamBeer = () => {
   const handlerAnim = () => {
     var element = document.getElementById("item269");
     element.classList.toggle("active");
-    console.log(element);
   }
 
   const handlerAnim01 = () => {

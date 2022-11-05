@@ -1,46 +1,21 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-
-import "./Compair.css";
-
-import cour03 from "./../../assets/images/Courses/react.png";
-import cour02 from './../../assets/images/Courses/html.png';
-
 import { CompairItem } from "../CompairItem/CompairItem";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { getCourseById } from "../../api/Core/Course";
 import { formatDate } from "../../constants/usefulFunc";
-
-const compairData = [
-  {
-    title: " دوره آموزش جامع React native",
-    image: cour03,
-    teacher: "محمد بحرالعلوم",
-    capacity: 40,
-    studentCount: 10,
-    rate: 4.5,
-    cost: "000 350 ت",
-    start: '1401/08/12',
-    section: '6:30 (17 ویدئو)'
-  },
-
-  {
-    title: "دوره آموزش جامع Html & Css",
-    image: cour02,
-    teacher: "محمد بحرالعلوم",
-    capacity: 40,
-    studentCount: 15,
-    rate: 4.7,
-    cost: "000 150 ت",
-    start: '1401/05/23',
-    section: '5:30 (25 ویدئو)'
-  },
-];
+import { toast } from "react-toastify";
+import { getItem } from "../../api/storage/storage";
+import { getStudentById } from "../../api/Core/Student_Manage"
+import "./Compair.css";
 
 const Compair = () => {
-  const { compairCourse } = useContext(GeneralContext)
+  const { compairCourse, setShopCourse, shoppCourse, setCompairCourse, setConfirmPopupOpen, onConfirmSetter } = useContext(GeneralContext)
   const courseToCompair = useRef([])
   const [data, setData] = useState([])
   const listCompairer = useRef([]);
+  const userId = JSON.parse(getItem('id'))
+  const [oldData, setOldData] = useState([])
+
 
   useEffect(() => {
     if (compairCourse.length === 2) {
@@ -54,7 +29,8 @@ const Compair = () => {
     setTimeout(() => {
       setData(courseToCompair.current)
       if (courseToCompair.current.length > 1) {
-        getCompairAllCourse()
+        getCompairAllCourse();
+        getOldCourse(userId);
       }
     }, 2000);
 
@@ -72,10 +48,19 @@ const Compair = () => {
       rate: 4.2,
       cost: response.data.result.cost,
       start: formatDate(response.data.result.startDate),
-      section: '5:30 (25 ویدئو)'
+      section: '5:30 (25 ویدئو)',
+      id: response.data.result._id
     }
     if (courseToCompair.current.length != 2)
       courseToCompair.current.push(currentData)
+  }
+
+  const getOldCourse = async (userId) => {
+    let response = await getStudentById(userId);
+    if (response.data.result) {
+      let holder = response.data.result.courses;
+      setOldData(holder.map(item => item._id));
+    }
   }
 
   const getCompairAllCourse = () => {
@@ -140,12 +125,67 @@ const Compair = () => {
     }
   }
 
+  const AddCourseToShop = (courseId) => {
+    if (oldData && oldData.length > 0) {
+      if (oldData.includes(courseId)) toast.error('این دوره قبلا خریده شده!');
+      else {
+        if (shoppCourse && shoppCourse.length > 0) {
+          if (shoppCourse.includes(courseId)) toast.error('این دوره قبلا به سبد خرید اضافه شده است!');
+          else {
+            setShopCourse(current => [...current, courseId]);
+            toast.success('دوره با موفقیت به سبد خرید اضافه شد!');
+          }
+        }
+        else {
+          setShopCourse(current => [...current, courseId]);
+          toast.success('دوره با موفقیت به سبد خرید اضافه شد!');
+        }
+      }
+    }
+    else if (shoppCourse && shoppCourse.length > 0) {
+      if (shoppCourse.includes(courseId)) toast.error('این دوره قبلا به سبد خرید اضافه شده است!');
+      else {
+        setShopCourse(current => [...current, courseId]);
+        toast.success('دوره با موفقیت به سبد خرید اضافه شد!');
+      }
+    }
+    else {
+      setShopCourse(current => [...current, courseId]);
+      toast.success('دوره با موفقیت به سبد خرید اضافه شد!');
+    }
+  }
+
+  const removeCourseInCompair = (courseId) => {
+    if (data.length === 1 && compairCourse.length === 1) { setData([]); setCompairCourse([]) }
+    else {
+      setCompairCourse(compairCourse.filter((item) => item.id != courseId))
+      setData(data.filter((item) => item.id != courseId))
+    }
+  }
+
   return (
     <div>
-      {(data && data.length > 1) ?
+      {(data && data.length != 0) ?
         <div className="CompairItemContainer">
-          <CompairItem couurseInfo={courseToCompair.current[0]} comperList={listCompairer.current} itemId={1} />
-          <CompairItem couurseInfo={courseToCompair.current[1]} comperList={listCompairer.current} itemId={2} />
+          {data.map((item, key) => (
+            <CompairItem
+              key={item.id}
+              couurseInfo={item}
+              comperList={listCompairer.current}
+              itemId={key + 1}
+              AddCourseToShop={(courseId) => {
+                onConfirmSetter('آیا برای اضافه کردم به سبد خرید مطمئن هستید؟',
+                  () => { AddCourseToShop(courseId) }
+                )
+                setConfirmPopupOpen(true)
+              }}
+              removeCourseInCompair={(courseId) => {
+                onConfirmSetter('آیا برای حذف مطمئن هستید؟',
+                  () => { removeCourseInCompair(courseId) }
+                )
+                setConfirmPopupOpen(true)
+              }} />
+          ))}
         </div> : <div> دوره ای برای مقایسه انتخاب نشده است </div>}
     </div>
   );

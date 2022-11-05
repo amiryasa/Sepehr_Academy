@@ -45,21 +45,6 @@ const TableCom = (props) => {
 
 
 
-  const getPhoto = (courseId) => {
-
-    // if (props.buyCourseLast.length > 0) {
-    //   let iconShop = props.buyCourseLast.map((item) => (item === courseId))
-    //   console.log(iconShop, "iconShop");
-    //   if (iconShop[0]) return shoppingDisable
-    //   else return shoppingAction
-    // }
-    // else
-    //   return shoppingAction
-  }
-
-
-
-  console.log('000', props.myCourses);
 
   return (
     <div className="tableCom">

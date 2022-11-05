@@ -6,8 +6,16 @@ div.teacherCardCard {
 .MuiPaper-root>.MuiCardContent-root>.TeacherCardName {
     font-family: bakh;
     font-size: 16px;
-    color: #585858;
+
     margin-top: -3px;
+}
+
+.lightNameTeachers{
+    color: #585858;
+}
+
+.darkNameTeachers{
+    color: #d6d6d6;
 }
 
 
