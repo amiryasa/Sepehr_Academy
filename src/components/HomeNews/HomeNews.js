@@ -36,6 +36,7 @@ const HomeNews = () => {
               image={item.image}
               title={item.title}
               description={item.text}
+              category={item.category === 'news' ? 'دسته‌بندی:   اخبار' : 'دسته‌بندی:   مقالات'}
             />
           </div>
         ))}

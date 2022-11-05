@@ -30,6 +30,7 @@ const Input = (props) => {
         label={props.title}
         defaultValue={props.defaultValue}
         helperText={props.errorMessage}
+        inputRef={props.refInput}
         style={{
           margin: `${props.margin}`,
           width: `${props.width}`,
