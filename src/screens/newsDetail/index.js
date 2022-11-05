@@ -63,7 +63,7 @@ const NewsDetail = () => {
             {detailNews && <>
                 <NewsDetailClass detailsNews={detailNews} />
                 <DetailNews detailsNews={detailNews} />
-                <Comments comments={comments} />
+                <Comments comments={comments} postId={id}/>
             </>}
         </>
     )

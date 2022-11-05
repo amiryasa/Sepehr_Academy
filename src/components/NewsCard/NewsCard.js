@@ -33,10 +33,10 @@ const NewsCard = (props) => {
             {props.title}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div" className="newsCardDescription">
-          {props.description}
+          {`${props.description.slice(0, 45)} ...`}
           </Typography>
           <Typography component="div" variant="h7" className="newsCardDate">
-            {props.date}
+            {props.category}
           </Typography>
         </CardContent>
       </Box>

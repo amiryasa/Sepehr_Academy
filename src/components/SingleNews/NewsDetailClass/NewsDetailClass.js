@@ -20,7 +20,7 @@ const NewsDetailClass = ({ detailsNews }) => {
                 <div className='opacity'>
                     <img src={articlType} />
                     <span> دسته‌بندی:
-                        <span>{detailsNews.category}</span>
+                        <span>{detailsNews.category === 'news' ? 'اخبار' : 'مقالات'}</span>
                     </span>
                 </div>
                 <div className=' numberStudent'>

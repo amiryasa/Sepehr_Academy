@@ -29,10 +29,10 @@ const CardInNews = (props) => {
             component="div"
             className="cardInNewsDescription"
           >
-            {props.description}
+            {props.description.slice(0,50) + '...'}
           </Typography>
           <Typography component="div" variant="h7" className="cardInNewsDate">
-            {props.date}
+            {props.category}
           </Typography>
 
           <div className="cardInNewsButton">

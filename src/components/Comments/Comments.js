@@ -5,7 +5,7 @@ import { Input } from "../common/Input/Input";
 import { Btn } from "../common/Button/Btn";
 import AvatarCostomize from "../common/avatar";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getComment, sendNewComment } from "./../../api/Core/Comment";
 
 import like from "../../assets/images/comment/like.png";
@@ -18,49 +18,72 @@ import { getStudentById } from "../../api/Core/Student_Manage";
 
 import good from './../../assets/images/CourseDetails/good.png';
 import bad from './../../assets/images/CourseDetails/bad.png';
+import { toast } from "react-toastify";
 
 
 
 
 const Comments = (props) => {
   const [idea, setIdea] = useState();
-
+  const textInput = useRef(null);
   const [courseId, setCourseId] = useState();
   const [allComent, setAllComent] = useState();
 
+  const good = ['خوب بود','عالی بود','کامل بود','خوب','عالی','کامل','جامع','خوبی داشت','خوبی','جامع بود','جامعی داشت','کاملی داشت','مناسب', 'تشکر','مفید بود'];
+  const bad = ['بد بود','عالی نبود','کامل نبود','خوب نبود','بد','ناقص','نبود جامع','بدی داشت','بد','ناقص بود بود','جامعی نداشت','کاملی نداشت','افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت','کمه','کافی نیست','مفید نبود','مفیدی نبود']
+
   const handleChange = (event) => {
-    setIdea(event.target.value);
+    //setIdea(event.target.value);
+
+    let goods = 0;
+    good.forEach((item) => {
+      if((event.target.value).includes(item)){
+        goods++;
+      }
+    });
+
+    let bads = 0;
+    bad.forEach((item) => {
+      if((event.target.value).includes(item)){
+        bads++;
+      }
+    });
+
+    console.log('goods ->', goods, 'bads -->', bads);
   }
 
   const handleAddId = async() => {
 
-    const id = await JSON.parse(getItem('id'));
+  //   const id = await JSON.parse(getItem('id'));
 
 
-    if(id){
-      var student = await getStudentById(id);
-      setCourseId(id);
-    }
+  //   if(id){
+  //     var student = await getStudentById(id);
+  //     setCourseId(id);
 
-    if(student){
+  //   }
 
-      if(idea.length < 100){
-        var commentData={
-          postId: props.postId,
-          email: student.data.result.email,
-          username: student.data.result.fullName,
-          Comment: idea
-        }
-      }
+  //   if(student){
 
-      else{
-        alert('تعداد کارکترهای مجاز کمتر از 100 است.')
-      }
-    }
+  //     if(idea.length < 100){
+  //       var commentData={
+  //         postId: props.postId,
+  //         email: student.data.result.email,
+  //         username: student.data.result.fullName,
+  //         Comment: idea
+  //       }
 
-    if(commentData){
-      const response = await sendNewComment(commentData);
-    }
+  //       textInput.current.value = "";
+  //     }
+
+  //     else{
+  //       toast.error('تعداد کارکترهای مجاز کمتر از 100 است.')
+  //     }
+  //   }
+
+  //   if(commentData){
+  //     const response = await sendNewComment(commentData);
+  //   }
   }
 
 
@@ -95,7 +118,7 @@ const Comments = (props) => {
               title={fa.TITLE_TEXT_COMMENT} 
               multiline={true} 
               row={2} 
-              
+              refInput={textInput}
               name="message"
               onChange={handleChange}
               />
