@@ -24,6 +24,6 @@ export const forgetPassUser = payload =>
     })
 
 export const resetPassUser = payload =>
-    api.post(RESET_PASS, {
+    api.post(RESET_PASS(payload.tokenPass), {
         password: payload.password
     })
