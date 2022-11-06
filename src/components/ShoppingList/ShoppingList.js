@@ -11,7 +11,9 @@ import Paper from "@mui/material/Paper";
 import "./index.css"
 import { formatDate } from "../../constants/usefulFunc";
 
-export default function ShoppingList(props) {
+const ShoppingList = (props) => {
+
+    console.log('456', props.myData);
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
@@ -50,7 +52,7 @@ export default function ShoppingList(props) {
                     <TableBody>
                         {props.myData && props.myData.map((row, key) => (
                             <StyledTableRow key={key}>
-                                <StyledTableCell align="center">{key}</StyledTableCell>
+                                <StyledTableCell align="center">{key+1}</StyledTableCell>
                                 <StyledTableCell component="th" style={{ display: "flex" }}>
                                     <img width={60} src={row.lesson.image} />
                                     <div
@@ -71,9 +73,9 @@ export default function ShoppingList(props) {
                                         </div>
                                     </div>
                                 </StyledTableCell>
-                                <StyledTableCell align="center">{formatDate(row.startDate)}</StyledTableCell>
-                                <StyledTableCell align="left">{row.cost} ت</StyledTableCell>
-                                <StyledTableCell align="center"></StyledTableCell>
+                                <StyledTableCell align="left">{formatDate(row.startDate)}</StyledTableCell>
+                                <StyledTableCell align="left">{row.cost > 0 ? `${row.cost} ت` : 'دوره رایگان!'} </StyledTableCell>
+                                <StyledTableCell align="center">_</StyledTableCell>
                                 <StyledTableCell align="center" onClick={() => { props.removeCourse(row) }} ></StyledTableCell>
                             </StyledTableRow>
                         ))}
@@ -84,3 +86,5 @@ export default function ShoppingList(props) {
         </div>
     )
 }
+
+export {ShoppingList};

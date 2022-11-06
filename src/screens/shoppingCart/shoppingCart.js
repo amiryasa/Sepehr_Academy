@@ -5,7 +5,7 @@ import { addStudentToCourse, getCourseById } from "../../api/Core/Course";
 import { getStudentById } from "../../api/Core/Student_Manage";
 import { getItem } from "../../api/storage/storage";
 import { Btn } from "../../components/common/Button/Btn";
-import ShoppingList from "../../components/ShoppingList/ShoppingList";
+import {ShoppingList} from "../../components/ShoppingList/ShoppingList";
 import * as fa from "../../constants/persianStrings"
 import { GeneralContext } from "../../providers/GeneralContext";
 import "./index.css"
@@ -62,9 +62,15 @@ export default function ShoppingCart() {
     }
 
     const GetTotalPay = () => {
+
+        console.log('202', data.current);
+
+        let total = 0;
         data.current.map((item) => {
-            setTotalPay((Prev) => Prev + (item.cost))
+            total += item.cost
         })
+
+        setTotalPay(total);
     }
 
     const removeCourse = (course) => {
@@ -121,12 +127,12 @@ export default function ShoppingCart() {
                                 </div>
                                 <div className="allSaleCourse">
                                     <p>تخفیف</p>
-                                    <p>30%</p>
+                                    <p>0%</p>
                                 </div>
                                 <hr></hr>
                                 <div className="totalPay">
                                     <p>جمع کل</p>
-                                    <p>{totalPay}ت</p>
+                                    <p>{totalPay} ت</p>
                                 </div>
                             </div>
                             <div className="payShoppingCart">

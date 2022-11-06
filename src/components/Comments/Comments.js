@@ -13,6 +13,8 @@ import { getStudentById } from "../../api/Core/Student_Manage";
 import good from './../../assets/images/CourseDetails/good.png';
 import bad from './../../assets/images/CourseDetails/bad.png';
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { LOGIN, REGISTER } from "../../api/endpoints";
 
 
 
@@ -22,9 +24,16 @@ const Comments = (props) => {
   const textInput = useRef(null);
   const [courseId, setCourseId] = useState();
   const [allComent, setAllComent] = useState();
+  const id = JSON.parse(getItem('id'));
+  const navigator = useNavigate();
 
   const good = ['خوب بود','عالی بود','کامل بود','خوب','عالی','کامل','جامع','خوبی داشت','خوبی','جامع بود','جامعی داشت','کاملی داشت','مناسب', 'تشکر','مفید بود'];
   const bad = ['بد بود','عالی نبود','کامل نبود','خوب نبود','بد','ناقص','نبود جامع','بدی داشت','بد','ناقص بود بود','جامعی نداشت','کاملی نداشت','افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت','کمه','کافی نیست','مفید نبود','مفیدی نبود']
+
+  useEffect(() => {
+    fixComments()
+  },[])
+
 
   const handleChange = (event) => {
     //setIdea(event.target.value);
@@ -48,36 +57,33 @@ const Comments = (props) => {
 
   const handleAddId = async () => {
 
-  //   const id = await JSON.parse(getItem('id'));
+    if(id){
+      var student = await getStudentById(id);
+      setCourseId(id);
 
+    }
 
-  //   if(id){
-  //     var student = await getStudentById(id);
-  //     setCourseId(id);
+    if(student){
 
-  //   }
+      if(idea.length < 100){
+        var commentData={
+          postId: props.postId,
+          email: student.data.result.email,
+          username: student.data.result.fullName,
+          Comment: idea
+        }
 
-  //   if(student){
+        textInput.current.value = "";
+      }
 
-  //     if(idea.length < 100){
-  //       var commentData={
-  //         postId: props.postId,
-  //         email: student.data.result.email,
-  //         username: student.data.result.fullName,
-  //         Comment: idea
-  //       }
+      else{
+        toast.error('تعداد کارکترهای مجاز کمتر از 100 است.')
+      }
+    }
 
-  //       textInput.current.value = "";
-  //     }
-
-  //     else{
-  //       toast.error('تعداد کارکترهای مجاز کمتر از 100 است.')
-  //     }
-  //   }
-
-  //   if(commentData){
-  //     const response = await sendNewComment(commentData);
-  //   }
+    if(commentData){
+      const response = await sendNewComment(commentData);
+    }
   }
 
   const fixComments = async () => {
@@ -93,6 +99,10 @@ const Comments = (props) => {
   }
 
   return (
+    <> 
+
+
+    {id ? 
     <>
       <div className="comments">
         <p> {fa.TITLE_COMMENTS} </p>
@@ -113,6 +123,30 @@ const Comments = (props) => {
           </Card>
         </div>
       </div>
+    </> 
+    : 
+    <>
+      <div className="commentPleaseLogin"> تنها کاربران سایت قادر به ثبت نظر هستند، برای ثبت نظر لازم است تا ثبت‌نام کنید و یا وارد شوید!
+        <div className="commentPleaseLoginBtn">
+          <Btn
+            text={fa.SIGN_UP}
+            elementClass="mediumBtnCh2"
+            color="info"
+            onChange={() => navigator('/register')}
+          />
+          <hr></hr>
+          <Btn
+            text={fa.LOGIN}
+            elementClass="mediumBtnCh2"
+            color="info"
+            className="newoskol"
+            onChange={() => navigator('/login')}
+          />
+        </div>
+      </div>
+    </>}
+
+
 
       <div className="showCommentsItems">
         {(allComent) ? allComent.map((item, index) => (
