@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Checkbox } from "@mui/material";
 import { Btn } from "./../../components/common/Button/Btn";
 import { Input } from "./../../components/common/Input/Input";
@@ -8,7 +8,7 @@ import "./Login.css";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { loginUser } from "../../api/Core/Login_Register";
-import { setItem } from "../../api/storage/storage";
+import { getItem, removeItem, setItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { getStudentById } from "../../api/Core/Student_Manage";
 
@@ -26,17 +26,29 @@ const validationSchema = yup.object({
 });
 
 const Login = () => {
+  const userData = JSON.parse(getItem('saveDataUser'))
   const navigator = useNavigate();
   const { setDataUser, backShop, setBackShop } = useContext(GeneralContext)
-  const checkboxChangeHandler = () => { };
+  const [check, setCheck] = useState(false)
+
+  const checkboxChangeHandler = (e) => {
+    setCheck(e.target.checked)
+  };
 
   const myFormik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: userData ? userData.email : "",
+      password: userData ? userData.password : "",
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      const data = {
+        email: values.email,
+        password: values.password
+      }
+      if (check === true) {
+        setItem('saveDataUser', JSON.stringify(data))
+      } else removeItem('saveDataUser')
       login(values)
     },
   });
@@ -88,7 +100,6 @@ const Login = () => {
                 onChange={myFormik.handleChange}
                 value={myFormik.values.password}
                 password={true}
-
                 error={myFormik.touched.password && Boolean(myFormik.errors.password)}
                 errorMessage={myFormik.touched.password && myFormik.errors.password}
               />
@@ -108,7 +119,9 @@ const Login = () => {
               style={{ color: "#043D72" }}
               onChange={checkboxChangeHandler}
             />
-            <p className="loginInputHolderRemainderP1"> {fa.REMEMBER_ME} </p>
+            <p
+              className="loginInputHolderRemainderP1"
+            > {fa.REMEMBER_ME} </p>
             <p className="loginInputHolderRemainderP2">({fa.SHARED_SYSTEM})</p>
           </div>
 
