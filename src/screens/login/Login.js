@@ -29,7 +29,7 @@ const Login = () => {
   const userData = JSON.parse(getItem('saveDataUser'))
   const navigator = useNavigate();
   const { setDataUser, backShop, setBackShop } = useContext(GeneralContext)
-  const [check, setCheck] = useState(false)
+  const [check, setCheck] = useState(userData.email ? true : false)
 
   const checkboxChangeHandler = (e) => {
     setCheck(e.target.checked)
@@ -118,6 +118,7 @@ const Login = () => {
               size="small"
               style={{ color: "#043D72" }}
               onChange={checkboxChangeHandler}
+              checked={check}
             />
             <p
               className="loginInputHolderRemainderP1"
