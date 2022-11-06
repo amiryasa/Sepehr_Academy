@@ -1,11 +1,11 @@
 import './Actevity.css';
 
-const Actevity = () => {
+const Actevity = (props) => {
   return (
     <div className="actevityHolder">
       <div className="actevityHolderIcon"></div>
-      <p className="actevityHolderTopic"> ثبت نظر </p>
-      <p className="actevityHolderDescription"> ثبت نظر در بخش اخبار و مقالات </p>
+      <p className="actevityHolderTopic"> افزودن دوره </p>
+      <p className="actevityHolderDescription"> {props.data} </p>
     </div>
   );
 }

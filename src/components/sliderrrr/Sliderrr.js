@@ -14,7 +14,7 @@ import { Pagination } from "swiper";
 
 
 
-const Sliderrr = () => {
+const Sliderrr = (props) => {
 
   return (
     <>
@@ -29,9 +29,10 @@ const Sliderrr = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide><div> <Actevity /> </div></SwiperSlide>
-        <SwiperSlide><div> <Actevity /> </div></SwiperSlide>
-        <SwiperSlide><div> <Actevity /> </div></SwiperSlide>
+        {props.data.map(item => (
+          <SwiperSlide><div> <Actevity data={item}/> </div></SwiperSlide>
+        ))}
+        
       </Swiper>
     </>
   );
