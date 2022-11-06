@@ -7,11 +7,14 @@ import * as fa from "../../constants/persianStrings"
 import "./index.css";
 import { ThemeButton } from "../ThemeButton/ThemeButton";
 import AvatarCostomize from "../common/avatar";
-import { getItem } from "../../api/storage/storage";
+import { getItem, removeItem, setItem } from "../../api/storage/storage";
 
 const Header = () => {
   const navigator = useNavigate();
   const idUser = JSON.parse(getItem('id'))
+  const ThemeMode = getItem('theme')
+  const LanguageMode = getItem('language')
+
   const { language, setLanguage, themePage, shoppCourse, setThemePage, dataUser } = useContext(GeneralContext);
 
 
@@ -33,10 +36,20 @@ const Header = () => {
   };
 
   const changeLanguage = (lng) => {
-    if (lng === 'fa')
-      setLanguage('en')
-    else
-      setLanguage('fa')
+    if (lng === 'fa') {
+      setLanguage('en');
+      if (LanguageMode) {
+        removeItem('language');
+        setItem('language', 'en')
+      } else setItem('language', 'en')
+    }
+    else {
+      setLanguage('fa');
+      if (LanguageMode) {
+        removeItem('language');
+        setItem('language', 'fa')
+      } else setItem('language', 'fa')
+    }
   }
 
 
@@ -119,8 +132,20 @@ const Header = () => {
             checked={themePage === 'light' ? true : false}
             onChange={
               (theme) => {
-                if (theme.target.checked === true) setThemePage('light')
-                else setThemePage("dark")
+                if (theme.target.checked === true) {
+                  setThemePage('light');
+                  if (ThemeMode) {
+                    removeItem('theme');
+                    setItem('theme', 'light')
+                  } else setItem('theme', 'light')
+                }
+                else {
+                  setThemePage("dark");
+                  if (ThemeMode) {
+                    removeItem('theme');
+                    setItem('theme', 'dark')
+                  } else setItem('theme', 'dark')
+                }
               }} />}
         />
       </div>

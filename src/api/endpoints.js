@@ -4,7 +4,7 @@ export const API = 'https://api.noorgon.sepehracademy.ir/api/';
 export const REGISTER = `${API}auth/register`
 export const LOGIN = `${API}auth/login`
 export const FORGET_PASS = `${API}forgetpassword`
-export const RESET_PASS = `${API}resetPassword`
+export const RESET_PASS = payload => `${API}resetPassword/${payload}`
 
 //register employee
 export const REGISTER_EMPLOYEE = `${API}auth/employee/register`
