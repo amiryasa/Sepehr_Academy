@@ -5,7 +5,7 @@ import { addStudentToCourse, getCourseById } from "../../api/Core/Course";
 import { getStudentById } from "../../api/Core/Student_Manage";
 import { getItem } from "../../api/storage/storage";
 import { Btn } from "../../components/common/Button/Btn";
-import {ShoppingList} from "../../components/ShoppingList/ShoppingList";
+import { ShoppingList } from "../../components/ShoppingList/ShoppingList";
 import * as fa from "../../constants/persianStrings"
 import { GeneralContext } from "../../providers/GeneralContext";
 import "./index.css"
@@ -53,7 +53,11 @@ export default function ShoppingCart() {
         if (response.data.result) {
             if (data.current.length != shoppCourse.length) {
                 if (oldData.current && oldData.current.length > 0) {
-                    if (oldData.current.includes(response.data.result._id)) { toast.warning('دوره انتخاب شده قبلا خریداری شده بود!'); return }
+                    if (oldData.current.includes(response.data.result._id)) {
+                        toast.warning('دوره انتخاب شده قبلا خریداری شده بود!');
+                        setShopCourse([])
+                        return
+                    }
                     else data.current.push(response.data.result)
                 } else
                     data.current.push(response.data.result)

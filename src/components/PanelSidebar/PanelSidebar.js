@@ -10,7 +10,7 @@ import "./PanelSidebar.css";
 
 const PanelSidebar = () => {
   const navigator = useNavigate();
-  const { dataUser, onConfirmSetter, setConfirmPopupOpen, setDataUser } = useContext(GeneralContext)
+  const { dataUser, onConfirmSetter, setConfirmPopupOpen, setDataUser, setShopCourse } = useContext(GeneralContext)
   const [show, setShow] = useState(false);
 
   const items = document.getElementsByClassName(
@@ -35,9 +35,9 @@ const PanelSidebar = () => {
       birthDate: dataUser.birthDate,
       nationalId: dataUser.nationalId,
       profile: img,
-      id:dataUser._id
+      id: dataUser._id
     }
-    let response =await updateStudetInform(dataUpdate);
+    let response = await updateStudetInform(dataUpdate);
     setDataUser(response.data.result)
     setShow(!show)
   }
@@ -120,7 +120,8 @@ const PanelSidebar = () => {
                 removeItem('token');
                 removeItem('id');
                 navigator("/");
-                setDataUser(null)
+                setDataUser(null);
+                setShopCourse([])
               },
               () => {
                 setConfirmPopupOpen(false)
