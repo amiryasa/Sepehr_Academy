@@ -24,7 +24,7 @@ export const GETALL_COURSES = `${API}course/getall`
 export const PAGINATION_GETALL_COURSES = payload => `${API}course/list?pagenumber=${payload.pageNumber}&pagesize=${payload.pageSize}`
 export const GETALL_COURSES_BY_ID = payload => `${API}course/${payload}`
 export const CREATE_COURSE = `${API}course`
-export const UPDATE_COURSE = `${API}course`
+export const UPDATE_COURSE = payload => `${API}course/${payload}`
 export const DELETE_COURSE = `${API}course`
 export const ADD_STUDENT_IN_COURSE = payload => `${API}course/addStudentToCourse/${payload}`
 export const REMOVE_STUDENT_IN_COURSE = payload => `${API}course/removeStudentFromCourse/${payload}`

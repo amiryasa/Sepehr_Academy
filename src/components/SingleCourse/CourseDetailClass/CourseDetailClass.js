@@ -23,6 +23,7 @@ const CourseDetailClass = (
     countDislike,
     actionDislike,
     actionLike,
+    during,
     AddToShop,
     deatilsCouse,
     detailTeacher,
@@ -46,7 +47,7 @@ const CourseDetailClass = (
             <div className='duringCourse'>
               <img src={duringCourse} />
               <span>{fa.DURING_COURSE}
-                <span>05:30 (17 ویدئو)</span>
+                <span>{during} ماه</span>
               </span>
             </div>
             <div className='opacity'>
