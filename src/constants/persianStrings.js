@@ -45,6 +45,7 @@ export const INSERT_MESSAGE = "ثبت پیام"
 export const LOGIN = "ورود"
 export const SIGN_UP = "ثبت نام"
 export const FORGET_PASS = "رمز عبورم را فراموش کرده‌ام!"
+export const LOGIN_ADMIN = "ورود اساتید و ادمین"
 export const REMEMBER_ME = "مرا به خاطر بسپار!"
 export const SUCESS_EMAIL = "تایید ایمیل"
 export const INSERT_COMMENT = "ثبت نظر"
@@ -56,8 +57,8 @@ export const PLACEHOLDER_BTN = "جهت عضویت در خبرنامه، ایمی
 export const REMOVE_PHOTO = "حذف عکس"
 export const EDIT_PHOTO = "تغییر عکس"
 export const OPTIOANL_PHOTO = "آپشن"
-export const CANCEL_ACT="انصراف"
-export const ACCEPT_ACT="تایید"
+export const CANCEL_ACT = "انصراف"
+export const ACCEPT_ACT = "تایید"
 export const ADDRESS = "ساری، جاده دریا، بعد از دنیای آرزو، پژوهشگاه سپهر "
 
 //card name
