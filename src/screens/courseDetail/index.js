@@ -28,10 +28,24 @@ const CourseDetail = () => {
     }
   }, [])
 
+  const duringSeter = (item1,item2) =>{
+
+    var d = new Date(item1);
+    let month01 = d.getMonth() + 1;
+
+    var e = new Date(item2);
+    let month02 = e.getMonth() + 1;
+
+
+    return (month01-month02);
+
+  }
+
   const getDetailCourse = async (id) => {
     let response = await getCourseById(id);
     if (response.data.result) {
-      setDetailCourse(response.data.result)
+      setDetailCourse(response.data.result);
+      console.log('first', response.data.result)
     }
   }
 
@@ -133,6 +147,7 @@ const CourseDetail = () => {
             AddToShop={AddToShop}
             actionLike={actionLike}
             actionDislike={actionDislike}
+            during={duringSeter(detailCourse.startDate, detailCourse.endDate)}
             countLike={countLike}
             countDislike={countDislike}
             likeCourses={likeCourses}

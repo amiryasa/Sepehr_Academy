@@ -98,6 +98,11 @@ const Comments = (props) => {
     }
   }
 
+  const handleReplay = () => {
+    console.log('amirhossein');
+  }
+
+
   return (
     <> 
 
@@ -173,10 +178,11 @@ const Comments = (props) => {
 
             <div className="showCommentsItemsHolderIcon">
               <div></div>
-              <div></div>
+              <div onClick={handleReplay}></div>
               <div></div>
               <div></div>
             </div>
+
             <div className="showCommentsItemsHolderMode">
               <img src={good} alt='' style={{ width: '30px', position: 'absolute', top: '10px', right: '5px' }} />
             </div>
@@ -184,6 +190,27 @@ const Comments = (props) => {
           </div>
 
         )) : ''}
+      </div>
+
+      <div className="showReplay" >
+        <div className="comments">
+          <div className="addNewComment">
+            <Card>
+              <span>{'ثبت پاسخ'}</span>
+              <div className="TextComment">
+                <Input 
+                title={'متن پاسخ'} 
+                multiline={true} 
+                row={2} 
+                refInput={textInput}
+                name="message"
+                onChange={handleChange}
+                />
+              </div>
+              <Btn text={'ثبت پاسخ'} color="info" variant="contained" onChange={handleAddId} />
+            </Card>
+          </div>
+        </div>
       </div>
 
     </>
