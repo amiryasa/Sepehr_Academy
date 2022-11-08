@@ -11,6 +11,7 @@ import { getAllCourse } from "../../api/Core/Course";
 
 const MainbarDashboard = () => {
   const [actevityItem, setActevityItem] = useState([]);
+  const [offerItem, setOfferItem] = useState([]);
   const id = JSON.parse(getItem('id'));
 
 
@@ -24,13 +25,26 @@ const MainbarDashboard = () => {
       const response = await getStudentById(id);
       const response2 = await getAllCourse(id);
 
-      console.log('22222', response.data.result.courses[0].lesson.topics[0]);
+      let getMyCourseTitle;
+      let getMyCourseId;
+      let getStudentCourseCategory;
 
-      let result = response.data.result.courses.map(item => 
-        item.title
-      )
+      if(response.data.result.courses.length > 0){
+        getMyCourseTitle = response.data.result.courses.map(item => 
+          item.title
+        )
 
-      let rightData = response2.data.result.map((item) => ({
+        getMyCourseId = response.data.result.courses.map(item => 
+          item._id
+        )
+
+        getStudentCourseCategory = response.data.result.courses.map(item => 
+          item.lesson.topics[0]
+        )
+      }
+
+
+      let getAllCourses = response2.data.result.map((item) => ({
         image: item.lesson.image,
         title: item.title,
         teacher: item.teacher.fullName,
@@ -40,19 +54,55 @@ const MainbarDashboard = () => {
         category: item.lesson.topics[0],
       }));
 
-      console.log('5555555',rightData);
+      if(response.data.result.courses.length > 0){
+
+        let otherCourses = getAllCourses.filter(item => 
+          !(getMyCourseId.includes(item.id))
+        )
+  
+        let otherCoursesWithMyCategory = otherCourses.filter(item => 
+          getStudentCourseCategory.includes(item.category)
+        )
+  
+        if(otherCoursesWithMyCategory.length > 4){
+          otherCoursesWithMyCategory= otherCoursesWithMyCategory.reverse();
+          otherCoursesWithMyCategory= otherCoursesWithMyCategory.slice(0,4);
+        }
+        else{
+          otherCoursesWithMyCategory= otherCoursesWithMyCategory.reverse();
+        }
+  
+        setOfferItem(otherCoursesWithMyCategory);
+  
+      }
+      else{
+        getAllCourses = getAllCourses.reverse();
+        getAllCourses = getAllCourses.slice(0,4);
+        setOfferItem(getAllCourses);
+      }
+      
 
 
-      if(result.length > 3){
-        result = result.reverse();
-        result = result.slice(0,3);
+
+
+
+      // last added Courses
+
+      if(getMyCourseTitle.length > 3){
+        getMyCourseTitle = getMyCourseTitle.reverse();
+        getMyCourseTitle = getMyCourseTitle.slice(0,3);
       }
 
       else{
-        result = result.reverse();
+        getMyCourseTitle = getMyCourseTitle.reverse();
       }
 
-      setActevityItem(result);
+      setActevityItem(getMyCourseTitle);
+
+
+
+
+
 
 
     }
@@ -95,51 +145,22 @@ const MainbarDashboard = () => {
           </div>
           
           <div className="MainbarDashboardCoursesContainer">
-             <div>
-              <CoursesCard
-                image={cour01}
-                bgColor="#F5FCFF"
-                btnColor="detail"
-                title={"React native"}
-                teacher={"محمد بحرالعلوم"}
-                numberOfStudent="10"
-                rateOfCourses="4.3"
-              />
-            </div> 
+
+            {offerItem && offerItem.map((item, index) =>(
+              <div>
+                <CoursesCard
+                  image={item.image}
+                  bgColor={index % 2 ? "#F3FFF8" : "#F5FCFF"}
+                  btnColor="detail"
+                  title={item.title}
+                  teacher={item.teacher}
+                  numberOfStudent={item.studentCount}
+                  rateOfCourses={item.rate}
+                  id={item.id}
+                />
+              </div>
+            ))}
             
-            <div>
-              <CoursesCard
-                image={cour01}
-                bgColor="#F5FCFF"
-                btnColor="detail"
-                title={"React native"}
-                teacher={"محمد بحرالعلوم"}
-                numberOfStudent="10"
-                rateOfCourses="4.3"
-              />
-            </div>
-            <div>
-              <CoursesCard
-                image={cour01}
-                bgColor="#F5FCFF"
-                btnColor="detail"
-                title={"React native"}
-                teacher={"محمد بحرالعلوم"}
-                numberOfStudent="10"
-                rateOfCourses="4.3"
-              />
-            </div>
-            <div>
-              <CoursesCard
-                image={cour01}
-                bgColor="#F5FCFF"
-                btnColor="detail"
-                title={"React native"}
-                teacher={"محمد بحرالعلوم"}
-                numberOfStudent="10"
-                rateOfCourses="4.3"
-              />
-            </div>
           </div>
         </div>
       </div>

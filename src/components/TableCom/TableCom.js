@@ -67,8 +67,8 @@ const TableCom = (props) => {
                 <StyledTableCell align="left">{((props.currentPage - 1) * 5) + (index + 1) < 10 ? `0${((props.currentPage - 1) * 5) + (index + 1)}` : ((props.currentPage - 1) * 5) + (index + 1)}</StyledTableCell>
                 <StyledTableCell component="th" scope="row">{row.title}</StyledTableCell>
                 <StyledTableCell align="left">{row.teacher}</StyledTableCell>
-                <StyledTableCell align="center">{formatDate(row.startDate)}</StyledTableCell>
                 <StyledTableCell align="center">{formatDate(row.endDate)}</StyledTableCell>
+                <StyledTableCell align="center">{formatDate(row.startDate)}</StyledTableCell>
                 <StyledTableCell align="center">{row.cost > 0 ? `${row.cost} ت` : 'رایگان!'}</StyledTableCell>
                 <StyledTableCell
                   align="center"
