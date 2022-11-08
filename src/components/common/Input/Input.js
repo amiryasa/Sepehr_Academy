@@ -22,7 +22,7 @@ const Input = (props) => {
     <div className="inputContainer">
       <TextField
         type={props.password ? showPassword ? 'text' : 'password' : props.type}
-        id="outlined-basic"
+        // id="outlined-basic"
         className={`inputModel ${props.className}`}
         variant="outlined"
         multiline={props.multiline}
@@ -35,7 +35,7 @@ const Input = (props) => {
           margin: `${props.margin}`,
           width: `${props.width}`,
         }}
-       
+        autoComplete={props.autoComplete}
         name={props.name}
         onChange={props.onChange}
         value={props.value}

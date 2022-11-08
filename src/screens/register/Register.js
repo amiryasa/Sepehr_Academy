@@ -1,8 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
 import { useFormik } from "formik";
-import * as yup from "yup";
-
 import { useState } from "react";
 import { Btn } from "../../components/common/Button/Btn";
 import DatePickerCustome from "../../components/common/datePicker/DatePicker";
@@ -11,47 +8,11 @@ import * as fa from "../../constants/persianStrings";
 import photo from "../../assets/images/Register/photo.png"
 import "./Register.css";
 import { registerUser } from "../../api/Core/Login_Register";
-import { setItem } from "../../api/storage/storage";
+import { validationSchema } from "../../constants/validationSchema"
 
-const validationSchema = yup.object({
-  name: yup
-    .string("نام خود را به درستی وارد نمایید!")
-    .required("واردکردن نام الزامی است!")
-    .matches(/^[a-zA-Z]*$/, "از حروف انگلیسی استفاده نمایید!")
-    .min(3, "نام حداقل باید شامل 3 کارکتر باشد!")
-    .max(12, "نام حداکثر باید شامل 18 کارکتر باشد!"),
-
-  mobile: yup
-    .string("شماره تماس خود را وارد نمایید!")
-    .matches(/^09[0|1|2|3|9][0-9]*$/, "ساختار وارد شده اشتباه است!")
-    .min(11, "شماره تماس کمتر از حد مجاز است!")
-    .max(11, "شماره تماس بیشتر از حد مجاز است!")
-    .required("وارد کردن شماره تماس الزامی است!"),
-
-  id: yup
-    .string("شماره ملی خود را وارد نمایید!")
-    .matches(/^[0-9]*$/, "ساختار وارد شده اشتباه است!")
-    .min(10, "شماره ملی باید حداقل 10 کارکتر باشد!")
-    .required("وارد کردن شماره ملی الزامی است!"),
-
-  email: yup
-    .string("ایمیل خود را وارد نمایید!")
-    .email("ایمیل خود را به درستی وارد نمایید!")
-    .required("وارد کردن ایمیل الزامی است!"),
-
-  password: yup
-    .string("ایمیل خود را وارد نمایید!")
-    .required("وارد کردن رمزعبور الزامی است! ")
-    .min(8, "رمزعبور باید حداقل 8 کارکتر باشد!")
-    .matches(
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
-      "رمزعبور به اندازه‌ی کافی قوی نیست!"
-    ),
-});
 
 const Register = () => {
   const navigator = useNavigate();
-
   const [date, setDate] = useState(null);
   const [birth, setBirth] = useState(null);
 

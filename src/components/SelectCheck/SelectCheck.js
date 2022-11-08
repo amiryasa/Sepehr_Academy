@@ -9,7 +9,6 @@ import ListItemText from "@mui/material/ListItemText";
 
 import "./SelectCheck.css";
 
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 1;
 const MenuProps = {

@@ -21,6 +21,8 @@ import ConfirmPopUp from "../components/common/PopUpAction/ConfirmPopUp";
 function App() {
   AOS.init();
   const userId = JSON.parse(getItem('id'))
+  const ThemeMode = getItem('theme')
+  const LanguageMode = getItem('language')
   const [language, setLanguage] = React.useState('fa')
   const [themePage, setThemePage] = React.useState('light')
   const [dataUser, setDataUser] = React.useState()
@@ -34,6 +36,16 @@ function App() {
     if (userId)
       getDataUser(userId)
   }, [userId])
+
+  React.useEffect(() => {
+    if (ThemeMode) {
+      setThemePage(ThemeMode)
+    }
+    if (LanguageMode) {
+      setLanguage(LanguageMode)
+    }
+  }, [])
+
 
   const getDataUser = async (id) => {
     let response = await getStudentById(id);
