@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { trackPromise } from "react-promise-tracker";
 import { Input } from "./../common/Input/Input";
 import { Btn } from "./../common/Button/Btn";
 import * as fa from "../../constants/persianStrings"
@@ -112,7 +113,9 @@ const MainbarPassword = () => {
             text={fa.INSERT_NEW_CHANGES}
             elementClass="mediumBtnCh"
             variant="contained"
-            onChange={onSubmit}
+            onChange={() => {
+              trackPromise(onSubmit())
+            }}
           />
           <Btn
             color="warning"

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from "react";
+import { trackPromise } from "react-promise-tracker";
 import { NewsCard } from "../NewsCard/NewsCard";
 import { GeneralContext } from "../../providers/GeneralContext"
 import * as fa from '../../constants/persianStrings';
@@ -12,7 +13,7 @@ const HomeNews = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    showAllNews()
+    trackPromise(showAllNews())
   }, [])
 
   const showAllNews = async () => {
@@ -20,8 +21,6 @@ const HomeNews = () => {
 
     if (response.data.result) {
       setNewsData(response.data.result.slice(0, 6))
-
-      console.log('222222222',response.data.result);
     }
   }
 

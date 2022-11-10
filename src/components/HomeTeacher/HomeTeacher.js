@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { trackPromise } from "react-promise-tracker";
 import { GeneralContext } from "../../providers/GeneralContext"
 import { TeacherCard } from "../TeacherCard/TeacherCard";
 import * as fa from '../../constants/persianStrings';
@@ -11,7 +12,7 @@ const HomeTeacher = () => {
   const { language, themePage } = useContext(GeneralContext);
 
   useEffect(() => {
-    getTeachers()
+    trackPromise(getTeachers())
   }, [])
 
 

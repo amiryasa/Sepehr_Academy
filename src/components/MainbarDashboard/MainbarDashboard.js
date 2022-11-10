@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
+import { trackPromise } from "react-promise-tracker";
 import "./MainbarDashboard.css";
 import CalenderCustom from "../common/datePicker/Calender"
-import cour01 from "./../../assets/images/Courses/native.png";
 import { CoursesCard } from "../CoursesCard/CoursesCard";
 import { Actevity } from "../Actevity/Actevity";
 import { Sliderrr } from "../sliderrrr/Sliderrr";
@@ -16,7 +16,7 @@ const MainbarDashboard = () => {
 
 
   useEffect(() =>{
-    getStudentCourses();
+    trackPromise(getStudentCourses());
   }, [])
 
   const getStudentCourses = async() => {
@@ -98,16 +98,7 @@ const MainbarDashboard = () => {
       }
 
       setActevityItem(getMyCourseTitle);
-
-
-
-
-
-
-
     }
-    
-
   }
 
   return (

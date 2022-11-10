@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useContext } from "react";
+import { trackPromise } from "react-promise-tracker";
 import { Btn } from "../common/Button/Btn";
 import DatePickerCustome from "../common/datePicker/DatePicker";
 import { Input } from "../common/Input/Input";
@@ -141,7 +142,9 @@ const MainbarEditInfo = () => {
               text={fa.INSERT_NEW_CHANGES}
               elementClass="mediumBtnCh"
               variant="contained"
-              onChange={updateDataUser}
+              onChange={() => {
+                trackPromise(updateDataUser())
+              }}
             />
             <Btn
               color="warning"
@@ -159,7 +162,7 @@ const MainbarEditInfo = () => {
         handleClose={(imgUpdate) => {
           setShow(!show);
           // setImg(imgUpdate);
-          updateDataUser(imgUpdate)
+          trackPromise(updateDataUser(imgUpdate))
         }} />}
     </>
   );

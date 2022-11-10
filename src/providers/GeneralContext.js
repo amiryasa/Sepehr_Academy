@@ -19,6 +19,6 @@ export const GeneralContext = createContext({
     shoppCourse: [],
     setShopCourse: (shoppCourse) => console.warn(' no course to shop'),
     backShop: false,
-    setBackShop: (backShop) => console.warn('no back shop')
+    setBackShop: (backShop) => console.warn('no back shop'),
 });
 

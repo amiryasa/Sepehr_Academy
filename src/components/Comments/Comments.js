@@ -1,22 +1,16 @@
+import { useEffect, useRef, useState } from "react";
 import "./Comments.css";
 import Card from "@mui/material/Card";
 import { Input } from "../common/Input/Input";
 import { Btn } from "../common/Button/Btn";
-import AvatarCostomize from "../common/avatar";
-
-import { useEffect, useRef, useState } from "react";
 import { getComment, sendNewComment } from "./../../api/Core/Comment";
 import * as fa from "../../constants/persianStrings";
 import { getItem } from "../../api/storage/storage";
 import { getStudentById } from "../../api/Core/Student_Manage";
-
-import good from './../../assets/images/CourseDetails/good.png';
-import bad from './../../assets/images/CourseDetails/bad.png';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { LOGIN, REGISTER } from "../../api/endpoints";
 import PopUp from "../common/PopUp/PopUp"
-
+import { trackPromise } from "react-promise-tracker";
 
 
 const Comments = (props) => {
@@ -33,7 +27,7 @@ const Comments = (props) => {
   const bad = ['بد بود', 'عالی نبود', 'کامل نبود', 'خوب نبود', 'بد', 'ناقص', 'نبود جامع', 'بدی داشت', 'بد', 'ناقص بود بود', 'جامعی نداشت', 'کاملی نداشت', 'افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت', 'کمه', 'کافی نیست', 'مفید نبود', 'مفیدی نبود']
 
   useEffect(() => {
-    fixComments()
+    trackPromise(fixComments())
   }, [])
 
 
@@ -124,7 +118,9 @@ const Comments = (props) => {
                     onChange={handleChange}
                   />
                 </div>
-                <Btn text={fa.INSERT_COMMENT} color="info" variant="contained" onChange={handleAddId} />
+                <Btn text={fa.INSERT_COMMENT} color="info" variant="contained" onChange={() => {
+                  trackPromise(handleAddId())
+                }} />
               </Card>
             </div>
           </div>

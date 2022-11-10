@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
+import { trackPromise } from "react-promise-tracker";
 import { getAllNews } from "../../api/Core/News";
 import * as fa from "../../constants/persianStrings";
 import { CardInNews } from "../CardInNews/CardInNews";
 import { Paginate } from "../common/Pagination/Paginate";
 import { NewsFilter } from "../NewsFilter/NewsFilter";
-import { NewsIntro } from "../NewsIntro/NewsIntro";
 
 import _ from "lodash";
-
-import news01 from "./../../assets/images/News/news01.png";
 
 import "./NewsContainer.css";
 
@@ -28,7 +26,7 @@ const NewsContainer = () => {
   const [currentPage_NewsContainer, setCurrentPage_NewsContainer] = useState(1);
 
   useEffect(() => {
-    getAllNewsArticles()
+    trackPromise(getAllNewsArticles())
   }, [])
 
 

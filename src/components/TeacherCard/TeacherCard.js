@@ -8,6 +8,7 @@ import './TeacherCard.css'
 
 const TeacherCard = (props) => {
   const { themePage } = React.useContext(GeneralContext)
+  
   return (
     <Card sx={{ maxWidth: 345 }} className="teacherCardCard" >
       <CardMedia

@@ -17,6 +17,7 @@ import ScrollToTop from "../router/scrollTop";
 import { getItem } from "../api/storage/storage";
 import { getStudentById } from "../api/Core/Student_Manage";
 import ConfirmPopUp from "../components/common/PopUpAction/ConfirmPopUp";
+import Loading from "../components/common/Loading/Loading";
 
 function App() {
   AOS.init();
@@ -91,7 +92,7 @@ function App() {
         shoppCourse,
         setShopCourse,
         backShop,
-        setBackShop
+        setBackShop,
       }}>
       <BrowserRouter>
         <ScrollToTop />
@@ -112,6 +113,7 @@ function App() {
                 className={'toastFont'}
                 transition={Zoom}
               />
+              <Loading />
               <OurRoutes />
             </div>
           </ThemeProvider>
