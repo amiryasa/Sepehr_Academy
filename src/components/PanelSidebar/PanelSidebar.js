@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { trackPromise } from "react-promise-tracker";
 import { updateStudetInform } from "../../api/Core/Student_Manage";
 import { removeItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
@@ -149,7 +150,7 @@ const PanelSidebar = () => {
       {show && <UploadPhoto
         src={dataUser.profile}
         showPop={show}
-        handleClose={(img) => { updatePhoto(img) }} />}
+        handleClose={(img) => { trackPromise(updatePhoto(img)) }} />}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-
+import { trackPromise } from "react-promise-tracker";
 import { GeneralContext } from "../../providers/GeneralContext"
 import { Btn } from "../common/Button/Btn";
 import { Input } from "../common/Input/Input";
@@ -11,7 +11,7 @@ import { contactUs } from "../../api/Core/ContactUs";
 import { toast } from "react-toastify";
 
 const HomeIdeas = () => {
-  const { language,themePage } = useContext(GeneralContext);
+  const { language, themePage } = useContext(GeneralContext);
   const [studentInfo, setStudentInfo] = useState();
   const [input01, setInput01] = useState();
   const [input02, setInput02] = useState();
@@ -21,39 +21,38 @@ const HomeIdeas = () => {
   const id = JSON.parse(getItem('id'));
 
   useEffect(() => {
-    inputFeilder();
-  },[])
+    trackPromise(inputFeilder());
+  }, [])
 
   const inputFeilder = async () => {
-    if(id){
+    if (id) {
       let result = await getStudentById(id);
 
       setStudentInfo(result.data.result);
-      //textInput.current.value = result.data.result.fullName;
     }
   }
 
-  const btnHandler = async() => {
-    if(id){
+  const btnHandler = async () => {
+    if (id) {
       let response = await contactUs({
         email: studentInfo.email,
         name: studentInfo.fullName,
         text: input03
       })
-      if(response.data.message[0].eventId === 200){
+      if (response.data.message[0].eventId === 200) {
         toast.success('پیام شما با موفقیت ارسال شد!')
       }
     }
-      else{
-        let response = await contactUs({
-          email: input01,
-          name: input02,
-          text: input03
-        })
-        if(response.data.message[0].eventId === 200){
-          toast.success('پیام شما با موفقیت ارسال شد!')
-        }
+    else {
+      let response = await contactUs({
+        email: input01,
+        name: input02,
+        text: input03
+      })
+      if (response.data.message[0].eventId === 200) {
+        toast.success('پیام شما با موفقیت ارسال شد!')
       }
+    }
   }
 
   return (
@@ -68,7 +67,7 @@ const HomeIdeas = () => {
           data-aos-delay="300"
           data-aos-duration="1000"
         >
-          {studentInfo ? 
+          {studentInfo ?
 
             <>
               <div className="ideaInputName">
@@ -86,8 +85,8 @@ const HomeIdeas = () => {
                 />
               </div>
             </>
-          
-          : 
+
+            :
             <>
               <div className="ideaInputName">
                 <Input
@@ -123,7 +122,9 @@ const HomeIdeas = () => {
             elementClass="smallBtn"
             variant="contained"
 
-            onChange={btnHandler}
+            onChange={() => {
+              trackPromise(btnHandler())
+            }}
           />
         </div>
       </div>

@@ -7,7 +7,7 @@ import { CoursesFilter } from "../CoursesFilter/CoursesFilter";
 import * as fa from "../../constants/persianStrings";
 import { countLikeCourse, getAllCourse } from "../../api/Core/Course";
 import "./CoursesContainer.css";
-import { getISODay } from "date-fns/esm";
+import { trackPromise } from "react-promise-tracker";
 
 const CoursesContainer = (props) => {
   const [originalCoursesData, setOriginalCoursesData] = useState(null);
@@ -31,7 +31,7 @@ const CoursesContainer = (props) => {
   const upOrDownItem = ["صعودی", "نزولی"];
 
   useEffect(() => {
-    getAllCourses();
+    trackPromise(getAllCourses());
   }, []);
 
   // مرتب سازی 

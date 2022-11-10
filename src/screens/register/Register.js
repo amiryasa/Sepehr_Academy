@@ -9,7 +9,7 @@ import photo from "../../assets/images/Register/photo.png"
 import "./Register.css";
 import { registerUser } from "../../api/Core/Login_Register";
 import { validationSchema } from "../../constants/validationSchema"
-
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigator = useNavigate();
@@ -27,7 +27,7 @@ const Register = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      ;
+      values.preventDefault();
       const dataUser = {
         fullName: values.name,
         email: values.email,
@@ -43,7 +43,7 @@ const Register = () => {
 
   const insertNewUser = async (data) => {
     let response = await registerUser(data);
-    alert(response.message.message);
+    toast.success('کاربر اضافه شد!')
   }
 
   return (
@@ -102,17 +102,7 @@ const Register = () => {
 
               />
             </div>
-            {/* <div>
-              <Input
-                title={fa.TITLE_BIRTHDAY}
-                className="enterInputSmall"
-                name="birthday"
-                onChange={myFormik.handleChange}
-                value={myFormik.values.birthday}
-                error={myFormik.touched.birthday && Boolean(myFormik.errors.birthday)}
-                errorMessage={myFormik.touched.birthday && myFormik.errors.birthday}
-              />
-            </div> */}
+
             <div>
               <Input
                 title={fa.TITLE_EMAIL_USER}
@@ -149,6 +139,7 @@ const Register = () => {
               elementClass="mediumBtnCh"
               variant="contained"
               type="submit"
+
             />
             <Btn
               color="goal"

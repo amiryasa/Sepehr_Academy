@@ -1,6 +1,6 @@
 import { CoursesIntro } from "../../components/CoursesIntro/CoursesIntro";
 import { CoursesContainer } from "../../components/CoursesContainer/CoursesContainer";
-
+import { trackPromise } from "react-promise-tracker";
 import style from "./Courses.module.css";
 import { useEffect, useState } from "react";
 import { countLikeCourse, getAllCourse } from "../../api/Core/Course";
@@ -10,7 +10,7 @@ const Courses = () => {
   const [likeCoun, setLikeCoun] = useState([]);
 
   useEffect(() => {
-    getRate();
+    trackPromise(getRate());
   }, []);
 
   const getRate = async () => {

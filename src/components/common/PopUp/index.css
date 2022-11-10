@@ -4,7 +4,7 @@
 
 
 .popUp .MuiDialog-container .MuiPaper-root {
-    min-width: 160px !important;
+    min-width: 160px;
 }
 
 .muirtl-bdhsul-MuiTypography-root-MuiDialogTitle-root {
@@ -14,4 +14,10 @@
 
 .popUp .MuiDialog-container .muirtl-1t1j96h-MuiPaper-root-MuiDialog-paper{
     width: 400px;
+}
+
+@media screen and (max-width:749px) {
+    .MuiPaper-root .MuiTypography-h6{
+        font-size: 13px;
+    }
 }

@@ -1,7 +1,8 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import _ from "lodash";
-import { getItem, removeItem, setItem } from "../../api/storage/storage";
+import { trackPromise } from "react-promise-tracker";
+import { getItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { Paginate } from "../common/Pagination/Paginate";
 import { TableCom } from "../TableCom/TableCom";
@@ -17,12 +18,11 @@ const MainbarAllCourses = () => {
   const { setConfirmPopupOpen, onConfirmSetter, shoppCourse, setShopCourse } = useContext(GeneralContext)
   const userId = JSON.parse(getItem('id'))
   const [allCourse, setAllCourse] = useState();
-  const [searchingItem, setSearchingItem] = useState();
   const [token, setToken] = useState('c sha');
 
   useEffect(() => {
-    getCourses();
-    searching();
+    trackPromise(getCourses());
+    trackPromise(searching());
   }, []);
 
 
@@ -77,11 +77,6 @@ const MainbarAllCourses = () => {
         id: item._id,
       }));
 
-      
-
-
-
-    console.log('right', rightData);
 
     }
 
@@ -98,7 +93,6 @@ const MainbarAllCourses = () => {
     allCourse[index].icon = 'blue';
     setAllCourse([...allCourse]);
 
-    console.log('++++', allCourse);
   }
 
 

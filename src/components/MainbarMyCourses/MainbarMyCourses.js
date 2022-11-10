@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { trackPromise } from "react-promise-tracker";
 import { Paginate } from "../common/Pagination/Paginate";
 import { TableCom } from "../TableCom/TableCom";
 import { getItem } from "./../../api/storage/storage";
@@ -15,7 +16,7 @@ const MainbarMyCourses = () => {
   const { setConfirmPopupOpen, onConfirmSetter } = useContext(GeneralContext)
 
   useEffect(() => {
-    getUserId();
+    trackPromise(getUserId());
   }, []);
 
   const getUserId = async () => {

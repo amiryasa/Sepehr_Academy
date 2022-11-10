@@ -1,0 +1,60 @@
+#allLoading {
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: #5e5a5a94;
+}
+
+#container {
+    width: 120px;
+    /* height:80px; */
+    margin: 200px auto;
+    /* position: absolute; */
+    right: 45%;
+    z-index: 40;
+}
+
+.myBlock {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+
+.c1 {
+    background-image: url("./block/3.png");
+}
+
+.c2 {
+    background-image: url("./block/2.png");
+}
+
+.c3 {
+    background-image: url("./block/1.png");
+}
+
+.c4 {
+    background-image: url("./block/6.png");
+}
+
+.c5 {
+    background-image: url("./block/5.png");
+}
+
+.c6 {
+    background-image: url("./block/4.png");
+}
+
+.c7 {
+    background-image: url("./block/9.png");
+}
+
+.c8 {
+    background-image: url("./block/8.png");
+}
+
+.c9 {
+    background-image: url("./block/7.png");
+}

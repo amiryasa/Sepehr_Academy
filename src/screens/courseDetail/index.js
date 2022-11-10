@@ -8,6 +8,7 @@ import { getStudentById } from "../../api/Core/Student_Manage";
 import { getItem } from "../../api/storage/storage";
 import { toast } from "react-toastify";
 import { GeneralContext } from "../../providers/GeneralContext";
+import { trackPromise } from "react-promise-tracker";
 
 const CourseDetail = () => {
   const userId = JSON.parse(getItem('id'))
@@ -21,14 +22,14 @@ const CourseDetail = () => {
   const [disLikeCourses, setDisLikeCourse] = useState(false)
 
   useEffect(() => {
-    getCountLike(id);
-    getDetailCourse(id)
+    trackPromise(getCountLike(id));
+    trackPromise(getDetailCourse(id))
     if (userId) {
-      getMyCourse(userId)
+      trackPromise(getMyCourse(userId))
     }
   }, [])
 
-  const duringSeter = (item1,item2) =>{
+  const duringSeter = (item1, item2) => {
 
     var d = new Date(item1);
     let month01 = d.getMonth() + 1;
@@ -37,7 +38,7 @@ const CourseDetail = () => {
     let month02 = e.getMonth() + 1;
 
 
-    return (month01-month02);
+    return (month01 - month02);
 
   }
 
@@ -145,8 +146,12 @@ const CourseDetail = () => {
             detailTeacher={detailCourse.teacher}
             detailLesson={detailCourse.lesson}
             AddToShop={AddToShop}
-            actionLike={actionLike}
-            actionDislike={actionDislike}
+            actionLike={() => {
+              trackPromise(actionLike())
+            }}
+            actionDislike={() => {
+              trackPromise(actionDislike())
+            }}
             during={duringSeter(detailCourse.startDate, detailCourse.endDate)}
             countLike={countLike}
             countDislike={countDislike}

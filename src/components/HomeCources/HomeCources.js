@@ -6,6 +6,7 @@ import './HomeCources.css';
 import { GeneralContext } from "../../providers/GeneralContext"
 import * as fa from '../../constants/persianStrings'
 import { getAllCourse } from '../../api/Core/Course';
+import { trackPromise } from "react-promise-tracker";
 
 const HomeCources = () => {
   const [coursesData, setCoursesData] = useState(null)
@@ -13,7 +14,7 @@ const HomeCources = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    getAllCourses()
+    trackPromise(getAllCourses())
   }, [])
 
 

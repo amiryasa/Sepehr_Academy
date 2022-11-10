@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useContext } from "react";
+import { trackPromise } from "react-promise-tracker";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import { addStudentToCourse, getCourseById } from "../../api/Core/Course";
@@ -23,7 +24,7 @@ export default function ShoppingCart() {
 
     useEffect(() => {
         getCoursesById();
-        if (userId) getMyOldCourse(userId)
+        if (userId) trackPromise(getMyOldCourse(userId))
     }, [])
 
     useEffect(() => {
@@ -43,7 +44,7 @@ export default function ShoppingCart() {
     const getCoursesById = () => {
         if (shoppCourse && data.current.length != shoppCourse.length) {
             shoppCourse.map(async (item) => {
-                getDetailShopp(item)
+                trackPromise(getDetailShopp(item))
             })
         }
     }
@@ -147,19 +148,19 @@ export default function ShoppingCart() {
                                     elementClass="mediumBtnCh"
                                     variant="contained"
                                     onChange={() => {
-                                        if (userId){
+                                        if (userId) {
                                             submitCourseToStudent()
                                             navigator('/courses');
                                         }
 
                                         else {
-                                            
+
                                             onConfirmSetter('پرداخت با ورود امکانپذیر است، مایلید به صفحه‌ی ورود بروید؟ ', () => {
                                                 setBackShop(true);
                                                 navigator('/login');
                                             })
                                             setConfirmPopupOpen(true)
-                                            
+
                                         }
                                     }} />
                             </div>
