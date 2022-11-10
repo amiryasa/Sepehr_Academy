@@ -97,8 +97,6 @@
 }
 
 .header1>.headerNavbar>p:nth-child(1) {
-  cursor: default;
-  text-decoration: underline;
 }
 
 .header1>.headerNavbar>.light,

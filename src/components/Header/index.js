@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { GeneralContext } from "../../providers/GeneralContext"
 import * as fa from "../../constants/persianStrings"
@@ -10,13 +10,13 @@ import AvatarCostomize from "../common/avatar";
 import { getItem, removeItem, setItem } from "../../api/storage/storage";
 
 const Header = () => {
+  const location = useLocation();
   const navigator = useNavigate();
   const idUser = JSON.parse(getItem('id'))
   const ThemeMode = getItem('theme')
   const LanguageMode = getItem('language')
 
   const { language, setLanguage, themePage, shoppCourse, setThemePage, dataUser } = useContext(GeneralContext);
-
 
   let isHidden = true;
 
@@ -79,6 +79,9 @@ const Header = () => {
           onClick={() => {
             navigator("/");
           }}
+
+          style={location.pathname === '/' ? {cursor:'default',color:'#043d72',textDecoration:'underline'} :
+          {cursor:'pointer',color:'#808080',textDecoration:'none'}}
         >
           {language === 'fa' ? fa.HEADER_HOME : fa.HEADER_HOME_EN}
         </p>
@@ -88,6 +91,9 @@ const Header = () => {
           onClick={() => {
             navigator("/courses");
           }}
+
+          style={location.pathname === '/courses' ? {cursor:'default',color:'#043d72',textDecoration:'underline'} :
+          {cursor:'pointer',color:'#808080',textDecoration:'none'}}
         >
           {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN}
 
@@ -98,23 +104,20 @@ const Header = () => {
           onClick={() => {
             navigator("/news");
           }}
+
+          style={location.pathname === '/news' ? {cursor:'default',color:'#043d72',textDecoration:'underline'} :
+          {cursor:'pointer',color:'#808080',textDecoration:'none'}}
         >
           {language === 'fa' ? fa.HEADER_NEWS : fa.HEADER_NEWS_EN}
         </p>
         <p
           className="headerRowItems"
-          onClick={() => {
-            navigator("/");
-          }}
         >
           {language === 'fa' ? fa.HEADER_SERVICES : fa.HEADER_SERVICES_EN}
 
         </p>
         <p
           className="headerRowItems"
-          onClick={() => {
-            navigator("/");
-          }}
         >
           {language === 'fa' ? fa.HEADER_CONTACT : fa.HEADER_CONTACT_EN}
 

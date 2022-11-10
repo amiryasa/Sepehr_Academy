@@ -53,7 +53,7 @@ const CourseDetailClass = (
             <div className='opacity'>
               <img src={opacity} />
               <span>{fa.OPACITY_COURSE}
-                <span>{deatilsCouse.capacity} نفر</span>
+                <span>{deatilsCouse.capacity + deatilsCouse.students.length} نفر</span>
               </span>
             </div>
             <div className=' numberStudent'>
@@ -65,7 +65,7 @@ const CourseDetailClass = (
             <div className='timeStart'>
               <img src={timeStart} />
               <span>{fa.TIME_START}
-                <span> {formatDate(deatilsCouse.startDate)} </span>
+                <span> {formatDate(deatilsCouse.endDate)} </span>
               </span>
             </div>
             <div className='price'>

@@ -192,7 +192,7 @@ const Comments = (props) => {
         )) : ''}
       </div>
       {openAnswer &&
-        <PopUp handleClose={() => { setOpenAnswer(false) }} open={openAnswer} closeBtn>
+        <PopUp handleClose={() => { setOpenAnswer(false) }} open={openAnswer} className='replayAdder' closeBtn>
           <div className="showReplay" >
             <div className="comments">
               <div className="addNewComment">

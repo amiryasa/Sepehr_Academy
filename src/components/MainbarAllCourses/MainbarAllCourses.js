@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import _ from "lodash";
 import { getItem, removeItem, setItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { Paginate } from "../common/Pagination/Paginate";
@@ -16,10 +17,16 @@ const MainbarAllCourses = () => {
   const { setConfirmPopupOpen, onConfirmSetter, shoppCourse, setShopCourse } = useContext(GeneralContext)
   const userId = JSON.parse(getItem('id'))
   const [allCourse, setAllCourse] = useState();
+  const [searchingItem, setSearchingItem] = useState();
+  const [token, setToken] = useState('c sha');
 
   useEffect(() => {
     getCourses();
+    searching();
   }, []);
+
+
+  
 
 
   const getCourses = async () => {
@@ -42,8 +49,44 @@ const MainbarAllCourses = () => {
       }));
 
       setAllCourse(...[rightData]);
+
+
     }
   }
+
+  const searching = async () => {
+    let response = await getAllCourse();
+
+    console.log('0021', response.data.result);
+
+      const isResult = (items) => {
+        let result = 0;
+        items.forEach(item => {
+          if(_.startsWith(item, token)){
+            result= result + 1;
+          }
+        })
+        return result;
+      }
+      
+      let rightData = response.data.result.map((item) => ({
+        title: item.title,
+        teacher: item.teacher.fullName,
+        topics: isResult(item.lesson.topics),
+        cost: item.cost,
+        id: item._id,
+      }));
+
+      
+
+
+
+    console.log('right', rightData);
+
+    }
+
+
+
 
   const handlePagination_MainbarAllCourses = (e, value) => {
     setCurrentPage_MainbarAllCourses(value);
@@ -54,6 +97,8 @@ const MainbarAllCourses = () => {
     var index = allCourse.findIndex(item => item.id === courseId);
     allCourse[index].icon = 'blue';
     setAllCourse([...allCourse]);
+
+    console.log('++++', allCourse);
   }
 
 
@@ -89,6 +134,7 @@ const MainbarAllCourses = () => {
                   } else {
                     setShopCourse(current => [...current, courseId]);
                     handleAddToShop(courseId);
+                    toast.success("دوره با موفقیت به سبد خرید اضافه شد!")
                   }
                 }, () => {
                   setConfirmPopupOpen(false)

@@ -20,6 +20,8 @@ const HomeNews = () => {
 
     if (response.data.result) {
       setNewsData(response.data.result.slice(0, 6))
+
+      console.log('222222222',response.data.result);
     }
   }
 
@@ -33,6 +35,7 @@ const HomeNews = () => {
           <div data-aos="flip-up" data-aos-delay="400" data-aos-duration="800">
             {" "}
             <NewsCard
+              id={item._id}
               image={item.image}
               title={item.title}
               description={item.text}
