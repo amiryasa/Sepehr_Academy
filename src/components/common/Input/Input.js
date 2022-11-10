@@ -24,7 +24,7 @@ const Input = (props) => {
         type={props.password ? showPassword ? 'text' : 'password' : props.type}
         // id="outlined-basic"
         className={`inputModel ${props.className}`}
-        variant="outlined"
+        variant={props.variant ? props.variant : "outlined"}
         multiline={props.multiline}
         rows={props.row}
         label={props.title}
