@@ -10,6 +10,7 @@
 
 .replayAdder>.MuiDialog-container>.MuiPaper-root {
   width: 500px !important;
+  min-width: 200px !important;
 }
 
 
@@ -21,7 +22,7 @@
 
 @media screen and (max-width: 60rem) {
   .comments {
-    width: 70%;
+    width: 100%;
   }
 }
 
@@ -48,6 +49,10 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
+
+  .addNewComment .MuiPaper-root .MuiButton-root {
+    font-size: 9px;
+  }
 }
 
 .comments .addNewComment {
@@ -59,7 +64,7 @@
 .comments .addNewComment .MuiCard-root {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   margin: auto;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .08);
   border-radius: 10px;
