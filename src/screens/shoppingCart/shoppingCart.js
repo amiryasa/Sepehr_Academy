@@ -94,6 +94,7 @@ export default function ShoppingCart() {
                 courseId: item._id
             }
             await addStudentToCourse(data);
+            toast.success('خرید دوره با موفقیت انجام شد!');
         })
         setShowShop([]);
         setShopCourse([]);
@@ -146,12 +147,19 @@ export default function ShoppingCart() {
                                     elementClass="mediumBtnCh"
                                     variant="contained"
                                     onChange={() => {
-                                        if (userId)
+                                        if (userId){
                                             submitCourseToStudent()
+                                            navigator('/courses');
+                                        }
+
                                         else {
-                                            toast.error('ابتدا وارد شوید!');
-                                            setBackShop(true)
-                                            navigator('/login');
+                                            
+                                            onConfirmSetter('پرداخت با ورود امکانپذیر است، مایلید به صفحه‌ی ورود بروید؟ ', () => {
+                                                setBackShop(true);
+                                                navigator('/login');
+                                            })
+                                            setConfirmPopupOpen(true)
+                                            
                                         }
                                     }} />
                             </div>

@@ -5,11 +5,11 @@ const DetailNews = ({ detailsNews }) => {
         <div className='descriptionNews'>
             <p>توضیحات مقاله</p>
             <div>
-                <header>{detailsNews.title} چیست؟</header>
+                <header>{detailsNews.title}</header>
                 <span>{detailsNews.text}</span>
             </div>
             <div>
-                <header>بازار کار{detailsNews.title}</header>
+                <header>{detailsNews.title}</header>
                 <span>{detailsNews.text}</span>
             </div>
             <div>

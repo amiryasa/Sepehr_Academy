@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { updateStudetInform } from "../../api/Core/Student_Manage";
 import { removeItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
@@ -10,6 +10,7 @@ import "./PanelSidebar.css";
 
 const PanelSidebar = () => {
   const navigator = useNavigate();
+  const location = useLocation();
   const { dataUser, onConfirmSetter, setConfirmPopupOpen, setDataUser, setShopCourse } = useContext(GeneralContext)
   const [show, setShow] = useState(false);
 
@@ -69,9 +70,11 @@ const PanelSidebar = () => {
           <div
             className="sidebarContainerItemContaineritems"
             onClick={() => {
-              handleItemClick(0);
               navigator("/studentPanel");
             }}
+
+            style={location.pathname === '/studentPanel' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
+            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
           >
             داشبورد
           </div>
@@ -81,6 +84,9 @@ const PanelSidebar = () => {
               handleItemClick(1);
               navigator("/studentPanel/editInfo");
             }}
+
+            style={location.pathname === '/studentPanel/editInfo' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
+            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
           >
             ویرایش اطلاعات
           </div>
@@ -90,6 +96,9 @@ const PanelSidebar = () => {
               handleItemClick(2);
               navigator("/studentPanel/myCourses");
             }}
+
+            style={location.pathname === '/studentPanel/myCourses' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
+            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
           >
             دوره‌های من
           </div>
@@ -99,6 +108,9 @@ const PanelSidebar = () => {
               handleItemClick(3);
               navigator("/studentPanel/allCourses");
             }}
+
+            style={location.pathname === '/studentPanel/allCourses' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
+            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
           >
             لیست کل دوره‌ها
           </div>
@@ -108,6 +120,9 @@ const PanelSidebar = () => {
               handleItemClick(4);
               navigator("/studentPanel/changePassword");
             }}
+
+            style={location.pathname === '/studentPanel/changePassword' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
+            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
           >
             تغییر رمز عبور
           </div>

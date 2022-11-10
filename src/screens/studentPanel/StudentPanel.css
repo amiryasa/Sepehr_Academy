@@ -2,4 +2,36 @@
     display: flex;
     background-color: #F7FDFF;
     overflow: hidden;
+    position: relative;
+}
+
+  
+.studentPanelContainer> .loginSearch {
+    transition: 0.5s;
+    background: url(./../../assets/images/header/shopping.png) center;
+    background-repeat: no-repeat;
+    background-size: 23px;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #00adef;
+
+    position:absolute;
+    left: 25px;
+    top:20px;
+}
+
+.studentPanelContainer >.loginSearch>.numberOfShopp{
+    margin-top: -10px;
+    width: 19px;
+    height: 19px;
+    background-color: #04a641;
+    align-items: center;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+    margin-right: -10px;
 }

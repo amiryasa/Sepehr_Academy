@@ -2,6 +2,7 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
+import { useNavigate } from "react-router-dom";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
@@ -13,7 +14,7 @@ import { formatDate } from "../../constants/usefulFunc";
 
 const ShoppingList = (props) => {
 
-    console.log('456', props.myData);
+    const navigator = useNavigate();
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
@@ -53,14 +54,14 @@ const ShoppingList = (props) => {
                         {props.myData && props.myData.map((row, key) => (
                             <StyledTableRow key={key}>
                                 <StyledTableCell align="center">{key+1}</StyledTableCell>
-                                <StyledTableCell component="th" style={{ display: "flex" }}>
+                                <StyledTableCell component="th" style={{ display: "flex", cursor: "pointer" }} onClick={() => navigator(`/courseDetail/${row._id}`)}>
                                     <img width={60} src={row.lesson.image} />
                                     <div
                                         style={{
                                             display: "flex",
                                             flexDirection: "column",
                                             marginTop: "10px",
-                                            paddingRight: "8px"
+                                            paddingRight: "8px",
                                         }}>
                                         <div>{row.title}</div>
                                         <div

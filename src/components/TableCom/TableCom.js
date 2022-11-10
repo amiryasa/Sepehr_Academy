@@ -77,7 +77,7 @@ const TableCom = (props) => {
                       props.onClick(row.id);
                     }
                     else{
-                      toast.warning('!امکان خرید این دوره وجود ندارد')
+                      toast.warning("امکان خرید این دوره وجود ندارد!")
                     }
                   }}>
                   <img alt="Shopping_icon" style={{ cursor: "pointer" }} width={24} src={props.comFrom === 'all' ? (row.icon === 'gray' ? shoppingDisable : (row.icon === 'green' ? shoppingAction : shoppingBag )) : delete01} />

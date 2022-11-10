@@ -186,7 +186,7 @@ const Compair = () => {
                 setConfirmPopupOpen(true)
               }} />
           ))}
-        </div> : <div> دوره ای برای مقایسه انتخاب نشده است </div>}
+        </div> : <div className="theBagIsEmpty"> دوره ای برای مقایسه انتخاب نشده است !</div>}
     </div>
   );
 };

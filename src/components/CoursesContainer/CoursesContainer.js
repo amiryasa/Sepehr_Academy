@@ -5,10 +5,11 @@ import { CardInCourses } from "../CardInCourses/CardInCourses";
 import { Paginate } from "../common/Pagination/Paginate";
 import { CoursesFilter } from "../CoursesFilter/CoursesFilter";
 import * as fa from "../../constants/persianStrings";
-import { getAllCourse } from "../../api/Core/Course";
+import { countLikeCourse, getAllCourse } from "../../api/Core/Course";
 import "./CoursesContainer.css";
+import { getISODay } from "date-fns/esm";
 
-const CoursesContainer = () => {
+const CoursesContainer = (props) => {
   const [originalCoursesData, setOriginalCoursesData] = useState(null);
   const [rightCoursesData, setRightCoursesData] = useState(null);
   const [rightCoursesData01, setRightCoursesData01] = useState(null);
@@ -23,6 +24,7 @@ const CoursesContainer = () => {
   const [sortby, setSortby] = React.useState([]);
   const [upOrDown, setUpOrDown] = React.useState([]);
   const [upOrDownData, setupOrDownData] = useState("desc");
+
 
   let allCost = ["رایگان", "خریدنی"];
   const sortbyItem = ["عنوان", "امتیاز", "قیمت", "ظرفیت", "مدرس دوره"];
@@ -74,12 +76,12 @@ const CoursesContainer = () => {
     if (response.data.result) {
       setOriginalCoursesData(response.data.result);
 
-      let rightData = response.data.result.map((item) => ({
+      let rightData = response.data.result.map((item, index) => ({
         image: item.lesson.image,
         title: item.title,
         teacher: item.teacher.fullName,
-        studentCount: item.capacity - item.students.length,
-        rate: Math.ceil(Math.random() * (5 - 0) + 0),
+        studentCount: item.capacity,
+        rate: props.likeDats[index],
         cost: item.cost,
         id: item._id,
         category: item.lesson.topics[0],
