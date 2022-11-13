@@ -11,6 +11,7 @@ import AvatarPhoto from "../common/avatar/AvatarPhoto";
 import UploadPhoto from "../UploadPhoto/UploadPhoto";
 import { updateStudetInform } from "../../api/Core/Student_Manage";
 import { GeneralContext } from "../../providers/GeneralContext";
+import { toast } from "react-toastify";
 
 const MainbarEditInfo = () => {
   const studentid = JSON.parse(getItem('id'))
@@ -58,7 +59,7 @@ const MainbarEditInfo = () => {
       }
       setImg(image)
       setDataUser(data)
-      alert(response.data.message[0].message)
+      toast.success(response.data.message[0].message)
     }
   }
 
@@ -150,9 +151,9 @@ const MainbarEditInfo = () => {
         showPop={show}
         handleClose={(imgUpdate) => {
           setShow(!show);
-          // setImg(imgUpdate);
           trackPromise(updateDataUser(imgUpdate))
-        }} />}
+        }}
+        handleCloseWithOutSave={()=>{setShow(false)}} />}
     </>
   );
 };

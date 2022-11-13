@@ -9,7 +9,7 @@ const NotAllow = () => {
     <>
       <div className="notAllowPic"></div>
       <p className="notAllowP1"> دسترسی به صفحه‌ی مورد نظر وجود ندارد!</p>
-      <p className="notAllowP2" onClick={() => navigator('')}> بازگشت به خانه...</p>
+      <p className="notAllowP2" onClick={() => navigator('/')}> بازگشت به خانه...</p>
     </>
   );
 };

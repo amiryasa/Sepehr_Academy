@@ -35,7 +35,9 @@ const CoursesContainer = (props) => {
   const [search, setSearch] = useState();
   const [isTouch, setIsTouch] = useState(false)
   const [courseData, setCoursesData] = useState();
-  const [searchResult, setSearchResult] = useState()
+  const [searchResult, setSearchResult] = useState();
+  const [allIdCourses, setAllIdCourses] = useState()
+  const [allCountRate, setAllCountRate] = useState()
   const navigator = useNavigate();
 
 
@@ -46,7 +48,31 @@ const CoursesContainer = (props) => {
   useEffect(() => {
     trackPromise(getAllCourses());
     trackPromise(getCourses());
+
   }, []);
+
+  // useEffect(() => {
+  //   if (allIdCourses && allIdCourses.length > 0) {
+  //     let countRate = allIdCourses.map(async (item) => await trackPromise(getCountLike(item)));
+  //     setAllCountRate(countRate);
+  //   }
+  // }, [allIdCourses])
+
+  // useEffect(() => {
+  //   if (allCountRate && allCountRate.length > 0) {
+  //     console.log(allCountRate, "allCountRate");
+  //   }
+  // }, [allCountRate])
+
+
+
+  // const getCountLike = async (id) => {
+  //   let response = await countLikeCourse(id)
+  //   if (response.data.result) {
+  //     if (response.data.result.dislike >= response.data.result.like) return 0
+  //     else return (((response.data.result.like - response.data.result.dislike) / (response.data.result.like + response.data.result.dislike)) * 5)
+  //   }
+  // }
 
   // مرتب سازی 
 
@@ -100,7 +126,8 @@ const CoursesContainer = (props) => {
         id: item._id,
         category: item.lesson.topics[0],
       }));
-
+      let IdCourses = response.data.result.map((item, index) => (item._id));
+      setAllIdCourses(IdCourses)
       setRightCoursesData([...rightData]);
       setRightCoursesData01([...rightData]);
     }
@@ -1189,14 +1216,14 @@ const CoursesContainer = (props) => {
 
 
 
-  const getCourses = async() => {
+  const getCourses = async () => {
     let response = await getAllCourse();
 
     let rightData = response.data.result.map((item) => ({
-        image: item.lesson.image,
-        title: item.title,
-        topics: item.lesson.topics,
-        id: item._id,
+      image: item.lesson.image,
+      title: item.title,
+      topics: item.lesson.topics,
+      id: item._id,
     }));
 
     setCoursesData(rightData);
@@ -1206,16 +1233,16 @@ const CoursesContainer = (props) => {
 
   const isResult = (items, token) => {
     let result = 0;
-      if(_.startsWith(items, token)){
-        result= result + 1;
-      }
-        return result;
+    if (_.startsWith(items, token)) {
+      result = result + 1;
+    }
+    return result;
   }
 
   const searchHandler = (even) => {
 
     const result = courseData.filter((item) => {
-        return (isResult(item.title, even.target.value) === 1)
+      return (isResult(item.title, even.target.value) === 1)
     })
 
     setSearchResult(result);
@@ -1310,24 +1337,24 @@ const CoursesContainer = (props) => {
 
       {openPopUp &&
         <PopUp
-            handleClose={() => { setOpenPopUp(false) }}
-            open={openPopUp}
-            className='popUpSearch'
-            closeBtn
-            title="به دنبال چه دوره‌ای هستید؟">
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <Input title="جستجو" value={search} onChange={(event) => searchHandler(event)} variant="standard" />
-            </Box>
-            <div className="searchResultHolder">
+          handleClose={() => { setOpenPopUp(false) }}
+          open={openPopUp}
+          className='popUpSearch'
+          closeBtn
+          title="به دنبال چه دوره‌ای هستید؟">
+          <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+            <Input title="جستجو" value={search} onChange={(event) => searchHandler(event)} variant="standard" />
+          </Box>
+          <div className="searchResultHolder">
 
-                {searchResult ? searchResult.map((item,key) => (
-                    <div className="searchResultItem" onClick={() => {navigator(`/courseDetail/${item.id}`)}}> <img src={item.image} alt=""/> <p> {item.title} </p></div>
-                )) : '' }
+            {searchResult ? searchResult.map((item, key) => (
+              <div className="searchResultItem" onClick={() => { navigator(`/courseDetail/${item.id}`) }}> <img src={item.image} alt="" /> <p> {item.title} </p></div>
+            )) : ''}
 
-                {isTouch && searchResult.length === 0 ? <p className="noResultInSearch"> دوره‌ای یافت نشد!</p> : '' }
+            {isTouch && searchResult.length === 0 ? <p className="noResultInSearch"> دوره‌ای یافت نشد!</p> : ''}
 
-            </div>
+          </div>
         </PopUp>}
 
     </div>

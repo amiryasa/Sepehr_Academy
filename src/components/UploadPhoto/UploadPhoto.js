@@ -9,6 +9,7 @@ import AvatarCostomize from "../common/avatar/index.js";
 import imagePicker from "./imagePicker"
 import CropPhoto from "../common/CropPhoto/CropPhoto.js";
 import { GeneralContext } from "../../providers/GeneralContext.js";
+import { toast } from "react-toastify";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -96,22 +97,27 @@ export default function UploadPhoto(props) {
 
 
     const uploadImgToDatabase = async () => {
-        let formData = new FormData();
-        formData.append('image', filesImg);
-        axios({
-            method: "post",
-            url: "https://api.noorgon.sepehracademy.ir/api/upload/image",
-            data: formData,
-            headers: { "Content-Type": "multipart/form-data" },
-        })
-            .then(function (response) {
+        if (!filesImg) toast.warning('لطفا عکس انتخاب کنید!')
+        else {
 
-                if (response.data.result)
-                    props.handleClose(response.data.result)
+            let formData = new FormData();
+            formData.append('image', filesImg);
+            axios({
+                method: "post",
+                url: "https://api.noorgon.sepehracademy.ir/api/upload/image",
+                data: formData,
+                headers: { "Content-Type": "multipart/form-data" },
             })
-            .catch(function (response) {
-                console.log(response);
-            });
+                .then(function (response) {
+                    if (response.data.result)
+                        props.handleClose(response.data.result)
+                    else toast.warning('لطفا فایل با پسوند های jpg,png آپلود کنید.')
+                })
+                .catch(function (response) {
+                    console.log(response);
+                });
+        }
+
 
     }
 
@@ -124,7 +130,9 @@ export default function UploadPhoto(props) {
                 handleClose={() => {
                     uploadImgToDatabase()
                 }}
-                title={"عکس پروفایل"}>
+                closeBtn
+                title={"عکس پروفایل"}
+                handleCloseWithOutSave={props.handleCloseWithOutSave}>
 
                 {optionPhoto ?
                     <CropPhoto
@@ -138,7 +146,17 @@ export default function UploadPhoto(props) {
                         }} />
                     :
                     <div className="editPohotoForm">
-                        <AvatarCostomize name={dataUser.fullName} size="lg" className="avaratPic" src={img} />
+                        <AvatarCostomize
+                            option
+                            name={dataUser.fullName}
+                            size="lg"
+                            className="avaratPic"
+                            src={img}
+                            optionClick={() => {
+                                if (img)
+                                    setOptionPhoto(true)
+                            }} />
+
                         <div className="btnEditPhoto">
                             <input
                                 hidden
@@ -147,30 +165,52 @@ export default function UploadPhoto(props) {
                                 onChange={onUploadingImg}
                                 ref={upsertImgRef}
                             />
-                            <Btn text={fa.EDIT_PHOTO}
+                            <Btn
+                                text={fa.INSERT_NEW_CHANGES}
+                                color="goal"
+                                variant="contained"
+                                onChange={() => {
+                                    uploadImgToDatabase()
+                                }}
+                                elementClass="smallBtn"
+                            />
+                            <Btn
+                                text={fa.EDIT_PHOTO}
                                 color="restore"
                                 variant="contained"
                                 onChange={() => {
                                     setImgRef(false);
                                     addImgOkHandler()
-                                }} />
+                                }}
+                                elementClass="smallBtn"
+                            />
                             <FileUploader handleChange={handleChange} name="file" accept="image/*" types={fileTypes} />
-                            <Btn
+                            {/* <Btn
                                 text={fa.REMOVE_PHOTO}
                                 color="warning"
                                 variant="contained"
                                 onChange={() => {
                                     setImg(null)
-                                }} />
+                                }}
+                                elementClass="smallBtn"
+                            /> */}
+
+                            {/* <Btn
+                                text={fa.OPTIOANL_PHOTO}
+                                color="info"
+                                variant="contained"
+                                onChange={() => {
+                                    if (img)
+                                        setOptionPhoto(true)
+                                }}
+                                elementClass="smallBtn" */}
+
                         </div>
-                        <Btn
-                            text={fa.OPTIOANL_PHOTO}
-                            color="info"
-                            variant="contained"
-                            onChange={() => {
-                                if (img)
-                                    setOptionPhoto(true)
-                            }} />
+
+
+
+
+
                     </div>
                 }
             </PopUp>

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
+import CropRotateRoundedIcon from '@mui/icons-material/CropRotateRounded';
+
 import "./index.scss"
 
 export default function AvatarCostomize(props) {
@@ -28,7 +30,7 @@ export default function AvatarCostomize(props) {
     return (
         <>
             {props.src ?
-                <>
+                <div>
                     <Avatar
                         className={`${props.size === "lg" ? "lg-avatar" : props.size === "xs" ? "xs-avatar" : "sm-avatar"
                             } ${props.className} 
@@ -37,15 +39,27 @@ export default function AvatarCostomize(props) {
                         src={props.src}
                         sx={{ width: props.width, height: props.width, bgcolor: props.bgcolor }}
                         onClick={props.onClick} />
-                </>
+                    {props.option &&
+                        <div className='optionIcon' onClick={props.optionClick}>
+                            <CropRotateRoundedIcon color="primary" />
+                        </div>
+                    }
+                </div>
                 :
-                <Avatar
-                    className={`${props.size === "lg" ? "lg-avatar" : "sm-avatar"
-                        } ${props.className} `}
-                    sx={{ width: props.width, height: props.width, bgcolor: stringToColor(props.name) }}
-                >
-                    {props.name.split(' ')[0][0]}
-                </Avatar>
+                <div>
+                    <Avatar
+                        className={`${props.size === "lg" ? "lg-avatar" : "sm-avatar"
+                            } ${props.className} `}
+                        sx={{ width: props.width, height: props.width, bgcolor: stringToColor(props.name) }}
+                    >
+                        {props.name.split(' ')[0][0]}
+                    </Avatar>
+                    {props.option &&
+                        <div className='optionIcon' onClick={props.optionClick}>
+                            <CropRotateRoundedIcon color="primary" />
+                        </div>
+                    }
+                </div>
             }
 
 

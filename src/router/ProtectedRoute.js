@@ -1,16 +1,14 @@
 import { Navigate } from "react-router-dom";
 import { StudentPanel } from "../screens/studentPanel/StudentPanel";
-import * as paths from "./path";
 
 const ProtectedRoute = ({
     isAllowed,
     dataUser,
-    redirectPath = paths.LOGIN,
     children,
 }) => {
 
     if (!isAllowed) {
-        return <Navigate to={redirectPath} replace />;
+        return <Navigate to={'/405'} replace />;
     }
 
     if (dataUser) {

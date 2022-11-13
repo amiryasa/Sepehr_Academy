@@ -41,7 +41,7 @@ export default function PopUp(props) {
             {props.closeBtn ? (
                 <IconButton
                     aria-label="close"
-                    onClick={props.handleClose}
+                    onClick={props.handleCloseWithOutSave}
                     sx={{
                         position: 'absolute',
                         right: 8,

@@ -9,7 +9,7 @@ const NotFound = () => {
     <>
       <div className="notFoundPic"></div>
       <p className="notFoundP1"> صفحه‌ی مورد نظر یافت نشد!</p>
-      <p className="notFoundP2" onClick={() => navigator('')}> بازگشت به خانه...</p>
+      <p className="notFoundP2" onClick={() => navigator('/')}> بازگشت به خانه...</p>
     </>
   );
 };

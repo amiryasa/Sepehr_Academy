@@ -83,6 +83,16 @@ $xl-avatar: 10rem;
     right: 18px;
 }
 
+.optionIcon {
+    position: absolute;
+    top: 58%;
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px;
+    right: 32%;
+    cursor: pointer;
+}
+
 @media screen and (max-width:1262px) {
 
 

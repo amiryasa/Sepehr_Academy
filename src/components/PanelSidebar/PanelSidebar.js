@@ -8,6 +8,7 @@ import AvatarPhoto from "../common/avatar/AvatarPhoto";
 import UploadPhoto from "../UploadPhoto/UploadPhoto";
 
 import "./PanelSidebar.css";
+import { toast } from "react-toastify";
 
 const PanelSidebar = () => {
   const navigator = useNavigate();
@@ -74,8 +75,8 @@ const PanelSidebar = () => {
               navigator("/studentPanel");
             }}
 
-            style={location.pathname === '/studentPanel' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
-            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
+            style={location.pathname === '/studentPanel' ? { cursor: 'default', backgroundColor: "#DEF6FF" } :
+              { cursor: 'pointer', backgroundColor: "#F7FDFF" }}
           >
             داشبورد
           </div>
@@ -86,8 +87,8 @@ const PanelSidebar = () => {
               navigator("/studentPanel/editInfo");
             }}
 
-            style={location.pathname === '/studentPanel/editInfo' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
-            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
+            style={location.pathname === '/studentPanel/editInfo' ? { cursor: 'default', backgroundColor: "#DEF6FF" } :
+              { cursor: 'pointer', backgroundColor: "#F7FDFF" }}
           >
             ویرایش اطلاعات
           </div>
@@ -98,8 +99,8 @@ const PanelSidebar = () => {
               navigator("/studentPanel/myCourses");
             }}
 
-            style={location.pathname === '/studentPanel/myCourses' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
-            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
+            style={location.pathname === '/studentPanel/myCourses' ? { cursor: 'default', backgroundColor: "#DEF6FF" } :
+              { cursor: 'pointer', backgroundColor: "#F7FDFF" }}
           >
             دوره‌های من
           </div>
@@ -110,8 +111,8 @@ const PanelSidebar = () => {
               navigator("/studentPanel/allCourses");
             }}
 
-            style={location.pathname === '/studentPanel/allCourses' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
-            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
+            style={location.pathname === '/studentPanel/allCourses' ? { cursor: 'default', backgroundColor: "#DEF6FF" } :
+              { cursor: 'pointer', backgroundColor: "#F7FDFF" }}
           >
             لیست کل دوره‌ها
           </div>
@@ -122,8 +123,8 @@ const PanelSidebar = () => {
               navigator("/studentPanel/changePassword");
             }}
 
-            style={location.pathname === '/studentPanel/changePassword' ? {cursor:'default',backgroundColor:"#DEF6FF"} :
-            {cursor:'pointer',backgroundColor:"#F7FDFF"}}
+            style={location.pathname === '/studentPanel/changePassword' ? { cursor: 'default', backgroundColor: "#DEF6FF" } :
+              { cursor: 'pointer', backgroundColor: "#F7FDFF" }}
           >
             تغییر رمز عبور
           </div>
@@ -147,10 +148,15 @@ const PanelSidebar = () => {
           خروج
         </div>
       </div>
-      {show && <UploadPhoto
-        src={dataUser.profile}
-        showPop={show}
-        handleClose={(img) => { trackPromise(updatePhoto(img)) }} />}
+      {show &&
+        <UploadPhoto
+          src={dataUser.profile}
+          showPop={show}
+          handleClose={(img) => {
+            toast.success('عکس کاربر آپدیت شد')
+            trackPromise(updatePhoto(img))
+          }}
+          handleCloseWithOutSave={() => { setShow(false) }} />}
     </>
   );
 };
