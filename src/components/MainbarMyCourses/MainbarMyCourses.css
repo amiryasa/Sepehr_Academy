@@ -56,6 +56,21 @@
   height: 485px;
 }
 
+.noCourseInMyCourses{
+  height:500px;
+  background-image: url('./../../assets/images/MyCourses/list.png');
+  background-size: 450px auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.noCourseInMyCourses > p{
+  text-align: center;
+  padding-top: 410px;
+  font-family: saye;
+  font-size: 35px;
+}
+
 @media screen and (max-width: 1262px) {
 
   .MainbarContainerInTable{
@@ -100,6 +115,15 @@
 
   .mainbarCoursesPaginatin{
     margin-top: 55px;
+  }
+
+  .noCourseInMyCourses{
+    background-size: 350px auto;
+  }
+  
+  .noCourseInMyCourses > p{
+    padding-top: 385px;
+    font-size: 30px;
   }
 }
 
@@ -147,6 +171,15 @@
 
   .mainbarCoursesPaginatin{
     margin-top: 55px;
+  }
+
+  .noCourseInMyCourses{
+    background-size: 250px auto;
+  }
+  
+  .noCourseInMyCourses > p{
+    padding-top: 350px;
+    font-size: 25px;
   }
 }
 

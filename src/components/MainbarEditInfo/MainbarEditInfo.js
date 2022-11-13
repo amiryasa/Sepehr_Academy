@@ -124,17 +124,6 @@ const MainbarEditInfo = () => {
                 }}
                 value={date} />
             </div>
-            <div>
-
-              <Input
-                title="ایمیل"
-                className="enterInputPanel"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value)
-                }}
-              />
-            </div>
           </div>
           <div className="MainbarEditInfoButton">
             <Btn

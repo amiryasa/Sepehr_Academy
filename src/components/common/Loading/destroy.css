@@ -9,10 +9,10 @@
 
 #container {
     width: 120px;
-    /* height:80px; */
+    height:120px;
     margin: 200px auto;
     /* position: absolute; */
-    right: 45%;
+    /* right: 45%; */
     z-index: 40;
 }
 
@@ -20,6 +20,9 @@
     width: 40px;
     height: 40px;
     display: inline-block;
+    padding: 0;
+    margin: -5px 0;
+    /* margin:-2.17px; */
 }
 
 

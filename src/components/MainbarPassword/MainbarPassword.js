@@ -1,13 +1,14 @@
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { trackPromise } from "react-promise-tracker";
 import { Input } from "./../common/Input/Input";
 import { Btn } from "./../common/Button/Btn";
 import * as fa from "../../constants/persianStrings"
 import { forgetPassUser, resetPassUser } from "../../api/Core/Login_Register";
 import { getItem } from "../../api/storage/storage";
-import { getStudentById } from "../../api/Core/Student_Manage";
+import { getAllStudet, getStudentById } from "../../api/Core/Student_Manage";
 import "./MainbarPassword.css";
+import { getCourseById } from "../../api/Core/Course";
 
 const MainbarPassword = () => {
   const [email, setEmail] = useState()
@@ -38,7 +39,7 @@ const MainbarPassword = () => {
       setWrongNewPass('رمز جدید وارد نشده!')
     }
     if (!againNewPass) {
-      setWrongAgainNewPass('تکرار رمز را وارد نشده!')
+      setWrongAgainNewPass('تکرار رمز وارد نشده!')
     }
     if (newPass != againNewPass) {
       setWrongAgainNewPass('تکرار رمز اشتباه است!')

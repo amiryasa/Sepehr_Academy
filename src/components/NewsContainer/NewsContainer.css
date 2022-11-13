@@ -2,6 +2,8 @@ div.n21{
     width: 376px;
     margin-bottom: 55px;
     margin-top: 100px;
+
+    position: relative;
 }
 
 .CardInNewsContainer{
@@ -43,3 +45,82 @@ div.n21{
     }
 
 }
+
+
+
+.searchResultHolder01{
+    display: grid;
+    grid-template-columns:155px 155px;
+    grid-auto-rows: 40px;
+    gap:13px;
+    width:320px;
+    margin:auto;
+
+    margin-top: 15px;
+
+
+}
+
+.searchResultHolde01r > .searchResultItem01:hover{
+    transition:.3s;
+    background-color: rgb(245, 245, 245);
+}
+
+.searchResultHolder01 > .searchResultItem01{
+    width:155px;
+    height: 40px;
+    border: 1px solid rgb(181, 181, 181);
+    margin: 5px 0;
+    border-radius:5px;
+    cursor: pointer;
+    line-height: 30px;
+
+    position: relative;
+}
+
+
+.searchResultHolder01 > .searchResultItem01 > P{
+    position: absolute;
+    top: -7px;
+    right:10px;
+    font-size:14px;
+    color: rgb(102, 102, 102);
+    font-family: 'bakh';
+}
+
+.noResultInSearch01{
+    width:200px;
+    font-family: 'bakh';
+    color: rgb(102, 102, 102);
+    margin-right: 15px;
+    font-size:15px;
+}
+
+.newsSearchIcon{
+    width:50px;
+    height: 50px;
+    position:absolute;
+    right:-403px;
+    top:140px;
+    border-radius: 5px;
+    cursor:pointer;
+    box-shadow: 0px 0px 8px 1px rgba(0,0,0,.05);
+    background: url('./../../assets/images/Filter/search.png');
+    background-size:30px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  @media screen and (max-width: 1262px) {
+    .newsSearchIcon{
+      right:-220px;
+      top:140px;
+    }
+  }
+  
+  @media screen and (max-width: 749px) {
+    .newsSearchIcon{
+      right:-72px;
+      top:140px;
+    }
+  }

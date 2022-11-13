@@ -27,6 +27,7 @@ import Translate from "../screens/translate/Translate";
 import { getItem } from "../api/storage/storage";
 import ProtectedRoute from "./ProtectedRoute"
 import { GeneralContext } from "../providers/GeneralContext";
+import { NotAllow } from "../screens/notAllow/NotAllow";
 
 export default function OurRoutes() {
     const storageUser = getItem("id")
@@ -57,7 +58,7 @@ export default function OurRoutes() {
                 <Route path={path.CHANGE_PASS} element={<MainbarPassword />} />
             </Route>
             <Route path={path.TEST} element={<SelectBox />} />
-            <Route path={'/afterlogin'} element={<h1> با موفقیت وارد شدید </h1>} />
+            <Route path={'/405'} element={<NotAllow/>} />
             <Route path={path.TEST} element={<Tooltips />} />
             <Route path={path.ANOTHER_URL} element={<NotFound />} />
 
