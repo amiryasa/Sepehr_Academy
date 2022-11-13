@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { trackPromise } from "react-promise-tracker";
 import { GeneralContext } from "../../providers/GeneralContext"
 import { Btn } from "../common/Button/Btn";
@@ -11,48 +11,38 @@ import { contactUs } from "../../api/Core/ContactUs";
 import { toast } from "react-toastify";
 
 const HomeIdeas = () => {
-  const { language, themePage } = useContext(GeneralContext);
-  const [studentInfo, setStudentInfo] = useState();
-  const [input01, setInput01] = useState();
-  const [input02, setInput02] = useState();
-  const [input03, setInput03] = useState();
-
-  const textInput = useRef(null);
   const id = JSON.parse(getItem('id'));
+  const { language, themePage } = useContext(GeneralContext);
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+
+  const [description, setDescription] = useState();
 
   useEffect(() => {
-    trackPromise(inputFeilder());
-  }, [])
+    if (id)
+      trackPromise(inputFeilder(id));
+  }, [id])
 
-  const inputFeilder = async () => {
-    if (id) {
-      let result = await getStudentById(id);
-
-      setStudentInfo(result.data.result);
+  const inputFeilder = async (id) => {
+    let response = await getStudentById(id);
+    if (response.data.result) {
+      setEmail(response.data.result.email)
+      setName(response.data.result.fullName)
     }
+
   }
 
+
   const btnHandler = async () => {
-    if (id) {
-      let response = await contactUs({
-        email: studentInfo.email,
-        name: studentInfo.fullName,
-        text: input03
-      })
-      if (response.data.message[0].eventId === 200) {
-        toast.success('پیام شما با موفقیت ارسال شد!')
-      }
+    let response = await contactUs({
+      email,
+      name,
+      text: description
+    })
+    if (response.data.message[0].eventId === 200) {
+      toast.success('پیام شما با موفقیت ارسال شد!')
     }
-    else {
-      let response = await contactUs({
-        email: input01,
-        name: input02,
-        text: input03
-      })
-      if (response.data.message[0].eventId === 200) {
-        toast.success('پیام شما با موفقیت ارسال شد!')
-      }
-    }
+
   }
 
   return (
@@ -67,51 +57,31 @@ const HomeIdeas = () => {
           data-aos-delay="300"
           data-aos-duration="1000"
         >
-          {studentInfo ?
+          <div className="ideaInputName">
+            <Input
+              value={name}
+              title={language === 'fa' ? fa.TITLE_NAME_USER : fa.TITLE_NAME_USER_EN}
+              width="236px"
+              onChange={event => setName(event.target.value)}
+            />
+          </div>
+          <div className="ideaInputEmail">
+            <Input
+              value={email}
+              title={language === 'fa' ? fa.TITLE_EMAIL_USER : fa.TITLE_EMAIL_USER_EN}
+              width="236px"
+              onChange={event => setEmail(event.target.value)}
+            />
+          </div>
 
-            <>
-              <div className="ideaInputName">
-                <Input
-                  title={language === 'fa' ? fa.TITLE_NAME_USER : fa.TITLE_NAME_USER_EN}
-                  width="236px"
-                  value={studentInfo ? studentInfo.fullName : null}
-                />
-              </div>
-              <div className="ideaInputEmail">
-                <Input
-                  title={language === 'fa' ? fa.TITLE_EMAIL_USER : fa.TITLE_EMAIL_USER_EN}
-                  width="236px"
-                  value={studentInfo ? studentInfo.email : null}
-                />
-              </div>
-            </>
-
-            :
-            <>
-              <div className="ideaInputName">
-                <Input
-                  title={language === 'fa' ? fa.TITLE_NAME_USER : fa.TITLE_NAME_USER_EN}
-                  width="236px"
-                  onChange={event => setInput01(event.target.value)}
-                />
-              </div>
-              <div className="ideaInputEmail">
-                <Input
-                  title={language === 'fa' ? fa.TITLE_EMAIL_USER : fa.TITLE_EMAIL_USER_EN}
-                  width="236px"
-                  onChange={event => setInput02(event.target.value)}
-                />
-              </div>
-            </>}
           <div className="ideaInputMessage">
             <Input
               title={language === 'fa' ? fa.TITLE_DESCRIPT_MESSAGE : fa.TITLE_DESCRIPT_MESSAGE_EN}
               width="236px"
               multiline={true}
               row={4}
-              refInput={textInput}
-
-              onChange={event => setInput03(event.target.value)}
+              value={description}
+              onChange={event => setDescription(event.target.value)}
             />
           </div>
 
