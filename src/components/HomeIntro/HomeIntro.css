@@ -391,3 +391,58 @@ div.introContainer>.btn-home>button.infoBut {
 
 
 }
+
+.searchResultHolder{
+    display: grid;
+    grid-template-columns:155px 155px;
+    grid-auto-rows: 40px;
+    gap:13px;
+    width:320px;
+    margin:auto;
+
+    margin-top: 15px;
+
+
+}
+
+.searchResultHolder > .searchResultItem:hover{
+    transition:.3s;
+    background-color: rgb(245, 245, 245);
+}
+
+.searchResultHolder > .searchResultItem{
+    width:155px;
+    height: 40px;
+    border: 1px solid rgb(181, 181, 181);
+    margin: 5px 0;
+    border-radius:5px;
+    cursor: pointer;
+    line-height: 30px;
+
+    position: relative;
+}
+
+
+.searchResultHolder > .searchResultItem > img{
+    width:30px;
+    margin-top: 5px;
+    margin-right: 2px;
+    display: inline-block;
+}
+
+.searchResultHolder > .searchResultItem > P{
+    position: absolute;
+    top: -7px;
+    right:35px;
+    font-size:14px;
+    color: rgb(102, 102, 102);
+    font-family: 'bakh';
+}
+
+.noResultInSearch{
+    width:200px;
+    font-family: 'bakh';
+    color: rgb(102, 102, 102);
+    margin-right: 15px;
+    font-size:15px;
+}

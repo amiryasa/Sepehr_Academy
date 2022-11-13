@@ -3,19 +3,20 @@ import { DetailCourse } from "../../components/SingleCourse/DeatilsCourse/Detail
 import { Comments } from "../../components/Comments/Comments";
 import { CourseDetailClass } from "../../components/SingleCourse/CourseDetailClass/CourseDetailClass";
 import { useContext, useEffect, useState } from "react";
-import { countLikeCourse, dislikeCourse, getCourseById, likeCourse } from "../../api/Core/Course";
+import { countLikeCourse, dislikeCourse, getCourseById, likeCourse, removeStudentToCourse } from "../../api/Core/Course";
 import { getStudentById } from "../../api/Core/Student_Manage";
 import { getItem } from "../../api/storage/storage";
 import { toast } from "react-toastify";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { trackPromise } from "react-promise-tracker";
+import { CommentsCour } from "../../components/CommentsCour/CommentsCour";
 
 const CourseDetail = () => {
   const userId = JSON.parse(getItem('id'))
   const { id } = useParams();
   const [detailCourse, setDetailCourse] = useState()
   const [shoppingCourses, setShoppingCourses] = useState([])
-  const { shoppCourse, setShopCourse } = useContext(GeneralContext)
+  const {shoppCourse, setShopCourse } = useContext(GeneralContext)
   const [countLike, setCountLike] = useState(0)
   const [countDislike, setCountDislike] = useState(0)
   const [likeCourses, setLikeCourse] = useState(false)
@@ -46,7 +47,7 @@ const CourseDetail = () => {
     let response = await getCourseById(id);
     if (response.data.result) {
       setDetailCourse(response.data.result);
-      console.log('first', response.data.result)
+      console.log('first0000', response.data.result)
     }
   }
 
@@ -64,12 +65,31 @@ const CourseDetail = () => {
     }
   }
 
-  const AddToShop = (courseId) => {
+  const AddToShop = async (courseId) => {
     if (shoppingCourses && shoppingCourses.length > 0) {
-      if (shoppingCourses.includes(courseId)) toast.error('این دوره قبلا خریداری شده.');
+      if (shoppingCourses.includes(courseId)) {
+        const sendRequest = await removeStudentToCourse({
+          userId: userId,
+          courseId: courseId
+        })
+
+        const newResult = shoppingCourses.filter(item => {
+          return (item !=courseId)
+        })
+        setShoppingCourses([...newResult])
+        toast.success('دوره با موفقیت حذف شد.');
+      }
       else {
         if (shoppCourse && shoppCourse.length > 0) {
-          if (shoppCourse.includes(courseId)) toast.warning('این دوره در سبد خرید موجود است!')
+          if (shoppCourse.includes(courseId)) {
+            const newResult2 = shoppCourse.filter(item => {
+              return (item !=courseId)
+            })
+
+            setShopCourse([...newResult2]);
+
+            toast.success('دوره با موفقیت حذف شد.');
+          }
           else {
             setShopCourse((current) => [...current, (courseId)]);
             toast.success('دوره به سبد خرید شما اضافه شد.')
@@ -137,6 +157,10 @@ const CourseDetail = () => {
 
   }
 
+  if(shoppingCourses){
+    console.log('%%%', shoppingCourses)
+  }
+
   return (
     <>
       {detailCourse &&
@@ -156,9 +180,11 @@ const CourseDetail = () => {
             countLike={countLike}
             countDislike={countDislike}
             likeCourses={likeCourses}
-            disLikeCourses={disLikeCourses} />
+            disLikeCourses={disLikeCourses} 
+            btnCon={shoppingCourses}
+            />
           <DetailCourse detailLesson={detailCourse.lesson} />
-          <Comments postId={id} />
+          <CommentsCour postId={id} student={detailCourse.students}/>
         </>
       }
     </>

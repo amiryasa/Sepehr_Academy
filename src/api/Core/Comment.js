@@ -10,3 +10,9 @@ export const sendNewComment = payload =>
         username: payload.username,
         comment: payload.Comment
     })
+
+    export const answerComment = payload =>
+    api.post('https://api.noorgon.sepehracademy.ir/api/comments/answer', {
+        id: payload.id,
+        answer: payload.answer
+    })

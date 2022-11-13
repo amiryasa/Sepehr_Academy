@@ -29,9 +29,12 @@ const CourseDetailClass = (
     detailTeacher,
     detailLesson,
     likeCourses,
-    disLikeCourses
+    disLikeCourses,
+    btnCon
   }) => {
-  const { setCompairCourse, compairCourse } = useContext(GeneralContext)
+  const { setCompairCourse, compairCourse, shoppCourse } = useContext(GeneralContext)
+
+  console.log('sabx', shoppCourse);
 
   return (
     <>
@@ -112,8 +115,8 @@ const CourseDetailClass = (
         <div className="CourseDetailClassActionButton">
           {" "}
           <Btn
-            color="goal"
-            text='افزودن به سبد'
+            color={btnCon.includes(deatilsCouse._id) ? 'warning' : shoppCourse.includes(deatilsCouse._id) ? 'warning' : "goal"}
+            text={btnCon.includes(deatilsCouse._id) ? 'حذف دوره' : shoppCourse.includes(deatilsCouse._id) ? 'حذف از سبد' : "افزودن به سبد"}
             elementClass="largeBtn"
             variant="contained"
             onChange={() => {
@@ -160,7 +163,7 @@ const CourseDetailClass = (
             size={250}
             type='capacity'
             tooltiveMes={(deatilsCouse.students && deatilsCouse.students.length > 0)
-              ? deatilsCouse.capacity - deatilsCouse.students.length :
+              ? deatilsCouse.capacity :
               deatilsCouse.capacity - 0}
           />
         </div>

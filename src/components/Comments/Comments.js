@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 import PopUp from "../common/PopUp/PopUp"
 import { trackPromise } from "react-promise-tracker";
 
+import good01 from './../../assets/images/comment/check.png';
+import bad01 from './../../assets/images/comment/remove.png';
 
 const Comments = (props) => {
   const [idea, setIdea] = useState();
@@ -23,30 +25,42 @@ const Comments = (props) => {
   const id = JSON.parse(getItem('id'));
   const navigator = useNavigate();
 
-  const good = ['خوب بود', 'عالی بود', 'کامل بود', 'خوب', 'عالی', 'کامل', 'جامع', 'خوبی داشت', 'خوبی', 'جامع بود', 'جامعی داشت', 'کاملی داشت', 'مناسب', 'تشکر', 'مفید بود'];
-  const bad = ['بد بود', 'عالی نبود', 'کامل نبود', 'خوب نبود', 'بد', 'ناقص', 'نبود جامع', 'بدی داشت', 'بد', 'ناقص بود بود', 'جامعی نداشت', 'کاملی نداشت', 'افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت', 'کمه', 'کافی نیست', 'مفید نبود', 'مفیدی نبود']
+  const good = ['خوب بود', 'مفید', 'بی نظیر', 'بینظیر', 'بی‌نظیر', 'عالی بود', 'کامل بود', 'خوب', 'عالی', 'کامل', 'جامع', 'خوبی داشت', 'خوبی', 'جامع بود', 'جامعی داشت', 'کاملی داشت', 'مناسب', 'تشکر', 'مفید بود'];
+  const bad = ['بد بود', 'عالی نبود', 'کامل نبود', 'خوب نبود', 'بد', 'ناقص', 'نبود جامع', 'بدی داشت', 'بد', 'ناقص بود بود', 'جامعی نداشت', 'کاملی نداشت', 'افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت', 'کمه', 'کافی نیست', 'مفید نبود', 'مفیدی نبود', 'مناسب نبود','مناسبی نبود', 'جامع نبود']
 
   useEffect(() => {
     trackPromise(fixComments())
   }, [])
 
 
-  const handleChange = (event) => {
-    //setIdea(event.target.value);
+  const arrangMode = (message) => {
 
     let goods = 0;
+    let bads = 0;
+
     good.forEach((item) => {
-      if ((event.target.value).includes(item)) {
+      if ((message).includes(item)) {
         goods++;
       }
     });
 
-    let bads = 0;
+    
     bad.forEach((item) => {
-      if ((event.target.value).includes(item)) {
+      if ((message).includes(item)) {
         bads++;
       }
     });
+
+
+    if(bads > 0){
+      return 0;
+    }
+    else if(goods > 0){
+      return 1
+    }
+    else{
+      return -1;
+    }
   }
 
   const handleAddId = async () => {
@@ -77,6 +91,7 @@ const Comments = (props) => {
 
     if (commentData) {
       const response = await sendNewComment(commentData);
+      toast.success('نظر شما با موفقیت ثبت شد .')
     }
   }
 
@@ -84,12 +99,14 @@ const Comments = (props) => {
     const result = await getComment();
 
     if (result) {
-      let currentResult = result.data.filter((item) => {
+      var currentResult = result.data.filter((item) => {
         return ((item.postId === props.postId)
           && item.verified);
       })
       setAllComent([...currentResult]);
     }
+
+    console.log('currrrrent', currentResult);
   }
 
   const handleReplay = () => {
@@ -103,8 +120,8 @@ const Comments = (props) => {
 
       {id ?
         <>
-          <div className="comments">
-            <p> {fa.TITLE_COMMENTS} </p>
+          <div className="comments">            
+              <p> {fa.TITLE_COMMENTS} </p>
             <div className="addNewComment">
               <Card>
                 <span>{fa.INSERT_COMMENT}</span>
@@ -115,7 +132,7 @@ const Comments = (props) => {
                     row={2}
                     refInput={textInput}
                     name="message"
-                    onChange={handleChange}
+                    onChange={(even) => {setIdea(even.target.value)}}
                   />
                 </div>
                 <Btn text={fa.INSERT_COMMENT} color="info" variant="contained" onChange={() => {
@@ -145,7 +162,10 @@ const Comments = (props) => {
               />
             </div>
           </div>
-        </>}
+
+
+        </>
+      }
 
 
 
@@ -180,7 +200,7 @@ const Comments = (props) => {
             </div>
 
             <div className="showCommentsItemsHolderMode">
-              <img src={good} alt='' style={{ width: '30px', position: 'absolute', top: '10px', right: '5px' }} />
+              <img src={arrangMode(item.comment) > 0 ? good01 : arrangMode(item.comment) === 0 ? bad01 :''} alt='' style={{ width: '25px', position: 'absolute', top: '7px', right: '5px' }} />
             </div>
 
           </div>
@@ -201,7 +221,7 @@ const Comments = (props) => {
                       row={2}
                       refInput={textInput}
                       name="message"
-                      onChange={handleChange}
+                      // onChange={handleChange}
                     />
                   </div>
                   <Btn text={'ثبت پاسخ'} color="info" variant="contained" onChange={handleAddId} />
@@ -216,3 +236,4 @@ const Comments = (props) => {
   );
 };
 export { Comments };
+

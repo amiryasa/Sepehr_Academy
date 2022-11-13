@@ -9,6 +9,12 @@ import { countLikeCourse, getAllCourse } from "../../api/Core/Course";
 import "./CoursesContainer.css";
 import { trackPromise } from "react-promise-tracker";
 
+import PopUp from "../common/PopUp/PopUp";
+import Box from '@mui/material/Box';
+import { Input } from "../common/Input/Input";
+import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from "react-router-dom";
+
 const CoursesContainer = (props) => {
   const [originalCoursesData, setOriginalCoursesData] = useState(null);
   const [rightCoursesData, setRightCoursesData] = useState(null);
@@ -25,6 +31,13 @@ const CoursesContainer = (props) => {
   const [upOrDown, setUpOrDown] = React.useState([]);
   const [upOrDownData, setupOrDownData] = useState("desc");
 
+  const [openPopUp, setOpenPopUp] = useState(false)
+  const [search, setSearch] = useState();
+  const [isTouch, setIsTouch] = useState(false)
+  const [courseData, setCoursesData] = useState();
+  const [searchResult, setSearchResult] = useState()
+  const navigator = useNavigate();
+
 
   let allCost = ["رایگان", "خریدنی"];
   const sortbyItem = ["عنوان", "امتیاز", "قیمت", "ظرفیت", "مدرس دوره"];
@@ -32,6 +45,7 @@ const CoursesContainer = (props) => {
 
   useEffect(() => {
     trackPromise(getAllCourses());
+    trackPromise(getCourses());
   }, []);
 
   // مرتب سازی 
@@ -1172,10 +1186,53 @@ const CoursesContainer = (props) => {
   };
 
 
+
+
+
+  const getCourses = async() => {
+    let response = await getAllCourse();
+
+    let rightData = response.data.result.map((item) => ({
+        image: item.lesson.image,
+        title: item.title,
+        topics: item.lesson.topics,
+        id: item._id,
+    }));
+
+    setCoursesData(rightData);
+
+    console.log('first', rightData);
+  }
+
+  const isResult = (items, token) => {
+    let result = 0;
+      if(_.startsWith(items, token)){
+        result= result + 1;
+      }
+        return result;
+  }
+
+  const searchHandler = (even) => {
+
+    const result = courseData.filter((item) => {
+        return (isResult(item.title, even.target.value) === 1)
+    })
+
+    setSearchResult(result);
+
+
+    setIsTouch(true);
+
+  }
+
+
+
+
   return (
     <div className="dfghjhjg">
       <div className="homeH2 c21">
         <h2> {fa.TITLE_COURSES} </h2>
+        <div className="CoursesSearchIcon" onClick={() => setOpenPopUp(true)}></div>
       </div>
 
       <CoursesFilter
@@ -1250,6 +1307,29 @@ const CoursesContainer = (props) => {
         eachPageTtem={4}
         handlePagination={handlePagination_CoursesContainer}
       />
+
+      {openPopUp &&
+        <PopUp
+            handleClose={() => { setOpenPopUp(false) }}
+            open={openPopUp}
+            className='popUpSearch'
+            closeBtn
+            title="به دنبال چه دوره‌ای هستید؟">
+            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                <Input title="جستجو" value={search} onChange={(event) => searchHandler(event)} variant="standard" />
+            </Box>
+            <div className="searchResultHolder">
+
+                {searchResult ? searchResult.map((item,key) => (
+                    <div className="searchResultItem" onClick={() => {navigator(`/courseDetail/${item.id}`)}}> <img src={item.image} alt=""/> <p> {item.title} </p></div>
+                )) : '' }
+
+                {isTouch && searchResult.length === 0 ? <p className="noResultInSearch"> دوره‌ای یافت نشد!</p> : '' }
+
+            </div>
+        </PopUp>}
+
     </div>
   );
 };

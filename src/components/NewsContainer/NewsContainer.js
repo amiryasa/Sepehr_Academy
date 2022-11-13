@@ -7,6 +7,11 @@ import { Paginate } from "../common/Pagination/Paginate";
 import { NewsFilter } from "../NewsFilter/NewsFilter";
 
 import _ from "lodash";
+import PopUp from "../common/PopUp/PopUp";
+import Box from '@mui/material/Box';
+import { Input } from "../common/Input/Input";
+import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from "react-router-dom";
 
 import "./NewsContainer.css";
 
@@ -14,6 +19,13 @@ import "./NewsContainer.css";
 const NewsContainer = () => {
   const [newsArticleData, setNewsArticleData] = useState(null);
   const [newsArticleData01, setNewsArticleData01] = useState(null)
+
+  const [openPopUp, setOpenPopUp] = useState(false)
+  const [search, setSearch] = useState();
+  const [isTouch, setIsTouch] = useState(false)
+  const [newsData, setNewsData] = useState();
+  const [searchResult, setSearchResult] = useState()
+  const navigator = useNavigate();
 
   //filter 
   const [sortby, setSortby] = useState([]);
@@ -27,6 +39,7 @@ const NewsContainer = () => {
 
   useEffect(() => {
     trackPromise(getAllNewsArticles())
+    trackPromise(getNews());
   }, [])
 
 
@@ -125,10 +138,52 @@ const NewsContainer = () => {
 
   };
 
+
+  
+  const getNews = async() => {
+    let response = await getAllNews();
+
+    let rightData = response.data.result.map((item) => ({
+        image: item.image,
+        title: item.title,
+        id: item._id,
+    }));
+
+    setNewsData(rightData);
+
+    console.log('first2', rightData);
+  }
+
+  const isResult = (items, token) => {
+    let result = 0;
+      if(_.startsWith(items, token)){
+        result= result + 1;
+      }
+        return result;
+  }
+
+  const searchHandler = (even) => {
+
+    const result = newsData.filter((item) => {
+        return (isResult(item.title, even.target.value) === 1)
+    })
+
+    setSearchResult(result);
+
+    console.log(even.target.value)
+
+    setIsTouch(true);
+
+  }
+
+
+
+
   return (
     <div>
       <div className="homeH2 n21">
         <h2> {fa.TITLE_NEWS} </h2>
+        <div className="newsSearchIcon" onClick={() => setOpenPopUp(true)}></div>
       </div>
 
       <NewsFilter 
@@ -165,6 +220,28 @@ const NewsContainer = () => {
         eachPageTtem={6}
         handlePagination={handlePagination_NewsContainer}
       />
+
+      {openPopUp &&
+        <PopUp
+            handleClose={() => { setOpenPopUp(false) }}
+            open={openPopUp}
+            className='popUpSearch'
+            closeBtn
+            title="به دنبال چه نوشته‌ای هستید؟">
+            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                <Input title="جستجو" value={search} onChange={(event) => searchHandler(event)} variant="standard" />
+            </Box>
+            <div className="searchResultHolder01">
+
+                {searchResult ? searchResult.map((item,key) => (
+                    <div className="searchResultItem01" onClick={() => {navigator(`/newsDetail/${item.id}`)}}> <p> {`${item.title.slice(0,23)} ...`} </p></div>
+                )) : '' }
+
+                {isTouch && searchResult.length === 0 ? <p className="noResultInSearch01"> نوشته‌ای یافت نشد!</p> : '' }
+
+            </div>
+        </PopUp>}
     </div>
   );
 };

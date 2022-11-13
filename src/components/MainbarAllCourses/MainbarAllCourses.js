@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import _ from "lodash";
 import { trackPromise } from "react-promise-tracker";
 import { getItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
@@ -22,7 +21,6 @@ const MainbarAllCourses = () => {
 
   useEffect(() => {
     trackPromise(getCourses());
-    trackPromise(searching());
   }, []);
 
 
@@ -54,31 +52,7 @@ const MainbarAllCourses = () => {
     }
   }
 
-  const searching = async () => {
-    let response = await getAllCourse();
 
-    console.log('0021', response.data.result);
-
-      const isResult = (items) => {
-        let result = 0;
-        items.forEach(item => {
-          if(_.startsWith(item, token)){
-            result= result + 1;
-          }
-        })
-        return result;
-      }
-      
-      let rightData = response.data.result.map((item) => ({
-        title: item.title,
-        teacher: item.teacher.fullName,
-        topics: isResult(item.lesson.topics),
-        cost: item.cost,
-        id: item._id,
-      }));
-
-
-    }
 
 
 

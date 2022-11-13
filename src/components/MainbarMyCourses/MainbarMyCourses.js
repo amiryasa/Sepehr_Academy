@@ -12,7 +12,7 @@ import deleteCourse from "../../assets/images/Table/delete.png"
 const MainbarMyCourses = () => {
   const userId = JSON.parse(getItem('id'));
   const [currentPage_MainbarMyCourses, setCurrentPage_MainbarMyCourses] = useState(1);
-  const [studentInfo, setStudentInfo] = useState();
+  const [studentInfo, setStudentInfo] = useState([]);
   const { setConfirmPopupOpen, onConfirmSetter } = useContext(GeneralContext)
 
   useEffect(() => {
@@ -50,33 +50,35 @@ const MainbarMyCourses = () => {
           <p> دوره‌های من </p>
           <hr></hr>
         </div>
-        <div className="mainbarCoursesFilter">
-          {studentInfo ? "yes" : "no"}
-        </div>
-        <div className="mainbarCoursesTable">
-          <TableCom
-            actionPic={deleteCourse}
-            lastColumnTitle={'حذف دوره'}
-            myCourses={studentInfo ? studentInfo : ""}
-            currentPage={currentPage_MainbarMyCourses}
-            rowsCount={5}
-            comFrom={'my'}
-            onClick={(courseId) => {
-              onConfirmSetter('آیا برای حذف دوره اطمینان دارید؟',
-                async () => {
-                  const updateCourse = {
-                    userId: userId,
-                    courseId: courseId
-                  }
-                  let response = await removeStudentToCourse(updateCourse)
-                  if (response.data.result) {
-                    getUserId()
-                  }
-                }, () => { setConfirmPopupOpen(false) })
-              setConfirmPopupOpen(true)
-            }}
-          />
-        </div>
+        {studentInfo.length > 0 ?
+        
+          <div className="mainbarCoursesTable">
+            <TableCom
+              actionPic={deleteCourse}
+              lastColumnTitle={'حذف دوره'}
+              myCourses={studentInfo ? studentInfo : ""}
+              currentPage={currentPage_MainbarMyCourses}
+              rowsCount={5}
+              comFrom={'my'}
+              onClick={(courseId) => {
+                onConfirmSetter('آیا برای حذف دوره اطمینان دارید؟',
+                  async () => {
+                    const updateCourse = {
+                      userId: userId,
+                      courseId: courseId
+                    }
+                    let response = await removeStudentToCourse(updateCourse)
+                    if (response.data.result) {
+                      getUserId()
+                    }
+                  }, () => { setConfirmPopupOpen(false) })
+                setConfirmPopupOpen(true)
+              }}
+            />
+          </div>
+          : <div className="noCourseInMyCourses">
+              <p>دوره‌ای جهت نمایش وجود ندارد!</p>
+            </div>}
         <div className="mainbarCoursesPaginatin">
           <Paginate
             allItem={studentInfo ? studentInfo.length : 5}
