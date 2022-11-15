@@ -9,6 +9,7 @@ import { HomeIntro } from '../../components/HomeIntro/HomeIntro';
 
 import "./index.scss";
 import './../..//assets/fonts/fonts.css';
+import { ChatBox } from '../../components/ChatBox/ChatBox';
 
 
 const Home = () => {

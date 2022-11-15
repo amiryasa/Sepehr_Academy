@@ -27,7 +27,7 @@ const CommentsCour = (props) => {
   const [courseId, setCourseId] = useState();
   const [openAnswer, setOpenAnswer] = useState(false);
 
-  const [activePart, setActivePart] = useState('')
+  const [activePart, setActivePart] = useState('idea')
 
   const [allComent, setAllComent] = useState();
   const [allQuestion, setAllQuestion] = useState();
@@ -234,9 +234,7 @@ const CommentsCour = (props) => {
           <p onClick={() => setActivePart('question')} style={activePart === 'question' ? {borderBottom: '2px solid #043D72',color: '#043D72', cursor: 'default'} : {color: '#a5a9ad', cursor: 'pointer', fontSize:'21px'}}> پرسش و پاسخ </p>
         </div>  
         {id && courseStu.includes(id) ?
-          <>
-             
-              
+          <> 
             <div className="addNewComment">
               <Card>
                 <span>{activePart === 'idea' ? fa.INSERT_COMMENT : 'ثبت پرسش'}</span>

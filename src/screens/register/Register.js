@@ -74,6 +74,7 @@ const Register = () => {
         profile: photo
       }
       insertNewUser(dataUser);
+      navigator('/login')
     },
   });
 
