@@ -9,6 +9,7 @@ import "./PageLayout.css";
 import CompairBtn from "../Compair/CompairBtn";
 import { useContext } from "react";
 import { GeneralContext } from "../../providers/GeneralContext";
+import { ChatBox } from "../ChatBox/ChatBox";
 
 const PageLayout = () => {
   const location = useLocation();
@@ -22,6 +23,7 @@ const PageLayout = () => {
       {(compairCourse.length > 0 && location.pathname != '/compair') && < CompairBtn />}
       <Outlet />
       {!dontNeedHeader.includes(location.pathname) && <Footer />}
+      <ChatBox/>
     </>
   );
 };

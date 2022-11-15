@@ -35,6 +35,7 @@ export default function ShoppingCart() {
 
     }, [data.current.length])
 
+
     const getMyOldCourse = async (userId) => {
         let response = await getStudentById(userId);
         let holder = response.data.result.courses;
@@ -63,19 +64,24 @@ export default function ShoppingCart() {
                 } else
                     data.current.push(response.data.result)
             }
+
         }
     }
 
-    const GetTotalPay = () => {
-
-        console.log('202', data.current);
+    const GetTotalPay = (showShop01) => {
 
         let total = 0;
-        data.current.map((item) => {
+        // data.current.map((item) => {
+        //     total += item.cost
+        // })
+
+        console.log('dfsdfsdfsdfs', showShop[0].cost);
+
+        showShop01.forEach((item) => {
             total += item.cost
         })
 
-        setTotalPay(total);
+        return(total);
     }
 
     const removeCourse = (course) => {
@@ -84,6 +90,8 @@ export default function ShoppingCart() {
             setShowShop(newCourseToShop)
             let newShop = shoppCourse.filter(item => item != course._id)
             setShopCourse(newShop)
+
+            toast.success(' دوره با موفقیت حذف شد.')
         })
         setConfirmPopupOpen(true)
     }
@@ -129,7 +137,7 @@ export default function ShoppingCart() {
                                 <hr></hr>
                                 <div className="allCoursePay">
                                     <p>تعداد کل:</p>
-                                    <p>{data.current && data.current.length}</p>
+                                    <p>{showShop && showShop.length}</p>
                                 </div>
                                 <div className="allSaleCourse">
                                     <p>تخفیف</p>
@@ -138,7 +146,7 @@ export default function ShoppingCart() {
                                 <hr></hr>
                                 <div className="totalPay">
                                     <p>جمع کل</p>
-                                    <p>{totalPay} ت</p>
+                                    <p>{GetTotalPay(showShop)} ت</p>
                                 </div>
                             </div>
                             <div className="payShoppingCart">
