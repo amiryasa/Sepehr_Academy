@@ -16,6 +16,7 @@ export default function FormAdmin() {
             setItem('role', role);
 
             navigator("/")
+            window.location.reload(false)
 
             // navigator("/")
         }

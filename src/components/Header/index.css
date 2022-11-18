@@ -3,12 +3,30 @@
   padding-top: 10px;
 }
 
-.lng {
+.header1 .lng {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 0px;
+
+}
+
+.header1En .lng {
+  padding-right: 10px;
+  padding-left: 0px;
+  cursor: pointer;
+
+}
+
+.header1 .mode {
+  padding-right: 10px;
+  padding-left: 0px;
+
   cursor: pointer;
 }
 
-.mode {
-  padding-right: 10px;
+.header1En .mode {
+  padding-left: 10px;
+  padding-right: 0px;
   cursor: pointer;
 }
 
@@ -96,8 +114,7 @@
   margin-left: 28px;
 }
 
-.header1>.headerNavbar>p:nth-child(1) {
-}
+.header1>.headerNavbar>p:nth-child(1) {}
 
 .header1>.headerNavbar>.light,
 .header1En>.headerNavbar>.light {
@@ -192,7 +209,8 @@
   cursor: pointer;
   background-color: #00adef;
 }
-.header1>.headerLogin>.loginSearch>.numberOfShopp{
+
+.header1>.headerLogin>.loginSearch>.numberOfShopp {
   margin-top: -10px;
   width: 19px;
   height: 19px;
@@ -220,7 +238,7 @@
   background-color: #00adef;
 }
 
-.avatarHeader{
+.avatarHeader {
   background-color: #00adef;
 }
 
@@ -273,7 +291,7 @@
     background-size: 18px;
     height: 30px !important;
     width: 30px !important;
-   
+
   }
 
   .header1En>.headerLogin>.avatarHeader {
@@ -295,7 +313,7 @@
     width: 20px;
   }
 
-  .header1>.headerLogin>.loginSearch>.numberOfShopp{
+  .header1>.headerLogin>.loginSearch>.numberOfShopp {
     width: 16px;
     height: 16px;
     font-size: 13px;
