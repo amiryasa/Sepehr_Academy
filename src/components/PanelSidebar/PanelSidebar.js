@@ -136,6 +136,7 @@ const PanelSidebar = () => {
               () => {
                 removeItem('token');
                 removeItem('id');
+                removeItem('role');
                 navigator("/");
                 setDataUser(null);
                 setShopCourse([])

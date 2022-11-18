@@ -31,7 +31,7 @@ const HomeTeacher = () => {
       <div className="teacherCantainer">
 
         {teachersBest && teachersBest.map((item, key) => (
-          <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="800">
+          <div data-aos="fade-right" data-aos-delay="500" data-aos-duration="800" key={key}>
             <TeacherCard
               img={item.profile}
               name={item.fullName}

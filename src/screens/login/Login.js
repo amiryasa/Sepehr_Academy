@@ -58,6 +58,8 @@ const Login = () => {
     if (response.data.result) {
       setItem("token", response.data.result.jwtToken);
       setItem('id', JSON.stringify(response.data.result.studentModel._id));
+      setItem('role', response.data.result.studentModel.role)
+
       getDataUserById(response.data.result.studentModel._id)
     }
   }

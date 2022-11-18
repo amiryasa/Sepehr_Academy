@@ -77,9 +77,6 @@ const MainbarAllCourses = () => {
           <p> لیست دوره‌ها </p>
           <hr></hr>
         </div>
-        <div className="mainbarAllCoursesFilter">
-          فیلتر فیلتر فیلتر فیلتر فیلتر
-        </div>
         <div className="mainbarAllCoursesTable">
           <TableCom
             buyCourseLast={buyCourseLast}

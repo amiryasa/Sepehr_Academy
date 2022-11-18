@@ -1,6 +1,6 @@
 $lg-avatar: 8rem;
 $xs-avatar: 2.6rem;
-$sm-avatar: 3rem;
+$sm-avatar: 40px;
 $md-avatar: 5rem;
 $xl-avatar: 10rem;
 
@@ -112,6 +112,11 @@ $xl-avatar: 10rem;
     .xs-avatar {
         width: 2rem !important;
         height: 2rem !important;
+    }
+
+    .sm-avatar {
+        width: 32px !important;
+        height: 32px !important;
     }
 
 }

@@ -31,6 +31,7 @@ import { NotAllow } from "../screens/notAllow/NotAllow";
 import { ChatBox } from "../components/ChatBox/ChatBox";
 import { AboutUs } from "../screens/AboutUs/AboutUs";
 import { ContactUs } from "../screens/ContactUs/ContactUs";
+import FormAdmin from "../screens/fromAdmin/fromAdmin";
 
 export default function OurRoutes() {
     const storageUser = getItem("id")
@@ -52,6 +53,7 @@ export default function OurRoutes() {
                 <Route path={path.TRANSLATE} element={<Translate />} />
                 <Route path={path.ABOUT_US} element={<AboutUs/>} />
                 <Route path={path.CONTACT_US} element={<ContactUs/>} />
+                <Route path={path.ADMIN} element={<FormAdmin />} />
             </Route>
 
             <Route path={path.STIDENT_PANEL} element={<ProtectedRoute isAllowed={storageUser} dataUser={dataUser} />} >

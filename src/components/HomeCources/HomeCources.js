@@ -32,7 +32,7 @@ const HomeCources = () => {
       </div>
       <div className="courcesCantainer">
         {coursesData != null && coursesData.map((item) => (
-          <div data-aos="fade-left" data-aos-delay="1000" data-aos-duration="800">
+          <div data-aos="fade-left" data-aos-delay="1000" data-aos-duration="800" key={item._id} >
             <CoursesCard
               image={item.lesson.image}
               bgColor="#F5FCFF"

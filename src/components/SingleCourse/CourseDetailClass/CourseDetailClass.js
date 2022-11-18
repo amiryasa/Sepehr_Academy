@@ -17,6 +17,7 @@ import disLikeAction from "../../../assets/images/CourseDetails/dislike-action.p
 import likeAction from "../../../assets/images/CourseDetails/like-action.png"
 
 import "./CourseDetailClass.css";
+import { getItem } from "../../../api/storage/storage";
 
 const CourseDetailClass = (
   { countLike,
@@ -33,8 +34,7 @@ const CourseDetailClass = (
     btnCon
   }) => {
   const { setCompairCourse, compairCourse, shoppCourse } = useContext(GeneralContext)
-
-  console.log('sabx', shoppCourse);
+  const role = getItem('role')
 
   return (
     <>
@@ -92,7 +92,10 @@ const CourseDetailClass = (
                 height={40}
                 style={{ marginLeft: "10px" }}
                 onClick={() => {
-                  actionLike()
+                  if (role === "student")
+                    actionLike()
+                  else
+                    toast.warning('امکان لایک کردن دوره برای شما وجود ندارد')
                 }} />
             </div>
             <div className="actions dislike">
@@ -102,7 +105,10 @@ const CourseDetailClass = (
                 width={40}
                 height={40}
                 onClick={() => {
-                  actionDislike()
+                  if (role === "student")
+                    actionDislike()
+                  else
+                    toast.warning('امکان لایک کردن دوره برای شما وجود ندارد')
                 }} />
             </div>
           </div>

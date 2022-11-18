@@ -1,41 +1,41 @@
-.chatBoxHolder > #sc-launcher > .sc-chat-window > .sc-header{
+.chatBoxHolder>#sc-launcher>.sc-chat-window>.sc-header {
     direction: rtl;
     background-color: #02a7e7;
     font-family: bakh;
     z-index: 250;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window{
+.chatBoxHolder>#sc-launcher>.sc-chat-window {
     right: 80px;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window > .sc-header > img{
-    width:34px;
+.chatBoxHolder>#sc-launcher>.sc-chat-window>.sc-header>img {
+    width: 34px;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window > .sc-header > .sc-header--team-name{
+.chatBoxHolder>#sc-launcher>.sc-chat-window>.sc-header>.sc-header--team-name {
     padding: 0;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window > .sc-message-list > .sc-message > .received > .sc-message--text{
+.chatBoxHolder>#sc-launcher>.sc-chat-window>.sc-message-list>.sc-message>.received>.sc-message--text {
     font-family: bakh;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window > .sc-message-list > .sc-message > .sent > .sc-message--text{
+.chatBoxHolder>#sc-launcher>.sc-chat-window>.sc-message-list>.sc-message>.sent>.sc-message--text {
     font-family: bakh;
     text-align: right;
 }
 
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window > form > .sc-user-input--buttons > div:nth-child(3){
+.chatBoxHolder>#sc-launcher>.sc-chat-window>form>.sc-user-input--buttons>div:nth-child(3) {
     display: none;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window > form > .sc-user-input{
+.chatBoxHolder>#sc-launcher>.sc-chat-window>form>.sc-user-input {
     direction: rtl;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-chat-window > form > .sc-user-input--text{
+.chatBoxHolder>#sc-launcher>.sc-chat-window>form>.sc-user-input--text {
     text-align: right;
     font-family: bakh;
     width: 320px;
@@ -44,18 +44,18 @@
 
 
 
-.chatBoxHolder > #sc-launcher > .sc-launcher {
-    right:80px;
+.chatBoxHolder>#sc-launcher>.sc-launcher {
+    right: 80px;
     bottom: 35px;
 }
 
-.chatBoxHolder > #sc-launcher > .sc-launcher > .sc-open-icon{
-    right:80px;
+.chatBoxHolder>#sc-launcher>.sc-launcher>.sc-open-icon {
+    right: 80px;
     bottom: 35px;
 
 }
 
-.chatBoxHolder > #sc-launcher > .sc-launcher > .sc-closed-icon{
-    right:80px;
+.chatBoxHolder>#sc-launcher>.sc-launcher>.sc-closed-icon {
+    right: 80px;
     bottom: 35px;
 }

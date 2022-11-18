@@ -18,10 +18,12 @@ import { getItem } from "../api/storage/storage";
 import { getStudentById } from "../api/Core/Student_Manage";
 import ConfirmPopUp from "../components/common/PopUpAction/ConfirmPopUp";
 import Loading from "../components/common/Loading/Loading";
+import { getEmployeById } from "../api/Core/Employe_Manage";
 
 function App() {
   AOS.init();
   const userId = JSON.parse(getItem('id'))
+  const role = getItem('role')
   const ThemeMode = getItem('theme')
   const LanguageMode = getItem('language')
   const [language, setLanguage] = React.useState('fa')
@@ -49,8 +51,15 @@ function App() {
 
 
   const getDataUser = async (id) => {
-    let response = await getStudentById(id);
-    setDataUser(response.data.result);
+    if (role === 'student') {
+      let response = await getStudentById(id);
+      setDataUser(response.data.result);
+    }
+    else{
+      let responseAdmin = await getEmployeById(id);
+      setDataUser(responseAdmin.data.result)
+    }
+
   }
 
   const theme = createTheme({

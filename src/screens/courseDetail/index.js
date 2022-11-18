@@ -13,10 +13,12 @@ import { CommentsCour } from "../../components/CommentsCour/CommentsCour";
 
 const CourseDetail = () => {
   const userId = JSON.parse(getItem('id'))
+  const role = getItem('role');
+
   const { id } = useParams();
   const [detailCourse, setDetailCourse] = useState()
   const [shoppingCourses, setShoppingCourses] = useState([])
-  const {shoppCourse, setShopCourse } = useContext(GeneralContext)
+  const { shoppCourse, setShopCourse } = useContext(GeneralContext)
   const [countLike, setCountLike] = useState(0)
   const [countDislike, setCountDislike] = useState(0)
   const [likeCourses, setLikeCourse] = useState(false)
@@ -25,7 +27,7 @@ const CourseDetail = () => {
   useEffect(() => {
     trackPromise(getCountLike(id));
     trackPromise(getDetailCourse(id))
-    if (userId) {
+    if (userId && role === 'student') {
       trackPromise(getMyCourse(userId))
     }
   }, [])
@@ -47,7 +49,6 @@ const CourseDetail = () => {
     let response = await getCourseById(id);
     if (response.data.result) {
       setDetailCourse(response.data.result);
-      console.log('first0000', response.data.result)
     }
   }
 
@@ -74,7 +75,7 @@ const CourseDetail = () => {
         })
 
         const newResult = shoppingCourses.filter(item => {
-          return (item !=courseId)
+          return (item != courseId)
         })
         setShoppingCourses([...newResult])
         toast.success('دوره با موفقیت حذف شد.');
@@ -83,7 +84,7 @@ const CourseDetail = () => {
         if (shoppCourse && shoppCourse.length > 0) {
           if (shoppCourse.includes(courseId)) {
             const newResult2 = shoppCourse.filter(item => {
-              return (item !=courseId)
+              return (item != courseId)
             })
 
             setShopCourse([...newResult2]);
@@ -157,7 +158,7 @@ const CourseDetail = () => {
 
   }
 
-  if(shoppingCourses){
+  if (shoppingCourses) {
     console.log('%%%', shoppingCourses)
   }
 
@@ -180,11 +181,11 @@ const CourseDetail = () => {
             countLike={countLike}
             countDislike={countDislike}
             likeCourses={likeCourses}
-            disLikeCourses={disLikeCourses} 
+            disLikeCourses={disLikeCourses}
             btnCon={shoppingCourses}
-            />
+          />
           <DetailCourse detailLesson={detailCourse.lesson} />
-          <CommentsCour postId={id} student={detailCourse.students}/>
+          <CommentsCour postId={id} student={detailCourse.students} />
         </>
       }
     </>

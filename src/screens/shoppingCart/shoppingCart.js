@@ -15,6 +15,7 @@ import "./index.css"
 export default function ShoppingCart() {
     const { shoppCourse, setShopCourse } = useContext(GeneralContext)
     const userId = JSON.parse(getItem('id'))
+    const role = getItem('role')
     const [totalPay, setTotalPay] = useState(0);
     const navigator = useNavigate();
     const data = useRef([])
@@ -24,7 +25,7 @@ export default function ShoppingCart() {
 
     useEffect(() => {
         getCoursesById();
-        if (userId) trackPromise(getMyOldCourse(userId))
+        if (userId && role === 'student') trackPromise(getMyOldCourse(userId))
     }, [])
 
     useEffect(() => {
@@ -75,13 +76,11 @@ export default function ShoppingCart() {
         //     total += item.cost
         // })
 
-        console.log('dfsdfsdfsdfs', showShop[0].cost);
-
         showShop01.forEach((item) => {
             total += item.cost
         })
 
-        return(total);
+        return (total);
     }
 
     const removeCourse = (course) => {

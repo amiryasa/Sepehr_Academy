@@ -31,7 +31,7 @@ const HomeNews = () => {
       </div>
       <div className="newsCantainer">
         {newsData != null && newsData.map((item) => (
-          <div data-aos="flip-up" data-aos-delay="400" data-aos-duration="800">
+          <div data-aos="flip-up" data-aos-delay="400" data-aos-duration="800" key={item._id}>
             {" "}
             <NewsCard
               id={item._id}

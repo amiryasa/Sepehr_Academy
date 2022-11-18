@@ -9,8 +9,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
 import _ from "lodash";
 
-import pic from './../../assets/images/search/01.png';
-
 import './HomeIntro.css';
 import { getAllCourse } from "../../api/Core/Course";
 import { trackPromise } from "react-promise-tracker";
@@ -29,7 +27,7 @@ const HomeIntro = () => {
         trackPromise(getCourses());
     }, []);
 
-    const getCourses = async() => {
+    const getCourses = async () => {
         let response = await getAllCourse();
 
         let rightData = response.data.result.map((item) => ({
@@ -41,29 +39,28 @@ const HomeIntro = () => {
 
         setCoursesData(rightData);
 
-        console.log('first', rightData);
     }
 
     const isResult = (items, token) => {
         let result = 0;
         items.forEach(item => {
-            if(_.startsWith(item, token)){
-            result= result + 1;
+            if (_.startsWith(item, token)) {
+                result = result + 1;
             }
         })
-            return result;
-        }
+        return result;
+    }
 
     const searchHandler = (even) => {
 
-    const result = courseData.filter((item) => {
-        return (isResult(item.topics, even.target.value) === 1)
-    })
+        const result = courseData.filter((item) => {
+            return (isResult(item.topics, even.target.value) === 1)
+        })
 
-    setSearchResult(result);
+        setSearchResult(result);
 
 
-    setIsTouch(true);
+        setIsTouch(true);
 
     }
 
@@ -100,21 +97,24 @@ const HomeIntro = () => {
                     open={openPopUp}
                     className='popUpSearch'
                     closeBtn
-                    title="به دنبال چه دوره‌ای هستید؟">
+                    title="به دنبال چه دوره‌ای هستید؟"
+                    handleCloseWithOutSave={() => { setOpenPopUp(false) }}
+                >
                     <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                         <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                         <Input title="جستجو" value={search} onChange={(event) => searchHandler(event)} variant="standard" />
                     </Box>
                     <div className="searchResultHolder">
 
-                        {searchResult ? searchResult.map((item,key) => (
-                            <div className="searchResultItem" onClick={() => {navigator(`/courseDetail/${item.id}`)}}> <img src={item.image} alt=""/> <p> {item.title} </p></div>
-                        )) : '' }
+                        {searchResult ? searchResult.map((item, key) => (
+                            <div className="searchResultItem" onClick={() => { navigator(`/courseDetail/${item.id}`) }}> <img src={item.image} alt="" /> <p> {item.title} </p></div>
+                        )) : ''}
 
-                        {isTouch && searchResult.length === 0 ? <p className="noResultInSearch"> دوره‌ای یافت نشد!</p> : '' }
+                        {isTouch && searchResult.length === 0 ? <p className="noResultInSearch"> دوره‌ای یافت نشد!</p> : ''}
 
                     </div>
-            </PopUp>}
+                </PopUp>
+            }
         </div>
     );
 
