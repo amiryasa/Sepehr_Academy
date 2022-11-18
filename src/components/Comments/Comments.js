@@ -28,7 +28,7 @@ const Comments = (props) => {
   const navigator = useNavigate();
 
   const good = ['خوب بود', 'مفید', 'بی نظیر', 'بینظیر', 'بی‌نظیر', 'عالی بود', 'کامل بود', 'خوب', 'عالی', 'کامل', 'جامع', 'خوبی داشت', 'خوبی', 'جامع بود', 'جامعی داشت', 'کاملی داشت', 'مناسب', 'تشکر', 'مفید بود'];
-  const bad = ['بد بود', 'عالی نبود', 'کامل نبود', 'خوب نبود', 'بد', 'ناقص', 'نبود جامع', 'بدی داشت', 'بد', 'ناقص بود بود', 'جامعی نداشت', 'کاملی نداشت', 'افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت', 'کمه', 'کافی نیست', 'مفید نبود', 'مفیدی نبود', 'مناسب نبود','مناسبی نبود', 'جامع نبود']
+  const bad = ['بد بود', 'عالی نبود', 'کامل نبود', 'خوب نبود', 'بد', 'ناقص', 'نبود جامع', 'بدی داشت', 'بد', 'ناقص بود بود', 'جامعی نداشت', 'کاملی نداشت', 'افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت', 'کمه', 'کافی نیست', 'مفید نبود', 'مفیدی نبود', 'مناسب نبود', 'مناسبی نبود', 'جامع نبود']
 
   useEffect(() => {
     trackPromise(fixComments())
@@ -46,7 +46,7 @@ const Comments = (props) => {
       }
     });
 
-    
+
     bad.forEach((item) => {
       if ((message).includes(item)) {
         bads++;
@@ -54,13 +54,13 @@ const Comments = (props) => {
     });
 
 
-    if(bads > 0){
+    if (bads > 0) {
       return 0;
     }
-    else if(goods > 0){
+    else if (goods > 0) {
       return 1
     }
-    else{
+    else {
       return -1;
     }
   }
@@ -121,8 +121,8 @@ const Comments = (props) => {
 
       {id ?
         <>
-          <div className="comments">            
-              <p> {fa.TITLE_COMMENTS} </p>
+          <div className="comments">
+            <p> {fa.TITLE_COMMENTS} </p>
             <div className="addNewComment">
               <Card>
                 <span>{fa.INSERT_COMMENT}</span>
@@ -133,7 +133,7 @@ const Comments = (props) => {
                     row={2}
                     refInput={textInput}
                     name="message"
-                    onChange={(even) => {setIdea(even.target.value)}}
+                    onChange={(even) => { setIdea(even.target.value) }}
                   />
                 </div>
                 <Btn text={fa.INSERT_COMMENT} color="info" variant="contained" onChange={() => {
@@ -201,7 +201,7 @@ const Comments = (props) => {
             </div>
 
             <div className="showCommentsItemsHolderMode">
-              <img src={arrangMode(item.comment) > 0 ? good01 : arrangMode(item.comment) === 0 ? bad01 :''} alt='' style={{ width: '25px', position: 'absolute', top: '7px', right: '5px' }} />
+              <img src={arrangMode(item.comment) > 0 ? good01 : arrangMode(item.comment) === 0 ? bad01 : ''} alt='' style={{ width: '25px', position: 'absolute', top: '7px', right: '5px' }} />
             </div>
 
           </div>
@@ -209,7 +209,12 @@ const Comments = (props) => {
         )) : ''}
       </div>
       {openAnswer &&
-        <PopUp handleClose={() => { setOpenAnswer(false) }} open={openAnswer} className='replayAdder' closeBtn>
+        <PopUp
+          handleClose={() => { setOpenAnswer(false) }}
+          open={openAnswer}
+          className='replayAdder'
+          closeBtn
+          handleCloseWithOutSave={() => { setOpenAnswer(false) }}>
           <div className="showReplay" >
             <div className="comments">
               <div className="addNewComment">
@@ -222,7 +227,7 @@ const Comments = (props) => {
                       row={2}
                       refInput={textInput}
                       name="message"
-                      // onChange={handleChange}
+                    // onChange={handleChange}
                     />
                   </div>
                   <Btn text={'ثبت پاسخ'} color="info" variant="contained" onChange={handleAddId} />

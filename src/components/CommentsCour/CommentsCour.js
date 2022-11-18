@@ -411,7 +411,12 @@ const CommentsCour = (props) => {
 
       </div>
       {openAnswer &&
-        <PopUp handleClose={() => { setOpenAnswer(false) }} open={openAnswer} className='replayAdder' closeBtn>
+        <PopUp
+          handleClose={() => { setOpenAnswer(false) }}
+          open={openAnswer}
+          className='replayAdder'
+          closeBtn
+          handleCloseWithOutSave={() => { setOpenAnswer(false) }}>
           <div className="showReplay" >
             <div className="commentsCour">
               <div className="addNewComment">
