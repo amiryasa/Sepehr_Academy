@@ -133,7 +133,8 @@ export const ChatBox = () => {
         onMessageWasSent={even => messageHanler(even)}
         messageList={messageList}
       />
-    </div>)
+    </div>
+  )
 }
 
 

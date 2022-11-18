@@ -82,8 +82,10 @@ const Header = () => {
             navigator("/");
           }}
 
-          style={location.pathname === '/' ? { cursor: 'default', color: '#043d72', textDecoration: 'underline' } :
-            { cursor: 'pointer', color: '#808080', textDecoration: 'none' }}
+          style={location.pathname === '/' && themePage === 'light' ? { cursor: 'default', color: '#043d72', textDecoration: 'underline' } :
+            location.pathname === '/' && themePage === 'dark' ? { cursor: 'pointer', color: '#0a89ff', textDecoration: 'none' } :
+              location.pathname != '/' && themePage === 'light' ? { cursor: 'pointer', color: '#808080', textDecoration: 'none' } :
+                { cursor: 'pointer', color: '#0a89ff', textDecoration: 'none' }}
         >
           {language === 'fa' ? fa.HEADER_HOME : fa.HEADER_HOME_EN}
         </p>
