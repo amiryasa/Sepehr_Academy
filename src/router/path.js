@@ -9,6 +9,8 @@ export const COURSE_DETAIL = "/courseDetail/:id"
 export const NEWS_DETAIL = "/newsDetail/:id"
 export const SHOPPING_CART = "/shoppingCart"
 export const COMPAIR = '/compair'
+export const ABOUT_US = '/aboutUs'
+export const CONTACT_US = '/contactUs'
 
 //panel student
 export const STIDENT_PANEL = "/studentPanel"
@@ -21,7 +23,7 @@ export const ANOTHER_URL = "*"
 
 //test
 export const TEST = "/test"
-export const TRANSLATE = "/translate"
+export const TRANSLATE="/translate"
 
 //admin
 export const ADMIN = "/adminSite/:id/:token/:role"

@@ -34,6 +34,8 @@ const CommentsCour = (props) => {
   const id = JSON.parse(getItem('id'));
   const role = getItem('role');
 
+  console.log(role);
+
   const navigator = useNavigate();
 
   const good = ['خوب بود', 'مفید', 'بی نظیر', 'بینظیر', 'بی‌نظیر', 'عالی بود', 'کامل بود', 'خوب', 'عالی', 'کامل', 'جامع', 'خوبی داشت', 'خوبی', 'جامع بود', 'جامعی داشت', 'کاملی داشت', 'مناسب', 'تشکر', 'مفید بود'];
@@ -104,7 +106,7 @@ const CommentsCour = (props) => {
           Comment: idea
         }
 
-        textInput.current.value = "";
+        setIdea('');
       }
 
       else if (idea.length > 100) {
@@ -170,7 +172,7 @@ const CommentsCour = (props) => {
           Comment: question
         }
 
-        textInput.current.value = "";
+        setQuestion('');
       }
 
       else if (question.length > 100) {
@@ -193,7 +195,7 @@ const CommentsCour = (props) => {
 
     if (result01) {
       var currentResult01 = result01.data.filter((item) => {
-        return ((item.postId === `${props.postId}.question`) && item.verified);
+        return (item.postId === `${props.postId}.question`);
       })
       setAllQuestion([...currentResult01]);
     }
@@ -209,7 +211,10 @@ const CommentsCour = (props) => {
         answer: adminAnswers
       });
 
+      setOpenAnswer(false);
       toast.success('.پاسخ با موفقیت ثبت شد')
+
+      fixComments01();
     }
   }
 
@@ -232,9 +237,10 @@ const CommentsCour = (props) => {
                     title={activePart === 'idea' ? fa.TITLE_TEXT_COMMENT : 'متن پرسش'}
                     multiline={true}
                     row={2}
-                    refInput={textInput}
+                    // refInput={textInput}
+                    value={activePart === 'idea' ? idea : question}
                     name="message"
-                    onChange={activePart === 'idea' ? (even) => { setIdea(even.target.value) } : (even) => { setQuestion(even.target.value) }}
+                    onChange={(even) => {activePart === 'idea' ? setIdea(even.target.value) : setQuestion(even.target.value) }}
                   />
                 </div>
                 <Btn text={activePart === 'idea' ? fa.INSERT_COMMENT : 'ثبت پرسش'} color="info" variant="contained" onChange={() => {
@@ -250,7 +256,7 @@ const CommentsCour = (props) => {
             </div>
           </>
           :
-          id && !(courseStu.includes(id)) && activePart === 'idea' ?
+          (id && !(courseStu.includes(id)) && activePart === 'idea') || (role === 'admin') ?
 
             <>
               <div className="addNewComment">
@@ -261,7 +267,8 @@ const CommentsCour = (props) => {
                       title={fa.TITLE_TEXT_COMMENT}
                       multiline={true}
                       row={2}
-                      refInput={textInput}
+                      // refInput={textInput}
+                      value={idea}
                       name="message"
                       onChange={(even) => setIdea(even.target.value)}
                     />
@@ -427,13 +434,15 @@ const CommentsCour = (props) => {
                       title={'متن پاسخ'}
                       multiline={true}
                       row={2}
-                      refInput={textInput}
+                      // refInput={textInput}
+                      value={adminAnswers}
                       name="message"
                       onChange={(event) => setAdminAnswers(event.target.value)}
                     />
                   </div>
-                  <Btn text={'ثبت پاسخ'} color="info" variant="contained" onChange={
-                    activePart === 'question' ? trackPromise(questionAnswerHandler()) : trackPromise(ideaAnswerHandler())} />
+                  <Btn text={'ثبت پاسخ'} color="info" variant="contained" onChange={() => {
+                    activePart === 'question' ? trackPromise(questionAnswerHandler()) : trackPromise(ideaAnswerHandler())
+                  }} />
                 </Card>
               </div>
             </div>

@@ -1,0 +1,58 @@
+div.aboutUsContainer > div.aboutUsContainerTitle{
+    width: 220px;
+}
+.AboutUsContainerteacherContainer{
+    display: grid;
+    grid-template-columns: 304px 304px 304px;
+    grid-template-rows: 150px 150px;
+    gap:35px 25px;
+
+    padding-top: 65px;
+}
+
+.AboutUsContainerpropertyContainer{
+    display: grid;
+    grid-template-columns: 210px 210px 210px 210px;
+    grid-template-rows: 210px;
+    gap:40px;
+
+    padding-top: 25px;
+}
+
+
+@media screen and (max-width:1262px){
+
+    .AboutUsContainerteacherContainer{
+        grid-template-columns: 290px 290px;
+        grid-template-rows: 150px 150px 150px;
+        gap:35px 20px;
+    }
+
+    .AboutUsContainerpropertyContainer{
+        grid-template-columns: 210px 210px;
+        grid-template-rows: 210px 210px;
+
+        width: 460px;
+        margin: auto;
+    }
+
+}
+
+
+@media screen and (max-width:749px){
+
+    .AboutUsContainerteacherContainer{
+        grid-template-columns: 304px;
+        grid-template-rows: 150px 150px 150px 150px 150px 150px;
+        gap:35px 15px;
+    }
+
+    .AboutUsContainerpropertyContainer{
+        grid-template-columns: 210px;
+        grid-template-rows: 210px 210px 210px 210px;
+
+        width: 210px;
+        margin: auto;
+    }
+
+}

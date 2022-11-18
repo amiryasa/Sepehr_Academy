@@ -1,0 +1,46 @@
+.PropertyAbout{
+    width:210px;
+    height:210px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px 1px rgb(0 0 0 / 5%);
+}
+
+.PropertyAbout > .PropertyAboutPic > img {
+    width:50px;
+    height:50px;
+
+    border-radius: 10px;
+    /* background: url('./../../assets/images/AboutUs/bhr.jpg'); */
+    background-size: 100%;
+
+    position: relative;
+    top:20px;
+    right:20px
+}
+
+.PropertyAbout > .PropertyAboutTitle{
+    font-size: 16px;
+    color:rgb(0, 0, 121);
+    margin-top: 25px;
+    margin-right: 22px;
+}
+
+.PropertyAbout > .PropertyAboutDescption{
+    font-size: 14px;
+    color:rgb(118, 118, 118);
+    margin-top: -2px;
+    margin-right: 22px;
+    width:80%;
+
+    line-height: 25px;
+}
+
+
+@media screen and (max-width:1262px){
+
+    .PropertyAbout{
+        width:210px;
+        height:210px;
+    }
+
+}

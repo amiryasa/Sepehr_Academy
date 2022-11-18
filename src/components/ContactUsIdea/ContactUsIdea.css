@@ -1,0 +1,91 @@
+.ContactUsIdea{
+    width: 276px;
+}
+
+.ContactUsIdea > p{
+    text-align: center;
+}
+
+.ContactUsIdea > p:nth-child(1){
+    color:#043d72;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.ContactUsIdea > p:nth-child(2){
+    color:#545454;
+    font-size: 14px;
+    width:95%;
+    margin-bottom: 25px;
+}
+
+.ContactUsIdeaInput {
+
+    padding: 30px 20px 20px 20px;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, .08);
+}
+
+
+.ContactUsIntro>div.ContactUsIdeaInput {
+    height: 396px;
+    width: 286px;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, .08);
+    border-radius: 15px;
+    margin-right: 238px;
+    padding-top: 25px;
+    background: white;
+}
+
+
+.ContactUsIntro>div.ContactUsIdeaInput > .ContactUsIdeaInputName{
+    margin-right: 25px;
+}
+
+.ContactUsIntro>div.ContactUsIdeaInput > .ContactUsIdeaInputEmail{
+    margin-right: 25px;
+}
+
+.ContactUsIntro>div.ContactUsIdeaInput > .ContactUsIdeaInputMessage{
+    margin-right: 25px;
+    height:140px;
+}
+
+
+/* ContactUsIdea Tab Responsive */
+
+@media screen and (max-width:1262px) {
+
+    .ContactUsIntro {
+        height: 590px;
+        background-size: 450px 440px;
+        background-position: 72px 0px;
+        padding-top: 215px;
+    }
+
+    .ContactUsIntro>div.ContactUsIdeaInput {
+        margin-right: 145px;
+        padding-top: 25px
+    }
+}
+
+/* ContactUsIdea Mobile Responsive */
+
+@media screen and (max-width:749px) {
+
+    .ContactUsIntro {
+        height: 0px;
+        padding: 0px;
+        margin-bottom: 500px;
+    }
+
+
+    .ContactUsIntro>div.ContactUsIdeaInput {
+        margin-right: 57px;
+        padding-top: 25px;
+       
+    }
+}

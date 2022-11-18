@@ -1,0 +1,21 @@
+.aboutUsContainer{
+    width: 965px;
+    height:100%;
+    margin: auto;
+}
+
+@media screen and (max-width:1262px){
+
+    .aboutUsContainer{
+        width: 600px;
+    }
+
+}
+
+@media screen and (max-width:749px){
+
+    .aboutUsContainer{
+        width: 304px;
+    }
+
+}
