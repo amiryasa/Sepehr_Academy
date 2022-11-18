@@ -38,13 +38,13 @@ export const ChatBox = () => {
 
     if (!(id)) {
       id = Math.floor(Math.random() * 9000000000) + 1000000000;
-      id = `${id}guess`
+      id = `${id}.guess`
 
       setUserId(id);
     }
     else {
       id = Math.floor(Math.random() * 9000000000) + 1000000000;
-      id = `${id}userr`
+      id = `${id}.userr`
 
       setUserId(id);
     }
