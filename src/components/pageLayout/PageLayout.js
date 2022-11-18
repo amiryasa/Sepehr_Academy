@@ -16,12 +16,14 @@ const PageLayout = () => {
   const location = useLocation();
   const { compairCourse } = useContext(GeneralContext)
   const dontNeedHeader = ["/login", "/register", "/forgetPass"];
+  const dontNeedCompare = ["/login", "/register", "/compair"];
+
 
   return (
     <>
       {!dontNeedHeader.includes(location.pathname) && <Header />}
       <Progress />
-      {(compairCourse.length > 0 && location.pathname != '/compair') && < CompairBtn />}
+      {(compairCourse.length > 0 && !dontNeedCompare.includes(location.pathname)) && < CompairBtn />}
       <Outlet />
       {!dontNeedHeader.includes(location.pathname) && <Footer />}
 
