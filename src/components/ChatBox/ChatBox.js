@@ -35,18 +35,18 @@ export const ChatBox = () => {
   )
 
   useEffect(() => {
+    console.log(id, "id");
+    if (id) {
+      let userId = Math.floor(Math.random() * 9000000000) + 1000000000;
+      let userIdNew = `${userId}.userr`
 
-    if (!(id)) {
-      id = Math.floor(Math.random() * 9000000000) + 1000000000;
-      id = `${id}.guess`
-
-      setUserId(id);
+      setUserId(userIdNew);
     }
     else {
-      id = Math.floor(Math.random() * 9000000000) + 1000000000;
-      id = `${id}.userr`
+      let userId = Math.floor(Math.random() * 9000000000) + 1000000000;
+      let userIdNew = `${userId}.guess`
 
-      setUserId(id);
+      setUserId(userIdNew);
     }
   }, [])
 
