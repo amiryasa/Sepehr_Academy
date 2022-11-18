@@ -15,7 +15,8 @@ const ChatBox = () => {
 
   const [allComentIn, setAllComentIn] = useState();
   const [userId, setUserId] = useState();
-
+  
+  var hoooooolder = [];
 
   const [messageList, setMessageList] = useState(
     [
@@ -29,35 +30,7 @@ const ChatBox = () => {
     ]
   )
 
-  var hoooooolder = [];
-
-  const setMessageInChat = (message,writer,index) => {
-
-    if(!(hoooooolder.includes(index))){
-
-        hoooooolder.push(index);
-
-        setMessageList(item => [...item, {
-        author: writer,
-        type: 'text',
-        data: {
-          text: message
-        }
-     }])
-    }
-
-
-  }
-
-
-
-
   useEffect(() => {
-    trackPromise(getStudentMessage());
-  },[])
-
-
-  const getStudentMessage = async() => {
 
     if(!(id)){
       id = Math.floor(Math.random() * 9000000000) + 1000000000;
@@ -65,80 +38,76 @@ const ChatBox = () => {
 
       setUserId(id);
     }
+    else{
+      id = Math.floor(Math.random() * 9000000000) + 1000000000;
+      id = `${id}userr`
 
-    if (id) {
-      setMessageList([
-        {
-          author: 'them',
-          type: 'text',
-          data: {
-            text: 'سلام، به چه کمکی احتیاج دارید؟'
-          }
-        },
-      ])
+      setUserId(id);
+    }
+  },[])
+
+
+  const setMessageInChat = async(message, writer) => {
+
+    setMessageList(item => [...item, {
+      author: writer,
+      type: 'text',
+      data: {
+        text: message
+      }
+    }])
+
+    console.log('meggage income', message);
+
+  }
+
+
+
+  
+
+
+  const getStudentMessage = async() => {
+
       const result01 = await getComment();
 
       if (result01) {
         var currentResult01 = result01.data.filter((item) => {
-          return ((item.postId === `${id}.chat`));
+          return ((item.postId === `${userId}.chat`));
         })
-      console.log('01', result01);
       }
 
+      console.log(currentResult01.answer);
 
-      if(currentResult01){
-        currentResult01.forEach((item, index) => {
-          setMessageInChat(item.comment,'me',`${index}Q`)
-
-          if(item.answer){
-            setMessageInChat(item.answer,'them',`${index}A`)
+      if(currentResult01.answer){
+        setMessageList(item => [...item, {
+          author: 'them',
+          type: 'text',
+          data: {
+            text: currentResult01.answer
           }
-        })
-
-        console.log('02', currentResult01);
+        }])
       }
-      
-    }
+         
   }
+
+  // var timer = setInterval(getStudentMessage,10000);
 
   const messageHanler = async(message) => {
 
-    if(id.slice(-5) === 'guess'){
+    setMessageList(item => [...item, message]);
 
-        var myStudent = {
-          email: 'guess@gmail.com',
-          username: 'guess',
-        }
-      }
-    else{
-      var student = await getStudentById(id);
-        var myStudent = {
-          email: student.data.result.email,
-          username: student.data.result.fullName,
-        }
+    var commentData = {
+      postId: `${userId}.chat`,
+      email: "chat@gmail.com",
+      username: "chat",
+      Comment:  message.data.text
     }
 
-    
-
-    setMessageList(item => [...item, message])
-
-    if(message.data.text){
-      var newMessage = {
-      postId: `${id}.chat`,
-      email: myStudent.email,
-      username: myStudent.username,
-      Comment: message.data.text
-      }
-    }
-
-    if(newMessage){
-      const result = await sendNewComment(newMessage);
-    }
+    const response = await sendNewComment(commentData);
     
   }
 
-
-  console.log('first00000', id);
+  
 
     return (
     <div className='chatBoxHolder' style={{direction: 'ltr'}}>

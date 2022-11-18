@@ -23,7 +23,7 @@ const PageLayout = () => {
       {(compairCourse.length > 0 && location.pathname != '/compair') && < CompairBtn />}
       <Outlet />
       {!dontNeedHeader.includes(location.pathname) && <Footer />}
-      <ChatBox/>
+      {!dontNeedHeader.includes(location.pathname) && <ChatBox/>}
     </>
   );
 };

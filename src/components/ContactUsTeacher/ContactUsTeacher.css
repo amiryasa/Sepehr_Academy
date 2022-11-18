@@ -1,0 +1,91 @@
+.ContactUsTeacher{
+    width: 276px;
+}
+
+.ContactUsTeacher > p{
+    text-align: center;
+}
+
+.ContactUsTeacher > p:nth-child(1){
+    color:#043d72;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.ContactUsTeacher > p:nth-child(2){
+    color:#545454;
+    font-size: 14px;
+    width:95%;
+    margin-bottom: 25px;
+}
+
+.ContactUsTeacherInput {
+
+    padding: 30px 20px 20px 20px;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, .08);
+}
+
+
+.ContactUsIntro>div.ContactUsTeacherInput {
+    height: 396px;
+    width: 286px;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, .08);
+    border-radius: 15px;
+    margin-right: 238px;
+    padding-top: 25px;
+    background: white;
+}
+
+
+.ContactUsIntro>div.ContactUsTeacherInput > .ContactUsTeacherInputName{
+    margin-right: 25px;
+}
+
+.ContactUsIntro>div.ContactUsTeacherInput > .ContactUsTeacherInputEmail{
+    margin-right: 25px;
+}
+
+.ContactUsIntro>div.ContactUsTeacherInput > .ContactUsTeacherInputMessage{
+    margin-right: 25px;
+    height:140px;
+}
+
+
+/* ContactUsTeacher Tab Responsive */
+
+@media screen and (max-width:1262px) {
+
+    .ContactUsIntro {
+        height: 590px;
+        background-size: 450px 440px;
+        background-position: 72px 0px;
+        padding-top: 215px;
+    }
+
+    .ContactUsIntro>div.ContactUsTeacherInput {
+        margin-right: 145px;
+        padding-top: 25px
+    }
+}
+
+/* ContactUsTeacher Mobile Responsive */
+
+@media screen and (max-width:749px) {
+
+    .ContactUsIntro {
+        height: 0px;
+        padding: 0px;
+        margin-bottom: 500px;
+    }
+
+
+    .ContactUsIntro>div.ContactUsTeacherInput {
+        margin-right: 57px;
+        padding-top: 25px;
+       
+    }
+}

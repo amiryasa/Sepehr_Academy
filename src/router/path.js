@@ -9,6 +9,8 @@ export const COURSE_DETAIL = "/courseDetail/:id"
 export const NEWS_DETAIL = "/newsDetail/:id"
 export const SHOPPING_CART = "/shoppingCart"
 export const COMPAIR = '/compair'
+export const ABOUT_US = '/aboutUs'
+export const CONTACT_US = '/contactUs'
 
 //panel student
 export const STIDENT_PANEL = "/studentPanel"

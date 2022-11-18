@@ -1,0 +1,91 @@
+.ContactUsCourse{
+    width: 276px;
+}
+
+.ContactUsCourse > p{
+    text-align: center;
+}
+
+.ContactUsCourse > p:nth-child(1){
+    color:#043d72;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.ContactUsCourse > p:nth-child(2){
+    color:#545454;
+    font-size: 14px;
+    width:95%;
+    margin-bottom: 25px;
+}
+
+.ContactUsCourseInput {
+
+    padding: 30px 20px 20px 20px;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, .08);
+}
+
+
+.ContactUsIntro>div.ContactUsCourseInput {
+    height: 396px;
+    width: 286px;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, .08);
+    border-radius: 15px;
+    margin-right: 238px;
+    padding-top: 25px;
+    background: white;
+}
+
+
+.ContactUsIntro>div.ContactUsCourseInput > .ContactUsCourseInputName{
+    margin-right: 25px;
+}
+
+.ContactUsIntro>div.ContactUsCourseInput > .ContactUsCourseInputEmail{
+    margin-right: 25px;
+}
+
+.ContactUsIntro>div.ContactUsCourseInput > .ContactUsCourseInputMessage{
+    margin-right: 25px;
+    height:140px;
+}
+
+
+/* ContactUsCourse Tab Responsive */
+
+@media screen and (max-width:1262px) {
+
+    .ContactUsIntro {
+        height: 590px;
+        background-size: 450px 440px;
+        background-position: 72px 0px;
+        padding-top: 215px;
+    }
+
+    .ContactUsIntro>div.ContactUsCourseInput {
+        margin-right: 145px;
+        padding-top: 25px
+    }
+}
+
+/* ContactUsCourse Mobile Responsive */
+
+@media screen and (max-width:749px) {
+
+    .ContactUsIntro {
+        height: 0px;
+        padding: 0px;
+        margin-bottom: 500px;
+    }
+
+
+    .ContactUsIntro>div.ContactUsCourseInput {
+        margin-right: 57px;
+        padding-top: 25px;
+       
+    }
+}

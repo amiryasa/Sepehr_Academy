@@ -68,14 +68,21 @@
   right: 18px;
 }
 
-
+.optionIcon {
+  position: absolute;
+  top: 58%;
+  background-color: white;
+  border-radius: 50px;
+  padding: 5px;
+  right: 32%;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 1262px) {
   .md-avatar {
     width: 4rem !important;
     height: 4rem !important;
   }
-
   .sidebarContainerInfoPictureIcon {
     width: 20px;
     height: 20px;
@@ -83,11 +90,8 @@
     border-radius: 50%;
     right: 15px;
   }
-
   .xs-avatar {
     width: 2rem !important;
     height: 2rem !important;
   }
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
