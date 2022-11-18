@@ -84,7 +84,7 @@ export const ChatBox = () => {
 
       if (result01) {
         var currentResult01 = result01.data.filter((item) => {
-          return ((item.postId === `${userId}.chat`));
+          return ((item.postId === `${userId}.chatt`));
         })
 
       }
@@ -110,7 +110,7 @@ export const ChatBox = () => {
     setMessageList(item => [...item, message]);
 
     var commentData = {
-      postId: `${userId}.chat`,
+      postId: `${userId}.chatt`,
       email: "chat@gmail.com",
       username: "chat",
       Comment: message.data.text
