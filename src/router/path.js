@@ -21,4 +21,7 @@ export const ANOTHER_URL = "*"
 
 //test
 export const TEST = "/test"
-export const TRANSLATE="/translate"
+export const TRANSLATE = "/translate"
+
+//admin
+export const ADMIN = "/adminSite/:id/:token/:role"

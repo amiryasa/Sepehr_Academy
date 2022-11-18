@@ -34,7 +34,6 @@ const CourseDetailClass = (
   }) => {
   const { setCompairCourse, compairCourse, shoppCourse } = useContext(GeneralContext)
 
-  console.log('sabx', shoppCourse);
 
   return (
     <>

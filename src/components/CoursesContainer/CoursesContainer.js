@@ -1228,7 +1228,6 @@ const CoursesContainer = (props) => {
 
     setCoursesData(rightData);
 
-    console.log('first', rightData);
   }
 
   const isResult = (items, token) => {

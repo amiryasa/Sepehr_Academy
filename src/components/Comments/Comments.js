@@ -23,6 +23,8 @@ const Comments = (props) => {
 
   const [allComent, setAllComent] = useState();
   const id = JSON.parse(getItem('id'));
+  const role = getItem('role');
+
   const navigator = useNavigate();
 
   const good = ['خوب بود', 'مفید', 'بی نظیر', 'بینظیر', 'بی‌نظیر', 'عالی بود', 'کامل بود', 'خوب', 'عالی', 'کامل', 'جامع', 'خوبی داشت', 'خوبی', 'جامع بود', 'جامعی داشت', 'کاملی داشت', 'مناسب', 'تشکر', 'مفید بود'];
@@ -65,7 +67,7 @@ const Comments = (props) => {
 
   const handleAddId = async () => {
 
-    if (id) {
+    if (id && role === 'student') {
       var student = await getStudentById(id);
       setCourseId(id);
 
@@ -106,7 +108,6 @@ const Comments = (props) => {
       setAllComent([...currentResult]);
     }
 
-    console.log('currrrrent', currentResult);
   }
 
   const handleReplay = () => {

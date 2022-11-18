@@ -12,6 +12,8 @@ import { toast } from "react-toastify";
 
 const HomeIdeas = () => {
   const id = JSON.parse(getItem('id'));
+  const role = getItem('role');
+
   const { language, themePage } = useContext(GeneralContext);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -19,7 +21,7 @@ const HomeIdeas = () => {
   const [description, setDescription] = useState();
 
   useEffect(() => {
-    if (id)
+    if (id && role==='student')
       trackPromise(inputFeilder(id));
   }, [id])
 

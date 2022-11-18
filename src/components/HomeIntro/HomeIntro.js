@@ -9,8 +9,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
 import _ from "lodash";
 
-import pic from './../../assets/images/search/01.png';
-
 import './HomeIntro.css';
 import { getAllCourse } from "../../api/Core/Course";
 import { trackPromise } from "react-promise-tracker";
@@ -41,7 +39,6 @@ const HomeIntro = () => {
 
         setCoursesData(rightData);
 
-        console.log('first', rightData);
     }
 
     const isResult = (items, token) => {

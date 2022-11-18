@@ -13,6 +13,8 @@ const Header = () => {
   const location = useLocation();
   const navigator = useNavigate();
   const idUser = JSON.parse(getItem('id'))
+  const role = getItem('role')
+
   const ThemeMode = getItem('theme')
   const LanguageMode = getItem('language')
 
@@ -80,8 +82,8 @@ const Header = () => {
             navigator("/");
           }}
 
-          style={location.pathname === '/' ? {cursor:'default',color:'#043d72',textDecoration:'underline'} :
-          {cursor:'pointer',color:'#808080',textDecoration:'none'}}
+          style={location.pathname === '/' ? { cursor: 'default', color: '#043d72', textDecoration: 'underline' } :
+            { cursor: 'pointer', color: '#808080', textDecoration: 'none' }}
         >
           {language === 'fa' ? fa.HEADER_HOME : fa.HEADER_HOME_EN}
         </p>
@@ -92,8 +94,8 @@ const Header = () => {
             navigator("/courses");
           }}
 
-          style={location.pathname === '/courses' ? {cursor:'default',color:'#043d72',textDecoration:'underline'} :
-          {cursor:'pointer',color:'#808080',textDecoration:'none'}}
+          style={location.pathname === '/courses' ? { cursor: 'default', color: '#043d72', textDecoration: 'underline' } :
+            { cursor: 'pointer', color: '#808080', textDecoration: 'none' }}
         >
           {language === 'fa' ? fa.HEADER_COURSE : fa.HEADER_COURSE_EN}
 
@@ -105,8 +107,8 @@ const Header = () => {
             navigator("/news");
           }}
 
-          style={location.pathname === '/news' ? {cursor:'default',color:'#043d72',textDecoration:'underline'} :
-          {cursor:'pointer',color:'#808080',textDecoration:'none'}}
+          style={location.pathname === '/news' ? { cursor: 'default', color: '#043d72', textDecoration: 'underline' } :
+            { cursor: 'pointer', color: '#808080', textDecoration: 'none' }}
         >
           {language === 'fa' ? fa.HEADER_NEWS : fa.HEADER_NEWS_EN}
         </p>
@@ -171,11 +173,22 @@ const Header = () => {
             src={dataUser.profile}
             className="avatarHeader"
             onClick={() => {
-              navigator("./studentPanel")
+              if (role != 'student') {
+                removeItem('id');
+                removeItem('token');
+                removeItem('role');
+                window.location.replace('http://localhost:3001/dashboard')
+              }
+              else
+                navigator("./studentPanel")
             }} /> :
-          <div className="loginUser" onClick={() => navigator("./login")}>
-
-          </div>}
+          <div className="loginUser"
+            onClick={() => {
+              navigator("./login")
+            }}
+          >
+          </div>
+        }
       </div>
     </div>
   );

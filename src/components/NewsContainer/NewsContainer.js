@@ -72,8 +72,6 @@ const NewsContainer = () => {
       var newNewsData = _.orderBy(newsArticleData01, ["title"], [upOrDownData]);
       setNewsArticleData01([...newNewsData]);
 
-      console.log('PPPPP', newNewsData)
-      console.log('wwww', event.target.value)
     }
   };
 
@@ -151,7 +149,6 @@ const NewsContainer = () => {
 
     setNewsData(rightData);
 
-    console.log('first2', rightData);
   }
 
   const isResult = (items, token) => {
@@ -170,7 +167,6 @@ const NewsContainer = () => {
 
     setSearchResult(result);
 
-    console.log(even.target.value)
 
     setIsTouch(true);
 

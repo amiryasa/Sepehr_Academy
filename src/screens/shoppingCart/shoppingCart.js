@@ -75,8 +75,6 @@ export default function ShoppingCart() {
         //     total += item.cost
         // })
 
-        console.log('dfsdfsdfsdfs', showShop[0].cost);
-
         showShop01.forEach((item) => {
             total += item.cost
         })
