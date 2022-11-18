@@ -1340,6 +1340,7 @@ const CoursesContainer = (props) => {
           open={openPopUp}
           className='popUpSearch'
           closeBtn
+          handleCloseWithOutSave={() => { setOpenPopUp(false) }}
           title="به دنبال چه دوره‌ای هستید؟">
           <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
             <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />

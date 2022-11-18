@@ -30,14 +30,14 @@ const MainbarMyCourses = () => {
         endDate: item.endDate,
         cost: item.cost,
         id: item._id,
-        icon:'red',
+        icon: 'red',
       }));
-      
+
       setStudentInfo(rightData);
     }
   }
 
-  
+
 
   const handlePagination_MainbarMyCourses = (e, value) => {
     setCurrentPage_MainbarMyCourses(value);
@@ -50,8 +50,8 @@ const MainbarMyCourses = () => {
           <p> دوره‌های من </p>
           <hr></hr>
         </div>
-        {studentInfo.length > 0 ?
-        
+        {studentInfo && studentInfo.length > 0 ?
+
           <div className="mainbarCoursesTable">
             <TableCom
               actionPic={deleteCourse}
@@ -77,8 +77,8 @@ const MainbarMyCourses = () => {
             />
           </div>
           : <div className="noCourseInMyCourses">
-              <p>دوره‌ای جهت نمایش وجود ندارد!</p>
-            </div>}
+            <p>دوره‌ای جهت نمایش وجود ندارد!</p>
+          </div>}
         <div className="mainbarCoursesPaginatin">
           <Paginate
             allItem={studentInfo ? studentInfo.length : 5}
