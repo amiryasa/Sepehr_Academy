@@ -21,7 +21,7 @@ const CardInCourses = (props) => {
         style={{ backgroundColor: `${props.bgColor}` }}
       />
       <div className="cardInCoursesRatNumHolder">
-        <div className="cardInCoursesRate"> {props.rate} </div>
+        <div className="cardInCoursesRate"> {props.rate} م</div>
         <div className="cardInCoursesNum"> {props.studentCount} </div>
       </div>
       <CardContent>

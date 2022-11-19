@@ -34,7 +34,9 @@ const ForgotPass = () => {
             text={fa.SIGN_UP}
             elementClass="mediumBtnCh2"
             color="info"
-            click="/register"
+            onChange={() => {
+              navigator("/register");
+            }}
           />
           <hr></hr>
           <Btn
@@ -42,7 +44,9 @@ const ForgotPass = () => {
             elementClass="mediumBtnCh2"
             color="info"
             className="newoskol"
-            click="/login"
+            onChange={() => {
+              navigator("/login")
+            }}
           />
         </div>
       </div>
