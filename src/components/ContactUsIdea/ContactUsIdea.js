@@ -33,6 +33,7 @@ const ContactUsIdea = () => {
         }
 
         const result = await sendNewComment(data);
+        setDescription('')
         toast.success('نظر شما با موفقیت ثبت شد .')
     }
 

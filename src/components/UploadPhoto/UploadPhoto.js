@@ -10,6 +10,7 @@ import imagePicker from "./imagePicker"
 import CropPhoto from "../common/CropPhoto/CropPhoto.js";
 import { GeneralContext } from "../../providers/GeneralContext.js";
 import { toast } from "react-toastify";
+import { trackPromise } from "react-promise-tracker";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -128,7 +129,7 @@ export default function UploadPhoto(props) {
             <PopUp
                 open={props.showPop}
                 handleClose={() => {
-                    uploadImgToDatabase()
+                    trackPromise(uploadImgToDatabase())
                 }}
                 closeBtn
                 title={"عکس پروفایل"}
@@ -170,7 +171,7 @@ export default function UploadPhoto(props) {
                                 color="goal"
                                 variant="contained"
                                 onChange={() => {
-                                    uploadImgToDatabase()
+                                    trackPromise(uploadImgToDatabase())
                                 }}
                                 elementClass="smallBtn"
                             />

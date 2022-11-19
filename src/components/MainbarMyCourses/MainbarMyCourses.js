@@ -43,6 +43,18 @@ const MainbarMyCourses = () => {
     setCurrentPage_MainbarMyCourses(value);
   };
 
+
+  const deleteCourse = async (courseId) => {
+    const updateCourse = {
+      userId: userId,
+      courseId: courseId
+    }
+    let response = await removeStudentToCourse(updateCourse)
+    if (response.data.result) {
+      trackPromise(getUserId())
+    }
+  }
+
   return (
     <div className="MainbarContainer MainbarContainerInTable">
       <div className="mainbarCourses">
@@ -62,15 +74,8 @@ const MainbarMyCourses = () => {
               comFrom={'my'}
               onClick={(courseId) => {
                 onConfirmSetter('آیا برای حذف دوره اطمینان دارید؟',
-                  async () => {
-                    const updateCourse = {
-                      userId: userId,
-                      courseId: courseId
-                    }
-                    let response = await removeStudentToCourse(updateCourse)
-                    if (response.data.result) {
-                      getUserId()
-                    }
+                  () => {
+                    trackPromise(deleteCourse(courseId))
                   }, () => { setConfirmPopupOpen(false) })
                 setConfirmPopupOpen(true)
               }}

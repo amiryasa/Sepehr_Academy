@@ -49,7 +49,7 @@ const Login = () => {
       }
       if (check === true) {
         setItem('saveDataUser', JSON.stringify(data))
-        toast.success(' به سایت خوش آمدید !')
+
       } else removeItem('saveDataUser')
       login(values)
     },
@@ -61,7 +61,7 @@ const Login = () => {
       setItem("token", response.data.result.jwtToken);
       setItem('id', JSON.stringify(response.data.result.studentModel._id));
       setItem('role', response.data.result.studentModel.role)
-
+      toast.success(' به سایت خوش آمدید !')
       getDataUserById(response.data.result.studentModel._id)
     }
   }
@@ -109,8 +109,8 @@ const Login = () => {
               />
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>            
-          
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+
             <p
               className="loginInputHolderForP"
               onClick={() => navigator("/forgetPass")}

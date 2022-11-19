@@ -196,7 +196,7 @@ const CommentsCour = (props) => {
 
     if (result01) {
       var currentResult01 = result01.data.filter((item) => {
-        return (item.postId === `${props.postId}.question`);
+        return (item.postId === `${props.postId}.question` && item.verified === true);
       })
       setAllQuestion([...currentResult01]);
     }
@@ -241,7 +241,7 @@ const CommentsCour = (props) => {
                     // refInput={textInput}
                     value={activePart === 'idea' ? idea : question}
                     name="message"
-                    onChange={(even) => {activePart === 'idea' ? setIdea(even.target.value) : setQuestion(even.target.value) }}
+                    onChange={(even) => { activePart === 'idea' ? setIdea(even.target.value) : setQuestion(even.target.value) }}
                   />
                 </div>
                 <Btn text={activePart === 'idea' ? fa.INSERT_COMMENT : 'ثبت پرسش'} color="info" variant="contained" onChange={() => {
@@ -403,10 +403,10 @@ const CommentsCour = (props) => {
                   setPostIdHolder(item._id);
                 }
                 else if ((role === 'teacher' || role === 'admin') && item.answer) {
-                  toast.warning('برای این کامنت پاسخ ثبت شده است')
+                  toast.warning('برای این کامنت پاسخ ثبت شده است.')
                 }
                 else {
-                  toast.warning('.این عمل برای کاربری شما غیرفعال است')
+                  toast.warning('این عمل برای کاربری شما غیرفعال است.')
                 }
               }}></div>
               <div></div>

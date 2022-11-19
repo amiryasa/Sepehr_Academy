@@ -8,7 +8,7 @@ import './ContactUsIntro.css';
 const ContactUsIntro = () => {
   return (
     <>
-    <div className="ContactUsIntroContainer">
+      <div className="ContactUsIntroContainer">
         <div className='ContactUsIntroContainerDes'>
           <h2> ارتباط با اموزشگاه بحر </h2>
           <hr></hr>
@@ -17,19 +17,19 @@ const ContactUsIntro = () => {
 
         <div className='ContactUsIntroContainerPic'></div>
 
-    </div>
+      </div>
 
-    <div className="homeH2 n21 ContactUsContainerTitle">
-            <h2> راه‌های ارتباطی </h2>
-    </div>
+      <div className="homeH2 n21 ContactUsContainerTitle">
+        <h2> راه‌های ارتباطی </h2>
+      </div>
 
-    <div className='ContactUsIntroFormHolder'>
-      <ContactUsIdea />
-      <ContactUsCourse />
-      <ContactUsTeacher />
-    </div>
+      <div className='ContactUsIntroFormHolder'>
+        <ContactUsIdea />
+        <ContactUsCourse />
+        <ContactUsTeacher />
+      </div>
     </>
   )
 }
 
-export {ContactUsIntro};
+export { ContactUsIntro };
