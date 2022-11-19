@@ -34,11 +34,9 @@ const CommentsCour = (props) => {
   const id = JSON.parse(getItem('id'));
   const role = getItem('role');
 
-  console.log(role);
-
   const navigator = useNavigate();
 
-  const good = ['خوب بود', 'مفید', 'بی نظیر', 'بینظیر', 'بی‌نظیر', 'عالی بود', 'کامل بود', 'خوب', 'عالی', 'کامل', 'جامع', 'خوبی داشت', 'خوبی', 'جامع بود', 'جامعی داشت', 'کاملی داشت', 'مناسب', 'تشکر', 'مفید بود'];
+  const good = ['خوب بود', 'مفید', 'بی نظیر', 'بینظیر', 'بی‌نظیر', 'عالی بود', 'کامل بود', 'خوب', 'عالی', 'کامل', 'جامع', 'خوبی داشت', 'خوبی', 'جامع بود', 'جامعی داشت', 'کاملی داشت', 'مناسب', 'تشکر', 'مفید بود', 'مطلوب', 'توصیه میشود', 'توصیه می‌شود', 'توصیه می شود'];
   const bad = ['بد بود', 'عالی نبود', 'کامل نبود', 'خوب نبود', 'بد', 'ناقص', 'نبود جامع', 'بدی داشت', 'بد', 'ناقص بود بود', 'جامعی نداشت', 'کاملی نداشت', 'افتضاح', 'مسلط نبود', 'تسلط نداشت', 'تسلط کافی نداشت', 'کمه', 'کافی نیست', 'مفید نبود', 'مفیدی نبود', 'مناسب نبود', 'مناسبی نبود', 'جامع نبود']
 
 
@@ -134,7 +132,6 @@ const CommentsCour = (props) => {
       setAllComent([...currentResult]);
     }
 
-    console.log('currrrrent', currentResult);
   }
 
 
@@ -171,8 +168,13 @@ const CommentsCour = (props) => {
           username: student01.data.result.fullName,
           Comment: question
         }
+        if (commentData) {
+          const response = await sendNewComment(commentData);
+          toast.success('پرسش شما با موفقیت ثبت شد .')
+        }
 
         setQuestion('');
+
       }
 
       else if (question.length > 100) {
@@ -182,12 +184,11 @@ const CommentsCour = (props) => {
       else if (question.length === 0) {
         toast.error('متن پیام نباید خالی باشد.')
       }
+
+
+      console.log('x,g', question.length);
     }
 
-    if (commentData) {
-      const response = await sendNewComment(commentData);
-      toast.success('پرسش شما با موفقیت ثبت شد .')
-    }
   }
 
   const fixComments01 = async () => {

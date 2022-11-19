@@ -100,7 +100,7 @@ div.n21{
     width:50px;
     height: 50px;
     position:absolute;
-    right:-403px;
+    right:-358px;
     top:140px;
     border-radius: 5px;
     cursor:pointer;
@@ -113,14 +113,14 @@ div.n21{
   
   @media screen and (max-width: 1262px) {
     .newsSearchIcon{
-      right:-220px;
+      right:-175px;
       top:140px;
     }
   }
   
   @media screen and (max-width: 749px) {
     .newsSearchIcon{
-      right:-72px;
+      right:-65px;
       top:140px;
     }
   }

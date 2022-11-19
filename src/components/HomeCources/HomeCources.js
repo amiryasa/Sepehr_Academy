@@ -7,6 +7,7 @@ import { GeneralContext } from "../../providers/GeneralContext"
 import * as fa from '../../constants/persianStrings'
 import { getAllCourse } from '../../api/Core/Course';
 import { trackPromise } from "react-promise-tracker";
+import { formatDate } from '../../constants/usefulFunc';
 
 const HomeCources = () => {
   const [coursesData, setCoursesData] = useState(null)
@@ -17,12 +18,26 @@ const HomeCources = () => {
     trackPromise(getAllCourses())
   }, [])
 
+  const duringSeter = (item1, item2) => {
+
+    var d = new Date(item1);
+    let month01 = d.getMonth() + 1;
+
+    var e = new Date(item2);
+    let month02 = e.getMonth() + 1;
+
+
+    return (month01 - month02);
+
+  }
 
   const getAllCourses = async () => {
     let response = await getAllCourse();
     if (response.data.result) {
       setCoursesData(response.data.result.slice(0, 4))
     }
+
+    console.log('ya ali',response.data.result);
   }
 
   return (
@@ -39,8 +54,8 @@ const HomeCources = () => {
               btnColor="detail"
               title={item.title}
               teacher={item.teacher.fullName}
-              numberOfStudent='5'
-              rateOfCourses='4.3'
+              numberOfStudent={item.capacity}
+              rateOfCourses={duringSeter(formatDate(item.endDate),formatDate(item.startDate))}
               id={item._id}
             />
           </div>

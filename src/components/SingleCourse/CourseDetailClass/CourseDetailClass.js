@@ -87,6 +87,7 @@ const CourseDetailClass = (
             <div className="actions like">
               <p>{countLike}</p>
               <img
+                alt=''
                 src={likeCourses === false ? like : likeAction}
                 width={40}
                 height={40}

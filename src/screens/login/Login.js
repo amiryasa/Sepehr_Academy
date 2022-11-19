@@ -107,15 +107,15 @@ const Login = () => {
               />
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            {/* <p
+          <div style={{ display: 'flex', flexDirection: 'row' }}>            
+          
+            <p
               className="loginInputHolderForP"
               onClick={() => navigator("/forgetPass")}
             >
               {" "}
               {fa.FORGET_PASS}{" "}
-            </p> */}
-
+            </p>
             <p
               className="loginInputHolderForP"
               onClick={() => window.location.replace('http://localhost:3001/dashboard')}
@@ -123,6 +123,8 @@ const Login = () => {
               {" "}
               {fa.LOGIN_ADMIN}{" "}
             </p>
+
+
           </div>
           <div className="loginInputHolderRemainder">
             <Checkbox

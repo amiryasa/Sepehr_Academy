@@ -177,7 +177,7 @@ const CourseDetail = () => {
             actionDislike={() => {
               trackPromise(actionDislike())
             }}
-            during={duringSeter(detailCourse.startDate, detailCourse.endDate)}
+            during={duringSeter(detailCourse.endDate, detailCourse.startDate)}
             countLike={countLike}
             countDislike={countDislike}
             likeCourses={likeCourses}

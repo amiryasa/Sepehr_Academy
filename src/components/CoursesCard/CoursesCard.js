@@ -26,8 +26,8 @@ const CoursesCard = (props) => {
       />
       <div className="coursesCardRatNumHolder">
 
-        <div className="coursesCardRate"> 3.4 </div>
-        <div className="coursesCardNum"> 10 </div>
+        <div className="coursesCardRate"> {props.rateOfCourses} م</div>
+        <div className="coursesCardNum"> {props.numberOfStudent} </div>
 
       </div>
       <CardContent>

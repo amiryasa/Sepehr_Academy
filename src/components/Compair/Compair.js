@@ -36,19 +36,33 @@ const Compair = () => {
 
   }, [courseToCompair.current.length])
 
+  const duringSeter = (item1, item2) => {
+
+    var d = new Date(item1);
+    let month01 = d.getMonth() + 1;
+
+    var e = new Date(item2);
+    let month02 = e.getMonth() + 1;
+
+
+    return (month01 - month02);
+
+  }
+
 
   const getDetailCourse = async (id) => {
     let response = await getCourseById(id);
+
+    console.log('10 2 10 2', response);
     const currentData = {
       title: response.data.result.title,
       image: response.data.result.lesson.image,
       teacher: response.data.result.teacher.fullName,
       capacity: response.data.result.capacity,
       studentCount: response.data.result.students.length,
-      rate: 4.2,
       cost: response.data.result.cost,
       start: formatDate(response.data.result.startDate),
-      section: '5:30 (25 ویدئو)',
+      section: duringSeter(formatDate(response.data.result.endDate),formatDate(response.data.result.startDate)),
       id: response.data.result._id
     }
     if (courseToCompair.current.length != 2)
@@ -64,15 +78,6 @@ const Compair = () => {
   }
 
   const getCompairAllCourse = () => {
-    if (courseToCompair.current[0].rate > courseToCompair.current[1].rate) {
-      listCompairer.current['rate'] = 1;
-    }
-    else if (courseToCompair.current[0].rate < courseToCompair.current[1].rate) {
-      listCompairer.current['rate'] = 2;
-    }
-    else {
-      listCompairer.current['rate'] = 0;
-    }
 
     if (courseToCompair.current[0].cost < courseToCompair.current[1].cost) {
       listCompairer.current['cost'] = 1;
@@ -115,10 +120,10 @@ const Compair = () => {
     }
 
     if (courseToCompair.current[0].section > courseToCompair.current[1].section) {
-      listCompairer.current['section'] = 1;
+      listCompairer.current['section'] = 2;
     }
     else if (courseToCompair.current[0].section < courseToCompair.current[1].section) {
-      listCompairer.current['section'] = 2;
+      listCompairer.current['section'] = 1;
     }
     else {
       listCompairer.current['section'] = 0;

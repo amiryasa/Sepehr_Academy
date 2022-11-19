@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import { Input } from "../common/Input/Input";
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "../../constants/usefulFunc";
 
 const CoursesContainer = (props) => {
   const [originalCoursesData, setOriginalCoursesData] = useState(null);
@@ -23,7 +24,7 @@ const CoursesContainer = (props) => {
   const [currentPage_CoursesContainer, setCurrentPage_CoursesContainer] = useState(1);
   const [coursesCurrentData, setCoursesCurrentData] = useState("title");
   const [valueOf2step01, setValueOf2step01] = React.useState([0, 950]);
-  const [valueOf2step02, setValueOf2step02] = React.useState([0, 5]);
+  const [valueOf2step02, setValueOf2step02] = React.useState([0, 12]);
   const [valueOf2step03, setValueOf2step03] = React.useState([10, 95]);
   const [teacherName, setTeacherName] = React.useState([]);
   const [costName, setCostName] = React.useState([]);
@@ -42,7 +43,7 @@ const CoursesContainer = (props) => {
 
 
   let allCost = ["رایگان", "خریدنی"];
-  const sortbyItem = ["عنوان", "امتیاز", "قیمت", "ظرفیت", "مدرس دوره"];
+  const sortbyItem = ["عنوان", "مدت دوره", "قیمت", "ظرفیت", "مدرس دوره"];
   const upOrDownItem = ["صعودی", "نزولی"];
 
   useEffect(() => {
@@ -73,6 +74,21 @@ const CoursesContainer = (props) => {
   //     else return (((response.data.result.like - response.data.result.dislike) / (response.data.result.like + response.data.result.dislike)) * 5)
   //   }
   // }
+
+
+  const duringSeter = (item1, item2) => {
+
+    var d = new Date(item1);
+    let month01 = d.getMonth() + 1;
+
+    var e = new Date(item2);
+    let month02 = e.getMonth() + 1;
+
+
+    return (month01 - month02);
+
+  }
+
 
   // مرتب سازی 
 
@@ -121,7 +137,7 @@ const CoursesContainer = (props) => {
         title: item.title,
         teacher: item.teacher.fullName,
         studentCount: item.capacity,
-        rate: props.likeDats[index],
+        rate: duringSeter(formatDate(item.endDate),formatDate(item.startDate)),
         cost: item.cost,
         id: item._id,
         category: item.lesson.topics[0],
@@ -1281,10 +1297,10 @@ const CoursesContainer = (props) => {
 
         minCount02={allRate ? allRate[0] : 0}
         maxCount02={allRate ? allRate[(allRate.length) - 1] : 5}
-        step02={.1}
+        step02={1}
         handleProgress2step02={handleProgress2step02}
         valueOf2step02={valueOf2step02}
-        titleOf2step02={'محدوده امتیاز'}
+        titleOf2step02={'محدوده زمانی'}
 
         minCount03={allCapacity ? allCapacity[0] : 10}
         maxCount03={allCapacity ? allCapacity[(allCapacity.length) - 1] : 95}

@@ -10,14 +10,6 @@ import "./CompairItem.css";
 const CompairItem = (props) => {
   const selectIcon = {};
 
-  if (props.comperList.rate === props.itemId) {
-    selectIcon["rate"] = <ArrowCircleUpRoundedIcon color="success" />;
-  } else if (props.comperList.rate === 0) {
-    selectIcon["rate"] = <RemoveCircleOutlineRoundedIcon color="primary" />;
-  } else {
-    selectIcon["rate"] = <ArrowCircleDownRoundedIcon color="error" />;
-  }
-
   if (props.comperList.cost === props.itemId) {
     selectIcon["cost"] = <ArrowCircleUpRoundedIcon color="success" />;
   } else if (props.comperList.cost === 0) {
@@ -85,12 +77,6 @@ const CompairItem = (props) => {
       </div>
 
       <div className="CompairItemElement">
-        <p className="CompairItemElementTitle">امتیاز:</p>
-        <p className="CompairItemElementCount">{props.couurseInfo.rate}</p>
-        <div>{selectIcon.rate}</div>
-      </div>
-      <hr></hr>
-      <div className="CompairItemElement">
         <p className="CompairItemElementTitle">قیمت:</p>
         <p className="CompairItemElementCount">{props.couurseInfo.cost > 0 ? `${props.couurseInfo.cost} ت` : 'رایگان!'}</p>
         <div>{selectIcon.cost}</div>
@@ -120,27 +106,27 @@ const CompairItem = (props) => {
       <hr></hr>
       <div className="CompairItemElement">
         <p className="CompairItemElementTitle">مدت دوره:</p>
-        <p className="CompairItemElementCount">{props.couurseInfo.section}</p>
+        <p className="CompairItemElementCount">{props.couurseInfo.section} ماه</p>
         <div>{selectIcon.section}</div>
       </div>
       <hr></hr>
 
       <div className="CompairItemprogressbar01">
         <Progressbar
-          capacity={(counter / 6) * 100}
+          capacity={(counter / 5) * 100}
           message="فاکتورهای برتر"
           size={315}
-          tooltiveMes={`${counter}/6`}
+          tooltiveMes={`${counter}/5`}
           type="compair"
         ></Progressbar>
       </div>
 
       <div className="CompairItemprogressbar02">
         <Progressbar
-          capacity={(counter / 6) * 100}
+          capacity={(counter / 5) * 100}
           message="فاکتورهای برتر"
           size={270}
-          tooltiveMes={`${counter}/6`}
+          tooltiveMes={`${counter}/5`}
           type="compair"
         ></Progressbar>
       </div>
