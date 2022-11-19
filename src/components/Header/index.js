@@ -116,12 +116,26 @@ const Header = () => {
         </p>
         <p
           className="headerRowItems"
+
+          style={location.pathname === '/aboutUs' ? { cursor: 'default', color: '#043d72', textDecoration: 'underline' } :
+          { cursor: 'pointer', color: '#808080', textDecoration: 'none' }}
+
+          onClick={() => {
+            navigator("/aboutUs");
+          }}
         >
           {language === 'fa' ? fa.HEADER_SERVICES : fa.HEADER_SERVICES_EN}
 
         </p>
         <p
           className="headerRowItems"
+
+          style={location.pathname === '/contactUs' ? { cursor: 'default', color: '#043d72', textDecoration: 'underline' } :
+          { cursor: 'pointer', color: '#808080', textDecoration: 'none' }}
+          
+          onClick={() => {
+            navigator("/contactUs");
+          }}
         >
           {language === 'fa' ? fa.HEADER_CONTACT : fa.HEADER_CONTACT_EN}
 

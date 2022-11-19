@@ -5,27 +5,27 @@
 
 .header1 .lng {
   cursor: pointer;
-  padding-left: 10px;
+  padding-left: 7px;
   padding-right: 0px;
 
 }
 
 .header1En .lng {
-  padding-right: 10px;
+  padding-right: 7px;
   padding-left: 0px;
   cursor: pointer;
 
 }
 
 .header1 .mode {
-  padding-right: 10px;
+  padding-right: 7px;
   padding-left: 0px;
 
   cursor: pointer;
 }
 
 .header1En .mode {
-  padding-left: 10px;
+  padding-left: 7px;
   padding-right: 0px;
   cursor: pointer;
 }
@@ -33,7 +33,7 @@
 .header1En {
   direction: ltr;
   width: 100%;
-  padding-top: 10px;
+  padding-top: 12px;
 }
 
 .header1>.headerRow {
@@ -100,7 +100,7 @@
   transition: .3s;
   cursor: pointer;
   display: inline-block;
-  font-size: 17px;
+  font-size: 16px;
   color: #808080;
   margin-left: 28px;
 }

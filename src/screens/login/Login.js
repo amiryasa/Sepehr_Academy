@@ -11,6 +11,7 @@ import { getItem, removeItem, setItem } from "../../api/storage/storage";
 import { GeneralContext } from "../../providers/GeneralContext";
 import { getStudentById } from "../../api/Core/Student_Manage";
 import "./Login.css";
+import { toast } from "react-toastify";
 
 const validationSchema = yup.object({
   email: yup
@@ -48,6 +49,7 @@ const Login = () => {
       }
       if (check === true) {
         setItem('saveDataUser', JSON.stringify(data))
+        toast.success(' به سایت خوش آمدید !')
       } else removeItem('saveDataUser')
       login(values)
     },
