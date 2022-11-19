@@ -178,8 +178,12 @@ const Header = () => {
               if (role != 'student') {
                 removeItem('id');
                 removeItem('token');
+
+                if (role === 'teacher')
+                  window.location.replace('http://localhost:3001/teacher/dashboard')
+                else
+                  window.location.replace('http://localhost:3001/author/dashboard')
                 removeItem('role');
-                window.location.replace('http://localhost:3001/dashboard')
               }
               else
                 navigator("./studentPanel")
