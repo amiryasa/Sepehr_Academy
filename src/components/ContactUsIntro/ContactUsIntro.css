@@ -101,3 +101,26 @@
     gap:50px;
     margin-top:75px;
   }
+
+
+
+div.ContactUsContainerTitle{
+  width: 220px;
+}
+
+
+
+@media screen and (max-width:1262px){
+
+  .ContactUsIntroFormHolder{
+    display: grid;
+
+    grid-template-columns: 280px;
+    gap:50px;
+    margin-top:75px;
+
+    width: 280px;
+    margin: auto;
+  }
+
+}

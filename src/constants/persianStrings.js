@@ -31,7 +31,7 @@ export const SEND_EMAIL = "ارسال ایمیل"
 export const HEADER_HOME = "خانه"
 export const HEADER_COURSE = "دوره‌ها"
 export const HEADER_NEWS = " اخبار و مقالات"
-export const HEADER_SERVICES = "خدمات"
+export const HEADER_SERVICES = "درباره ما"
 export const HEADER_CONTACT = "ارتباط با ما"
 
 
@@ -95,7 +95,7 @@ export const SHOW_COURSE_EN = 'View Courses'
 export const HEADER_HOME_EN = "Home"
 export const HEADER_COURSE_EN = "Courses"
 export const HEADER_NEWS_EN = "News"
-export const HEADER_SERVICES_EN = "Services"
+export const HEADER_SERVICES_EN = "About Us"
 export const HEADER_CONTACT_EN = "Contact us"
 export const TITLE_SERVICES_EN = "My Services"
 

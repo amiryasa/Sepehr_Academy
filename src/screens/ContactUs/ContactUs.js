@@ -74,7 +74,6 @@ const ContactUs = () => {
   return (
     <div className="ContactUsContainer">
         <ContactUsIntro />
-        {/* <ContactUsContainer data={teacherData} properties={PropertyData}/> */}
     </div>
   )
 }

@@ -19,6 +19,10 @@ const ContactUsIntro = () => {
 
     </div>
 
+    <div className="homeH2 n21 ContactUsContainerTitle">
+            <h2> راه‌های ارتباطی </h2>
+    </div>
+
     <div className='ContactUsIntroFormHolder'>
       <ContactUsIdea />
       <ContactUsCourse />
