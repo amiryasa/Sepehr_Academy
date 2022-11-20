@@ -141,8 +141,11 @@ const CommentsCour = (props) => {
         id: postIdHolder,
         answer: adminAnswers
       });
+      setOpenAnswer(false)
 
-      toast.success('.پاسخ با موفقیت ثبت شد')
+      toast.success('.پاسخ با موفقیت ثبت شد');
+      fixComments()
+
     }
   }
 
