@@ -1,5 +1,5 @@
 <h1 align="center">
-  GitHub README Shopping Sepehr Academy
+  Shopping Sepehr Academy
 </h1>
 
 ## 🧐 Features
