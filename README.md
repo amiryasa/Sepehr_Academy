@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+<h1 align="center">
+  GitHub README Shopping Sepehr Academy
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🧐 Features
 
-## Available Scripts
+Just written only with `React JavaScript`
 
-In the project directory, you can run:
+- **Material UI**
 
-### `npm start`
+- **Formik**
+  
+- **Yup**
+  
+- **Chat widget**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Toastify**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Promis Tracker**
 
-### `npm test`
+- **Axios**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Moment**
 
-### `npm run build`
+- **AnimeJs**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Date Fns**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **image Crop**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Installation Steps
 
-### `npm run eject`
+1. Clone the repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/amiryasa/Sepehr_Academy.git
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Change the working directory
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd Sepehr_Academy
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Install dependencies
 
-## Learn More
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Run the app
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+## 💻 Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [Material UI](https://mui.com/) :for component
+- [Axios](https://axios-http.com/docs/intro): for Api
+- [AnimeJs](https://animejs.com/): for Animation
+- [image Crop](https://www.npmjs.com/package/react-image-crop): for Resize image 
 
-### Analyzing the Bundle Size
+## 🙇 Special Thanks
+- [Seyyed Morteza Moosavi](https://github.com/smmoosavi) for amazing Persian date Picker [github-date-fns-jalali](https://github.com/date-fns-jalali/date-fns-jalali)
+- [Behrang Norouzinia](https://github.com/behrang) for super cool Persian Calneder [github-moment-jalaali](https://github.com/jalaali/moment-jalaali)
+- [Heather Booker](https://github.com/heatherbooker) for best chat Page [github-chat-window](https://github.com/kingofthestack/react-chat-window)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<hr>
+<p align="center">
+Developed with ❤️ in IRAN 🇮🇳 
+</p>
